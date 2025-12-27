@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict xXvou3UdGf2feyFFx4zuW2FlkwcLJduKFwnxNrs9jhfukLgglF9vfdLZNomZnaY
+\restrict 8kUPF2c2WH2q1eohC9Hb5EiAAV0W1WOdeseOBeYvqOcW4MZ8xVqxqQJFE5TRjab
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -66,11 +66,11 @@ ALTER SEQUENCE public.assets_id_seq OWNED BY public.assets.id;
 
 CREATE TABLE public.prices (
     id bigint NOT NULL,
-    assetid integer NOT NULL,
+    asset_id integer CONSTRAINT prices_assetid_not_null NOT NULL,
     date date NOT NULL,
     close numeric,
-    adjclose numeric,
-    vol bigint
+    adj_close numeric,
+    volume bigint
 );
 
 
@@ -132,7 +132,7 @@ ALTER TABLE ONLY public.assets
 --
 
 ALTER TABLE ONLY public.prices
-    ADD CONSTRAINT prices_assetid_date_key UNIQUE (assetid, date);
+    ADD CONSTRAINT prices_assetid_date_key UNIQUE (asset_id, date);
 
 
 --
@@ -148,7 +148,7 @@ ALTER TABLE ONLY public.prices
 --
 
 ALTER TABLE ONLY public.prices
-    ADD CONSTRAINT prices_assetid_fkey FOREIGN KEY (assetid) REFERENCES public.assets(id) ON DELETE CASCADE;
+    ADD CONSTRAINT prices_assetid_fkey FOREIGN KEY (asset_id) REFERENCES public.assets(id) ON DELETE CASCADE;
 
 
 --
@@ -183,5 +183,5 @@ GRANT ALL ON SEQUENCE public.prices_id_seq TO stocksim;
 -- PostgreSQL database dump complete
 --
 
-\unrestrict xXvou3UdGf2feyFFx4zuW2FlkwcLJduKFwnxNrs9jhfukLgglF9vfdLZNomZnaY
+\unrestrict 8kUPF2c2WH2q1eohC9Hb5EiAAV0W1WOdeseOBeYvqOcW4MZ8xVqxqQJFE5TRjab
 
