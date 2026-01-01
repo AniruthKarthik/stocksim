@@ -1,12 +1,27 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
 from .simulator import simulate_invest
-from .db_prices import get_price
+from .db_prices import get_price, get_all_assets, get_price_history
 from . import db_portfolio as portfolio
 from . import game_engine
 
 app = FastAPI()
+
+# --- CORS Configuration ---
+origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --- Pydantic Models ---
 class CreateUserRequest(BaseModel):
@@ -43,10 +58,25 @@ class ForwardSimRequest(BaseModel):
 def home():
     return {"status": "ok", "message": "StockSim Backend API"}
 
+@app.get("/assets")
+def get_assets(date: Optional[str] = None):
+    assets = get_all_assets(date)
+    print(f"DEBUG: Fetched {len(assets)} assets as of {date}")
+    return assets
+
+@app.get("/price/history")
+def get_history(symbol: str, end_date: str):
+    print(f"DEBUG: Fetching history for {symbol} until {end_date}")
+    history = get_price_history(symbol.upper(), end_date)
+    print(f"DEBUG: Found {len(history)} data points")
+    return history
+
 @app.get("/price")
 def get_asset_price(symbol: str, date: str):
+    print(f"DEBUG: Fetching price for {symbol} on {date}")
     price = get_price(symbol.upper(), date)
     if price is None:
+        print(f"DEBUG: Price NOT FOUND for {symbol} on {date}")
         raise HTTPException(status_code=404, detail="Price not found or date invalid")
     return {"symbol": symbol.upper(), "date": date, "price": price}
 

@@ -204,47 +204,91 @@ def get_portfolio_value(portfolio_id: int, date: str):
     
     try:
         cur = conn.cursor()
+        
+        # 1. Get Actual Current Cash Balance from DB (Source of Truth)
+        # We prefer this over reconstructing from transactions because transactions don't track salary.
+        # Limitation: If 'date' is in the past, this still returns CURRENT cash. 
+        # But for the Dashboard (current state), this is exactly what we want.
+        cur.execute("SELECT cash_balance FROM portfolios WHERE id = %s", (portfolio_id,))
+        row = cur.fetchone()
+        real_cash_balance = float(row[0]) if row else 0.0
+
         cur.execute("""
             SELECT type, quantity, price_per_unit, symbol 
             FROM transactions 
             WHERE portfolio_id = %s AND date <= %s
+            ORDER BY date ASC, id ASC
         """, (portfolio_id, date))
         
-        hist_holdings = {}
-        hist_cash = 10000.00 # Default start
+        hist_holdings = {} # sym -> qty
+        cost_basis = {}    # sym -> total_invested
         
         for t_type, qty, price, sym in cur.fetchall():
             qty = float(qty)
             price = float(price)
             val = qty * price
             
-            if sym not in hist_holdings: hist_holdings[sym] = 0.0
+            if sym not in hist_holdings: 
+                hist_holdings[sym] = 0.0
+                cost_basis[sym] = 0.0
             
             if t_type == "BUY":
-                hist_cash -= val
                 hist_holdings[sym] += qty
+                cost_basis[sym] += val
             elif t_type == "SELL":
-                hist_cash += val
-                hist_holdings[sym] -= qty
-        
+                # Reduce cost basis proportionally
+                current_qty = hist_holdings[sym]
+                if current_qty > 0:
+                    avg_cost = cost_basis[sym] / current_qty
+                    cost_basis[sym] -= (avg_cost * qty)
+                    hist_holdings[sym] -= qty
+                else:
+                    # Should not happen if data is consistent
+                    pass
+
         # Now value these holdings at `date` price
         total_assets_value = 0.0
+        total_invested_value = 0.0
         missing_prices = []
+        detailed_holdings = []
         
         for sym, qty in hist_holdings.items():
             if qty > 0:
+                invested = cost_basis.get(sym, 0.0)
+                total_invested_value += invested
+                
                 p = get_price(sym, date)
                 if p:
-                    total_assets_value += qty * p
+                    val = qty * p
+                    total_assets_value += val
+                    detailed_holdings.append({
+                        "symbol": sym,
+                        "quantity": qty,
+                        "price": p,
+                        "value": val,
+                        "invested": invested,
+                        "pnl": val - invested,
+                        "pnl_percent": ((val - invested) / invested * 100) if invested > 0 else 0
+                    })
                 else:
                     missing_prices.append(sym)
+                    detailed_holdings.append({
+                        "symbol": sym,
+                        "quantity": qty,
+                        "price": 0.0,
+                        "value": 0.0,
+                        "invested": invested,
+                        "pnl": -invested, # Lost everything if price is 0? Or just unknown.
+                        "pnl_percent": -100.0
+                    })
         
         return {
             "date": date,
-            "cash": round(hist_cash, 2),
+            "cash": round(real_cash_balance, 2),
             "assets_value": round(total_assets_value, 2),
-            "total_value": round(hist_cash + total_assets_value, 2),
-            "holdings": {k: v for k, v in hist_holdings.items() if v > 0},
+            "invested_value": round(total_invested_value, 2),
+            "total_value": round(real_cash_balance + total_assets_value, 2),
+            "holdings": detailed_holdings,
             "missing_prices": missing_prices
         }
         
