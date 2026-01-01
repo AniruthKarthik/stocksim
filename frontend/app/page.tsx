@@ -1,49 +1,114 @@
-import Link from "next/link";
-import Button from "@/components/Button";
-import Card from "@/components/Card";
+"use client";
 
-export default function Home() {
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import api from '@/lib/api';
+import Card from '@/components/Card';
+import Button from '@/components/Button';
+import Input from '@/components/Input';
+import { PlayCircle } from 'lucide-react';
+
+export default function StartPage() {
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    startDate: '2016-01-01',
+    salary: '5000',
+    expenses: '3000',
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      // 1. Create User (Anonymous for now, random suffix)
+      const username = `trader_${Math.floor(Math.random() * 10000)}`;
+      const userRes = await api.post('/users', { username });
+      const userId = userRes.data.user_id;
+
+      // 2. Create Portfolio
+      const portRes = await api.post('/portfolio/create', { 
+        user_id: userId, 
+        name: "Main Portfolio" 
+      });
+      const portfolioId = portRes.data.id;
+
+      // 3. Start Session
+      await api.post('/simulation/start', {
+        user_id: userId,
+        portfolio_id: portfolioId,
+        start_date: formData.startDate,
+        monthly_salary: Number(formData.salary),
+        monthly_expenses: Number(formData.expenses),
+      });
+
+      // 4. Save & Redirect
+      localStorage.setItem('stocksim_portfolio_id', portfolioId.toString());
+      router.push('/dashboard');
+
+    } catch (error) {
+      console.error(error);
+      alert("Failed to start simulation. Check backend.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center max-w-2xl mx-auto space-y-8">
-      <div className="space-y-4">
-        <h1 className="text-5xl font-extrabold tracking-tight text-gray-900">
-          Master the <span className="text-primary">Market</span> without the Risk
+    <div className="min-h-[80vh] flex flex-col items-center justify-center">
+      <div className="mb-8 text-center space-y-2">
+        <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
+          Stock<span className="text-primary">Sim</span>
         </h1>
-        <p className="text-xl text-gray-600">
-          Experience real-time stock simulation with historical data. 
-          Build your portfolio, track your growth, and learn investment strategies.
-        </p>
+        <p className="text-gray-500 text-lg">Travel back in time. Master the market.</p>
       </div>
 
-      <Card className="w-full p-8 bg-white/50 backdrop-blur-sm border-gray-200">
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/simulation/start" className="w-full sm:w-auto">
-            <Button className="w-full text-lg py-3 px-8">
-              Start New Simulation
+      <Card className="w-full max-w-md shadow-lg border-none ring-1 ring-gray-100">
+        <div className="p-2">
+          <h2 className="text-xl font-bold text-gray-800 mb-6 text-center">Setup Simulation</h2>
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <Input 
+              label="Start Date" 
+              type="date" 
+              value={formData.startDate}
+              max={new Date().toISOString().split('T')[0]}
+              onChange={(e) => setFormData({...formData, startDate: e.target.value})}
+              required
+            />
+            
+            <div className="grid grid-cols-2 gap-4">
+              <Input 
+                label="Monthly Income" 
+                type="number" 
+                min="0"
+                value={formData.salary}
+                onChange={(e) => setFormData({...formData, salary: e.target.value})}
+              />
+              <Input 
+                label="Expenses" 
+                type="number" 
+                min="0"
+                value={formData.expenses}
+                onChange={(e) => setFormData({...formData, expenses: e.target.value})}
+              />
+            </div>
+
+            <Button 
+              type="submit" 
+              className="w-full text-base py-3 mt-2" 
+              isLoading={loading}
+            >
+              <PlayCircle className="mr-2 h-5 w-5" />
+              Enter Simulation
             </Button>
-          </Link>
-          
-          {/* Future: specific Check if session exists logic */}
-          <Link href="/simulation" className="w-full sm:w-auto">
-             <Button variant="secondary" className="w-full text-lg py-3 px-8">
-               Continue Session
-             </Button>
-          </Link>
+          </form>
         </div>
       </Card>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left w-full mt-12">
-        {[
-          { title: "Real Data", desc: "Based on actual historical market movements." },
-          { title: "Zero Risk", desc: "Practice with virtual currency, learn safely." },
-          { title: "Track Growth", desc: "Visualize your portfolio performance over time." },
-        ].map((item, i) => (
-          <div key={i} className="p-4 rounded-lg bg-white border border-gray-100 shadow-sm">
-            <h3 className="font-bold text-gray-800 mb-2">{item.title}</h3>
-            <p className="text-sm text-gray-600">{item.desc}</p>
-          </div>
-        ))}
-      </div>
+      
+      <p className="mt-8 text-sm text-gray-400">
+        Simulates real historical data. No real money involved.
+      </p>
     </div>
   );
 }
