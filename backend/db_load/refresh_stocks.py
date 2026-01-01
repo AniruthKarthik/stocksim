@@ -52,24 +52,29 @@ class StockRefresher:
             "failed": 0
         }
 
-    def get_sp500_tickers(self):
-        """Fetches S&P 500 tickers from Wikipedia, fallback to curated list."""
+    def get_tickers_from_file(self, file_path="data/sp500_tickers.txt"):
+        """Reads tickers from a local text file."""
         try:
-            logger.info("Fetching S&P 500 ticker list from Wikipedia...")
-            table = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')
-            df = table[0]
-            tickers = df['Symbol'].tolist()
+            logger.info(f"Reading ticker list from {file_path}...")
+            path = Path(file_path)
+            if not path.exists():
+                logger.warning(f"File {file_path} not found. Falling back to curated list.")
+                return CURATED_TICKERS
+            
+            with open(path, 'r') as f:
+                # Read lines, strip whitespace, remove empty lines
+                tickers = [line.strip() for line in f if line.strip()]
+            
             # Clean symbols for Yahoo (replace '.' with '-')
             tickers = [t.replace('.', '-') for t in tickers]
-            logger.info(f"Successfully retrieved {len(tickers)} tickers from S&P 500.")
+            logger.info(f"Successfully retrieved {len(tickers)} tickers from file.")
             return tickers
         except Exception as e:
-            logger.error(f"Failed to fetch dynamic S&P 500 list: {e}")
-            logger.warning("Falling back to curated ticker list.")
+            logger.error(f"Failed to read tickers from file: {e}")
             return CURATED_TICKERS
 
     def download_data(self, ticker, start_date="2000-01-01"):
-        """Downloads historical data for a ticker with retries."""
+# ... (rest of the logic remains same) ...
         for attempt in range(3):
             try:
                 data = yf.download(ticker, start=start_date, progress=False)
@@ -77,18 +82,15 @@ class StockRefresher:
                     return None
                 
                 # Normalize column names
-                # yfinance returns MultiIndex columns in recent versions, handle that
                 if isinstance(data.columns, pd.MultiIndex):
                     data.columns = data.columns.get_level_values(0)
                 
                 data = data.reset_index()
                 data.columns = [c.lower().replace(' ', '_') for c in data.columns]
                 
-                # Ensure adj_close exists
                 if 'adj_close' not in data.columns:
                     data['adj_close'] = data['close']
                 
-                # Required columns for CSV/DB
                 required = ['date', 'close', 'adj_close', 'volume']
                 return data[required]
             except Exception as e:
@@ -109,18 +111,26 @@ class StockRefresher:
             conn = psycopg2.connect(**DB_CONFIG)
             cur = conn.cursor()
 
-            # 1. Ensure asset exists
+            # 1. Fetch real company name if possible
+            display_name = ticker.capitalize()
+            try:
+                info = yf.Ticker(ticker).info
+                display_name = info.get('longName') or info.get('shortName') or display_name
+            except:
+                pass
+
+            # 2. Ensure asset exists with real name
             cur.execute(
-                "INSERT INTO assets (symbol, name, type) VALUES (%s, %s, %s) ON CONFLICT (symbol) DO UPDATE SET symbol=EXCLUDED.symbol RETURNING id",
-                (ticker, ticker.capitalize(), "stocks")
+                """INSERT INTO assets (symbol, name, type) VALUES (%s, %s, %s) 
+                   ON CONFLICT (symbol) DO UPDATE SET name = EXCLUDED.name 
+                   RETURNING id""",
+                (ticker, display_name, "stocks")
             )
             asset_id = cur.fetchone()[0]
 
-            # 2. Prepare data for insertion
-            # Filter out any rows with missing essential data
+            # 3. Prepare data for insertion
             df = df.dropna(subset=['date', 'close'])
             
-            # Convert values to list of tuples
             values = []
             for _, row in df.iterrows():
                 values.append((
@@ -132,7 +142,6 @@ class StockRefresher:
                 ))
 
             # 3. Upsert into prices
-            # We use ON CONFLICT to make it idempotent
             upsert_query = """
                 INSERT INTO prices (asset_id, date, close, adj_close, volume)
                 VALUES %s
@@ -153,21 +162,17 @@ class StockRefresher:
         finally:
             if conn: conn.close()
 
-    def run(self, limit=500):
-        tickers = self.get_sp500_tickers()
+    def run(self):
+        tickers = self.get_tickers_from_file()
         # Merge with curated list and remove duplicates
         all_tickers = sorted(list(set(CURATED_TICKERS + tickers)))
         
-        # Limit the number of tickers
-        target_tickers = all_tickers[:limit]
-        
-        logger.info(f"Starting refresh for {len(target_tickers)} tickers...")
+        logger.info(f"Starting refresh for {len(all_tickers)} tickers...")
 
-        for i, ticker in enumerate(target_tickers):
+        for i, ticker in enumerate(all_tickers):
             self.summary["attempted"] += 1
-            logger.info(f"[{i+1}/{len(target_tickers)}] Processing {ticker}...")
+            logger.info(f"[{i+1}/{len(all_tickers)}] Processing {ticker}...")
             
-            # Download
             df = self.download_data(ticker)
             if df is None:
                 logger.warning(f"No data found for {ticker}, skipping.")
@@ -175,20 +180,15 @@ class StockRefresher:
                 continue
             
             self.summary["downloaded"] += 1
-            
-            # Save CSV
             self.save_to_csv(ticker, df)
             
-            # Load to DB
             success = self.load_to_db(ticker, df)
             if success:
                 self.summary["loaded"] += 1
             else:
                 self.summary["failed"] += 1
             
-            # Throttling protection
             if (i + 1) % 10 == 0:
-                logger.info("Taking a short break to respect API limits...")
                 time.sleep(1)
 
         self.print_summary()
@@ -205,4 +205,4 @@ class StockRefresher:
 
 if __name__ == "__main__":
     refresher = StockRefresher()
-    refresher.run(limit=500)
+    refresher.run()
