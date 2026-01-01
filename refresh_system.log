@@ -1,0 +1,3218 @@
+2026-01-01 19:18:44,234 - INFO - Found 5 ticker files.
+2026-01-01 19:18:44,234 - INFO - --- Processing crypto_tickers.txt (Type: crypto) | 20 tickers ---
+2026-01-01 19:18:44,234 - INFO - [crypto] 1/20: ADA-USD
+2026-01-01 19:18:46,055 - INFO - [crypto] 2/20: ALGO-USD
+2026-01-01 19:18:47,704 - INFO - [crypto] 3/20: APT-USD
+2026-01-01 19:18:49,059 - INFO - [crypto] 4/20: ATOM-USD
+2026-01-01 19:18:50,594 - INFO - [crypto] 5/20: AVAX-USD
+2026-01-01 19:18:52,581 - INFO - [crypto] 6/20: BCH-USD
+2026-01-01 19:18:54,144 - INFO - [crypto] 7/20: BTC-USD
+2026-01-01 19:18:55,730 - INFO - [crypto] 8/20: DOGE-USD
+2026-01-01 19:18:57,373 - INFO - [crypto] 9/20: DOT-USD
+2026-01-01 19:18:58,961 - INFO - [crypto] 10/20: ETC-USD
+2026-01-01 19:19:01,194 - INFO - [crypto] 11/20: ETH-USD
+2026-01-01 19:19:02,764 - INFO - [crypto] 12/20: LINK-USD
+2026-01-01 19:19:04,366 - INFO - [crypto] 13/20: LTC-USD
+2026-01-01 19:19:06,019 - INFO - [crypto] 14/20: MATIC-USD
+2026-01-01 19:19:07,515 - INFO - [crypto] 15/20: NEAR-USD
+2026-01-01 19:19:09,435 - INFO - [crypto] 16/20: SOL-USD
+2026-01-01 19:19:10,876 - INFO - [crypto] 17/20: TRX-USD
+2026-01-01 19:19:12,474 - INFO - [crypto] 18/20: UNI-USD
+2026-01-01 19:19:14,040 - INFO - [crypto] 19/20: XLM-USD
+2026-01-01 19:19:15,597 - INFO - [crypto] 20/20: XRP-USD
+2026-01-01 19:19:17,597 - INFO - --- Processing mutualfund_tickers.txt (Type: mutualfunds) | 18 tickers ---
+2026-01-01 19:19:17,598 - INFO - [mutualfunds] 1/18: DFLVX
+2026-01-01 19:19:19,397 - INFO - [mutualfunds] 2/18: FSMAX
+2026-01-01 19:19:21,084 - INFO - [mutualfunds] 3/18: FSPGX
+2026-01-01 19:19:22,586 - INFO - [mutualfunds] 4/18: FXAIX
+2026-01-01 19:19:24,245 - INFO - [mutualfunds] 5/18: FZROX
+2026-01-01 19:19:26,709 - INFO - [mutualfunds] 6/18: PRNHX
+2026-01-01 19:19:28,781 - INFO - [mutualfunds] 7/18: SWPPX
+2026-01-01 19:19:30,528 - INFO - [mutualfunds] 8/18: TRBCX
+2026-01-01 19:19:32,365 - INFO - [mutualfunds] 9/18: VASIX
+2026-01-01 19:19:34,141 - INFO - [mutualfunds] 10/18: VBTLX
+2026-01-01 19:19:36,456 - INFO - [mutualfunds] 11/18: VFIAX
+2026-01-01 19:19:38,186 - INFO - [mutualfunds] 12/18: VIMSX
+2026-01-01 19:19:40,129 - INFO - [mutualfunds] 13/18: VSMAX
+2026-01-01 19:19:41,928 - INFO - [mutualfunds] 14/18: VTSAX
+2026-01-01 19:19:43,726 - INFO - [mutualfunds] 15/18: VWENX
+2026-01-01 19:19:46,030 - INFO - [mutualfunds] 16/18: VWLTX
+2026-01-01 19:19:47,798 - INFO - [mutualfunds] 17/18: VWLUX
+2026-01-01 19:19:49,581 - INFO - [mutualfunds] 18/18: VWUSX
+2026-01-01 19:19:51,313 - INFO - --- Processing sp500_tickers.txt (Type: stocks) | 336 tickers ---
+2026-01-01 19:19:51,313 - INFO - [stocks] 1/336: A
+2026-01-01 19:19:52,829 - INFO - [stocks] 2/336: AAL
+2026-01-01 19:19:54,223 - INFO - [stocks] 3/336: AAPL
+2026-01-01 19:19:55,623 - INFO - [stocks] 4/336: ABBV
+2026-01-01 19:19:56,810 - INFO - [stocks] 5/336: ABMD
+2026-01-01 19:19:57,627 - ERROR - $ABMD: possibly delisted; no timezone found
+2026-01-01 19:19:57,636 - ERROR - 
+1 Failed download:
+2026-01-01 19:19:57,637 - ERROR - ['ABMD']: possibly delisted; no timezone found
+2026-01-01 19:19:57,640 - WARNING - No data for ABMD, skipping.
+2026-01-01 19:19:57,640 - INFO - [stocks] 6/336: ABNB
+2026-01-01 19:19:58,735 - INFO - [stocks] 7/336: ABT
+2026-01-01 19:20:00,278 - INFO - [stocks] 8/336: ACN
+2026-01-01 19:20:01,978 - INFO - [stocks] 9/336: ADBE
+2026-01-01 19:20:04,287 - INFO - [stocks] 10/336: ADI
+2026-01-01 19:20:11,355 - INFO - [stocks] 11/336: ADM
+2026-01-01 19:20:13,091 - INFO - [stocks] 12/336: ADP
+2026-01-01 19:20:14,553 - INFO - [stocks] 13/336: ADSK
+2026-01-01 19:20:15,959 - INFO - [stocks] 14/336: AEP
+2026-01-01 19:20:17,449 - INFO - [stocks] 15/336: AFL
+2026-01-01 19:20:22,922 - INFO - [stocks] 16/336: AIG
+2026-01-01 19:20:30,111 - INFO - [stocks] 17/336: AKAM
+2026-01-01 19:20:41,525 - INFO - [stocks] 18/336: ALB
+2026-01-01 19:20:46,544 - INFO - [stocks] 19/336: ALGN
+2026-01-01 19:20:57,259 - INFO - [stocks] 20/336: ALLY
+2026-01-01 19:21:02,312 - INFO - [stocks] 21/336: AMAT
+2026-01-01 19:21:04,069 - INFO - [stocks] 22/336: AMD
+2026-01-01 19:21:05,670 - INFO - [stocks] 23/336: AMGN
+2026-01-01 19:21:07,492 - INFO - [stocks] 24/336: AMP
+2026-01-01 19:21:09,100 - INFO - [stocks] 25/336: AMZN
+2026-01-01 19:21:11,357 - INFO - [stocks] 26/336: ANSS
+2026-01-01 19:21:12,459 - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: ANSS"}}}
+2026-01-01 19:21:12,624 - ERROR - $ANSS: possibly delisted; no timezone found
+2026-01-01 19:21:12,630 - ERROR - 
+1 Failed download:
+2026-01-01 19:21:12,631 - ERROR - ['ANSS']: possibly delisted; no timezone found
+2026-01-01 19:21:12,633 - WARNING - No data for ANSS, skipping.
+2026-01-01 19:21:12,633 - INFO - [stocks] 27/336: ANTM
+2026-01-01 19:21:13,229 - ERROR - $ANTM: possibly delisted; no timezone found
+2026-01-01 19:21:13,236 - ERROR - 
+1 Failed download:
+2026-01-01 19:21:13,236 - ERROR - ['ANTM']: possibly delisted; no timezone found
+2026-01-01 19:21:13,238 - WARNING - No data for ANTM, skipping.
+2026-01-01 19:21:13,239 - INFO - [stocks] 28/336: AON
+2026-01-01 19:21:14,982 - INFO - [stocks] 29/336: AOS
+2026-01-01 19:21:16,739 - INFO - [stocks] 30/336: APA
+2026-01-01 19:21:18,991 - INFO - [stocks] 31/336: APD
+2026-01-01 19:21:20,720 - INFO - [stocks] 32/336: AVGO
+2026-01-01 19:21:22,289 - INFO - [stocks] 33/336: AXP
+2026-01-01 19:21:24,197 - INFO - [stocks] 34/336: AZO
+2026-01-01 19:21:25,959 - INFO - [stocks] 35/336: BA
+2026-01-01 19:21:28,281 - INFO - [stocks] 36/336: BAC
+2026-01-01 19:21:30,100 - INFO - [stocks] 37/336: BAX
+2026-01-01 19:21:31,963 - INFO - [stocks] 38/336: BBBY
+2026-01-01 19:21:33,631 - INFO - [stocks] 39/336: BBWI
+2026-01-01 19:21:35,449 - INFO - [stocks] 40/336: BBY
+2026-01-01 19:21:37,695 - INFO - [stocks] 41/336: BG
+2026-01-01 19:21:39,348 - INFO - [stocks] 42/336: BIIB
+2026-01-01 19:21:41,117 - INFO - [stocks] 43/336: BIO
+2026-01-01 19:21:45,660 - INFO - [stocks] 44/336: BK
+2026-01-01 19:21:47,546 - INFO - [stocks] 45/336: BKNG
+2026-01-01 19:21:49,660 - INFO - [stocks] 46/336: BKR
+2026-01-01 19:21:51,465 - INFO - [stocks] 47/336: BLK
+2026-01-01 19:21:52,921 - INFO - [stocks] 48/336: BR
+2026-01-01 19:21:54,533 - INFO - [stocks] 49/336: BRK-B
+2026-01-01 19:21:55,907 - INFO - [stocks] 50/336: BRKR
+2026-01-01 19:21:57,795 - INFO - [stocks] 51/336: BSX
+2026-01-01 19:21:59,260 - INFO - [stocks] 52/336: BURL
+2026-01-01 19:22:00,428 - INFO - [stocks] 53/336: BX
+2026-01-01 19:22:01,786 - INFO - [stocks] 54/336: C
+2026-01-01 19:22:03,278 - INFO - [stocks] 55/336: CAH
+2026-01-01 19:22:05,404 - INFO - [stocks] 56/336: CARR
+2026-01-01 19:22:06,746 - INFO - [stocks] 57/336: CAT
+2026-01-01 19:22:08,323 - INFO - [stocks] 58/336: CB
+2026-01-01 19:22:09,884 - INFO - [stocks] 59/336: CBRE
+2026-01-01 19:22:11,139 - INFO - [stocks] 60/336: CCL
+2026-01-01 19:22:13,022 - INFO - [stocks] 61/336: CDNS
+2026-01-01 19:22:14,489 - INFO - [stocks] 62/336: CDW
+2026-01-01 19:22:15,766 - INFO - [stocks] 63/336: CF
+2026-01-01 19:22:17,045 - INFO - [stocks] 64/336: CHD
+2026-01-01 19:22:18,431 - INFO - [stocks] 65/336: CHRW
+2026-01-01 19:22:25,378 - INFO - [stocks] 66/336: CHTR
+2026-01-01 19:22:26,584 - INFO - [stocks] 67/336: CI
+2026-01-01 19:22:28,046 - INFO - [stocks] 68/336: CL
+2026-01-01 19:22:29,677 - INFO - [stocks] 69/336: CLX
+2026-01-01 19:22:31,710 - INFO - [stocks] 70/336: CME
+2026-01-01 19:22:33,671 - INFO - [stocks] 71/336: CMG
+2026-01-01 19:22:35,354 - INFO - [stocks] 72/336: CMI
+2026-01-01 19:22:38,108 - INFO - [stocks] 73/336: CNC
+2026-01-01 19:22:45,990 - INFO - [stocks] 74/336: COF
+2026-01-01 19:22:48,325 - INFO - [stocks] 75/336: COP
+2026-01-01 19:22:50,827 - INFO - [stocks] 76/336: COST
+2026-01-01 19:22:53,280 - INFO - [stocks] 77/336: CP
+2026-01-01 19:22:55,452 - INFO - [stocks] 78/336: CRM
+2026-01-01 19:23:02,129 - INFO - [stocks] 79/336: CRWD
+2026-01-01 19:23:03,457 - INFO - [stocks] 80/336: CSCO
+2026-01-01 19:23:06,129 - INFO - [stocks] 81/336: CSX
+2026-01-01 19:23:07,846 - INFO - [stocks] 82/336: CTAS
+2026-01-01 19:23:09,719 - INFO - [stocks] 83/336: CTLT
+2026-01-01 19:23:10,272 - ERROR - $CTLT: possibly delisted; no timezone found
+2026-01-01 19:23:10,279 - ERROR - 
+1 Failed download:
+2026-01-01 19:23:10,280 - ERROR - ['CTLT']: possibly delisted; no timezone found
+2026-01-01 19:23:10,281 - WARNING - No data for CTLT, skipping.
+2026-01-01 19:23:10,281 - INFO - [stocks] 84/336: CTSH
+2026-01-01 19:23:12,221 - INFO - [stocks] 85/336: CVS
+2026-01-01 19:23:14,593 - INFO - [stocks] 86/336: CVX
+2026-01-01 19:23:18,270 - INFO - [stocks] 87/336: D
+2026-01-01 19:23:25,234 - INFO - [stocks] 88/336: DAL
+2026-01-01 19:23:26,866 - INFO - [stocks] 89/336: DASH
+2026-01-01 19:23:28,145 - INFO - [stocks] 90/336: DDOG
+2026-01-01 19:23:29,970 - INFO - [stocks] 91/336: DE
+2026-01-01 19:23:31,713 - INFO - [stocks] 92/336: DELL
+2026-01-01 19:23:33,173 - INFO - [stocks] 93/336: DFS
+2026-01-01 19:23:33,765 - ERROR - $DFS: possibly delisted; no timezone found
+2026-01-01 19:23:33,775 - ERROR - 
+1 Failed download:
+2026-01-01 19:23:33,776 - ERROR - ['DFS']: possibly delisted; no timezone found
+2026-01-01 19:23:33,778 - WARNING - No data for DFS, skipping.
+2026-01-01 19:23:33,778 - INFO - [stocks] 94/336: DG
+2026-01-01 19:23:35,505 - INFO - [stocks] 95/336: DGX
+2026-01-01 19:23:38,712 - INFO - [stocks] 96/336: DHI
+2026-01-01 19:23:40,790 - INFO - [stocks] 97/336: DHR
+2026-01-01 19:23:43,106 - INFO - [stocks] 98/336: DIS
+2026-01-01 19:23:44,892 - INFO - [stocks] 99/336: DLR
+2026-01-01 19:23:51,616 - INFO - [stocks] 100/336: DLTR
+2026-01-01 19:23:53,841 - INFO - [stocks] 101/336: DOCU
+2026-01-01 19:23:59,923 - INFO - [stocks] 102/336: DOW
+2026-01-01 19:24:01,396 - INFO - [stocks] 103/336: DPZ
+2026-01-01 19:24:03,224 - INFO - [stocks] 104/336: DRI
+2026-01-01 19:24:04,884 - INFO - [stocks] 105/336: DUK
+2026-01-01 19:24:11,977 - INFO - [stocks] 106/336: DVN
+2026-01-01 19:24:14,018 - INFO - [stocks] 107/336: ECL
+2026-01-01 19:24:16,015 - INFO - [stocks] 108/336: ED
+2026-01-01 19:24:18,124 - INFO - [stocks] 109/336: EFX
+2026-01-01 19:24:19,650 - INFO - [stocks] 110/336: EL
+2026-01-01 19:24:22,234 - INFO - [stocks] 111/336: ELV
+2026-01-01 19:24:24,042 - INFO - [stocks] 112/336: EMR
+2026-01-01 19:24:32,290 - INFO - [stocks] 113/336: EOG
+2026-01-01 19:24:39,456 - INFO - [stocks] 114/336: EQIX
+2026-01-01 19:24:46,231 - INFO - [stocks] 115/336: ETN
+2026-01-01 19:24:48,283 - INFO - [stocks] 116/336: EW
+2026-01-01 19:25:01,690 - INFO - [stocks] 117/336: EXC
+2026-01-01 19:25:08,109 - INFO - [stocks] 118/336: EXPD
+2026-01-01 19:25:09,589 - INFO - [stocks] 119/336: EXPE
+2026-01-01 19:25:11,317 - INFO - [stocks] 120/336: F
+2026-01-01 19:25:13,282 - INFO - [stocks] 121/336: FCX
+2026-01-01 19:25:20,765 - INFO - [stocks] 122/336: FDX
+2026-01-01 19:25:22,343 - INFO - [stocks] 123/336: FFIV
+2026-01-01 19:25:23,717 - INFO - [stocks] 124/336: FI
+2026-01-01 19:25:25,098 - INFO - [stocks] 125/336: FIS
+2026-01-01 19:25:27,007 - INFO - [stocks] 126/336: FISV
+2026-01-01 19:25:28,521 - INFO - [stocks] 127/336: FLT
+2026-01-01 19:25:29,004 - ERROR - $FLT: possibly delisted; no timezone found
+2026-01-01 19:25:29,008 - ERROR - 
+1 Failed download:
+2026-01-01 19:25:29,010 - ERROR - ['FLT']: possibly delisted; no timezone found
+2026-01-01 19:25:29,013 - WARNING - No data for FLT, skipping.
+2026-01-01 19:25:29,013 - INFO - [stocks] 128/336: FMC
+2026-01-01 19:25:31,986 - INFO - [stocks] 129/336: FTNT
+2026-01-01 19:25:33,316 - INFO - [stocks] 130/336: GD
+2026-01-01 19:25:35,410 - INFO - [stocks] 131/336: GE
+2026-01-01 19:25:37,319 - INFO - [stocks] 132/336: GEHC
+2026-01-01 19:25:38,524 - INFO - [stocks] 133/336: GILD
+2026-01-01 19:25:40,460 - INFO - [stocks] 134/336: GLW
+2026-01-01 19:25:42,265 - INFO - [stocks] 135/336: GM
+2026-01-01 19:25:44,319 - INFO - [stocks] 136/336: GOOG
+2026-01-01 19:25:45,997 - INFO - [stocks] 137/336: GOOGL
+2026-01-01 19:25:47,640 - INFO - [stocks] 138/336: GPN
+2026-01-01 19:25:49,336 - INFO - [stocks] 139/336: GRMN
+2026-01-01 19:25:50,953 - INFO - [stocks] 140/336: GS
+2026-01-01 19:25:58,229 - INFO - [stocks] 141/336: H
+2026-01-01 19:25:59,764 - INFO - [stocks] 142/336: HAL
+2026-01-01 19:26:01,461 - INFO - [stocks] 143/336: HAS
+2026-01-01 19:26:03,305 - INFO - [stocks] 144/336: HCA
+2026-01-01 19:26:04,833 - INFO - [stocks] 145/336: HD
+2026-01-01 19:26:07,604 - INFO - [stocks] 146/336: HES
+2026-01-01 19:26:08,288 - ERROR - $HES: possibly delisted; no timezone found
+2026-01-01 19:26:08,296 - ERROR - 
+1 Failed download:
+2026-01-01 19:26:08,297 - ERROR - ['HES']: possibly delisted; no timezone found
+2026-01-01 19:26:08,299 - WARNING - No data for HES, skipping.
+2026-01-01 19:26:08,299 - INFO - [stocks] 147/336: HLT
+2026-01-01 19:26:09,697 - INFO - [stocks] 148/336: HOG
+2026-01-01 19:26:11,943 - INFO - [stocks] 149/336: HOLX
+2026-01-01 19:26:13,769 - INFO - [stocks] 150/336: HON
+2026-01-01 19:26:16,196 - INFO - [stocks] 151/336: HP
+2026-01-01 19:26:17,975 - INFO - [stocks] 152/336: HPE
+2026-01-01 19:26:19,443 - INFO - [stocks] 153/336: HPQ
+2026-01-01 19:26:26,190 - INFO - [stocks] 154/336: HUBB
+2026-01-01 19:26:32,587 - INFO - [stocks] 155/336: HUM
+2026-01-01 19:26:39,620 - INFO - [stocks] 156/336: IBM
+2026-01-01 19:26:41,117 - INFO - [stocks] 157/336: ICE
+2026-01-01 19:26:48,314 - INFO - [stocks] 158/336: IDXX
+2026-01-01 19:26:55,042 - INFO - [stocks] 159/336: ILMN
+2026-01-01 19:26:56,760 - INFO - [stocks] 160/336: INTC
+2026-01-01 19:26:59,065 - INFO - [stocks] 161/336: INTU
+2026-01-01 19:27:00,817 - INFO - [stocks] 162/336: IRM
+2026-01-01 19:27:02,611 - INFO - [stocks] 163/336: ISRG
+2026-01-01 19:27:04,287 - INFO - [stocks] 164/336: ITW
+2026-01-01 19:27:05,996 - INFO - [stocks] 165/336: JBHT
+2026-01-01 19:27:08,239 - INFO - [stocks] 166/336: JNJ
+2026-01-01 19:27:10,277 - INFO - [stocks] 167/336: JPM
+2026-01-01 19:27:12,520 - INFO - [stocks] 168/336: KELYA
+2026-01-01 19:27:14,299 - INFO - [stocks] 169/336: KEX
+2026-01-01 19:27:16,078 - INFO - [stocks] 170/336: KEYS
+2026-01-01 19:27:17,974 - INFO - [stocks] 171/336: KHC
+2026-01-01 19:27:19,426 - INFO - [stocks] 172/336: KMB
+2026-01-01 19:27:21,150 - INFO - [stocks] 173/336: KMI
+2026-01-01 19:27:23,119 - INFO - [stocks] 174/336: KO
+2026-01-01 19:27:25,063 - INFO - [stocks] 175/336: KR
+2026-01-01 19:27:27,414 - INFO - [stocks] 176/336: KSS
+2026-01-01 19:27:29,283 - INFO - [stocks] 177/336: LCID
+2026-01-01 19:27:30,611 - INFO - [stocks] 178/336: LEN
+2026-01-01 19:27:32,620 - INFO - [stocks] 179/336: LH
+2026-01-01 19:27:34,657 - INFO - [stocks] 180/336: LHX
+2026-01-01 19:27:37,290 - INFO - [stocks] 181/336: LII
+2026-01-01 19:27:39,063 - INFO - [stocks] 182/336: LIN
+2026-01-01 19:27:41,314 - INFO - [stocks] 183/336: LLY
+2026-01-01 19:27:43,195 - INFO - [stocks] 184/336: LMT
+2026-01-01 19:27:44,927 - INFO - [stocks] 185/336: LOW
+2026-01-01 19:27:47,337 - INFO - [stocks] 186/336: LRCX
+2026-01-01 19:27:49,270 - INFO - [stocks] 187/336: LSTR
+2026-01-01 19:27:51,006 - INFO - [stocks] 188/336: LUV
+2026-01-01 19:27:52,687 - INFO - [stocks] 189/336: LVS
+2026-01-01 19:27:54,381 - INFO - [stocks] 190/336: LYFT
+2026-01-01 19:27:56,298 - INFO - [stocks] 191/336: MA
+2026-01-01 19:27:57,969 - INFO - [stocks] 192/336: MAN
+2026-01-01 19:28:00,012 - INFO - [stocks] 193/336: MAR
+2026-01-01 19:28:06,853 - INFO - [stocks] 194/336: MAS
+2026-01-01 19:28:08,581 - INFO - [stocks] 195/336: MATX
+2026-01-01 19:28:11,007 - INFO - [stocks] 196/336: MCD
+2026-01-01 19:28:12,878 - INFO - [stocks] 197/336: MCK
+2026-01-01 19:28:14,618 - INFO - [stocks] 198/336: MCO
+2026-01-01 19:28:16,380 - INFO - [stocks] 199/336: MDB
+2026-01-01 19:28:17,795 - INFO - [stocks] 200/336: MDLZ
+2026-01-01 19:28:20,114 - INFO - [stocks] 201/336: MDT
+2026-01-01 19:28:21,933 - INFO - [stocks] 202/336: META
+2026-01-01 19:28:23,401 - INFO - [stocks] 203/336: MGM
+2026-01-01 19:28:25,127 - INFO - [stocks] 204/336: MMC
+2026-01-01 19:28:26,851 - INFO - [stocks] 205/336: MNST
+2026-01-01 19:28:28,984 - INFO - [stocks] 206/336: MO
+2026-01-01 19:28:30,914 - INFO - [stocks] 207/336: MOS
+2026-01-01 19:28:32,639 - INFO - [stocks] 208/336: MRK
+2026-01-01 19:28:34,554 - INFO - [stocks] 209/336: MS
+2026-01-01 19:28:36,336 - INFO - [stocks] 210/336: MSCI
+2026-01-01 19:28:38,511 - INFO - [stocks] 211/336: MSFT
+2026-01-01 19:28:40,337 - INFO - [stocks] 212/336: MSI
+2026-01-01 19:28:42,179 - INFO - [stocks] 213/336: MTD
+2026-01-01 19:28:43,804 - INFO - [stocks] 214/336: MU
+2026-01-01 19:28:46,339 - INFO - [stocks] 215/336: NCLH
+2026-01-01 19:28:48,334 - INFO - [stocks] 216/336: NDAQ
+2026-01-01 19:28:49,998 - INFO - [stocks] 217/336: NEE
+2026-01-01 19:28:51,881 - INFO - [stocks] 218/336: NET
+2026-01-01 19:28:53,251 - INFO - [stocks] 219/336: NFLX
+2026-01-01 19:28:54,979 - INFO - [stocks] 220/336: NKE
+2026-01-01 19:28:57,263 - INFO - [stocks] 221/336: NLSN
+2026-01-01 19:28:57,797 - ERROR - $NLSN: possibly delisted; no timezone found
+2026-01-01 19:28:57,803 - ERROR - 
+1 Failed download:
+2026-01-01 19:28:57,803 - ERROR - ['NLSN']: possibly delisted; no timezone found
+2026-01-01 19:28:57,806 - WARNING - No data for NLSN, skipping.
+2026-01-01 19:28:57,806 - INFO - [stocks] 222/336: NOC
+2026-01-01 19:29:00,578 - INFO - [stocks] 223/336: NOW
+2026-01-01 19:29:02,665 - INFO - [stocks] 224/336: NRG
+2026-01-01 19:29:04,101 - INFO - [stocks] 225/336: NSC
+2026-01-01 19:29:06,310 - INFO - [stocks] 226/336: NTAP
+2026-01-01 19:29:07,724 - INFO - [stocks] 227/336: NTRS
+2026-01-01 19:29:09,105 - INFO - [stocks] 228/336: NVDA
+2026-01-01 19:29:10,728 - INFO - [stocks] 229/336: NVR
+2026-01-01 19:29:15,372 - INFO - [stocks] 230/336: NWL
+2026-01-01 19:29:20,884 - INFO - [stocks] 231/336: O
+2026-01-01 19:29:26,318 - INFO - [stocks] 232/336: ODFL
+2026-01-01 19:29:31,441 - INFO - [stocks] 233/336: OKTA
+2026-01-01 19:29:35,659 - INFO - [stocks] 234/336: ORCL
+2026-01-01 19:29:40,693 - INFO - [stocks] 235/336: ORLY
+2026-01-01 19:29:46,247 - INFO - [stocks] 236/336: OTIS
+2026-01-01 19:29:47,366 - INFO - [stocks] 237/336: OXY
+2026-01-01 19:29:48,939 - INFO - [stocks] 238/336: PANW
+2026-01-01 19:29:50,113 - INFO - [stocks] 239/336: PATH
+2026-01-01 19:29:51,098 - INFO - [stocks] 240/336: PAYC
+2026-01-01 19:29:52,878 - INFO - [stocks] 241/336: PAYX
+2026-01-01 19:29:54,655 - INFO - [stocks] 242/336: PCAR
+2026-01-01 19:29:56,095 - INFO - [stocks] 243/336: PEP
+2026-01-01 19:29:57,704 - INFO - [stocks] 244/336: PFE
+2026-01-01 19:29:59,186 - INFO - [stocks] 245/336: PG
+2026-01-01 19:30:01,143 - INFO - [stocks] 246/336: PGR
+2026-01-01 19:30:02,731 - INFO - [stocks] 247/336: PH
+2026-01-01 19:30:04,268 - INFO - [stocks] 248/336: PHM
+2026-01-01 19:30:05,773 - INFO - [stocks] 249/336: PKI
+2026-01-01 19:30:06,303 - ERROR - $PKI: possibly delisted; no timezone found
+2026-01-01 19:30:06,310 - ERROR - 
+1 Failed download:
+2026-01-01 19:30:06,311 - ERROR - ['PKI']: possibly delisted; no timezone found
+2026-01-01 19:30:06,313 - WARNING - No data for PKI, skipping.
+2026-01-01 19:30:06,313 - INFO - [stocks] 250/336: PLD
+2026-01-01 19:30:08,444 - INFO - [stocks] 251/336: PLTR
+2026-01-01 19:30:09,583 - INFO - [stocks] 252/336: PM
+2026-01-01 19:30:10,841 - INFO - [stocks] 253/336: PNC
+2026-01-01 19:30:12,717 - INFO - [stocks] 254/336: PPL
+2026-01-01 19:30:14,355 - INFO - [stocks] 255/336: PRU
+2026-01-01 19:30:16,367 - INFO - [stocks] 256/336: PSA
+2026-01-01 19:30:17,818 - INFO - [stocks] 257/336: PVH
+2026-01-01 19:30:19,665 - INFO - [stocks] 258/336: PYPL
+2026-01-01 19:30:20,770 - INFO - [stocks] 259/336: RAD
+2026-01-01 19:30:21,312 - ERROR - $RAD: possibly delisted; no timezone found
+2026-01-01 19:30:21,314 - ERROR - 
+1 Failed download:
+2026-01-01 19:30:21,314 - ERROR - ['RAD']: possibly delisted; no timezone found
+2026-01-01 19:30:21,316 - WARNING - No data for RAD, skipping.
+2026-01-01 19:30:21,316 - INFO - [stocks] 260/336: RCL
+2026-01-01 19:30:23,355 - INFO - [stocks] 261/336: REGN
+2026-01-01 19:30:24,867 - INFO - [stocks] 262/336: RHI
+2026-01-01 19:30:26,338 - INFO - [stocks] 263/336: RIVN
+2026-01-01 19:30:27,448 - INFO - [stocks] 264/336: RJF
+2026-01-01 19:30:28,850 - INFO - [stocks] 265/336: ROL
+2026-01-01 19:30:30,714 - INFO - [stocks] 266/336: ROP
+2026-01-01 19:30:32,093 - INFO - [stocks] 267/336: ROST
+2026-01-01 19:30:33,608 - INFO - [stocks] 268/336: RSG
+2026-01-01 19:30:35,067 - INFO - [stocks] 269/336: SBUX
+2026-01-01 19:30:36,674 - INFO - [stocks] 270/336: SCHW
+2026-01-01 19:30:43,936 - INFO - [stocks] 271/336: SHAK
+2026-01-01 19:30:45,562 - INFO - [stocks] 272/336: SHOP
+2026-01-01 19:30:47,000 - INFO - [stocks] 273/336: SLB
+2026-01-01 19:30:48,947 - INFO - [stocks] 274/336: SNOW
+2026-01-01 19:30:50,303 - INFO - [stocks] 275/336: SNPS
+2026-01-01 19:30:52,495 - INFO - [stocks] 276/336: SO
+2026-01-01 19:30:54,273 - INFO - [stocks] 277/336: SPGI
+2026-01-01 19:30:56,147 - INFO - [stocks] 278/336: SQ
+2026-01-01 19:30:56,863 - ERROR - $SQ: possibly delisted; no timezone found
+2026-01-01 19:30:56,871 - ERROR - 
+1 Failed download:
+2026-01-01 19:30:56,872 - ERROR - ['SQ']: possibly delisted; no timezone found
+2026-01-01 19:30:56,874 - WARNING - No data for SQ, skipping.
+2026-01-01 19:30:56,874 - INFO - [stocks] 279/336: SRE
+2026-01-01 19:30:58,650 - INFO - [stocks] 280/336: STE
+2026-01-01 19:31:00,811 - INFO - [stocks] 281/336: STT
+2026-01-01 19:31:02,562 - INFO - [stocks] 282/336: STX
+2026-01-01 19:31:04,140 - INFO - [stocks] 283/336: SWK
+2026-01-01 19:31:05,866 - INFO - [stocks] 284/336: SYK
+2026-01-01 19:31:07,609 - INFO - [stocks] 285/336: T
+2026-01-01 19:31:09,944 - INFO - [stocks] 286/336: TDG
+2026-01-01 19:31:11,560 - INFO - [stocks] 287/336: TDOC
+2026-01-01 19:31:12,950 - INFO - [stocks] 288/336: TDY
+2026-01-01 19:31:14,737 - INFO - [stocks] 289/336: TEAM
+2026-01-01 19:31:18,788 - INFO - [stocks] 290/336: TEL
+2026-01-01 19:31:20,997 - INFO - [stocks] 291/336: TFC
+2026-01-01 19:31:22,819 - INFO - [stocks] 292/336: TFX
+2026-01-01 19:31:29,729 - INFO - [stocks] 293/336: TGT
+2026-01-01 19:31:31,570 - INFO - [stocks] 294/336: TJX
+2026-01-01 19:31:33,536 - INFO - [stocks] 295/336: TMO
+2026-01-01 19:31:35,694 - INFO - [stocks] 296/336: TOL
+2026-01-01 19:31:37,078 - INFO - [stocks] 297/336: TPR
+2026-01-01 19:31:38,545 - INFO - [stocks] 298/336: TRMB
+2026-01-01 19:31:39,927 - INFO - [stocks] 299/336: TRU
+2026-01-01 19:31:41,112 - INFO - [stocks] 300/336: TRV
+2026-01-01 19:31:43,132 - INFO - [stocks] 301/336: TSCO
+2026-01-01 19:31:44,659 - INFO - [stocks] 302/336: TSLA
+2026-01-01 19:31:45,849 - INFO - [stocks] 303/336: TSN
+2026-01-01 19:31:47,479 - INFO - [stocks] 304/336: TXN
+2026-01-01 19:31:48,969 - INFO - [stocks] 305/336: TXT
+2026-01-01 19:31:51,305 - INFO - [stocks] 306/336: UAL
+2026-01-01 19:31:52,554 - INFO - [stocks] 307/336: UBER
+2026-01-01 19:31:58,609 - INFO - [stocks] 308/336: UHS
+2026-01-01 19:32:00,193 - INFO - [stocks] 309/336: ULTA
+2026-01-01 19:32:01,897 - INFO - [stocks] 310/336: UNH
+2026-01-01 19:32:04,195 - INFO - [stocks] 311/336: UNP
+2026-01-01 19:32:06,019 - INFO - [stocks] 312/336: UPS
+2026-01-01 19:32:07,983 - INFO - [stocks] 313/336: USB
+2026-01-01 19:32:09,867 - INFO - [stocks] 314/336: V
+2026-01-01 19:32:11,687 - INFO - [stocks] 315/336: VLO
+2026-01-01 19:32:14,854 - INFO - [stocks] 316/336: VRSK
+2026-01-01 19:32:16,380 - INFO - [stocks] 317/336: VRTX
+2026-01-01 19:32:18,119 - INFO - [stocks] 318/336: WAT
+2026-01-01 19:32:19,762 - INFO - [stocks] 319/336: WBA
+2026-01-01 19:32:20,282 - ERROR - $WBA: possibly delisted; no timezone found
+2026-01-01 19:32:20,287 - ERROR - 
+1 Failed download:
+2026-01-01 19:32:20,288 - ERROR - ['WBA']: possibly delisted; no timezone found
+2026-01-01 19:32:20,290 - WARNING - No data for WBA, skipping.
+2026-01-01 19:32:20,290 - INFO - [stocks] 320/336: WDC
+2026-01-01 19:32:22,640 - INFO - [stocks] 321/336: WELL
+2026-01-01 19:32:24,768 - INFO - [stocks] 322/336: WFC
+2026-01-01 19:32:26,656 - INFO - [stocks] 323/336: WH
+2026-01-01 19:32:28,137 - INFO - [stocks] 324/336: WHR
+2026-01-01 19:32:30,063 - INFO - [stocks] 325/336: WING
+2026-01-01 19:32:31,966 - INFO - [stocks] 326/336: WM
+2026-01-01 19:32:34,328 - INFO - [stocks] 327/336: WMT
+2026-01-01 19:32:36,090 - INFO - [stocks] 328/336: WRK
+2026-01-01 19:32:36,835 - ERROR - $WRK: possibly delisted; no timezone found
+2026-01-01 19:32:36,839 - ERROR - 
+1 Failed download:
+2026-01-01 19:32:36,840 - ERROR - ['WRK']: possibly delisted; no timezone found
+2026-01-01 19:32:36,843 - WARNING - No data for WRK, skipping.
+2026-01-01 19:32:36,843 - INFO - [stocks] 329/336: WSM
+2026-01-01 19:32:38,756 - INFO - [stocks] 330/336: WYNN
+2026-01-01 19:32:41,024 - INFO - [stocks] 331/336: XOM
+2026-01-01 19:32:42,926 - INFO - [stocks] 332/336: YUM
+2026-01-01 19:32:44,668 - INFO - [stocks] 333/336: ZBH
+2026-01-01 19:32:46,801 - INFO - [stocks] 334/336: ZBRA
+2026-01-01 19:32:48,589 - INFO - [stocks] 335/336: ZS
+2026-01-01 19:32:50,451 - INFO - [stocks] 336/336: ZTS
+2026-01-01 19:32:52,250 - INFO - --- Processing etf_tickers.txt (Type: etfs) | 27 tickers ---
+2026-01-01 19:32:52,251 - INFO - [etfs] 1/27: ARKK
+2026-01-01 19:32:58,938 - INFO - [etfs] 2/27: BND
+2026-01-01 19:33:00,634 - INFO - [etfs] 3/27: DIA
+2026-01-01 19:33:02,550 - INFO - [etfs] 4/27: EFA
+2026-01-01 19:33:04,935 - INFO - [etfs] 5/27: HYG
+2026-01-01 19:33:07,235 - INFO - [etfs] 6/27: IEF
+2026-01-01 19:33:09,055 - INFO - [etfs] 7/27: IWM
+2026-01-01 19:33:11,587 - INFO - [etfs] 8/27: JEPI
+2026-01-01 19:33:12,949 - INFO - [etfs] 9/27: LQD
+2026-01-01 19:33:14,721 - INFO - [etfs] 10/27: QQQ
+2026-01-01 19:33:16,961 - INFO - [etfs] 11/27: SCHD
+2026-01-01 19:33:18,543 - INFO - [etfs] 12/27: SPY
+2026-01-01 19:33:20,355 - INFO - [etfs] 13/27: TLT
+2026-01-01 19:33:22,213 - INFO - [etfs] 14/27: VEA
+2026-01-01 19:33:23,914 - INFO - [etfs] 15/27: VOO
+2026-01-01 19:33:25,919 - INFO - [etfs] 16/27: VT
+2026-01-01 19:33:27,655 - INFO - [etfs] 17/27: VTI
+2026-01-01 19:33:29,508 - INFO - [etfs] 18/27: VWO
+2026-01-01 19:33:31,207 - INFO - [etfs] 19/27: VYM
+2026-01-01 19:33:33,150 - INFO - [etfs] 20/27: XLE
+2026-01-01 19:33:35,581 - INFO - [etfs] 21/27: XLF
+2026-01-01 19:33:37,508 - INFO - [etfs] 22/27: XLI
+2026-01-01 19:33:39,264 - INFO - [etfs] 23/27: XLK
+2026-01-01 19:33:41,073 - INFO - [etfs] 24/27: XLP
+2026-01-01 19:33:42,904 - INFO - [etfs] 25/27: XLRE
+2026-01-01 19:33:44,785 - INFO - [etfs] 26/27: XLV
+2026-01-01 19:33:46,631 - INFO - [etfs] 27/27: XLY
+2026-01-01 19:33:48,194 - INFO - --- Processing commodities_tickers.txt (Type: commodities) | 15 tickers ---
+2026-01-01 19:33:48,194 - INFO - [commodities] 1/15: BZ=F     # Brent Crude
+2026-01-01 19:33:48,761 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:48,761 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:48,776 - ERROR - $BRENT: possibly delisted; no timezone found
+2026-01-01 19:33:48,783 - ERROR - $CRUDE: possibly delisted; no timezone found
+2026-01-01 19:33:48,897 - ERROR - 
+3 Failed downloads:
+2026-01-01 19:33:48,898 - ERROR - ['#', 'BRENT', 'CRUDE']: possibly delisted; no timezone found
+2026-01-01 19:33:49,340 - INFO - [commodities] 2/15: CL=F     # Crude Oil WTI
+2026-01-01 19:33:49,341 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:49,342 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:49,344 - ERROR - $CRUDE: possibly delisted; no timezone found
+2026-01-01 19:33:49,948 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:33:49,948 - ERROR - ['#', 'CRUDE']: possibly delisted; no timezone found
+2026-01-01 19:33:50,784 - INFO - [commodities] 3/15: GC=F     # Gold
+2026-01-01 19:33:50,786 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:50,787 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:51,297 - ERROR - 
+1 Failed download:
+2026-01-01 19:33:51,298 - ERROR - ['#']: possibly delisted; no timezone found
+2026-01-01 19:33:52,174 - INFO - [commodities] 4/15: HE=F     # Lean Hogs
+2026-01-01 19:33:52,180 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:52,181 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:52,850 - ERROR - $LEAN: possibly delisted; no timezone found
+2026-01-01 19:33:52,867 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:33:52,868 - ERROR - ['#', 'LEAN']: possibly delisted; no timezone found
+2026-01-01 19:33:53,392 - INFO - [commodities] 5/15: HG=F     # Copper
+2026-01-01 19:33:53,397 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:53,398 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:54,175 - ERROR - $COPPER: possibly delisted; no timezone found
+2026-01-01 19:33:54,178 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:33:54,179 - ERROR - ['#', 'COPPER']: possibly delisted; no timezone found
+2026-01-01 19:33:55,166 - INFO - [commodities] 6/15: KC=F     # Coffee
+2026-01-01 19:33:55,171 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:55,172 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:55,687 - ERROR - $COFFEE: possibly delisted; no timezone found
+2026-01-01 19:33:55,912 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:33:55,913 - ERROR - ['#', 'COFFEE']: possibly delisted; no timezone found
+2026-01-01 19:33:56,327 - INFO - [commodities] 7/15: LE=F     # Live Cattle
+2026-01-01 19:33:56,329 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:56,330 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:56,912 - ERROR - $CATTLE: possibly delisted; no timezone found
+2026-01-01 19:33:57,168 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:33:57,169 - ERROR - ['#', 'CATTLE']: possibly delisted; no timezone found
+2026-01-01 19:33:57,614 - INFO - [commodities] 8/15: NG=F     # Natural Gas
+2026-01-01 19:33:57,618 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:57,619 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:58,113 - ERROR - $NATURAL: possibly delisted; no timezone found
+2026-01-01 19:33:58,240 - ERROR - $GAS: possibly delisted; no price data found  (1d 2000-01-01 -> 2026-01-01)
+2026-01-01 19:33:58,240 - ERROR - 
+3 Failed downloads:
+2026-01-01 19:33:58,241 - ERROR - ['#', 'NATURAL']: possibly delisted; no timezone found
+2026-01-01 19:33:58,241 - ERROR - ['GAS']: possibly delisted; no price data found  (1d 2000-01-01 -> 2026-01-01)
+2026-01-01 19:33:58,815 - INFO - [commodities] 9/15: PA=F     # Palladium
+2026-01-01 19:33:58,819 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:58,820 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:33:59,410 - ERROR - $PALLADIUM: possibly delisted; no timezone found
+2026-01-01 19:33:59,419 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:33:59,420 - ERROR - ['#', 'PALLADIUM']: possibly delisted; no timezone found
+2026-01-01 19:33:59,851 - INFO - [commodities] 10/15: PL=F     # Platinum
+2026-01-01 19:33:59,855 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:33:59,856 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:34:00,478 - ERROR - $PLATINUM: possibly delisted; no timezone found
+2026-01-01 19:34:00,705 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:34:00,706 - ERROR - ['#', 'PLATINUM']: possibly delisted; no timezone found
+2026-01-01 19:34:01,718 - INFO - [commodities] 11/15: SB=F     # Sugar
+2026-01-01 19:34:01,722 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:34:01,723 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:34:02,296 - ERROR - $SUGAR: possibly delisted; no timezone found
+2026-01-01 19:34:02,304 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:34:02,304 - ERROR - ['#', 'SUGAR']: possibly delisted; no timezone found
+2026-01-01 19:34:02,852 - INFO - [commodities] 12/15: SI=F     # Silver
+2026-01-01 19:34:02,856 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:34:02,857 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:34:03,324 - ERROR - $SILVER: possibly delisted; no timezone found
+2026-01-01 19:34:03,325 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:34:03,325 - ERROR - ['#', 'SILVER']: possibly delisted; no timezone found
+2026-01-01 19:34:03,786 - INFO - [commodities] 13/15: ZC=F     # Corn
+2026-01-01 19:34:03,790 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:34:03,791 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:34:04,255 - ERROR - 
+1 Failed download:
+2026-01-01 19:34:04,255 - ERROR - ['#']: possibly delisted; no timezone found
+2026-01-01 19:34:05,074 - INFO - [commodities] 14/15: ZS=F     # Soybeans
+2026-01-01 19:34:05,077 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:34:05,078 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:34:05,627 - ERROR - $SOYBEANS: possibly delisted; no timezone found
+2026-01-01 19:34:05,631 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:34:05,631 - ERROR - ['#', 'SOYBEANS']: possibly delisted; no timezone found
+2026-01-01 19:34:06,115 - INFO - [commodities] 15/15: ZW=F     # Wheat
+2026-01-01 19:34:06,119 - ERROR - Could not get exchangeTimezoneName for ticker '#' reason: 'chart'
+2026-01-01 19:34:06,119 - ERROR - $#: possibly delisted; no timezone found
+2026-01-01 19:34:06,841 - ERROR - $WHEAT: possibly delisted; no timezone found
+2026-01-01 19:34:06,843 - ERROR - 
+2 Failed downloads:
+2026-01-01 19:34:06,844 - ERROR - ['#', 'WHEAT']: possibly delisted; no timezone found
+2026-01-01 19:34:07,865 - INFO - ==============================
+2026-01-01 19:34:07,866 - INFO - REFRESH SYSTEM SUMMARY
+2026-01-01 19:34:07,868 - INFO - Files Processed:   5
+2026-01-01 19:34:07,868 - INFO - Total Attempted:   416
+2026-01-01 19:34:07,868 - INFO - Successfully DL:   403
+2026-01-01 19:34:07,868 - INFO - Successfully Load: 403
+2026-01-01 19:34:07,868 - INFO - Skipped:           13
+2026-01-01 19:34:07,868 - INFO - Failed Load:       0
+2026-01-01 19:34:07,868 - INFO - ==============================
+2026-01-01 19:34:23,898 - INFO - Found 5 ticker files.
+2026-01-01 19:34:23,898 - INFO - --- Processing crypto_tickers.txt (Type: crypto) | 20 tickers ---
+2026-01-01 19:34:23,898 - INFO - [crypto] 1/20: ADA-USD
+2026-01-01 19:34:25,090 - INFO - [crypto] 2/20: ALGO-USD
+2026-01-01 19:34:26,306 - INFO - [crypto] 3/20: APT-USD
+2026-01-01 19:34:27,333 - INFO - [crypto] 4/20: ATOM-USD
+2026-01-01 19:34:28,757 - INFO - [crypto] 5/20: AVAX-USD
+2026-01-01 19:34:30,433 - INFO - [crypto] 6/20: BCH-USD
+2026-01-01 19:34:31,668 - INFO - [crypto] 7/20: BTC-USD
+2026-01-01 19:34:33,552 - INFO - [crypto] 8/20: DOGE-USD
+2026-01-01 19:34:35,643 - INFO - [crypto] 9/20: DOT-USD
+2026-01-01 19:34:37,208 - INFO - [crypto] 10/20: ETC-USD
+2026-01-01 19:34:39,104 - INFO - [crypto] 11/20: ETH-USD
+2026-01-01 19:34:40,324 - INFO - [crypto] 12/20: LINK-USD
+2026-01-01 19:34:41,867 - INFO - [crypto] 13/20: LTC-USD
+2026-01-01 19:34:43,650 - INFO - [crypto] 14/20: MATIC-USD
+2026-01-01 19:34:45,365 - INFO - [crypto] 15/20: NEAR-USD
+2026-01-01 19:34:47,263 - INFO - [crypto] 16/20: SOL-USD
+2026-01-01 19:34:48,799 - INFO - [crypto] 17/20: TRX-USD
+2026-01-01 19:34:50,294 - INFO - [crypto] 18/20: UNI-USD
+2026-01-01 19:34:51,625 - INFO - [crypto] 19/20: XLM-USD
+2026-01-01 19:34:53,136 - INFO - [crypto] 20/20: XRP-USD
+2026-01-01 19:34:55,168 - INFO - --- Processing mutualfund_tickers.txt (Type: mutualfunds) | 18 tickers ---
+2026-01-01 19:34:55,168 - INFO - [mutualfunds] 1/18: DFLVX
+2026-01-01 19:34:56,877 - INFO - [mutualfunds] 2/18: FSMAX
+2026-01-01 19:34:58,301 - INFO - [mutualfunds] 3/18: FSPGX
+2026-01-01 19:35:00,072 - INFO - [mutualfunds] 4/18: FXAIX
+2026-01-01 19:35:01,693 - INFO - [mutualfunds] 5/18: FZROX
+2026-01-01 19:35:03,487 - INFO - [mutualfunds] 6/18: PRNHX
+2026-01-01 19:35:05,192 - INFO - [mutualfunds] 7/18: SWPPX
+2026-01-01 19:35:06,909 - INFO - [mutualfunds] 8/18: TRBCX
+2026-01-01 19:35:08,701 - INFO - [mutualfunds] 9/18: VASIX
+2026-01-01 19:35:10,422 - INFO - [mutualfunds] 10/18: VBTLX
+2026-01-01 19:35:12,758 - INFO - [mutualfunds] 11/18: VFIAX
+2026-01-01 19:35:14,451 - INFO - [mutualfunds] 12/18: VIMSX
+2026-01-01 19:35:16,123 - INFO - [mutualfunds] 13/18: VSMAX
+2026-01-01 19:35:17,857 - INFO - [mutualfunds] 14/18: VTSAX
+2026-01-01 19:35:19,568 - INFO - [mutualfunds] 15/18: VWENX
+2026-01-01 19:35:21,716 - INFO - [mutualfunds] 16/18: VWLTX
+2026-01-01 19:35:23,882 - INFO - [mutualfunds] 17/18: VWLUX
+2026-01-01 19:35:25,562 - INFO - [mutualfunds] 18/18: VWUSX
+2026-01-01 19:35:27,435 - INFO - --- Processing sp500_tickers.txt (Type: stocks) | 336 tickers ---
+2026-01-01 19:35:27,435 - INFO - [stocks] 1/336: A
+2026-01-01 19:35:29,162 - INFO - [stocks] 2/336: AAL
+2026-01-01 19:35:30,877 - INFO - [stocks] 3/336: AAPL
+2026-01-01 19:35:32,800 - INFO - [stocks] 4/336: ABBV
+2026-01-01 19:35:34,354 - INFO - [stocks] 5/336: ABMD
+2026-01-01 19:35:35,385 - ERROR - $ABMD: possibly delisted; no timezone found
+2026-01-01 19:35:35,391 - ERROR - 
+1 Failed download:
+2026-01-01 19:35:35,392 - ERROR - ['ABMD']: possibly delisted; no timezone found
+2026-01-01 19:35:35,394 - WARNING - No data for ABMD, skipping.
+2026-01-01 19:35:35,394 - INFO - [stocks] 6/336: ABNB
+2026-01-01 19:35:36,722 - INFO - [stocks] 7/336: ABT
+2026-01-01 19:35:39,023 - INFO - [stocks] 8/336: ACN
+2026-01-01 19:35:41,238 - INFO - [stocks] 9/336: ADBE
+2026-01-01 19:35:43,441 - INFO - [stocks] 10/336: ADI
+2026-01-01 19:35:45,991 - INFO - [stocks] 11/336: ADM
+2026-01-01 19:35:48,080 - INFO - [stocks] 12/336: ADP
+2026-01-01 19:35:50,348 - INFO - [stocks] 13/336: ADSK
+2026-01-01 19:35:52,497 - INFO - [stocks] 14/336: AEP
+2026-01-01 19:35:54,562 - INFO - [stocks] 15/336: AFL
+2026-01-01 19:35:57,239 - INFO - [stocks] 16/336: AIG
+2026-01-01 19:35:59,475 - INFO - [stocks] 17/336: AKAM
+2026-01-01 19:36:01,399 - INFO - [stocks] 18/336: ALB
+2026-01-01 19:36:03,790 - INFO - [stocks] 19/336: ALGN
+2026-01-01 19:36:05,768 - INFO - [stocks] 20/336: ALLY
+2026-01-01 19:36:07,927 - INFO - [stocks] 21/336: AMAT
+2026-01-01 19:36:10,098 - INFO - [stocks] 22/336: AMD
+2026-01-01 19:36:12,188 - INFO - [stocks] 23/336: AMGN
+2026-01-01 19:36:14,370 - INFO - [stocks] 24/336: AMP
+2026-01-01 19:36:16,259 - INFO - [stocks] 25/336: AMZN
+2026-01-01 19:36:18,908 - INFO - [stocks] 26/336: ANSS
+2026-01-01 19:36:20,027 - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: ANSS"}}}
+2026-01-01 19:36:20,184 - ERROR - $ANSS: possibly delisted; no timezone found
+2026-01-01 19:36:20,188 - ERROR - 
+1 Failed download:
+2026-01-01 19:36:20,188 - ERROR - ['ANSS']: possibly delisted; no timezone found
+2026-01-01 19:36:20,190 - WARNING - No data for ANSS, skipping.
+2026-01-01 19:36:20,190 - INFO - [stocks] 27/336: ANTM
+2026-01-01 19:36:20,734 - ERROR - $ANTM: possibly delisted; no timezone found
+2026-01-01 19:36:20,735 - ERROR - 
+1 Failed download:
+2026-01-01 19:36:20,735 - ERROR - ['ANTM']: possibly delisted; no timezone found
+2026-01-01 19:36:20,737 - WARNING - No data for ANTM, skipping.
+2026-01-01 19:36:20,737 - INFO - [stocks] 28/336: AON
+2026-01-01 19:36:22,831 - INFO - [stocks] 29/336: AOS
+2026-01-01 19:36:25,084 - INFO - [stocks] 30/336: APA
+2026-01-01 19:36:27,932 - INFO - [stocks] 31/336: APD
+2026-01-01 19:36:30,207 - INFO - [stocks] 32/336: AVGO
+2026-01-01 19:36:32,161 - INFO - [stocks] 33/336: AXP
+2026-01-01 19:36:34,396 - INFO - [stocks] 34/336: AZO
+2026-01-01 19:36:36,682 - INFO - [stocks] 35/336: BA
+2026-01-01 19:36:39,435 - INFO - [stocks] 36/336: BAC
+2026-01-01 19:36:42,011 - INFO - [stocks] 37/336: BAX
+2026-01-01 19:38:26,023 - INFO - Found 5 ticker files.
+2026-01-01 19:38:26,023 - INFO - --- Processing crypto_tickers.txt (Type: crypto) | 20 tickers ---
+2026-01-01 19:38:26,023 - INFO - [crypto] 1/20: ADA-USD
+2026-01-01 19:38:27,324 - ERROR - Database load failed for ADA-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:27,325 - INFO - [crypto] 2/20: ALGO-USD
+2026-01-01 19:38:27,682 - ERROR - Database load failed for ALGO-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:27,682 - INFO - [crypto] 3/20: APT-USD
+2026-01-01 19:38:28,026 - ERROR - Database load failed for APT-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:28,026 - INFO - [crypto] 4/20: ATOM-USD
+2026-01-01 19:38:28,527 - ERROR - Database load failed for ATOM-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:28,527 - INFO - [crypto] 5/20: AVAX-USD
+2026-01-01 19:38:28,805 - ERROR - Database load failed for AVAX-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:29,306 - INFO - [crypto] 6/20: BCH-USD
+2026-01-01 19:38:29,617 - ERROR - Database load failed for BCH-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:29,618 - INFO - [crypto] 7/20: BTC-USD
+2026-01-01 19:38:29,944 - ERROR - Database load failed for BTC-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:29,944 - INFO - [crypto] 8/20: DOGE-USD
+2026-01-01 19:38:30,286 - ERROR - Database load failed for DOGE-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:30,286 - INFO - [crypto] 9/20: DOT-USD
+2026-01-01 19:38:30,575 - ERROR - Database load failed for DOT-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:30,575 - INFO - [crypto] 10/20: ETC-USD
+2026-01-01 19:38:30,995 - ERROR - Database load failed for ETC-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:31,495 - INFO - [crypto] 11/20: ETH-USD
+2026-01-01 19:38:31,893 - ERROR - Database load failed for ETH-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:31,893 - INFO - [crypto] 12/20: LINK-USD
+2026-01-01 19:38:32,313 - ERROR - Database load failed for LINK-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:32,313 - INFO - [crypto] 13/20: LTC-USD
+2026-01-01 19:38:32,677 - ERROR - Database load failed for LTC-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:32,677 - INFO - [crypto] 14/20: MATIC-USD
+2026-01-01 19:38:33,064 - ERROR - Database load failed for MATIC-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:33,064 - INFO - [crypto] 15/20: NEAR-USD
+2026-01-01 19:38:33,441 - ERROR - Database load failed for NEAR-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:33,941 - INFO - [crypto] 16/20: SOL-USD
+2026-01-01 19:38:34,314 - ERROR - Database load failed for SOL-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:34,314 - INFO - [crypto] 17/20: TRX-USD
+2026-01-01 19:38:35,034 - ERROR - Database load failed for TRX-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:35,034 - INFO - [crypto] 18/20: UNI-USD
+2026-01-01 19:38:35,354 - ERROR - Database load failed for UNI-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:35,354 - INFO - [crypto] 19/20: XLM-USD
+2026-01-01 19:38:35,759 - ERROR - Database load failed for XLM-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:35,759 - INFO - [crypto] 20/20: XRP-USD
+2026-01-01 19:38:36,262 - ERROR - Database load failed for XRP-USD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:36,762 - INFO - --- Processing mutualfund_tickers.txt (Type: mutualfunds) | 18 tickers ---
+2026-01-01 19:38:36,762 - INFO - [mutualfunds] 1/18: DFLVX
+2026-01-01 19:38:37,303 - ERROR - Database load failed for DFLVX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:37,303 - INFO - [mutualfunds] 2/18: FSMAX
+2026-01-01 19:38:37,708 - ERROR - Database load failed for FSMAX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:37,708 - INFO - [mutualfunds] 3/18: FSPGX
+2026-01-01 19:38:38,059 - ERROR - Database load failed for FSPGX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:38,059 - INFO - [mutualfunds] 4/18: FXAIX
+2026-01-01 19:38:38,418 - ERROR - Database load failed for FXAIX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:38,418 - INFO - [mutualfunds] 5/18: FZROX
+2026-01-01 19:38:38,725 - ERROR - Database load failed for FZROX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:39,226 - INFO - [mutualfunds] 6/18: PRNHX
+2026-01-01 19:38:39,850 - ERROR - Database load failed for PRNHX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:39,851 - INFO - [mutualfunds] 7/18: SWPPX
+2026-01-01 19:38:45,417 - ERROR - Database load failed for SWPPX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:45,417 - INFO - [mutualfunds] 8/18: TRBCX
+2026-01-01 19:38:45,895 - ERROR - Database load failed for TRBCX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:45,895 - INFO - [mutualfunds] 9/18: VASIX
+2026-01-01 19:38:46,308 - ERROR - Database load failed for VASIX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:46,308 - INFO - [mutualfunds] 10/18: VBTLX
+2026-01-01 19:38:46,760 - ERROR - Database load failed for VBTLX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:47,261 - INFO - [mutualfunds] 11/18: VFIAX
+2026-01-01 19:38:47,732 - ERROR - Database load failed for VFIAX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:47,732 - INFO - [mutualfunds] 12/18: VIMSX
+2026-01-01 19:38:48,349 - ERROR - Database load failed for VIMSX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:48,349 - INFO - [mutualfunds] 13/18: VSMAX
+2026-01-01 19:38:48,759 - ERROR - Database load failed for VSMAX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:48,759 - INFO - [mutualfunds] 14/18: VTSAX
+2026-01-01 19:38:49,170 - ERROR - Database load failed for VTSAX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:49,170 - INFO - [mutualfunds] 15/18: VWENX
+2026-01-01 19:38:49,623 - ERROR - Database load failed for VWENX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:50,124 - INFO - [mutualfunds] 16/18: VWLTX
+2026-01-01 19:38:50,749 - ERROR - Database load failed for VWLTX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:50,749 - INFO - [mutualfunds] 17/18: VWLUX
+2026-01-01 19:38:51,208 - ERROR - Database load failed for VWLUX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:51,208 - INFO - [mutualfunds] 18/18: VWUSX
+2026-01-01 19:38:51,703 - ERROR - Database load failed for VWUSX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:51,704 - INFO - --- Processing sp500_tickers.txt (Type: stocks) | 336 tickers ---
+2026-01-01 19:38:51,704 - INFO - [stocks] 1/336: A
+2026-01-01 19:38:52,176 - ERROR - Database load failed for A: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:52,176 - INFO - [stocks] 2/336: AAL
+2026-01-01 19:38:57,575 - ERROR - Database load failed for AAL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:57,575 - INFO - [stocks] 3/336: AAPL
+2026-01-01 19:38:57,989 - ERROR - Database load failed for AAPL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:57,989 - INFO - [stocks] 4/336: ABBV
+2026-01-01 19:38:58,322 - ERROR - Database load failed for ABBV: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:58,322 - INFO - [stocks] 5/336: ABMD
+2026-01-01 19:38:59,359 - ERROR - $ABMD: possibly delisted; no timezone found
+2026-01-01 19:38:59,360 - ERROR - 
+1 Failed download:
+2026-01-01 19:38:59,360 - ERROR - ['ABMD']: possibly delisted; no timezone found
+2026-01-01 19:38:59,362 - WARNING - No data for ABMD, skipping.
+2026-01-01 19:38:59,363 - INFO - [stocks] 6/336: ABNB
+2026-01-01 19:38:59,657 - ERROR - Database load failed for ABNB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:38:59,657 - INFO - [stocks] 7/336: ABT
+2026-01-01 19:39:00,101 - ERROR - Database load failed for ABT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:00,101 - INFO - [stocks] 8/336: ACN
+2026-01-01 19:39:00,578 - ERROR - Database load failed for ACN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:00,578 - INFO - [stocks] 9/336: ADBE
+2026-01-01 19:39:01,022 - ERROR - Database load failed for ADBE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:01,022 - INFO - [stocks] 10/336: ADI
+2026-01-01 19:39:01,488 - ERROR - Database load failed for ADI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:01,988 - INFO - [stocks] 11/336: ADM
+2026-01-01 19:39:02,605 - ERROR - Database load failed for ADM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:02,605 - INFO - [stocks] 12/336: ADP
+2026-01-01 19:39:03,176 - ERROR - Database load failed for ADP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:03,176 - INFO - [stocks] 13/336: ADSK
+2026-01-01 19:39:03,702 - ERROR - Database load failed for ADSK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:03,702 - INFO - [stocks] 14/336: AEP
+2026-01-01 19:39:04,335 - ERROR - Database load failed for AEP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:04,335 - INFO - [stocks] 15/336: AFL
+2026-01-01 19:39:04,895 - ERROR - Database load failed for AFL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:05,396 - INFO - [stocks] 16/336: AIG
+2026-01-01 19:39:05,927 - ERROR - Database load failed for AIG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:05,928 - INFO - [stocks] 17/336: AKAM
+2026-01-01 19:39:06,394 - ERROR - Database load failed for AKAM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:06,394 - INFO - [stocks] 18/336: ALB
+2026-01-01 19:39:06,943 - ERROR - Database load failed for ALB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:06,943 - INFO - [stocks] 19/336: ALGN
+2026-01-01 19:39:07,341 - ERROR - Database load failed for ALGN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:07,342 - INFO - [stocks] 20/336: ALLY
+2026-01-01 19:39:08,103 - ERROR - Database load failed for ALLY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:08,603 - INFO - [stocks] 21/336: AMAT
+2026-01-01 19:39:09,026 - ERROR - Database load failed for AMAT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:09,026 - INFO - [stocks] 22/336: AMD
+2026-01-01 19:39:09,424 - ERROR - Database load failed for AMD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:09,424 - INFO - [stocks] 23/336: AMGN
+2026-01-01 19:39:09,901 - ERROR - Database load failed for AMGN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:09,901 - INFO - [stocks] 24/336: AMP
+2026-01-01 19:39:10,665 - ERROR - Database load failed for AMP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:10,666 - INFO - [stocks] 25/336: AMZN
+2026-01-01 19:39:11,119 - ERROR - Database load failed for AMZN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:11,620 - INFO - [stocks] 26/336: ANSS
+2026-01-01 19:39:12,820 - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: ANSS"}}}
+2026-01-01 19:39:12,990 - ERROR - $ANSS: possibly delisted; no timezone found
+2026-01-01 19:39:12,995 - ERROR - 
+1 Failed download:
+2026-01-01 19:39:12,995 - ERROR - ['ANSS']: possibly delisted; no timezone found
+2026-01-01 19:39:12,997 - WARNING - No data for ANSS, skipping.
+2026-01-01 19:39:12,997 - INFO - [stocks] 27/336: ANTM
+2026-01-01 19:39:13,558 - ERROR - $ANTM: possibly delisted; no timezone found
+2026-01-01 19:39:13,564 - ERROR - 
+1 Failed download:
+2026-01-01 19:39:13,564 - ERROR - ['ANTM']: possibly delisted; no timezone found
+2026-01-01 19:39:13,567 - WARNING - No data for ANTM, skipping.
+2026-01-01 19:39:13,567 - INFO - [stocks] 28/336: AON
+2026-01-01 19:39:14,057 - ERROR - Database load failed for AON: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:14,057 - INFO - [stocks] 29/336: AOS
+2026-01-01 19:39:14,566 - ERROR - Database load failed for AOS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:14,566 - INFO - [stocks] 30/336: APA
+2026-01-01 19:39:15,044 - ERROR - Database load failed for APA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:15,544 - INFO - [stocks] 31/336: APD
+2026-01-01 19:39:16,249 - ERROR - Database load failed for APD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:16,249 - INFO - [stocks] 32/336: AVGO
+2026-01-01 19:39:16,802 - ERROR - Database load failed for AVGO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:16,802 - INFO - [stocks] 33/336: AXP
+2026-01-01 19:39:17,474 - ERROR - Database load failed for AXP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:17,474 - INFO - [stocks] 34/336: AZO
+2026-01-01 19:39:18,197 - ERROR - Database load failed for AZO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:18,197 - INFO - [stocks] 35/336: BA
+2026-01-01 19:39:18,951 - ERROR - Database load failed for BA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:19,451 - INFO - [stocks] 36/336: BAC
+2026-01-01 19:39:20,123 - ERROR - Database load failed for BAC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:20,123 - INFO - [stocks] 37/336: BAX
+2026-01-01 19:39:20,778 - ERROR - Database load failed for BAX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:20,779 - INFO - [stocks] 38/336: BBBY
+2026-01-01 19:39:21,280 - ERROR - Database load failed for BBBY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:21,280 - INFO - [stocks] 39/336: BBWI
+2026-01-01 19:39:22,018 - ERROR - Database load failed for BBWI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:22,018 - INFO - [stocks] 40/336: BBY
+2026-01-01 19:39:22,748 - ERROR - Database load failed for BBY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:23,249 - INFO - [stocks] 41/336: BG
+2026-01-01 19:39:23,892 - ERROR - Database load failed for BG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:23,892 - INFO - [stocks] 42/336: BIIB
+2026-01-01 19:39:24,458 - ERROR - Database load failed for BIIB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:24,458 - INFO - [stocks] 43/336: BIO
+2026-01-01 19:39:25,030 - ERROR - Database load failed for BIO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:25,031 - INFO - [stocks] 44/336: BK
+2026-01-01 19:39:25,732 - ERROR - Database load failed for BK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:25,732 - INFO - [stocks] 45/336: BKNG
+2026-01-01 19:39:26,386 - ERROR - Database load failed for BKNG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:26,886 - INFO - [stocks] 46/336: BKR
+2026-01-01 19:39:27,646 - ERROR - Database load failed for BKR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:27,646 - INFO - [stocks] 47/336: BLK
+2026-01-01 19:39:28,379 - ERROR - Database load failed for BLK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:28,379 - INFO - [stocks] 48/336: BR
+2026-01-01 19:39:29,068 - ERROR - Database load failed for BR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:29,068 - INFO - [stocks] 49/336: BRK-B
+2026-01-01 19:39:29,693 - ERROR - Database load failed for BRK-B: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:29,693 - INFO - [stocks] 50/336: BRKR
+2026-01-01 19:39:30,320 - ERROR - Database load failed for BRKR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:30,821 - INFO - [stocks] 51/336: BSX
+2026-01-01 19:39:31,496 - ERROR - Database load failed for BSX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:31,497 - INFO - [stocks] 52/336: BURL
+2026-01-01 19:39:31,950 - ERROR - Database load failed for BURL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:31,950 - INFO - [stocks] 53/336: BX
+2026-01-01 19:39:32,523 - ERROR - Database load failed for BX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:32,523 - INFO - [stocks] 54/336: C
+2026-01-01 19:39:33,373 - ERROR - Database load failed for C: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:33,373 - INFO - [stocks] 55/336: CAH
+2026-01-01 19:39:34,141 - ERROR - Database load failed for CAH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:34,642 - INFO - [stocks] 56/336: CARR
+2026-01-01 19:39:35,000 - ERROR - Database load failed for CARR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:35,000 - INFO - [stocks] 57/336: CAT
+2026-01-01 19:39:35,798 - ERROR - Database load failed for CAT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:35,798 - INFO - [stocks] 58/336: CB
+2026-01-01 19:39:36,664 - ERROR - Database load failed for CB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:36,664 - INFO - [stocks] 59/336: CBRE
+2026-01-01 19:39:37,552 - ERROR - Database load failed for CBRE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:37,552 - INFO - [stocks] 60/336: CCL
+2026-01-01 19:39:38,583 - ERROR - Database load failed for CCL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:39,084 - INFO - [stocks] 61/336: CDNS
+2026-01-01 19:39:39,628 - ERROR - Database load failed for CDNS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:39,628 - INFO - [stocks] 62/336: CDW
+2026-01-01 19:39:40,162 - ERROR - Database load failed for CDW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:40,162 - INFO - [stocks] 63/336: CF
+2026-01-01 19:39:40,801 - ERROR - Database load failed for CF: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:40,801 - INFO - [stocks] 64/336: CHD
+2026-01-01 19:39:41,465 - ERROR - Database load failed for CHD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:41,465 - INFO - [stocks] 65/336: CHRW
+2026-01-01 19:39:42,277 - ERROR - Database load failed for CHRW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:42,777 - INFO - [stocks] 66/336: CHTR
+2026-01-01 19:39:43,304 - ERROR - Database load failed for CHTR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:43,304 - INFO - [stocks] 67/336: CI
+2026-01-01 19:39:44,125 - ERROR - Database load failed for CI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:44,125 - INFO - [stocks] 68/336: CL
+2026-01-01 19:39:44,875 - ERROR - Database load failed for CL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:44,875 - INFO - [stocks] 69/336: CLX
+2026-01-01 19:39:45,766 - ERROR - Database load failed for CLX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:45,766 - INFO - [stocks] 70/336: CME
+2026-01-01 19:39:46,469 - ERROR - Database load failed for CME: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:46,969 - INFO - [stocks] 71/336: CMG
+2026-01-01 19:39:47,577 - ERROR - Database load failed for CMG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:47,578 - INFO - [stocks] 72/336: CMI
+2026-01-01 19:39:48,314 - ERROR - Database load failed for CMI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:48,314 - INFO - [stocks] 73/336: CNC
+2026-01-01 19:39:48,856 - ERROR - Database load failed for CNC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:48,856 - INFO - [stocks] 74/336: COF
+2026-01-01 19:39:49,414 - ERROR - Database load failed for COF: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:49,415 - INFO - [stocks] 75/336: COP
+2026-01-01 19:39:50,166 - ERROR - Database load failed for COP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:50,666 - INFO - [stocks] 76/336: COST
+2026-01-01 19:39:51,385 - ERROR - Database load failed for COST: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:51,385 - INFO - [stocks] 77/336: CP
+2026-01-01 19:39:52,077 - ERROR - Database load failed for CP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:52,077 - INFO - [stocks] 78/336: CRM
+2026-01-01 19:39:52,686 - ERROR - Database load failed for CRM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:52,687 - INFO - [stocks] 79/336: CRWD
+2026-01-01 19:39:53,247 - ERROR - Database load failed for CRWD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:53,247 - INFO - [stocks] 80/336: CSCO
+2026-01-01 19:39:53,854 - ERROR - Database load failed for CSCO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:54,354 - INFO - [stocks] 81/336: CSX
+2026-01-01 19:39:55,026 - ERROR - Database load failed for CSX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:55,026 - INFO - [stocks] 82/336: CTAS
+2026-01-01 19:39:55,748 - ERROR - Database load failed for CTAS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:55,748 - INFO - [stocks] 83/336: CTLT
+2026-01-01 19:39:56,283 - ERROR - $CTLT: possibly delisted; no timezone found
+2026-01-01 19:39:56,283 - ERROR - 
+1 Failed download:
+2026-01-01 19:39:56,283 - ERROR - ['CTLT']: possibly delisted; no timezone found
+2026-01-01 19:39:56,285 - WARNING - No data for CTLT, skipping.
+2026-01-01 19:39:56,285 - INFO - [stocks] 84/336: CTSH
+2026-01-01 19:39:57,013 - ERROR - Database load failed for CTSH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:57,014 - INFO - [stocks] 85/336: CVS
+2026-01-01 19:39:57,720 - ERROR - Database load failed for CVS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:58,220 - INFO - [stocks] 86/336: CVX
+2026-01-01 19:39:58,912 - ERROR - Database load failed for CVX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:58,912 - INFO - [stocks] 87/336: D
+2026-01-01 19:39:59,600 - ERROR - Database load failed for D: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:39:59,600 - INFO - [stocks] 88/336: DAL
+2026-01-01 19:40:00,236 - ERROR - Database load failed for DAL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:00,237 - INFO - [stocks] 89/336: DASH
+2026-01-01 19:40:00,637 - ERROR - Database load failed for DASH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:00,637 - INFO - [stocks] 90/336: DDOG
+2026-01-01 19:40:01,013 - ERROR - Database load failed for DDOG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:01,513 - INFO - [stocks] 91/336: DE
+2026-01-01 19:40:02,739 - ERROR - Database load failed for DE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:02,739 - INFO - [stocks] 92/336: DELL
+2026-01-01 19:40:03,178 - ERROR - Database load failed for DELL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:03,178 - INFO - [stocks] 93/336: DFS
+2026-01-01 19:40:03,895 - ERROR - $DFS: possibly delisted; no timezone found
+2026-01-01 19:40:03,895 - ERROR - 
+1 Failed download:
+2026-01-01 19:40:03,896 - ERROR - ['DFS']: possibly delisted; no timezone found
+2026-01-01 19:40:03,899 - WARNING - No data for DFS, skipping.
+2026-01-01 19:40:03,899 - INFO - [stocks] 94/336: DG
+2026-01-01 19:40:04,433 - ERROR - Database load failed for DG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:04,433 - INFO - [stocks] 95/336: DGX
+2026-01-01 19:40:04,986 - ERROR - Database load failed for DGX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:05,486 - INFO - [stocks] 96/336: DHI
+2026-01-01 19:40:06,123 - ERROR - Database load failed for DHI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:06,123 - INFO - [stocks] 97/336: DHR
+2026-01-01 19:40:06,741 - ERROR - Database load failed for DHR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:06,741 - INFO - [stocks] 98/336: DIS
+2026-01-01 19:40:07,654 - ERROR - Database load failed for DIS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:07,654 - INFO - [stocks] 99/336: DLR
+2026-01-01 19:40:08,353 - ERROR - Database load failed for DLR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:08,353 - INFO - [stocks] 100/336: DLTR
+2026-01-01 19:40:09,038 - ERROR - Database load failed for DLTR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:09,538 - INFO - [stocks] 101/336: DOCU
+2026-01-01 19:40:09,910 - ERROR - Database load failed for DOCU: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:09,910 - INFO - [stocks] 102/336: DOW
+2026-01-01 19:40:10,283 - ERROR - Database load failed for DOW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:10,283 - INFO - [stocks] 103/336: DPZ
+2026-01-01 19:40:10,996 - ERROR - Database load failed for DPZ: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:10,996 - INFO - [stocks] 104/336: DRI
+2026-01-01 19:40:11,746 - ERROR - Database load failed for DRI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:11,746 - INFO - [stocks] 105/336: DUK
+2026-01-01 19:40:12,405 - ERROR - Database load failed for DUK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:12,905 - INFO - [stocks] 106/336: DVN
+2026-01-01 19:40:13,676 - ERROR - Database load failed for DVN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:13,677 - INFO - [stocks] 107/336: ECL
+2026-01-01 19:40:14,342 - ERROR - Database load failed for ECL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:14,342 - INFO - [stocks] 108/336: ED
+2026-01-01 19:40:15,077 - ERROR - Database load failed for ED: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:15,077 - INFO - [stocks] 109/336: EFX
+2026-01-01 19:40:15,746 - ERROR - Database load failed for EFX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:15,747 - INFO - [stocks] 110/336: EL
+2026-01-01 19:40:16,399 - ERROR - Database load failed for EL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:16,899 - INFO - [stocks] 111/336: ELV
+2026-01-01 19:40:17,588 - ERROR - Database load failed for ELV: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:17,588 - INFO - [stocks] 112/336: EMR
+2026-01-01 19:40:18,305 - ERROR - Database load failed for EMR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:18,305 - INFO - [stocks] 113/336: EOG
+2026-01-01 19:40:18,960 - ERROR - Database load failed for EOG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:18,961 - INFO - [stocks] 114/336: EQIX
+2026-01-01 19:40:19,705 - ERROR - Database load failed for EQIX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:19,705 - INFO - [stocks] 115/336: ETN
+2026-01-01 19:40:20,475 - ERROR - Database load failed for ETN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:20,975 - INFO - [stocks] 116/336: EW
+2026-01-01 19:40:21,573 - ERROR - Database load failed for EW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:21,573 - INFO - [stocks] 117/336: EXC
+2026-01-01 19:40:22,302 - ERROR - Database load failed for EXC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:22,302 - INFO - [stocks] 118/336: EXPD
+2026-01-01 19:40:22,927 - ERROR - Database load failed for EXPD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:22,927 - INFO - [stocks] 119/336: EXPE
+2026-01-01 19:40:23,499 - ERROR - Database load failed for EXPE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:23,499 - INFO - [stocks] 120/336: F
+2026-01-01 19:40:24,278 - ERROR - Database load failed for F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:24,779 - INFO - [stocks] 121/336: FCX
+2026-01-01 19:40:25,513 - ERROR - Database load failed for FCX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:25,513 - INFO - [stocks] 122/336: FDX
+2026-01-01 19:40:26,335 - ERROR - Database load failed for FDX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:26,336 - INFO - [stocks] 123/336: FFIV
+2026-01-01 19:40:26,868 - ERROR - Database load failed for FFIV: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:26,868 - INFO - [stocks] 124/336: FI
+2026-01-01 19:40:27,906 - ERROR - Database load failed for FI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:27,906 - INFO - [stocks] 125/336: FIS
+2026-01-01 19:40:28,524 - ERROR - Database load failed for FIS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:29,025 - INFO - [stocks] 126/336: FISV
+2026-01-01 19:40:29,624 - ERROR - Database load failed for FISV: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:29,624 - INFO - [stocks] 127/336: FLT
+2026-01-01 19:40:30,174 - ERROR - $FLT: possibly delisted; no timezone found
+2026-01-01 19:40:30,179 - ERROR - 
+1 Failed download:
+2026-01-01 19:40:30,179 - ERROR - ['FLT']: possibly delisted; no timezone found
+2026-01-01 19:40:30,182 - WARNING - No data for FLT, skipping.
+2026-01-01 19:40:30,183 - INFO - [stocks] 128/336: FMC
+2026-01-01 19:40:30,918 - ERROR - Database load failed for FMC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:30,918 - INFO - [stocks] 129/336: FTNT
+2026-01-01 19:40:31,532 - ERROR - Database load failed for FTNT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:31,533 - INFO - [stocks] 130/336: GD
+2026-01-01 19:40:32,495 - ERROR - Database load failed for GD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:32,995 - INFO - [stocks] 131/336: GE
+2026-01-01 19:40:33,845 - ERROR - Database load failed for GE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:33,845 - INFO - [stocks] 132/336: GEHC
+2026-01-01 19:40:34,178 - ERROR - Database load failed for GEHC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:34,178 - INFO - [stocks] 133/336: GILD
+2026-01-01 19:40:34,816 - ERROR - Database load failed for GILD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:34,816 - INFO - [stocks] 134/336: GLW
+2026-01-01 19:40:35,535 - ERROR - Database load failed for GLW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:35,536 - INFO - [stocks] 135/336: GM
+2026-01-01 19:40:36,061 - ERROR - Database load failed for GM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:36,562 - INFO - [stocks] 136/336: GOOG
+2026-01-01 19:40:37,148 - ERROR - Database load failed for GOOG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:37,148 - INFO - [stocks] 137/336: GOOGL
+2026-01-01 19:40:37,769 - ERROR - Database load failed for GOOGL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:37,770 - INFO - [stocks] 138/336: GPN
+2026-01-01 19:40:38,553 - ERROR - Database load failed for GPN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:38,554 - INFO - [stocks] 139/336: GRMN
+2026-01-01 19:40:39,204 - ERROR - Database load failed for GRMN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:39,205 - INFO - [stocks] 140/336: GS
+2026-01-01 19:40:39,900 - ERROR - Database load failed for GS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:40,401 - INFO - [stocks] 141/336: H
+2026-01-01 19:40:40,981 - ERROR - Database load failed for H: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:40,981 - INFO - [stocks] 142/336: HAL
+2026-01-01 19:40:46,743 - ERROR - Database load failed for HAL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:46,743 - INFO - [stocks] 143/336: HAS
+2026-01-01 19:40:47,390 - ERROR - Database load failed for HAS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:47,391 - INFO - [stocks] 144/336: HCA
+2026-01-01 19:40:47,973 - ERROR - Database load failed for HCA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:47,973 - INFO - [stocks] 145/336: HD
+2026-01-01 19:40:48,641 - ERROR - Database load failed for HD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:49,142 - INFO - [stocks] 146/336: HES
+2026-01-01 19:40:49,816 - ERROR - $HES: possibly delisted; no timezone found
+2026-01-01 19:40:49,819 - ERROR - 
+1 Failed download:
+2026-01-01 19:40:49,819 - ERROR - ['HES']: possibly delisted; no timezone found
+2026-01-01 19:40:49,821 - WARNING - No data for HES, skipping.
+2026-01-01 19:40:49,821 - INFO - [stocks] 147/336: HLT
+2026-01-01 19:40:50,275 - ERROR - Database load failed for HLT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:50,275 - INFO - [stocks] 148/336: HOG
+2026-01-01 19:40:51,029 - ERROR - Database load failed for HOG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:51,029 - INFO - [stocks] 149/336: HOLX
+2026-01-01 19:40:51,717 - ERROR - Database load failed for HOLX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:51,717 - INFO - [stocks] 150/336: HON
+2026-01-01 19:40:52,462 - ERROR - Database load failed for HON: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:52,962 - INFO - [stocks] 151/336: HP
+2026-01-01 19:40:53,716 - ERROR - Database load failed for HP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:53,717 - INFO - [stocks] 152/336: HPE
+2026-01-01 19:40:54,161 - ERROR - Database load failed for HPE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:54,162 - INFO - [stocks] 153/336: HPQ
+2026-01-01 19:40:54,850 - ERROR - Database load failed for HPQ: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:54,850 - INFO - [stocks] 154/336: HUBB
+2026-01-01 19:40:56,202 - ERROR - Database load failed for HUBB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:56,203 - INFO - [stocks] 155/336: HUM
+2026-01-01 19:40:56,839 - ERROR - Database load failed for HUM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:57,339 - INFO - [stocks] 156/336: IBM
+2026-01-01 19:40:58,048 - ERROR - Database load failed for IBM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:58,048 - INFO - [stocks] 157/336: ICE
+2026-01-01 19:40:58,631 - ERROR - Database load failed for ICE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:58,631 - INFO - [stocks] 158/336: IDXX
+2026-01-01 19:40:59,242 - ERROR - Database load failed for IDXX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:59,242 - INFO - [stocks] 159/336: ILMN
+2026-01-01 19:40:59,889 - ERROR - Database load failed for ILMN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:40:59,889 - INFO - [stocks] 160/336: INTC
+2026-01-01 19:41:00,638 - ERROR - Database load failed for INTC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:01,138 - INFO - [stocks] 161/336: INTU
+2026-01-01 19:41:01,799 - ERROR - Database load failed for INTU: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:01,800 - INFO - [stocks] 162/336: IRM
+2026-01-01 19:41:02,490 - ERROR - Database load failed for IRM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:02,490 - INFO - [stocks] 163/336: ISRG
+2026-01-01 19:41:03,109 - ERROR - Database load failed for ISRG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:03,110 - INFO - [stocks] 164/336: ITW
+2026-01-01 19:41:03,863 - ERROR - Database load failed for ITW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:03,863 - INFO - [stocks] 165/336: JBHT
+2026-01-01 19:41:04,593 - ERROR - Database load failed for JBHT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:05,093 - INFO - [stocks] 166/336: JNJ
+2026-01-01 19:41:05,804 - ERROR - Database load failed for JNJ: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:05,804 - INFO - [stocks] 167/336: JPM
+2026-01-01 19:41:06,465 - ERROR - Database load failed for JPM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:06,465 - INFO - [stocks] 168/336: KELYA
+2026-01-01 19:41:07,240 - ERROR - Database load failed for KELYA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:07,240 - INFO - [stocks] 169/336: KEX
+2026-01-01 19:41:07,834 - ERROR - Database load failed for KEX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:07,835 - INFO - [stocks] 170/336: KEYS
+2026-01-01 19:41:08,265 - ERROR - Database load failed for KEYS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:08,765 - INFO - [stocks] 171/336: KHC
+2026-01-01 19:41:09,240 - ERROR - Database load failed for KHC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:09,240 - INFO - [stocks] 172/336: KMB
+2026-01-01 19:41:09,944 - ERROR - Database load failed for KMB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:09,944 - INFO - [stocks] 173/336: KMI
+2026-01-01 19:41:10,487 - ERROR - Database load failed for KMI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:10,487 - INFO - [stocks] 174/336: KO
+2026-01-01 19:41:11,112 - ERROR - Database load failed for KO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:11,113 - INFO - [stocks] 175/336: KR
+2026-01-01 19:41:11,877 - ERROR - Database load failed for KR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:12,377 - INFO - [stocks] 176/336: KSS
+2026-01-01 19:41:13,011 - ERROR - Database load failed for KSS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:13,011 - INFO - [stocks] 177/336: LCID
+2026-01-01 19:41:13,372 - ERROR - Database load failed for LCID: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:13,372 - INFO - [stocks] 178/336: LEN
+2026-01-01 19:41:13,882 - ERROR - Database load failed for LEN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:13,882 - INFO - [stocks] 179/336: LH
+2026-01-01 19:41:14,299 - ERROR - Database load failed for LH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:14,299 - INFO - [stocks] 180/336: LHX
+2026-01-01 19:41:14,806 - ERROR - Database load failed for LHX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:15,306 - INFO - [stocks] 181/336: LII
+2026-01-01 19:41:16,111 - ERROR - Database load failed for LII: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:16,111 - INFO - [stocks] 182/336: LIN
+2026-01-01 19:41:16,598 - ERROR - Database load failed for LIN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:16,598 - INFO - [stocks] 183/336: LLY
+2026-01-01 19:41:17,145 - ERROR - Database load failed for LLY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:17,145 - INFO - [stocks] 184/336: LMT
+2026-01-01 19:41:17,680 - ERROR - Database load failed for LMT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:17,680 - INFO - [stocks] 185/336: LOW
+2026-01-01 19:41:18,240 - ERROR - Database load failed for LOW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:18,740 - INFO - [stocks] 186/336: LRCX
+2026-01-01 19:41:19,191 - ERROR - Database load failed for LRCX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:19,191 - INFO - [stocks] 187/336: LSTR
+2026-01-01 19:41:19,792 - ERROR - Database load failed for LSTR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:19,792 - INFO - [stocks] 188/336: LUV
+2026-01-01 19:41:20,319 - ERROR - Database load failed for LUV: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:20,320 - INFO - [stocks] 189/336: LVS
+2026-01-01 19:41:20,779 - ERROR - Database load failed for LVS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:20,779 - INFO - [stocks] 190/336: LYFT
+2026-01-01 19:41:21,089 - ERROR - Database load failed for LYFT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:21,590 - INFO - [stocks] 191/336: MA
+2026-01-01 19:41:22,088 - ERROR - Database load failed for MA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:22,088 - INFO - [stocks] 192/336: MAN
+2026-01-01 19:41:27,550 - ERROR - Database load failed for MAN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:27,550 - INFO - [stocks] 193/336: MAR
+2026-01-01 19:41:28,008 - ERROR - Database load failed for MAR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:28,009 - INFO - [stocks] 194/336: MAS
+2026-01-01 19:41:28,424 - ERROR - Database load failed for MAS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:28,424 - INFO - [stocks] 195/336: MATX
+2026-01-01 19:41:28,984 - ERROR - Database load failed for MATX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:29,484 - INFO - [stocks] 196/336: MCD
+2026-01-01 19:41:30,112 - ERROR - Database load failed for MCD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:30,112 - INFO - [stocks] 197/336: MCK
+2026-01-01 19:41:35,615 - ERROR - Database load failed for MCK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:35,615 - INFO - [stocks] 198/336: MCO
+2026-01-01 19:41:36,145 - ERROR - Database load failed for MCO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:36,145 - INFO - [stocks] 199/336: MDB
+2026-01-01 19:41:41,620 - ERROR - Database load failed for MDB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:41,620 - INFO - [stocks] 200/336: MDLZ
+2026-01-01 19:41:42,320 - ERROR - Database load failed for MDLZ: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:42,820 - INFO - [stocks] 201/336: MDT
+2026-01-01 19:41:43,489 - ERROR - Database load failed for MDT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:43,489 - INFO - [stocks] 202/336: META
+2026-01-01 19:41:44,055 - ERROR - Database load failed for META: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:44,056 - INFO - [stocks] 203/336: MGM
+2026-01-01 19:41:44,658 - ERROR - Database load failed for MGM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:44,658 - INFO - [stocks] 204/336: MMC
+2026-01-01 19:41:45,323 - ERROR - Database load failed for MMC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:45,323 - INFO - [stocks] 205/336: MNST
+2026-01-01 19:41:47,034 - ERROR - Database load failed for MNST: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:47,534 - INFO - [stocks] 206/336: MO
+2026-01-01 19:41:48,216 - ERROR - Database load failed for MO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:48,216 - INFO - [stocks] 207/336: MOS
+2026-01-01 19:41:48,869 - ERROR - Database load failed for MOS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:48,870 - INFO - [stocks] 208/336: MRK
+2026-01-01 19:41:49,586 - ERROR - Database load failed for MRK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:49,586 - INFO - [stocks] 209/336: MS
+2026-01-01 19:41:50,212 - ERROR - Database load failed for MS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:50,212 - INFO - [stocks] 210/336: MSCI
+2026-01-01 19:41:50,739 - ERROR - Database load failed for MSCI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:51,239 - INFO - [stocks] 211/336: MSFT
+2026-01-01 19:41:51,863 - ERROR - Database load failed for MSFT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:51,863 - INFO - [stocks] 212/336: MSI
+2026-01-01 19:41:52,525 - ERROR - Database load failed for MSI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:52,525 - INFO - [stocks] 213/336: MTD
+2026-01-01 19:41:53,194 - ERROR - Database load failed for MTD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:53,194 - INFO - [stocks] 214/336: MU
+2026-01-01 19:41:54,032 - ERROR - Database load failed for MU: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:54,032 - INFO - [stocks] 215/336: NCLH
+2026-01-01 19:41:54,549 - ERROR - Database load failed for NCLH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:55,049 - INFO - [stocks] 216/336: NDAQ
+2026-01-01 19:41:55,725 - ERROR - Database load failed for NDAQ: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:55,725 - INFO - [stocks] 217/336: NEE
+2026-01-01 19:41:56,392 - ERROR - Database load failed for NEE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:56,392 - INFO - [stocks] 218/336: NET
+2026-01-01 19:41:56,758 - ERROR - Database load failed for NET: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:56,758 - INFO - [stocks] 219/336: NFLX
+2026-01-01 19:41:57,335 - ERROR - Database load failed for NFLX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:57,336 - INFO - [stocks] 220/336: NKE
+2026-01-01 19:41:58,201 - ERROR - Database load failed for NKE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:41:58,701 - INFO - [stocks] 221/336: NLSN
+2026-01-01 19:41:59,247 - ERROR - $NLSN: possibly delisted; no timezone found
+2026-01-01 19:41:59,256 - ERROR - 
+1 Failed download:
+2026-01-01 19:41:59,256 - ERROR - ['NLSN']: possibly delisted; no timezone found
+2026-01-01 19:41:59,258 - WARNING - No data for NLSN, skipping.
+2026-01-01 19:41:59,258 - INFO - [stocks] 222/336: NOC
+2026-01-01 19:42:01,099 - ERROR - Database load failed for NOC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:01,099 - INFO - [stocks] 223/336: NOW
+2026-01-01 19:42:01,563 - ERROR - Database load failed for NOW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:01,563 - INFO - [stocks] 224/336: NRG
+2026-01-01 19:42:02,106 - ERROR - Database load failed for NRG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:02,106 - INFO - [stocks] 225/336: NSC
+2026-01-01 19:42:07,722 - ERROR - Database load failed for NSC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:08,222 - INFO - [stocks] 226/336: NTAP
+2026-01-01 19:42:08,769 - ERROR - Database load failed for NTAP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:08,769 - INFO - [stocks] 227/336: NTRS
+2026-01-01 19:42:09,427 - ERROR - Database load failed for NTRS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:09,427 - INFO - [stocks] 228/336: NVDA
+2026-01-01 19:42:10,138 - ERROR - Database load failed for NVDA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:10,138 - INFO - [stocks] 229/336: NVR
+2026-01-01 19:42:10,650 - ERROR - Database load failed for NVR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:10,651 - INFO - [stocks] 230/336: NWL
+2026-01-01 19:42:11,445 - ERROR - Database load failed for NWL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:11,945 - INFO - [stocks] 231/336: O
+2026-01-01 19:42:12,774 - ERROR - Database load failed for O: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:12,774 - INFO - [stocks] 232/336: ODFL
+2026-01-01 19:42:13,458 - ERROR - Database load failed for ODFL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:13,459 - INFO - [stocks] 233/336: OKTA
+2026-01-01 19:42:13,877 - ERROR - Database load failed for OKTA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:13,878 - INFO - [stocks] 234/336: ORCL
+2026-01-01 19:42:14,689 - ERROR - Database load failed for ORCL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:14,689 - INFO - [stocks] 235/336: ORLY
+2026-01-01 19:42:15,423 - ERROR - Database load failed for ORLY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:15,924 - INFO - [stocks] 236/336: OTIS
+2026-01-01 19:42:16,330 - ERROR - Database load failed for OTIS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:16,330 - INFO - [stocks] 237/336: OXY
+2026-01-01 19:42:17,403 - ERROR - Database load failed for OXY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:17,403 - INFO - [stocks] 238/336: PANW
+2026-01-01 19:42:18,199 - ERROR - Database load failed for PANW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:18,199 - INFO - [stocks] 239/336: PATH
+2026-01-01 19:42:18,636 - ERROR - Database load failed for PATH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:18,636 - INFO - [stocks] 240/336: PAYC
+2026-01-01 19:42:19,465 - ERROR - Database load failed for PAYC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:19,965 - INFO - [stocks] 241/336: PAYX
+2026-01-01 19:42:21,298 - ERROR - Database load failed for PAYX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:21,298 - INFO - [stocks] 242/336: PCAR
+2026-01-01 19:42:22,376 - ERROR - Database load failed for PCAR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:22,376 - INFO - [stocks] 243/336: PEP
+2026-01-01 19:42:23,275 - ERROR - Database load failed for PEP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:23,275 - INFO - [stocks] 244/336: PFE
+2026-01-01 19:42:24,218 - ERROR - Database load failed for PFE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:24,218 - INFO - [stocks] 245/336: PG
+2026-01-01 19:42:25,060 - ERROR - Database load failed for PG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:25,561 - INFO - [stocks] 246/336: PGR
+2026-01-01 19:42:26,473 - ERROR - Database load failed for PGR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:26,473 - INFO - [stocks] 247/336: PH
+2026-01-01 19:42:27,254 - ERROR - Database load failed for PH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:27,254 - INFO - [stocks] 248/336: PHM
+2026-01-01 19:42:27,991 - ERROR - Database load failed for PHM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:27,991 - INFO - [stocks] 249/336: PKI
+2026-01-01 19:42:28,723 - ERROR - $PKI: possibly delisted; no timezone found
+2026-01-01 19:42:28,728 - ERROR - 
+1 Failed download:
+2026-01-01 19:42:28,728 - ERROR - ['PKI']: possibly delisted; no timezone found
+2026-01-01 19:42:28,730 - WARNING - No data for PKI, skipping.
+2026-01-01 19:42:28,730 - INFO - [stocks] 250/336: PLD
+2026-01-01 19:42:29,406 - ERROR - Database load failed for PLD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:29,906 - INFO - [stocks] 251/336: PLTR
+2026-01-01 19:42:30,295 - ERROR - Database load failed for PLTR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:30,295 - INFO - [stocks] 252/336: PM
+2026-01-01 19:42:30,841 - ERROR - Database load failed for PM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:30,841 - INFO - [stocks] 253/336: PNC
+2026-01-01 19:42:31,579 - ERROR - Database load failed for PNC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:31,579 - INFO - [stocks] 254/336: PPL
+2026-01-01 19:42:32,363 - ERROR - Database load failed for PPL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:32,363 - INFO - [stocks] 255/336: PRU
+2026-01-01 19:42:33,166 - ERROR - Database load failed for PRU: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:33,666 - INFO - [stocks] 256/336: PSA
+2026-01-01 19:42:34,550 - ERROR - Database load failed for PSA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:34,550 - INFO - [stocks] 257/336: PVH
+2026-01-01 19:42:35,469 - ERROR - Database load failed for PVH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:35,469 - INFO - [stocks] 258/336: PYPL
+2026-01-01 19:42:35,959 - ERROR - Database load failed for PYPL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:35,959 - INFO - [stocks] 259/336: RAD
+2026-01-01 19:42:36,513 - ERROR - $RAD: possibly delisted; no timezone found
+2026-01-01 19:42:36,514 - ERROR - 
+1 Failed download:
+2026-01-01 19:42:36,514 - ERROR - ['RAD']: possibly delisted; no timezone found
+2026-01-01 19:42:36,518 - WARNING - No data for RAD, skipping.
+2026-01-01 19:42:36,518 - INFO - [stocks] 260/336: RCL
+2026-01-01 19:42:37,274 - ERROR - Database load failed for RCL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:37,774 - INFO - [stocks] 261/336: REGN
+2026-01-01 19:42:38,613 - ERROR - Database load failed for REGN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:38,613 - INFO - [stocks] 262/336: RHI
+2026-01-01 19:42:39,376 - ERROR - Database load failed for RHI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:39,376 - INFO - [stocks] 263/336: RIVN
+2026-01-01 19:42:39,715 - ERROR - Database load failed for RIVN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:39,715 - INFO - [stocks] 264/336: RJF
+2026-01-01 19:42:40,888 - ERROR - Database load failed for RJF: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:40,889 - INFO - [stocks] 265/336: ROL
+2026-01-01 19:42:42,007 - ERROR - Database load failed for ROL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:42,508 - INFO - [stocks] 266/336: ROP
+2026-01-01 19:42:43,303 - ERROR - Database load failed for ROP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:43,303 - INFO - [stocks] 267/336: ROST
+2026-01-01 19:42:43,931 - ERROR - Database load failed for ROST: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:43,931 - INFO - [stocks] 268/336: RSG
+2026-01-01 19:42:45,113 - ERROR - Database load failed for RSG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:45,113 - INFO - [stocks] 269/336: SBUX
+2026-01-01 19:42:45,796 - ERROR - Database load failed for SBUX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:45,796 - INFO - [stocks] 270/336: SCHW
+2026-01-01 19:42:46,610 - ERROR - Database load failed for SCHW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:47,110 - INFO - [stocks] 271/336: SHAK
+2026-01-01 19:42:47,754 - ERROR - Database load failed for SHAK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:47,755 - INFO - [stocks] 272/336: SHOP
+2026-01-01 19:42:48,250 - ERROR - Database load failed for SHOP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:48,250 - INFO - [stocks] 273/336: SLB
+2026-01-01 19:42:49,296 - ERROR - Database load failed for SLB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:49,296 - INFO - [stocks] 274/336: SNOW
+2026-01-01 19:42:49,749 - ERROR - Database load failed for SNOW: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:49,749 - INFO - [stocks] 275/336: SNPS
+2026-01-01 19:42:50,527 - ERROR - Database load failed for SNPS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:51,027 - INFO - [stocks] 276/336: SO
+2026-01-01 19:42:51,902 - ERROR - Database load failed for SO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:51,902 - INFO - [stocks] 277/336: SPGI
+2026-01-01 19:42:53,101 - ERROR - Database load failed for SPGI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:53,101 - INFO - [stocks] 278/336: SQ
+2026-01-01 19:42:53,779 - ERROR - $SQ: possibly delisted; no timezone found
+2026-01-01 19:42:53,780 - ERROR - 
+1 Failed download:
+2026-01-01 19:42:53,780 - ERROR - ['SQ']: possibly delisted; no timezone found
+2026-01-01 19:42:53,781 - WARNING - No data for SQ, skipping.
+2026-01-01 19:42:53,781 - INFO - [stocks] 279/336: SRE
+2026-01-01 19:42:54,604 - ERROR - Database load failed for SRE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:54,604 - INFO - [stocks] 280/336: STE
+2026-01-01 19:42:55,206 - ERROR - Database load failed for STE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:55,707 - INFO - [stocks] 281/336: STT
+2026-01-01 19:42:56,410 - ERROR - Database load failed for STT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:56,410 - INFO - [stocks] 282/336: STX
+2026-01-01 19:42:56,942 - ERROR - Database load failed for STX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:56,942 - INFO - [stocks] 283/336: SWK
+2026-01-01 19:42:57,610 - ERROR - Database load failed for SWK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:57,611 - INFO - [stocks] 284/336: SYK
+2026-01-01 19:42:58,297 - ERROR - Database load failed for SYK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:58,297 - INFO - [stocks] 285/336: T
+2026-01-01 19:42:59,039 - ERROR - Database load failed for T: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:42:59,539 - INFO - [stocks] 286/336: TDG
+2026-01-01 19:43:00,154 - ERROR - Database load failed for TDG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:00,154 - INFO - [stocks] 287/336: TDOC
+2026-01-01 19:43:00,670 - ERROR - Database load failed for TDOC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:00,670 - INFO - [stocks] 288/336: TDY
+2026-01-01 19:43:01,263 - ERROR - Database load failed for TDY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:01,263 - INFO - [stocks] 289/336: TEAM
+2026-01-01 19:43:01,840 - ERROR - Database load failed for TEAM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:01,840 - INFO - [stocks] 290/336: TEL
+2026-01-01 19:43:02,375 - ERROR - Database load failed for TEL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:02,876 - INFO - [stocks] 291/336: TFC
+2026-01-01 19:43:03,725 - ERROR - Database load failed for TFC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:03,725 - INFO - [stocks] 292/336: TFX
+2026-01-01 19:43:04,407 - ERROR - Database load failed for TFX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:04,407 - INFO - [stocks] 293/336: TGT
+2026-01-01 19:43:05,904 - ERROR - Database load failed for TGT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:05,904 - INFO - [stocks] 294/336: TJX
+2026-01-01 19:43:06,562 - ERROR - Database load failed for TJX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:06,562 - INFO - [stocks] 295/336: TMO
+2026-01-01 19:43:07,387 - ERROR - Database load failed for TMO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:07,887 - INFO - [stocks] 296/336: TOL
+2026-01-01 19:43:08,693 - ERROR - Database load failed for TOL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:08,693 - INFO - [stocks] 297/336: TPR
+2026-01-01 19:43:09,236 - ERROR - Database load failed for TPR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:09,236 - INFO - [stocks] 298/336: TRMB
+2026-01-01 19:43:09,795 - ERROR - Database load failed for TRMB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:09,795 - INFO - [stocks] 299/336: TRU
+2026-01-01 19:43:10,516 - ERROR - Database load failed for TRU: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:10,516 - INFO - [stocks] 300/336: TRV
+2026-01-01 19:43:11,206 - ERROR - Database load failed for TRV: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:11,707 - INFO - [stocks] 301/336: TSCO
+2026-01-01 19:43:12,460 - ERROR - Database load failed for TSCO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:12,460 - INFO - [stocks] 302/336: TSLA
+2026-01-01 19:43:13,008 - ERROR - Database load failed for TSLA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:13,008 - INFO - [stocks] 303/336: TSN
+2026-01-01 19:43:14,770 - ERROR - Database load failed for TSN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:14,770 - INFO - [stocks] 304/336: TXN
+2026-01-01 19:43:16,511 - ERROR - Database load failed for TXN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:16,512 - INFO - [stocks] 305/336: TXT
+2026-01-01 19:43:17,184 - ERROR - Database load failed for TXT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:17,684 - INFO - [stocks] 306/336: UAL
+2026-01-01 19:43:18,625 - ERROR - Database load failed for UAL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:18,625 - INFO - [stocks] 307/336: UBER
+2026-01-01 19:43:18,986 - ERROR - Database load failed for UBER: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:18,986 - INFO - [stocks] 308/336: UHS
+2026-01-01 19:43:20,075 - ERROR - Database load failed for UHS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:20,075 - INFO - [stocks] 309/336: ULTA
+2026-01-01 19:43:25,923 - ERROR - Database load failed for ULTA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:25,923 - INFO - [stocks] 310/336: UNH
+2026-01-01 19:43:27,906 - ERROR - Database load failed for UNH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:28,406 - INFO - [stocks] 311/336: UNP
+2026-01-01 19:43:29,132 - ERROR - Database load failed for UNP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:29,133 - INFO - [stocks] 312/336: UPS
+2026-01-01 19:43:29,924 - ERROR - Database load failed for UPS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:29,924 - INFO - [stocks] 313/336: USB
+2026-01-01 19:43:31,660 - ERROR - Database load failed for USB: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:31,660 - INFO - [stocks] 314/336: V
+2026-01-01 19:43:32,231 - ERROR - Database load failed for V: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:32,231 - INFO - [stocks] 315/336: VLO
+2026-01-01 19:43:32,941 - ERROR - Database load failed for VLO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:33,441 - INFO - [stocks] 316/336: VRSK
+2026-01-01 19:43:33,974 - ERROR - Database load failed for VRSK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:33,974 - INFO - [stocks] 317/336: VRTX
+2026-01-01 19:43:34,564 - ERROR - Database load failed for VRTX: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:34,564 - INFO - [stocks] 318/336: WAT
+2026-01-01 19:43:35,141 - ERROR - Database load failed for WAT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:35,141 - INFO - [stocks] 319/336: WBA
+2026-01-01 19:43:35,714 - ERROR - $WBA: possibly delisted; no timezone found
+2026-01-01 19:43:35,717 - ERROR - 
+1 Failed download:
+2026-01-01 19:43:35,718 - ERROR - ['WBA']: possibly delisted; no timezone found
+2026-01-01 19:43:35,721 - WARNING - No data for WBA, skipping.
+2026-01-01 19:43:35,722 - INFO - [stocks] 320/336: WDC
+2026-01-01 19:43:36,454 - ERROR - Database load failed for WDC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:36,955 - INFO - [stocks] 321/336: WELL
+2026-01-01 19:43:37,692 - ERROR - Database load failed for WELL: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:37,692 - INFO - [stocks] 322/336: WFC
+2026-01-01 19:43:38,539 - ERROR - Database load failed for WFC: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:38,539 - INFO - [stocks] 323/336: WH
+2026-01-01 19:43:39,003 - ERROR - Database load failed for WH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:39,004 - INFO - [stocks] 324/336: WHR
+2026-01-01 19:43:39,893 - ERROR - Database load failed for WHR: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:39,893 - INFO - [stocks] 325/336: WING
+2026-01-01 19:43:40,364 - ERROR - Database load failed for WING: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:40,864 - INFO - [stocks] 326/336: WM
+2026-01-01 19:43:41,568 - ERROR - Database load failed for WM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:41,568 - INFO - [stocks] 327/336: WMT
+2026-01-01 19:43:42,310 - ERROR - Database load failed for WMT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:42,311 - INFO - [stocks] 328/336: WRK
+2026-01-01 19:43:43,059 - ERROR - $WRK: possibly delisted; no timezone found
+2026-01-01 19:43:43,067 - ERROR - 
+1 Failed download:
+2026-01-01 19:43:43,067 - ERROR - ['WRK']: possibly delisted; no timezone found
+2026-01-01 19:43:43,070 - WARNING - No data for WRK, skipping.
+2026-01-01 19:43:43,070 - INFO - [stocks] 329/336: WSM
+2026-01-01 19:43:43,720 - ERROR - Database load failed for WSM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:43,721 - INFO - [stocks] 330/336: WYNN
+2026-01-01 19:43:44,394 - ERROR - Database load failed for WYNN: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:44,895 - INFO - [stocks] 331/336: XOM
+2026-01-01 19:43:45,750 - ERROR - Database load failed for XOM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:45,751 - INFO - [stocks] 332/336: YUM
+2026-01-01 19:43:46,441 - ERROR - Database load failed for YUM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:46,442 - INFO - [stocks] 333/336: ZBH
+2026-01-01 19:43:47,181 - ERROR - Database load failed for ZBH: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:47,182 - INFO - [stocks] 334/336: ZBRA
+2026-01-01 19:43:47,916 - ERROR - Database load failed for ZBRA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:47,916 - INFO - [stocks] 335/336: ZS
+2026-01-01 19:43:48,327 - ERROR - Database load failed for ZS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:48,828 - INFO - [stocks] 336/336: ZTS
+2026-01-01 19:43:49,403 - ERROR - Database load failed for ZTS: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:49,404 - INFO - --- Processing etf_tickers.txt (Type: etfs) | 27 tickers ---
+2026-01-01 19:43:49,404 - INFO - [etfs] 1/27: ARKK
+2026-01-01 19:43:49,887 - ERROR - Database load failed for ARKK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:49,888 - INFO - [etfs] 2/27: BND
+2026-01-01 19:43:50,486 - ERROR - Database load failed for BND: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:50,486 - INFO - [etfs] 3/27: DIA
+2026-01-01 19:43:51,511 - ERROR - Database load failed for DIA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:51,511 - INFO - [etfs] 4/27: EFA
+2026-01-01 19:43:52,207 - ERROR - Database load failed for EFA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:52,207 - INFO - [etfs] 5/27: HYG
+2026-01-01 19:43:52,936 - ERROR - Database load failed for HYG: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:53,436 - INFO - [etfs] 6/27: IEF
+2026-01-01 19:43:54,248 - ERROR - Database load failed for IEF: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:54,248 - INFO - [etfs] 7/27: IWM
+2026-01-01 19:43:55,040 - ERROR - Database load failed for IWM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:55,040 - INFO - [etfs] 8/27: JEPI
+2026-01-01 19:43:55,440 - ERROR - Database load failed for JEPI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:55,440 - INFO - [etfs] 9/27: LQD
+2026-01-01 19:43:56,308 - ERROR - Database load failed for LQD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:56,308 - INFO - [etfs] 10/27: QQQ
+2026-01-01 19:43:57,074 - ERROR - Database load failed for QQQ: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:57,575 - INFO - [etfs] 11/27: SCHD
+2026-01-01 19:43:58,083 - ERROR - Database load failed for SCHD: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:58,083 - INFO - [etfs] 12/27: SPY
+2026-01-01 19:43:58,754 - ERROR - Database load failed for SPY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:58,754 - INFO - [etfs] 13/27: TLT
+2026-01-01 19:43:59,451 - ERROR - Database load failed for TLT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:43:59,451 - INFO - [etfs] 14/27: VEA
+2026-01-01 19:44:00,010 - ERROR - Database load failed for VEA: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:00,010 - INFO - [etfs] 15/27: VOO
+2026-01-01 19:44:00,577 - ERROR - Database load failed for VOO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:01,077 - INFO - [etfs] 16/27: VT
+2026-01-01 19:44:01,643 - ERROR - Database load failed for VT: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:01,644 - INFO - [etfs] 17/27: VTI
+2026-01-01 19:44:02,853 - ERROR - Database load failed for VTI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:02,853 - INFO - [etfs] 18/27: VWO
+2026-01-01 19:44:03,620 - ERROR - Database load failed for VWO: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:03,620 - INFO - [etfs] 19/27: VYM
+2026-01-01 19:44:04,199 - ERROR - Database load failed for VYM: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:04,199 - INFO - [etfs] 20/27: XLE
+2026-01-01 19:44:04,906 - ERROR - Database load failed for XLE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:05,406 - INFO - [etfs] 21/27: XLF
+2026-01-01 19:44:06,093 - ERROR - Database load failed for XLF: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:06,093 - INFO - [etfs] 22/27: XLI
+2026-01-01 19:44:06,813 - ERROR - Database load failed for XLI: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:06,813 - INFO - [etfs] 23/27: XLK
+2026-01-01 19:44:08,127 - ERROR - Database load failed for XLK: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:08,127 - INFO - [etfs] 24/27: XLP
+2026-01-01 19:44:13,837 - ERROR - Database load failed for XLP: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:13,837 - INFO - [etfs] 25/27: XLRE
+2026-01-01 19:44:14,496 - ERROR - Database load failed for XLRE: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:14,997 - INFO - [etfs] 26/27: XLV
+2026-01-01 19:44:15,944 - ERROR - Database load failed for XLV: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:15,944 - INFO - [etfs] 27/27: XLY
+2026-01-01 19:44:17,075 - ERROR - Database load failed for XLY: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:17,076 - INFO - --- Processing commodities_tickers.txt (Type: commodities) | 15 tickers ---
+2026-01-01 19:44:17,076 - INFO - [commodities] 1/15: BZ=F
+2026-01-01 19:44:19,031 - ERROR - Database load failed for BZ=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:19,031 - INFO - [commodities] 2/15: CL=F
+2026-01-01 19:44:20,977 - ERROR - Database load failed for CL=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:20,977 - INFO - [commodities] 3/15: GC=F
+2026-01-01 19:44:22,911 - ERROR - Database load failed for GC=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:22,911 - INFO - [commodities] 4/15: HE=F
+2026-01-01 19:44:25,112 - ERROR - Database load failed for HE=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:25,112 - INFO - [commodities] 5/15: HG=F
+2026-01-01 19:44:27,280 - ERROR - Database load failed for HG=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:27,780 - INFO - [commodities] 6/15: KC=F
+2026-01-01 19:44:29,412 - ERROR - Database load failed for KC=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:29,412 - INFO - [commodities] 7/15: LE=F
+2026-01-01 19:44:31,130 - ERROR - Database load failed for LE=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:31,130 - INFO - [commodities] 8/15: NG=F
+2026-01-01 19:44:32,772 - ERROR - Database load failed for NG=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:32,773 - INFO - [commodities] 9/15: PA=F
+2026-01-01 19:44:34,150 - ERROR - Database load failed for PA=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:34,151 - INFO - [commodities] 10/15: PL=F
+2026-01-01 19:44:35,667 - ERROR - Database load failed for PL=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:36,167 - INFO - [commodities] 11/15: SB=F
+2026-01-01 19:44:37,619 - ERROR - Database load failed for SB=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:37,620 - INFO - [commodities] 12/15: SI=F
+2026-01-01 19:44:39,066 - ERROR - Database load failed for SI=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:39,066 - INFO - [commodities] 13/15: ZC=F
+2026-01-01 19:44:40,924 - ERROR - Database load failed for ZC=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:40,924 - INFO - [commodities] 14/15: ZS=F
+2026-01-01 19:44:42,893 - ERROR - Database load failed for ZS=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:42,893 - INFO - [commodities] 15/15: ZW=F
+2026-01-01 19:44:44,353 - ERROR - Database load failed for ZW=F: column reference "symbol" is ambiguous
+LINE 3: ...                name = CASE WHEN EXCLUDED.name != symbol THE...
+                                                             ^
+
+2026-01-01 19:44:44,853 - INFO - ==============================
+2026-01-01 19:44:44,853 - INFO - REFRESH SYSTEM SUMMARY
+2026-01-01 19:44:44,854 - INFO - Files Processed:   5
+2026-01-01 19:44:44,854 - INFO - Total Attempted:   416
+2026-01-01 19:44:44,854 - INFO - Successfully DL:   403
+2026-01-01 19:44:44,854 - INFO - Successfully Load: 0
+2026-01-01 19:44:44,854 - INFO - Skipped:           13
+2026-01-01 19:44:44,854 - INFO - Failed Load:       403
+2026-01-01 19:44:44,854 - INFO - ==============================
+2026-01-01 19:45:32,209 - INFO - Found 5 ticker files.
+2026-01-01 19:45:32,210 - INFO - --- Processing crypto_tickers.txt (Type: crypto) | 20 tickers ---
+2026-01-01 19:45:32,210 - INFO - [crypto] 1/20: ADA-USD
+2026-01-01 19:45:33,156 - ERROR - Database load failed for ADA-USD: name 'asset_id' is not defined
+2026-01-01 19:45:33,157 - INFO - [crypto] 2/20: ALGO-USD
+2026-01-01 19:45:33,781 - ERROR - Database load failed for ALGO-USD: name 'asset_id' is not defined
+2026-01-01 19:45:33,781 - INFO - [crypto] 3/20: APT-USD
+2026-01-01 19:45:34,165 - ERROR - Database load failed for APT-USD: name 'asset_id' is not defined
+2026-01-01 19:45:34,166 - INFO - [crypto] 4/20: ATOM-USD
+2026-01-01 19:45:34,671 - ERROR - Database load failed for ATOM-USD: name 'asset_id' is not defined
+2026-01-01 19:45:34,672 - INFO - [crypto] 5/20: AVAX-USD
+2026-01-01 19:45:35,182 - ERROR - Database load failed for AVAX-USD: name 'asset_id' is not defined
+2026-01-01 19:45:35,683 - INFO - [crypto] 6/20: BCH-USD
+2026-01-01 19:45:36,335 - ERROR - Database load failed for BCH-USD: name 'asset_id' is not defined
+2026-01-01 19:45:36,335 - INFO - [crypto] 7/20: BTC-USD
+2026-01-01 19:45:36,888 - ERROR - Database load failed for BTC-USD: name 'asset_id' is not defined
+2026-01-01 19:45:36,888 - INFO - [crypto] 8/20: DOGE-USD
+2026-01-01 19:45:37,454 - ERROR - Database load failed for DOGE-USD: name 'asset_id' is not defined
+2026-01-01 19:45:37,454 - INFO - [crypto] 9/20: DOT-USD
+2026-01-01 19:45:37,970 - ERROR - Database load failed for DOT-USD: name 'asset_id' is not defined
+2026-01-01 19:45:37,971 - INFO - [crypto] 10/20: ETC-USD
+2026-01-01 19:45:38,589 - ERROR - Database load failed for ETC-USD: name 'asset_id' is not defined
+2026-01-01 19:45:39,089 - INFO - [crypto] 11/20: ETH-USD
+2026-01-01 19:45:39,625 - ERROR - Database load failed for ETH-USD: name 'asset_id' is not defined
+2026-01-01 19:45:39,625 - INFO - [crypto] 12/20: LINK-USD
+2026-01-01 19:45:40,158 - ERROR - Database load failed for LINK-USD: name 'asset_id' is not defined
+2026-01-01 19:45:40,158 - INFO - [crypto] 13/20: LTC-USD
+2026-01-01 19:45:41,613 - ERROR - Database load failed for LTC-USD: name 'asset_id' is not defined
+2026-01-01 19:45:41,614 - INFO - [crypto] 14/20: MATIC-USD
+2026-01-01 19:45:42,279 - ERROR - Database load failed for MATIC-USD: name 'asset_id' is not defined
+2026-01-01 19:45:42,280 - INFO - [crypto] 15/20: NEAR-USD
+2026-01-01 19:45:42,756 - ERROR - Database load failed for NEAR-USD: name 'asset_id' is not defined
+2026-01-01 19:45:43,256 - INFO - [crypto] 16/20: SOL-USD
+2026-01-01 19:45:43,755 - ERROR - Database load failed for SOL-USD: name 'asset_id' is not defined
+2026-01-01 19:45:43,756 - INFO - [crypto] 17/20: TRX-USD
+2026-01-01 19:45:44,335 - ERROR - Database load failed for TRX-USD: name 'asset_id' is not defined
+2026-01-01 19:45:44,336 - INFO - [crypto] 18/20: UNI-USD
+2026-01-01 19:45:44,733 - ERROR - Database load failed for UNI-USD: name 'asset_id' is not defined
+2026-01-01 19:45:44,734 - INFO - [crypto] 19/20: XLM-USD
+2026-01-01 19:45:45,261 - ERROR - Database load failed for XLM-USD: name 'asset_id' is not defined
+2026-01-01 19:45:45,261 - INFO - [crypto] 20/20: XRP-USD
+2026-01-01 19:45:45,897 - ERROR - Database load failed for XRP-USD: name 'asset_id' is not defined
+2026-01-01 19:45:46,397 - INFO - --- Processing mutualfund_tickers.txt (Type: mutualfunds) | 18 tickers ---
+2026-01-01 19:45:46,398 - INFO - [mutualfunds] 1/18: DFLVX
+2026-01-01 19:45:46,929 - ERROR - Database load failed for DFLVX: name 'asset_id' is not defined
+2026-01-01 19:45:46,930 - INFO - [mutualfunds] 2/18: FSMAX
+2026-01-01 19:45:47,352 - ERROR - Database load failed for FSMAX: name 'asset_id' is not defined
+2026-01-01 19:45:47,353 - INFO - [mutualfunds] 3/18: FSPGX
+2026-01-01 19:45:47,779 - ERROR - Database load failed for FSPGX: name 'asset_id' is not defined
+2026-01-01 19:45:47,780 - INFO - [mutualfunds] 4/18: FXAIX
+2026-01-01 19:45:48,211 - ERROR - Database load failed for FXAIX: name 'asset_id' is not defined
+2026-01-01 19:45:48,212 - INFO - [mutualfunds] 5/18: FZROX
+2026-01-01 19:45:48,560 - ERROR - Database load failed for FZROX: name 'asset_id' is not defined
+2026-01-01 19:45:49,061 - INFO - [mutualfunds] 6/18: PRNHX
+2026-01-01 19:45:49,756 - ERROR - Database load failed for PRNHX: name 'asset_id' is not defined
+2026-01-01 19:45:49,757 - INFO - [mutualfunds] 7/18: SWPPX
+2026-01-01 19:45:50,235 - ERROR - Database load failed for SWPPX: name 'asset_id' is not defined
+2026-01-01 19:45:50,236 - INFO - [mutualfunds] 8/18: TRBCX
+2026-01-01 19:45:50,747 - ERROR - Database load failed for TRBCX: name 'asset_id' is not defined
+2026-01-01 19:45:50,748 - INFO - [mutualfunds] 9/18: VASIX
+2026-01-01 19:45:51,211 - ERROR - Database load failed for VASIX: name 'asset_id' is not defined
+2026-01-01 19:45:51,212 - INFO - [mutualfunds] 10/18: VBTLX
+2026-01-01 19:45:51,676 - ERROR - Database load failed for VBTLX: name 'asset_id' is not defined
+2026-01-01 19:45:52,177 - INFO - [mutualfunds] 11/18: VFIAX
+2026-01-01 19:45:52,695 - ERROR - Database load failed for VFIAX: name 'asset_id' is not defined
+2026-01-01 19:45:52,696 - INFO - [mutualfunds] 12/18: VIMSX
+2026-01-01 19:45:53,320 - ERROR - Database load failed for VIMSX: name 'asset_id' is not defined
+2026-01-01 19:45:53,320 - INFO - [mutualfunds] 13/18: VSMAX
+2026-01-01 19:45:53,772 - ERROR - Database load failed for VSMAX: name 'asset_id' is not defined
+2026-01-01 19:45:53,773 - INFO - [mutualfunds] 14/18: VTSAX
+2026-01-01 19:45:54,253 - ERROR - Database load failed for VTSAX: name 'asset_id' is not defined
+2026-01-01 19:45:54,254 - INFO - [mutualfunds] 15/18: VWENX
+2026-01-01 19:45:54,688 - ERROR - Database load failed for VWENX: name 'asset_id' is not defined
+2026-01-01 19:45:55,189 - INFO - [mutualfunds] 16/18: VWLTX
+2026-01-01 19:45:55,877 - ERROR - Database load failed for VWLTX: name 'asset_id' is not defined
+2026-01-01 19:45:55,878 - INFO - [mutualfunds] 17/18: VWLUX
+2026-01-01 19:45:56,491 - ERROR - Database load failed for VWLUX: name 'asset_id' is not defined
+2026-01-01 19:45:56,492 - INFO - [mutualfunds] 18/18: VWUSX
+2026-01-01 19:45:56,974 - ERROR - Database load failed for VWUSX: name 'asset_id' is not defined
+2026-01-01 19:45:56,975 - INFO - --- Processing sp500_tickers.txt (Type: stocks) | 336 tickers ---
+2026-01-01 19:45:56,975 - INFO - [stocks] 1/336: A
+2026-01-01 19:45:57,450 - ERROR - Database load failed for A: name 'asset_id' is not defined
+2026-01-01 19:45:57,451 - INFO - [stocks] 2/336: AAL
+2026-01-01 19:45:58,012 - ERROR - Database load failed for AAL: name 'asset_id' is not defined
+2026-01-01 19:45:58,013 - INFO - [stocks] 3/336: AAPL
+2026-01-01 19:45:58,636 - ERROR - Database load failed for AAPL: name 'asset_id' is not defined
+2026-01-01 19:45:58,637 - INFO - [stocks] 4/336: ABBV
+2026-01-01 19:45:59,252 - ERROR - Database load failed for ABBV: name 'asset_id' is not defined
+2026-01-01 19:45:59,252 - INFO - [stocks] 5/336: ABMD
+2026-01-01 19:46:00,203 - ERROR - $ABMD: possibly delisted; no timezone found
+2026-01-01 19:46:00,210 - ERROR - 
+1 Failed download:
+2026-01-01 19:46:00,210 - ERROR - ['ABMD']: possibly delisted; no timezone found
+2026-01-01 19:46:00,213 - WARNING - No data for ABMD, skipping.
+2026-01-01 19:46:00,213 - INFO - [stocks] 6/336: ABNB
+2026-01-01 19:46:00,523 - ERROR - Database load failed for ABNB: name 'asset_id' is not defined
+2026-01-01 19:46:00,524 - INFO - [stocks] 7/336: ABT
+2026-01-01 19:46:01,052 - ERROR - Database load failed for ABT: name 'asset_id' is not defined
+2026-01-01 19:46:01,052 - INFO - [stocks] 8/336: ACN
+2026-01-01 19:46:01,692 - ERROR - Database load failed for ACN: name 'asset_id' is not defined
+2026-01-01 19:46:01,693 - INFO - [stocks] 9/336: ADBE
+2026-01-01 19:46:02,171 - ERROR - Database load failed for ADBE: name 'asset_id' is not defined
+2026-01-01 19:46:02,172 - INFO - [stocks] 10/336: ADI
+2026-01-01 19:46:02,624 - ERROR - Database load failed for ADI: name 'asset_id' is not defined
+2026-01-01 19:46:03,125 - INFO - [stocks] 11/336: ADM
+2026-01-01 19:46:03,772 - ERROR - Database load failed for ADM: name 'asset_id' is not defined
+2026-01-01 19:46:03,773 - INFO - [stocks] 12/336: ADP
+2026-01-01 19:46:04,461 - ERROR - Database load failed for ADP: name 'asset_id' is not defined
+2026-01-01 19:46:04,462 - INFO - [stocks] 13/336: ADSK
+2026-01-01 19:46:05,311 - ERROR - Database load failed for ADSK: name 'asset_id' is not defined
+2026-01-01 19:46:05,312 - INFO - [stocks] 14/336: AEP
+2026-01-01 19:46:06,010 - ERROR - Database load failed for AEP: name 'asset_id' is not defined
+2026-01-01 19:46:06,011 - INFO - [stocks] 15/336: AFL
+2026-01-01 19:46:06,692 - ERROR - Database load failed for AFL: name 'asset_id' is not defined
+2026-01-01 19:46:07,193 - INFO - [stocks] 16/336: AIG
+2026-01-01 19:46:07,767 - ERROR - Database load failed for AIG: name 'asset_id' is not defined
+2026-01-01 19:46:07,768 - INFO - [stocks] 17/336: AKAM
+2026-01-01 19:46:08,207 - ERROR - Database load failed for AKAM: name 'asset_id' is not defined
+2026-01-01 19:46:08,207 - INFO - [stocks] 18/336: ALB
+2026-01-01 19:46:08,819 - ERROR - Database load failed for ALB: name 'asset_id' is not defined
+2026-01-01 19:46:08,821 - INFO - [stocks] 19/336: ALGN
+2026-01-01 19:46:09,334 - ERROR - Database load failed for ALGN: name 'asset_id' is not defined
+2026-01-01 19:46:09,335 - INFO - [stocks] 20/336: ALLY
+2026-01-01 19:46:09,784 - ERROR - Database load failed for ALLY: name 'asset_id' is not defined
+2026-01-01 19:46:10,285 - INFO - [stocks] 21/336: AMAT
+2026-01-01 19:46:10,817 - ERROR - Database load failed for AMAT: name 'asset_id' is not defined
+2026-01-01 19:46:10,818 - INFO - [stocks] 22/336: AMD
+2026-01-01 19:46:11,431 - ERROR - Database load failed for AMD: name 'asset_id' is not defined
+2026-01-01 19:46:11,431 - INFO - [stocks] 23/336: AMGN
+2026-01-01 19:46:12,044 - ERROR - Database load failed for AMGN: name 'asset_id' is not defined
+2026-01-01 19:46:12,045 - INFO - [stocks] 24/336: AMP
+2026-01-01 19:46:12,751 - ERROR - Database load failed for AMP: name 'asset_id' is not defined
+2026-01-01 19:46:12,751 - INFO - [stocks] 25/336: AMZN
+2026-01-01 19:46:13,231 - ERROR - Database load failed for AMZN: name 'asset_id' is not defined
+2026-01-01 19:46:13,733 - INFO - [stocks] 26/336: ANSS
+2026-01-01 19:46:15,055 - ERROR - HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: ANSS"}}}
+2026-01-01 19:46:15,220 - ERROR - $ANSS: possibly delisted; no timezone found
+2026-01-01 19:46:15,221 - ERROR - 
+1 Failed download:
+2026-01-01 19:46:15,221 - ERROR - ['ANSS']: possibly delisted; no timezone found
+2026-01-01 19:46:15,224 - WARNING - No data for ANSS, skipping.
+2026-01-01 19:46:15,224 - INFO - [stocks] 27/336: ANTM
+2026-01-01 19:46:15,912 - ERROR - $ANTM: possibly delisted; no timezone found
+2026-01-01 19:46:15,918 - ERROR - 
+1 Failed download:
+2026-01-01 19:46:15,918 - ERROR - ['ANTM']: possibly delisted; no timezone found
+2026-01-01 19:46:15,921 - WARNING - No data for ANTM, skipping.
+2026-01-01 19:46:15,921 - INFO - [stocks] 28/336: AON
+2026-01-01 19:46:16,672 - ERROR - Database load failed for AON: name 'asset_id' is not defined
+2026-01-01 19:46:16,673 - INFO - [stocks] 29/336: AOS
+2026-01-01 19:46:17,404 - ERROR - Database load failed for AOS: name 'asset_id' is not defined
+2026-01-01 19:46:17,405 - INFO - [stocks] 30/336: APA
+2026-01-01 19:46:18,630 - ERROR - Database load failed for APA: name 'asset_id' is not defined
+2026-01-01 19:46:19,131 - INFO - [stocks] 31/336: APD
+2026-01-01 19:46:19,969 - ERROR - Database load failed for APD: name 'asset_id' is not defined
+2026-01-01 19:46:19,970 - INFO - [stocks] 32/336: AVGO
+2026-01-01 19:46:20,630 - ERROR - Database load failed for AVGO: name 'asset_id' is not defined
+2026-01-01 19:46:20,631 - INFO - [stocks] 33/336: AXP
+2026-01-01 19:46:21,365 - ERROR - Database load failed for AXP: name 'asset_id' is not defined
+2026-01-01 19:46:21,366 - INFO - [stocks] 34/336: AZO
+2026-01-01 19:46:21,956 - ERROR - Database load failed for AZO: name 'asset_id' is not defined
+2026-01-01 19:46:21,957 - INFO - [stocks] 35/336: BA
+2026-01-01 19:46:22,785 - ERROR - Database load failed for BA: name 'asset_id' is not defined
+2026-01-01 19:46:23,286 - INFO - [stocks] 36/336: BAC
+2026-01-01 19:46:24,235 - ERROR - Database load failed for BAC: name 'asset_id' is not defined
+2026-01-01 19:46:24,236 - INFO - [stocks] 37/336: BAX
+2026-01-01 19:46:30,382 - ERROR - Database load failed for BAX: name 'asset_id' is not defined
+2026-01-01 19:46:30,382 - INFO - [stocks] 38/336: BBBY
+2026-01-01 19:46:31,096 - ERROR - Database load failed for BBBY: name 'asset_id' is not defined
+2026-01-01 19:46:31,096 - INFO - [stocks] 39/336: BBWI
+2026-01-01 19:46:32,026 - ERROR - Database load failed for BBWI: name 'asset_id' is not defined
+2026-01-01 19:46:32,027 - INFO - [stocks] 40/336: BBY
+2026-01-01 19:46:33,221 - ERROR - Database load failed for BBY: name 'asset_id' is not defined
+2026-01-01 19:46:33,722 - INFO - [stocks] 41/336: BG
+2026-01-01 19:46:34,658 - ERROR - Database load failed for BG: name 'asset_id' is not defined
+2026-01-01 19:46:34,659 - INFO - [stocks] 42/336: BIIB
+2026-01-01 19:46:35,234 - ERROR - Database load failed for BIIB: name 'asset_id' is not defined
+2026-01-01 19:46:35,234 - INFO - [stocks] 43/336: BIO
+2026-01-01 19:46:35,920 - ERROR - Database load failed for BIO: name 'asset_id' is not defined
+2026-01-01 19:46:35,921 - INFO - [stocks] 44/336: BK
+2026-01-01 19:46:37,073 - ERROR - Database load failed for BK: name 'asset_id' is not defined
+2026-01-01 19:46:37,073 - INFO - [stocks] 45/336: BKNG
+2026-01-01 19:46:38,016 - ERROR - Database load failed for BKNG: name 'asset_id' is not defined
+2026-01-01 19:46:38,517 - INFO - [stocks] 46/336: BKR
+2026-01-01 19:46:39,251 - ERROR - Database load failed for BKR: name 'asset_id' is not defined
+2026-01-01 19:46:39,252 - INFO - [stocks] 47/336: BLK
+2026-01-01 19:46:39,948 - ERROR - Database load failed for BLK: name 'asset_id' is not defined
+2026-01-01 19:46:39,949 - INFO - [stocks] 48/336: BR
+2026-01-01 19:46:40,742 - ERROR - Database load failed for BR: name 'asset_id' is not defined
+2026-01-01 19:46:40,742 - INFO - [stocks] 49/336: BRK-B
+2026-01-01 19:46:41,694 - ERROR - Database load failed for BRK-B: name 'asset_id' is not defined
+2026-01-01 19:46:41,695 - INFO - [stocks] 50/336: BRKR
+2026-01-01 19:46:42,463 - ERROR - Database load failed for BRKR: name 'asset_id' is not defined
+2026-01-01 19:46:42,964 - INFO - [stocks] 51/336: BSX
+2026-01-01 19:46:43,562 - ERROR - Database load failed for BSX: name 'asset_id' is not defined
+2026-01-01 19:46:43,563 - INFO - [stocks] 52/336: BURL
+2026-01-01 19:46:44,025 - ERROR - Database load failed for BURL: name 'asset_id' is not defined
+2026-01-01 19:46:44,026 - INFO - [stocks] 53/336: BX
+2026-01-01 19:46:44,763 - ERROR - Database load failed for BX: name 'asset_id' is not defined
+2026-01-01 19:46:44,763 - INFO - [stocks] 54/336: C
+2026-01-01 19:46:45,564 - ERROR - Database load failed for C: name 'asset_id' is not defined
+2026-01-01 19:46:45,564 - INFO - [stocks] 55/336: CAH
+2026-01-01 19:46:46,341 - ERROR - Database load failed for CAH: name 'asset_id' is not defined
+2026-01-01 19:46:46,842 - INFO - [stocks] 56/336: CARR
+2026-01-01 19:46:47,325 - ERROR - Database load failed for CARR: name 'asset_id' is not defined
+2026-01-01 19:46:47,326 - INFO - [stocks] 57/336: CAT
+2026-01-01 19:46:48,242 - ERROR - Database load failed for CAT: name 'asset_id' is not defined
+2026-01-01 19:46:48,243 - INFO - [stocks] 58/336: CB
+2026-01-01 19:46:49,042 - ERROR - Database load failed for CB: name 'asset_id' is not defined
+2026-01-01 19:46:49,042 - INFO - [stocks] 59/336: CBRE
+2026-01-01 19:46:49,684 - ERROR - Database load failed for CBRE: name 'asset_id' is not defined
+2026-01-01 19:46:49,684 - INFO - [stocks] 60/336: CCL
+2026-01-01 19:46:50,463 - ERROR - Database load failed for CCL: name 'asset_id' is not defined
+2026-01-01 19:46:50,964 - INFO - [stocks] 61/336: CDNS
+2026-01-01 19:46:51,540 - ERROR - Database load failed for CDNS: name 'asset_id' is not defined
+2026-01-01 19:46:51,541 - INFO - [stocks] 62/336: CDW
+2026-01-01 19:46:52,105 - ERROR - Database load failed for CDW: name 'asset_id' is not defined
+2026-01-01 19:46:52,105 - INFO - [stocks] 63/336: CF
+2026-01-01 19:46:52,796 - ERROR - Database load failed for CF: name 'asset_id' is not defined
+2026-01-01 19:46:52,797 - INFO - [stocks] 64/336: CHD
+2026-01-01 19:46:53,598 - ERROR - Database load failed for CHD: name 'asset_id' is not defined
+2026-01-01 19:46:53,598 - INFO - [stocks] 65/336: CHRW
+2026-01-01 19:46:54,372 - ERROR - Database load failed for CHRW: name 'asset_id' is not defined
+2026-01-01 19:46:54,873 - INFO - [stocks] 66/336: CHTR
+2026-01-01 19:46:55,414 - ERROR - Database load failed for CHTR: name 'asset_id' is not defined
+2026-01-01 19:46:55,415 - INFO - [stocks] 67/336: CI
+2026-01-01 19:46:56,173 - ERROR - Database load failed for CI: name 'asset_id' is not defined
+2026-01-01 19:46:56,174 - INFO - [stocks] 68/336: CL
+2026-01-01 19:46:56,910 - ERROR - Database load failed for CL: name 'asset_id' is not defined
+2026-01-01 19:46:56,910 - INFO - [stocks] 69/336: CLX
+2026-01-01 19:46:57,585 - ERROR - Database load failed for CLX: name 'asset_id' is not defined
+2026-01-01 19:46:57,586 - INFO - [stocks] 70/336: CME
+2026-01-01 19:46:58,406 - ERROR - Database load failed for CME: name 'asset_id' is not defined
+2026-01-01 19:46:58,907 - INFO - [stocks] 71/336: CMG
+2026-01-01 19:47:00,036 - ERROR - Database load failed for CMG: name 'asset_id' is not defined
+2026-01-01 19:47:00,037 - INFO - [stocks] 72/336: CMI
+2026-01-01 19:47:00,775 - ERROR - Database load failed for CMI: name 'asset_id' is not defined
+2026-01-01 19:47:00,776 - INFO - [stocks] 73/336: CNC
+2026-01-01 19:47:01,239 - ERROR - Database load failed for CNC: name 'asset_id' is not defined
+2026-01-01 19:47:01,240 - INFO - [stocks] 74/336: COF
+2026-01-01 19:47:01,963 - ERROR - Database load failed for COF: name 'asset_id' is not defined
+2026-01-01 19:47:01,963 - INFO - [stocks] 75/336: COP
+2026-01-01 19:47:02,530 - ERROR - Database load failed for COP: name 'asset_id' is not defined
+2026-01-01 19:47:03,031 - INFO - [stocks] 76/336: COST
+2026-01-01 19:47:03,589 - ERROR - Database load failed for COST: name 'asset_id' is not defined
+2026-01-01 19:47:03,590 - INFO - [stocks] 77/336: CP
+2026-01-01 19:47:04,187 - ERROR - Database load failed for CP: name 'asset_id' is not defined
+2026-01-01 19:47:04,188 - INFO - [stocks] 78/336: CRM
+2026-01-01 19:47:04,682 - ERROR - Database load failed for CRM: name 'asset_id' is not defined
+2026-01-01 19:47:04,683 - INFO - [stocks] 79/336: CRWD
+2026-01-01 19:47:04,999 - ERROR - Database load failed for CRWD: name 'asset_id' is not defined
+2026-01-01 19:47:04,999 - INFO - [stocks] 80/336: CSCO
+2026-01-01 19:47:05,505 - ERROR - Database load failed for CSCO: name 'asset_id' is not defined
+2026-01-01 19:47:06,006 - INFO - [stocks] 81/336: CSX
+2026-01-01 19:47:06,679 - ERROR - Database load failed for CSX: name 'asset_id' is not defined
+2026-01-01 19:47:06,680 - INFO - [stocks] 82/336: CTAS
+2026-01-01 19:47:07,504 - ERROR - Database load failed for CTAS: name 'asset_id' is not defined
+2026-01-01 19:47:07,505 - INFO - [stocks] 83/336: CTLT
+2026-01-01 19:47:08,180 - ERROR - $CTLT: possibly delisted; no timezone found
+2026-01-01 19:47:08,180 - ERROR - 
+1 Failed download:
+2026-01-01 19:47:08,180 - ERROR - ['CTLT']: possibly delisted; no timezone found
+2026-01-01 19:47:08,183 - WARNING - No data for CTLT, skipping.
+2026-01-01 19:47:08,184 - INFO - [stocks] 84/336: CTSH
+2026-01-01 19:47:08,720 - ERROR - Database load failed for CTSH: name 'asset_id' is not defined
+2026-01-01 19:47:08,720 - INFO - [stocks] 85/336: CVS
+2026-01-01 19:47:09,243 - ERROR - Database load failed for CVS: name 'asset_id' is not defined
+2026-01-01 19:47:09,743 - INFO - [stocks] 86/336: CVX
+2026-01-01 19:47:10,371 - ERROR - Database load failed for CVX: name 'asset_id' is not defined
+2026-01-01 19:47:10,371 - INFO - [stocks] 87/336: D
+2026-01-01 19:47:11,148 - ERROR - Database load failed for D: name 'asset_id' is not defined
+2026-01-01 19:47:11,148 - INFO - [stocks] 88/336: DAL
+2026-01-01 19:47:11,580 - ERROR - Database load failed for DAL: name 'asset_id' is not defined
+2026-01-01 19:47:11,581 - INFO - [stocks] 89/336: DASH
+2026-01-01 19:47:11,862 - ERROR - Database load failed for DASH: name 'asset_id' is not defined
+2026-01-01 19:47:11,862 - INFO - [stocks] 90/336: DDOG
+2026-01-01 19:47:12,218 - ERROR - Database load failed for DDOG: name 'asset_id' is not defined
+2026-01-01 19:47:12,719 - INFO - [stocks] 91/336: DE
+2026-01-01 19:47:13,256 - ERROR - Database load failed for DE: name 'asset_id' is not defined
+2026-01-01 19:47:13,257 - INFO - [stocks] 92/336: DELL
+2026-01-01 19:47:13,588 - ERROR - Database load failed for DELL: name 'asset_id' is not defined
+2026-01-01 19:47:13,588 - INFO - [stocks] 93/336: DFS
+2026-01-01 19:47:14,152 - ERROR - $DFS: possibly delisted; no timezone found
+2026-01-01 19:47:14,153 - ERROR - 
+1 Failed download:
+2026-01-01 19:47:14,153 - ERROR - ['DFS']: possibly delisted; no timezone found
+2026-01-01 19:47:14,157 - WARNING - No data for DFS, skipping.
+2026-01-01 19:47:14,157 - INFO - [stocks] 94/336: DG
+2026-01-01 19:47:14,684 - ERROR - Database load failed for DG: name 'asset_id' is not defined
+2026-01-01 19:47:14,685 - INFO - [stocks] 95/336: DGX
+2026-01-01 19:47:15,248 - ERROR - Database load failed for DGX: name 'asset_id' is not defined
+2026-01-01 19:47:15,748 - INFO - [stocks] 96/336: DHI
+2026-01-01 19:47:16,240 - ERROR - Database load failed for DHI: name 'asset_id' is not defined
+2026-01-01 19:47:16,240 - INFO - [stocks] 97/336: DHR
+2026-01-01 19:47:16,752 - ERROR - Database load failed for DHR: name 'asset_id' is not defined
+2026-01-01 19:47:16,752 - INFO - [stocks] 98/336: DIS
+2026-01-01 19:47:17,357 - ERROR - Database load failed for DIS: name 'asset_id' is not defined
+2026-01-01 19:47:17,358 - INFO - [stocks] 99/336: DLR
+2026-01-01 19:47:17,805 - ERROR - Database load failed for DLR: name 'asset_id' is not defined
+2026-01-01 19:47:17,806 - INFO - [stocks] 100/336: DLTR
+2026-01-01 19:47:18,301 - ERROR - Database load failed for DLTR: name 'asset_id' is not defined
+2026-01-01 19:47:18,802 - INFO - [stocks] 101/336: DOCU
+2026-01-01 19:47:19,232 - ERROR - Database load failed for DOCU: name 'asset_id' is not defined
+2026-01-01 19:47:19,233 - INFO - [stocks] 102/336: DOW
+2026-01-01 19:47:19,574 - ERROR - Database load failed for DOW: name 'asset_id' is not defined
+2026-01-01 19:47:19,574 - INFO - [stocks] 103/336: DPZ
+2026-01-01 19:47:20,101 - ERROR - Database load failed for DPZ: name 'asset_id' is not defined
+2026-01-01 19:47:20,102 - INFO - [stocks] 104/336: DRI
+2026-01-01 19:47:20,685 - ERROR - Database load failed for DRI: name 'asset_id' is not defined
+2026-01-01 19:47:20,686 - INFO - [stocks] 105/336: DUK
+2026-01-01 19:47:21,214 - ERROR - Database load failed for DUK: name 'asset_id' is not defined
+2026-01-01 19:47:21,715 - INFO - [stocks] 106/336: DVN
+2026-01-01 19:47:22,539 - ERROR - Database load failed for DVN: name 'asset_id' is not defined
+2026-01-01 19:47:22,540 - INFO - [stocks] 107/336: ECL
+2026-01-01 19:47:23,179 - ERROR - Database load failed for ECL: name 'asset_id' is not defined
+2026-01-01 19:47:23,180 - INFO - [stocks] 108/336: ED
+2026-01-01 19:47:23,822 - ERROR - Database load failed for ED: name 'asset_id' is not defined
+2026-01-01 19:47:23,822 - INFO - [stocks] 109/336: EFX
+2026-01-01 19:47:24,480 - ERROR - Database load failed for EFX: name 'asset_id' is not defined
+2026-01-01 19:47:24,481 - INFO - [stocks] 110/336: EL
+2026-01-01 19:47:25,429 - ERROR - Database load failed for EL: name 'asset_id' is not defined
+2026-01-01 19:47:25,930 - INFO - [stocks] 111/336: ELV
+2026-01-01 19:47:26,713 - ERROR - Database load failed for ELV: name 'asset_id' is not defined
+2026-01-01 19:47:26,714 - INFO - [stocks] 112/336: EMR
+2026-01-01 19:47:27,248 - ERROR - Database load failed for EMR: name 'asset_id' is not defined
+2026-01-01 19:47:27,248 - INFO - [stocks] 113/336: EOG
+2026-01-01 19:47:27,805 - ERROR - Database load failed for EOG: name 'asset_id' is not defined
+2026-01-01 19:47:27,806 - INFO - [stocks] 114/336: EQIX
+2026-01-01 19:47:28,520 - ERROR - Database load failed for EQIX: name 'asset_id' is not defined
+2026-01-01 19:47:28,521 - INFO - [stocks] 115/336: ETN
+2026-01-01 19:47:29,116 - ERROR - Database load failed for ETN: name 'asset_id' is not defined
+2026-01-01 19:47:29,617 - INFO - [stocks] 116/336: EW
+2026-01-01 19:47:30,137 - ERROR - Database load failed for EW: name 'asset_id' is not defined
+2026-01-01 19:47:30,138 - INFO - [stocks] 117/336: EXC
+2026-01-01 19:47:30,774 - ERROR - Database load failed for EXC: name 'asset_id' is not defined
+2026-01-01 19:47:30,774 - INFO - [stocks] 118/336: EXPD
+2026-01-01 19:47:31,399 - ERROR - Database load failed for EXPD: name 'asset_id' is not defined
+2026-01-01 19:47:31,400 - INFO - [stocks] 119/336: EXPE
+2026-01-01 19:47:31,930 - ERROR - Database load failed for EXPE: name 'asset_id' is not defined
+2026-01-01 19:47:31,931 - INFO - [stocks] 120/336: F
+2026-01-01 19:47:32,461 - ERROR - Database load failed for F: name 'asset_id' is not defined
+2026-01-01 19:47:32,962 - INFO - [stocks] 121/336: FCX
+2026-01-01 19:47:33,525 - ERROR - Database load failed for FCX: name 'asset_id' is not defined
+2026-01-01 19:47:33,525 - INFO - [stocks] 122/336: FDX
+2026-01-01 19:47:34,102 - ERROR - Database load failed for FDX: name 'asset_id' is not defined
+2026-01-01 19:47:34,103 - INFO - [stocks] 123/336: FFIV
+2026-01-01 19:47:34,580 - ERROR - Database load failed for FFIV: name 'asset_id' is not defined
+2026-01-01 19:47:34,581 - INFO - [stocks] 124/336: FI
+2026-01-01 19:47:35,034 - ERROR - Database load failed for FI: name 'asset_id' is not defined
+2026-01-01 19:47:35,035 - INFO - [stocks] 125/336: FIS
+2026-01-01 19:47:35,733 - ERROR - Database load failed for FIS: name 'asset_id' is not defined
+2026-01-01 19:47:36,233 - INFO - [stocks] 126/336: FISV
+2026-01-01 19:47:36,782 - ERROR - Database load failed for FISV: name 'asset_id' is not defined
+2026-01-01 19:47:36,782 - INFO - [stocks] 127/336: FLT
+2026-01-01 19:47:37,329 - ERROR - $FLT: possibly delisted; no timezone found
+2026-01-01 19:47:37,337 - ERROR - 
+1 Failed download:
+2026-01-01 19:47:37,338 - ERROR - ['FLT']: possibly delisted; no timezone found
+2026-01-01 19:47:37,341 - WARNING - No data for FLT, skipping.
+2026-01-01 19:47:37,341 - INFO - [stocks] 128/336: FMC
+2026-01-01 19:47:37,932 - ERROR - Database load failed for FMC: name 'asset_id' is not defined
+2026-01-01 19:47:37,933 - INFO - [stocks] 129/336: FTNT
+2026-01-01 19:47:38,384 - ERROR - Database load failed for FTNT: name 'asset_id' is not defined
+2026-01-01 19:47:38,384 - INFO - [stocks] 130/336: GD
+2026-01-01 19:47:39,087 - ERROR - Database load failed for GD: name 'asset_id' is not defined
+2026-01-01 19:47:39,588 - INFO - [stocks] 131/336: GE
+2026-01-01 19:47:40,315 - ERROR - Database load failed for GE: name 'asset_id' is not defined
+2026-01-01 19:47:40,316 - INFO - [stocks] 132/336: GEHC
+2026-01-01 19:47:40,667 - ERROR - Database load failed for GEHC: name 'asset_id' is not defined
+2026-01-01 19:47:40,667 - INFO - [stocks] 133/336: GILD
+2026-01-01 19:47:41,304 - ERROR - Database load failed for GILD: name 'asset_id' is not defined
+2026-01-01 19:47:41,305 - INFO - [stocks] 134/336: GLW
+2026-01-01 19:47:42,100 - ERROR - Database load failed for GLW: name 'asset_id' is not defined
+2026-01-01 19:47:42,101 - INFO - [stocks] 135/336: GM
+2026-01-01 19:47:42,584 - ERROR - Database load failed for GM: name 'asset_id' is not defined
+2026-01-01 19:47:43,085 - INFO - [stocks] 136/336: GOOG
+2026-01-01 19:47:43,625 - ERROR - Database load failed for GOOG: name 'asset_id' is not defined
+2026-01-01 19:47:43,626 - INFO - [stocks] 137/336: GOOGL
+2026-01-01 19:47:49,091 - ERROR - Database load failed for GOOGL: name 'asset_id' is not defined
+2026-01-01 19:47:49,092 - INFO - [stocks] 138/336: GPN
+2026-01-01 19:47:49,645 - ERROR - Database load failed for GPN: name 'asset_id' is not defined
+2026-01-01 19:47:49,646 - INFO - [stocks] 139/336: GRMN
+2026-01-01 19:47:50,134 - ERROR - Database load failed for GRMN: name 'asset_id' is not defined
+2026-01-01 19:47:50,134 - INFO - [stocks] 140/336: GS
+2026-01-01 19:47:50,570 - ERROR - Database load failed for GS: name 'asset_id' is not defined
+2026-01-01 19:47:51,071 - INFO - [stocks] 141/336: H
+2026-01-01 19:47:51,440 - ERROR - Database load failed for H: name 'asset_id' is not defined
+2026-01-01 19:47:51,441 - INFO - [stocks] 142/336: HAL
+2026-01-01 19:47:51,998 - ERROR - Database load failed for HAL: name 'asset_id' is not defined
+2026-01-01 19:47:51,999 - INFO - [stocks] 143/336: HAS
+2026-01-01 19:47:52,741 - ERROR - Database load failed for HAS: name 'asset_id' is not defined
+2026-01-01 19:47:52,742 - INFO - [stocks] 144/336: HCA
+2026-01-01 19:47:53,246 - ERROR - Database load failed for HCA: name 'asset_id' is not defined
+2026-01-01 19:47:53,246 - INFO - [stocks] 145/336: HD
+2026-01-01 19:47:53,749 - ERROR - Database load failed for HD: name 'asset_id' is not defined
+2026-01-01 19:47:54,250 - INFO - [stocks] 146/336: HES
+2026-01-01 19:47:54,968 - ERROR - $HES: possibly delisted; no timezone found
+2026-01-01 19:47:54,969 - ERROR - 
+1 Failed download:
+2026-01-01 19:47:54,970 - ERROR - ['HES']: possibly delisted; no timezone found
+2026-01-01 19:47:54,974 - WARNING - No data for HES, skipping.
+2026-01-01 19:47:54,974 - INFO - [stocks] 147/336: HLT
+2026-01-01 19:47:55,387 - ERROR - Database load failed for HLT: name 'asset_id' is not defined
+2026-01-01 19:47:55,387 - INFO - [stocks] 148/336: HOG
+2026-01-01 19:47:55,872 - ERROR - Database load failed for HOG: name 'asset_id' is not defined
+2026-01-01 19:47:55,873 - INFO - [stocks] 149/336: HOLX
+2026-01-01 19:47:56,383 - ERROR - Database load failed for HOLX: name 'asset_id' is not defined
+2026-01-01 19:47:56,383 - INFO - [stocks] 150/336: HON
+2026-01-01 19:47:56,987 - ERROR - Database load failed for HON: name 'asset_id' is not defined
+2026-01-01 19:47:57,488 - INFO - [stocks] 151/336: HP
+2026-01-01 19:47:58,109 - ERROR - Database load failed for HP: name 'asset_id' is not defined
+2026-01-01 19:47:58,110 - INFO - [stocks] 152/336: HPE
+2026-01-01 19:47:58,533 - ERROR - Database load failed for HPE: name 'asset_id' is not defined
+2026-01-01 19:47:58,534 - INFO - [stocks] 153/336: HPQ
+2026-01-01 19:47:59,119 - ERROR - Database load failed for HPQ: name 'asset_id' is not defined
+2026-01-01 19:47:59,120 - INFO - [stocks] 154/336: HUBB
+2026-01-01 19:48:00,008 - ERROR - Database load failed for HUBB: name 'asset_id' is not defined
+2026-01-01 19:48:00,008 - INFO - [stocks] 155/336: HUM
+2026-01-01 19:48:00,600 - ERROR - Database load failed for HUM: name 'asset_id' is not defined
+2026-01-01 19:48:01,101 - INFO - [stocks] 156/336: IBM
+2026-01-01 19:48:01,756 - ERROR - Database load failed for IBM: name 'asset_id' is not defined
+2026-01-01 19:48:01,757 - INFO - [stocks] 157/336: ICE
+2026-01-01 19:48:02,231 - ERROR - Database load failed for ICE: name 'asset_id' is not defined
+2026-01-01 19:48:02,232 - INFO - [stocks] 158/336: IDXX
+2026-01-01 19:48:02,723 - ERROR - Database load failed for IDXX: name 'asset_id' is not defined
+2026-01-01 19:48:02,724 - INFO - [stocks] 159/336: ILMN

@@ -92,7 +92,8 @@ def get_price(symbol: str, date: str):
 def get_all_assets(as_of_date: str = None):
     """
     Returns a list of all tradable assets, excluding mutual funds.
-    If as_of_date is provided, only returns assets that have prices on or before that date.
+    If as_of_date is provided, only returns assets that have a price within 
+    the 30 days prior to or on that date (actively trading).
     """
     conn = connect()
     if not conn: return []
@@ -100,15 +101,17 @@ def get_all_assets(as_of_date: str = None):
         cur = conn.cursor()
         
         if as_of_date:
-            # Join with prices to ensure at least one record exists before/on the date
+            # Only include assets that have data in the 30 days leading up to as_of_date
             query = """
                 SELECT DISTINCT a.symbol, a.name, a.type 
                 FROM assets a
                 JOIN prices p ON a.id = p.asset_id
-                WHERE a.type != 'mutualfunds' AND p.date <= %s
+                WHERE a.type != 'mutualfunds' 
+                  AND p.date <= %s 
+                  AND p.date >= (%s::date - interval '30 days')
                 ORDER BY a.type, a.symbol
             """
-            cur.execute(query, (as_of_date,))
+            cur.execute(query, (as_of_date, as_of_date))
         else:
             query = "SELECT symbol, name, type FROM assets WHERE type != 'mutualfunds' ORDER BY type, symbol"
             cur.execute(query)

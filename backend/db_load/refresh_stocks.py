@@ -20,23 +20,14 @@ DB_CONFIG = {
     "host": os.getenv("DB_HOST", "localhost")
 }
 
-DATA_DIR = Path("data/stocks")
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-
-# Curated list of popular stocks
-CURATED_TICKERS = [
-    "AAPL", "MSFT", "NVDA", "AMZN", "GOOGL", "META", "TSLA",
-    "JPM", "V", "MA", "BRK-B", "KO", "PEP", "MCD",
-    "NFLX", "AMD", "INTC", "ORCL", "CRM", "COST",
-    "WMT", "PG", "DIS", "HD", "BAC", "VZ", "ADBE"
-]
+BASE_DATA_DIR = Path("data")
 
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("stock_refresh.log"),
+        logging.FileHandler("refresh_system.log"),
         logging.StreamHandler()
     ]
 )
@@ -52,31 +43,37 @@ class StockRefresher:
             "failed": 0
         }
 
-    def get_tickers_from_file(self, file_path="data/sp500_tickers.txt"):
-        """Reads tickers from a local text file."""
+    def get_asset_type(self, filename):
+        """Maps filename to asset type."""
+        name = filename.lower()
+        if 'crypto' in name: return 'crypto'
+        if 'commodit' in name: return 'commodities'
+        if 'etf' in name: return 'etfs'
+        if 'mutualfund' in name: return 'mutualfunds'
+        if 'sp500' in name or 'stocks' in name: return 'stocks'
+        return 'stocks' # default
+
+    def read_tickers(self, file_path):
+        """Reads tickers from a local text file, handling comments."""
         try:
-            logger.info(f"Reading ticker list from {file_path}...")
-            path = Path(file_path)
-            if not path.exists():
-                logger.warning(f"File {file_path} not found. Falling back to curated list.")
-                return CURATED_TICKERS
-            
-            with open(path, 'r') as f:
-                # Read lines, strip whitespace, remove empty lines
-                tickers = [line.strip() for line in f if line.strip()]
-            
-            # Clean symbols for Yahoo (replace '.' with '-')
-            tickers = [t.replace('.', '-') for t in tickers]
-            logger.info(f"Successfully retrieved {len(tickers)} tickers from file.")
-            return tickers
+            tickers = []
+            with open(file_path, 'r') as f:
+                for line in f:
+                    # Strip comments (anything after #)
+                    clean_line = line.split('#')[0].strip()
+                    if clean_line:
+                        tickers.append(clean_line)
+            # Clean symbols for Yahoo (replace '.' with '-') and remove duplicates
+            return sorted(list(set([t.replace('.', '-') for t in tickers])))
         except Exception as e:
-            logger.error(f"Failed to read tickers from file: {e}")
-            return CURATED_TICKERS
+            logger.error(f"Failed to read {file_path}: {e}")
+            return []
 
     def download_data(self, ticker, start_date="2000-01-01"):
-# ... (rest of the logic remains same) ...
+        """Downloads historical data for a ticker with retries."""
         for attempt in range(3):
             try:
+                # Use a specific interval if needed, but default is daily
                 data = yf.download(ticker, start=start_date, progress=False)
                 if data.empty:
                     return None
@@ -91,20 +88,29 @@ class StockRefresher:
                 if 'adj_close' not in data.columns:
                     data['adj_close'] = data['close']
                 
+                # Required columns
                 required = ['date', 'close', 'adj_close', 'volume']
+                for col in required:
+                    if col not in data.columns:
+                        # If volume is missing (some indices/mutual funds), fill with 0
+                        if col == 'volume': data['volume'] = 0
+                        else: return None 
+                
                 return data[required]
             except Exception as e:
                 logger.warning(f"Attempt {attempt + 1} failed for {ticker}: {e}")
-                time.sleep(2 * (attempt + 1))
+                time.sleep(1 * (attempt + 1))
         return None
 
-    def save_to_csv(self, ticker, df):
-        """Saves dataframe to local CSV."""
-        csv_path = DATA_DIR / f"{ticker}.csv"
+    def save_to_csv(self, ticker, asset_type, df):
+        """Saves dataframe to local CSV in type-specific folder."""
+        target_dir = BASE_DATA_DIR / asset_type
+        target_dir.mkdir(parents=True, exist_ok=True)
+        csv_path = target_dir / f"{ticker}.csv"
         df.to_csv(csv_path, index=False)
         return csv_path
 
-    def load_to_db(self, ticker, df):
+    def load_to_db(self, ticker, asset_type, df):
         """Loads data into PostgreSQL using upsert logic."""
         conn = None
         try:
@@ -112,36 +118,44 @@ class StockRefresher:
             cur = conn.cursor()
 
             # 1. Fetch real company name if possible
-            display_name = ticker.capitalize()
+            display_name = ticker.upper()
             try:
-                info = yf.Ticker(ticker).info
-                display_name = info.get('longName') or info.get('shortName') or display_name
+                # Check if we already have a professional name first
+                cur.execute("SELECT name FROM assets WHERE symbol = %s", (ticker,))
+                existing = cur.fetchone()
+                
+                if existing and existing[0] != ticker.capitalize() and existing[0] != ticker.upper():
+                    display_name = existing[0]
+                else:
+                    info = yf.Ticker(ticker).info
+                    display_name = info.get('longName') or info.get('shortName') or display_name
             except:
                 pass
 
             # 2. Ensure asset exists with real name
             cur.execute(
                 """INSERT INTO assets (symbol, name, type) VALUES (%s, %s, %s) 
-                   ON CONFLICT (symbol) DO UPDATE SET name = EXCLUDED.name 
+                   ON CONFLICT (symbol) DO UPDATE SET 
+                    name = CASE WHEN EXCLUDED.name != EXCLUDED.symbol THEN EXCLUDED.name ELSE assets.name END,
+                    type = EXCLUDED.type
                    RETURNING id""",
-                (ticker, display_name, "stocks")
+                (ticker, display_name, asset_type)
             )
             asset_id = cur.fetchone()[0]
 
-            # 3. Prepare data for insertion
+            # 3. Prepare data
             df = df.dropna(subset=['date', 'close'])
-            
             values = []
             for _, row in df.iterrows():
                 values.append((
                     asset_id,
-                    row['date'].strftime('%Y-%m-%d'),
+                    row['date'].strftime('%Y-%m-%d') if hasattr(row['date'], 'strftime') else str(row['date'])[:10],
                     float(row['close']),
                     float(row['adj_close']),
-                    int(row['volume'])
+                    int(row['volume']) if not pd.isna(row['volume']) else 0
                 ))
 
-            # 3. Upsert into prices
+            # 4. Upsert into prices
             upsert_query = """
                 INSERT INTO prices (asset_id, date, close, adj_close, volume)
                 VALUES %s
@@ -163,39 +177,48 @@ class StockRefresher:
             if conn: conn.close()
 
     def run(self):
-        tickers = self.get_tickers_from_file()
-        # Merge with curated list and remove duplicates
-        all_tickers = sorted(list(set(CURATED_TICKERS + tickers)))
-        
-        logger.info(f"Starting refresh for {len(all_tickers)} tickers...")
+        ticker_files = list(BASE_DATA_DIR.glob("*_tickers.txt"))
+        if not ticker_files:
+            logger.error("No ticker files found in data/ folder (*_tickers.txt)")
+            return
 
-        for i, ticker in enumerate(all_tickers):
-            self.summary["attempted"] += 1
-            logger.info(f"[{i+1}/{len(all_tickers)}] Processing {ticker}...")
+        logger.info(f"Found {len(ticker_files)} ticker files.")
+
+        for file_path in ticker_files:
+            asset_type = self.get_asset_type(file_path.name)
+            tickers = self.read_tickers(file_path)
             
-            df = self.download_data(ticker)
-            if df is None:
-                logger.warning(f"No data found for {ticker}, skipping.")
-                self.summary["skipped"] += 1
-                continue
-            
-            self.summary["downloaded"] += 1
-            self.save_to_csv(ticker, df)
-            
-            success = self.load_to_db(ticker, df)
-            if success:
-                self.summary["loaded"] += 1
-            else:
-                self.summary["failed"] += 1
-            
-            if (i + 1) % 10 == 0:
-                time.sleep(1)
+            logger.info(f"--- Processing {file_path.name} (Type: {asset_type}) | {len(tickers)} tickers ---")
+
+            for i, ticker in enumerate(tickers):
+                self.summary["attempted"] += 1
+                logger.info(f"[{asset_type}] {i+1}/{len(tickers)}: {ticker}")
+                
+                df = self.download_data(ticker)
+                if df is None:
+                    logger.warning(f"No data for {ticker}, skipping.")
+                    self.summary["skipped"] += 1
+                    continue
+                
+                self.summary["downloaded"] += 1
+                self.save_to_csv(ticker, asset_type, df)
+                
+                success = self.load_to_db(ticker, asset_type, df)
+                if success:
+                    self.summary["loaded"] += 1
+                else:
+                    self.summary["failed"] += 1
+                
+                # Small sleep to be nice to Yahoo
+                if (i + 1) % 5 == 0:
+                    time.sleep(0.5)
 
         self.print_summary()
 
     def print_summary(self):
         logger.info("=" * 30)
-        logger.info("STOCK REFRESH SUMMARY")
+        logger.info("REFRESH SYSTEM SUMMARY")
+        logger.info(f"Files Processed:   {len(list(BASE_DATA_DIR.glob('*_tickers.txt')))}")
         logger.info(f"Total Attempted:   {self.summary['attempted']}")
         logger.info(f"Successfully DL:   {self.summary['downloaded']}")
         logger.info(f"Successfully Load: {self.summary['loaded']}")

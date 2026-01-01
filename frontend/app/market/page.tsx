@@ -32,15 +32,20 @@ export default function MarketPage() {
   useEffect(() => {
     const fetchData = async () => {
       const pid = localStorage.getItem('stocksim_portfolio_id');
+      let currentSimDate = null;
+
       try {
-        // Fetch sim date just for UI indicators, not for filtering the whole list
         if (pid) {
           const statusRes = await api.get('/simulation/status', { params: { portfolio_id: pid } });
-          setSimDate(statusRes.data.session.sim_date);
+          currentSimDate = statusRes.data.session.sim_date;
+          setSimDate(currentSimDate);
         }
 
-        // Fetch ALL assets from DB (no date filter passed to backend)
-        const assetsRes = await api.get('/assets');
+        // Fetch assets filtered by simulation date
+        // Assets only appear if they have data up to this point in time
+        const assetsRes = await api.get('/assets', { 
+          params: { date: currentSimDate } 
+        });
         setAssets(assetsRes.data);
       } catch (err) {
         console.error("Error loading market data:", err);
@@ -83,8 +88,12 @@ export default function MarketPage() {
       {/* Header & Search */}
       <div className="space-y-6">
         <div>
-          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">Market Explore</h1>
-          <p className="text-gray-500 mt-2 text-lg">Browse all {assets.length} tradable instruments in the system.</p>
+          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">Market</h1>
+          <p className="text-gray-500 mt-2 text-lg">
+            {simDate 
+              ? `Showing assets active on ${simDate}.` 
+              : 'Browse all tradable instruments in the system.'}
+          </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-4">
