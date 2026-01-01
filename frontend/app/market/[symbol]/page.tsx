@@ -18,7 +18,7 @@ import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
-import { ArrowLeft, TrendingUp, AlertCircle } from 'lucide-react';
+import { ArrowLeft, TrendingUp, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 ChartJS.register(
   CategoryScale,
@@ -50,6 +50,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   const [loading, setLoading] = useState(true);
   const [buying, setBuying] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
@@ -175,8 +176,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         symbol: symbol,
         quantity: Number(qty),
       });
-      alert(`Bought ${qty} ${symbol}!`);
-      router.push('/dashboard');
+      setSuccess(true);
     } catch (err: any) {
       const detail = err.response?.data?.detail;
       const msg = typeof detail === 'string' ? detail : JSON.stringify(detail) || "Transaction failed";
@@ -219,50 +219,74 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
 
         <div className="space-y-6">
           <Card title="Buy Asset">
-             <div className="space-y-4">
-               <div className="bg-green-50 p-3 rounded-lg flex items-center justify-between text-green-800 text-sm font-medium">
-                 <span>Available Cash</span>
-                 <span>${cash.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
-               </div>
-
-               <form onSubmit={handleBuy} className="space-y-4">
-                 <Input 
-                   label="Quantity"
-                   type="number"
-                   step="any"
-                   placeholder="0.00"
-                   value={qty}
-                   onChange={(e) => setQty(e.target.value)}
-                   disabled={buying}
-                   required
-                 />
-                 
-                 {qty && currentPrice && (
-                   <div className="flex justify-between text-sm py-2 border-t border-gray-100 mt-2">
-                     <span className="text-gray-500">Estimated Cost</span>
-                     <span className="font-bold text-gray-900">
-                       ${(Number(qty) * currentPrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
-                     </span>
-                   </div>
-                 )}
-
-                 {error && (
-                   <div className="flex items-start gap-2 text-xs text-red-600 bg-red-50 p-2 rounded">
-                     <AlertCircle className="h-4 w-4 shrink-0" />
-                     {error}
-                   </div>
-                 )}
-
+             {success ? (
+               <div className="text-center py-6 space-y-4 animate-in fade-in zoom-in duration-300">
+                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                   <CheckCircle2 className="h-8 w-8" />
+                 </div>
+                 <div className="space-y-1">
+                   <h3 className="text-lg font-bold text-gray-900">Purchase Successful!</h3>
+                   <p className="text-sm text-gray-500">You bought {qty} {symbol}</p>
+                 </div>
                  <Button 
-                   type="submit" 
-                   className="w-full" 
-                   isLoading={buying}
-                   disabled={!qty || Number(qty) <= 0 || buying}
+                   className="w-full mt-4" 
+                   onClick={() => router.push('/dashboard')}
                  >
-                   Buy {symbol}
+                   View Portfolio
                  </Button>
-               </form>
-             </div>
+                 <button 
+                   onClick={() => { setSuccess(false); setQty(''); }}
+                   className="text-xs text-gray-400 hover:text-gray-600 underline"
+                 >
+                   Buy more {symbol}
+                 </button>
+               </div>
+             ) : (
+               <div className="space-y-4">
+                 <div className="bg-green-50 p-3 rounded-lg flex items-center justify-between text-green-800 text-sm font-medium">
+                   <span>Available Cash</span>
+                   <span>${cash.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+                 </div>
+
+                 <form onSubmit={handleBuy} className="space-y-4">
+                   <Input 
+                     label="Quantity"
+                     type="number"
+                     step="any"
+                     placeholder="0.00"
+                     value={qty}
+                     onChange={(e) => setQty(e.target.value)}
+                     disabled={buying}
+                     required
+                   />
+                   
+                   {qty && currentPrice && (
+                     <div className="flex justify-between text-sm py-2 border-t border-gray-100 mt-2">
+                       <span className="text-gray-500">Estimated Cost</span>
+                       <span className="font-bold text-gray-900">
+                         ${(Number(qty) * currentPrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                       </span>
+                     </div>
+                   )}
+
+                   {error && (
+                     <div className="flex items-start gap-2 text-xs text-red-600 bg-red-50 p-2 rounded">
+                       <AlertCircle className="h-4 w-4 shrink-0" />
+                       {error}
+                     </div>
+                   )}
+
+                   <Button 
+                     type="submit" 
+                     className="w-full" 
+                     isLoading={buying}
+                     disabled={!qty || Number(qty) <= 0 || buying}
+                   >
+                     Buy {symbol}
+                   </Button>
+                 </form>
+               </div>
+             )}
           </Card>
         </div>
       </div>
