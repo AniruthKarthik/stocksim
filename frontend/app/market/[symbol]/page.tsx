@@ -2,12 +2,34 @@
 
 import React, { useEffect, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
-import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import { ArrowLeft, TrendingUp, AlertCircle } from 'lucide-react';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+);
 
 interface ChartData {
   date: string;
@@ -28,8 +50,12 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   const [loading, setLoading] = useState(true);
   const [buying, setBuying] = useState(false);
   const [error, setError] = useState('');
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // 1. Fetch Session Status to get Date & Cash
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const fetchSession = async () => {
     const pid = localStorage.getItem('stocksim_portfolio_id');
     if (!pid) return null;
@@ -44,24 +70,21 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     }
   };
 
-  // 2. Fetch Price & History based on Sim Date
   useEffect(() => {
     const init = async () => {
       const date = await fetchSession();
       if (!date) return;
 
       try {
-        // Fetch history up to sim date
         const histRes = await api.get('/price/history', { params: { symbol, end_date: date } });
         const histData = histRes.data;
         
+        console.log("FINAL CHART DATA:", histData);
         setHistory(histData);
 
-        // REQUIREMENT: Current price must match last price from history
         if (histData.length > 0) {
           setCurrentPrice(histData[histData.length - 1].price);
         } else {
-          // Fallback if history is empty (e.g. before 2000)
           const priceRes = await api.get('/price', { params: { symbol, date } });
           setCurrentPrice(priceRes.data.price);
         }
@@ -73,6 +96,64 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     };
     init();
   }, [symbol]);
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        mode: 'index' as const,
+        intersect: false,
+        callbacks: {
+          label: (context: any) => `$${context.parsed.y.toFixed(2)}`
+        }
+      },
+    },
+    scales: {
+      x: {
+        display: true,
+        grid: { display: false },
+        ticks: {
+          maxTicksLimit: 8,
+          autoSkip: true,
+          callback: function(val: any, index: number) {
+            const label = (this as any).getLabelForValue(val);
+            return typeof label === 'string' ? label.split('-')[0] : label;
+          }
+        }
+      },
+      y: {
+        display: true,
+        grid: { color: '#f3f4f6' },
+        ticks: {
+          callback: (val: any) => `$${val}`
+        }
+      },
+    },
+    elements: {
+      point: { radius: 0 },
+      line: { tension: 0.1 }
+    },
+    interaction: {
+      intersect: false,
+      axis: 'x' as const,
+    },
+  };
+
+  const chartDataConfig = {
+    labels: history.map(d => d.date),
+    datasets: [
+      {
+        fill: true,
+        label: 'Price',
+        data: history.map(d => d.price),
+        borderColor: '#00C853',
+        backgroundColor: 'rgba(0, 200, 83, 0.1)',
+        borderWidth: 2,
+      },
+    ],
+  };
 
   const handleBuy = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -93,7 +174,6 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         portfolio_id: pid,
         symbol: symbol,
         quantity: Number(qty),
-        // Backend handles date
       });
       alert(`Bought ${qty} ${symbol}!`);
       router.push('/dashboard');
@@ -106,7 +186,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     }
   };
 
-  if (loading) return <div className="text-center py-20">Loading asset data...</div>;
+  if (loading) return <div className="text-center py-20 text-gray-500">Loading asset data...</div>;
 
   return (
     <div className="space-y-6">
@@ -115,7 +195,6 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
       </Button>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left: Chart & Info */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-baseline justify-between">
             <h1 className="text-3xl font-bold text-gray-900">{symbol}</h1>
@@ -127,56 +206,17 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
             </div>
           </div>
 
-          <Card className="p-1 h-[400px]">
-             {history.length > 0 ? (
-               <ResponsiveContainer width="100%" height="100%">
-                 <AreaChart data={history}>
-                   <defs>
-                     <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                       <stop offset="5%" stopColor="#00C853" stopOpacity={0.2}/>
-                       <stop offset="95%" stopColor="#00C853" stopOpacity={0}/>
-                     </linearGradient>
-                   </defs>
-                   <XAxis 
-                     dataKey="date" 
-                     tickFormatter={(str) => str.substring(0, 4)} 
-                     minTickGap={50}
-                     tick={{fontSize: 12, fill: '#9CA3AF'}}
-                     axisLine={false}
-                     tickLine={false}
-                   />
-                   <YAxis 
-                     domain={['auto', 'auto']} 
-                     tick={{fontSize: 12, fill: '#9CA3AF'}}
-                     axisLine={false}
-                     tickLine={false}
-                     tickFormatter={(val) => `$${val}`}
-                   />
-                   <Tooltip 
-                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                     formatter={(value: any) => [`$${Number(value).toFixed(2)}`, 'Price']}
-                     labelFormatter={(label) => new Date(label).toLocaleDateString()}
-                   />
-                   <Area 
-                     type="monotone" 
-                     dataKey="price" 
-                     stroke="#00C853" 
-                     strokeWidth={2}
-                     fillOpacity={1} 
-                     fill="url(#colorPrice)"
-                     dot={false}
-                   />
-                 </AreaChart>
-               </ResponsiveContainer>
+          <Card className="p-4 h-[400px]">
+             {hasMounted && history.length > 0 ? (
+               <Line options={chartOptions} data={chartDataConfig} />
              ) : (
                <div className="h-full flex items-center justify-center text-gray-400">
-                 No price history available.
+                 {!hasMounted ? 'Loading chart...' : 'No price history available.'}
                </div>
              )}
           </Card>
         </div>
 
-        {/* Right: Action Panel */}
         <div className="space-y-6">
           <Card title="Buy Asset">
              <div className="space-y-4">

@@ -2,11 +2,19 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip as ChartTooltip,
+  Legend
+} from 'chart.js';
+import { Pie } from 'react-chartjs-2';
 import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import { Calendar, Wallet, TrendingUp, ArrowRight, Plus, PieChart as PieChartIcon, CircleDollarSign } from 'lucide-react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip, Legend } from 'recharts';
+
+ChartJS.register(ArcElement, ChartTooltip, Legend);
 
 interface Holding {
   symbol: string;
@@ -32,7 +40,16 @@ interface DashboardData {
   };
 }
 
-const COLORS = ['#00C853', '#009624', '#B9F6CA', '#69F0AE', '#43A047', '#2E7D32'];
+const COLORS = [
+  '#00C853', 
+  '#009624', 
+  '#B9F6CA', 
+  '#69F0AE', 
+  '#43A047', 
+  '#2E7D32',
+  '#81C784',
+  '#A5D6A7'
+];
 
 export default function Dashboard() {
   const [data, setData] = useState<DashboardData | null>(null);
@@ -40,6 +57,12 @@ export default function Dashboard() {
   const [updating, setUpdating] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [customDate, setCustomDate] = useState('');
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+    fetchStatus();
+  }, []);
 
   const fetchStatus = async () => {
     const pid = localStorage.getItem('stocksim_portfolio_id');
@@ -55,22 +78,15 @@ export default function Dashboard() {
     }
   };
 
-  useEffect(() => {
-    fetchStatus();
-  }, []);
-
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
     const isDeletion = input.length < customDate.length;
     
-    // Extract numbers only
     let raw = input.replace(/\D/g, ''); 
-    
     let year = raw.substring(0, 4);
     let month = raw.substring(4, 6);
     let day = raw.substring(6, 8);
 
-    // Month smart-complete: if user types a digit > 1 as the first month digit, make it 0x
     if (raw.length === 5 && !isDeletion) {
       const firstMonthDigit = parseInt(raw[4]);
       if (firstMonthDigit > 1) {
@@ -78,7 +94,6 @@ export default function Dashboard() {
       }
     }
 
-    // Day smart-complete: if user types a digit > 3 as the first day digit, make it 0x
     if (raw.length === 7 && !isDeletion && month.length === 2) {
       const firstDayDigit = parseInt(raw[6]);
       if (firstDayDigit > 3) {
@@ -97,7 +112,6 @@ export default function Dashboard() {
         }
       }
     }
-    
     setCustomDate(formatted);
   };
 
@@ -130,18 +144,14 @@ export default function Dashboard() {
       target = specificDate;
     } else if (months !== undefined) {
       const [y, m, d] = data.session.sim_date.split('-').map(Number);
-      
       let targetMonth = m + months; 
       let targetYear = y;
-      
       while (targetMonth > 12) {
           targetMonth -= 12;
           targetYear += 1;
       }
-      
       const maxDays = new Date(targetYear, targetMonth, 0).getDate();
       const targetDay = Math.min(d, maxDays);
-      
       const mm = String(targetMonth).padStart(2, '0');
       const dd = String(targetDay).padStart(2, '0');
       target = `${targetYear}-${mm}-${dd}`;
@@ -176,12 +186,49 @@ export default function Dashboard() {
   if (!data) return <div className="text-center py-20">Session not found. <Link href="/" className="text-primary underline">Start Over</Link></div>;
 
   const { session, portfolio_value } = data;
-  const holdings = portfolio_value.holdings || []; // Safety check
-  const pieData = holdings.map(h => ({ name: h.symbol, value: h.value }));
+  const holdings = portfolio_value.holdings || [];
+  
+  const pieChartData = {
+    labels: holdings.filter(h => h.value > 0).map(h => h.symbol),
+    datasets: [
+      {
+        data: holdings.filter(h => h.value > 0).map(h => h.value),
+        backgroundColor: COLORS,
+        borderColor: '#ffffff',
+        borderWidth: 2,
+      },
+    ],
+  };
+
+  const pieOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom' as const,
+        labels: {
+          usePointStyle: true,
+          padding: 20,
+          font: { size: 12 }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: (context: any) => {
+            const label = context.label || '';
+            const value = context.parsed || 0;
+            return ` ${label}: $${value.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+          }
+        }
+      }
+    },
+    cutout: '60%',
+  };
+
+  console.log("FINAL CHART DATA:", pieChartData);
 
   return (
     <div className="space-y-8">
-      {/* Top Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <div className="flex items-center gap-2 mb-1 text-gray-500">
@@ -231,10 +278,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* Main Content Area */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* Left: Portfolio Table */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
@@ -267,7 +311,6 @@ export default function Dashboard() {
                        const isProfit = h.pnl >= 0;
                        const pnlColor = isProfit ? "text-green-600" : "text-red-600";
                        const avgCost = h.quantity > 0 ? h.invested / h.quantity : 0;
-                       
                        return (
                          <tr key={h.symbol} className="hover:bg-gray-50 transition-colors">
                            <td className="px-6 py-4">
@@ -303,7 +346,7 @@ export default function Dashboard() {
                        <td className="px-6 py-4 text-right font-bold text-gray-800">
                          ${portfolio_value.assets_value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                        </td>
-                       <td className={`px-6 py-4 text-right font-bold ${portfolio_value.assets_value >= portfolio_value.invested_value ? "text-green-600" : "text-red-600"}`}>
+                       <td className={`px-6 py-4 text-right font-bold ${portfolio_value.assets_value >= (portfolio_value.invested_value || 0) ? "text-green-600" : "text-red-600"}`}>
                          ${(portfolio_value.assets_value - (portfolio_value.invested_value || 0)).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                        </td>
                      </tr>
@@ -321,40 +364,17 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Right: Pie Chart & Time Control */}
         <div className="space-y-6">
            <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
              <PieChartIcon className="h-5 w-5 text-gray-500" />
              Allocation
            </h2>
            
-           <Card className="h-[300px] flex items-center justify-center">
-             {pieData.length > 0 ? (
-               <ResponsiveContainer width="100%" height="100%">
-                 <PieChart>
-                   <Pie
-                     data={pieData}
-                     cx="50%"
-                     cy="50%"
-                     innerRadius={60}
-                     outerRadius={80}
-                     paddingAngle={5}
-                     dataKey="value"
-                     nameKey="name"
-                   >
-                     {pieData.map((entry, index) => (
-                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                     ))}
-                   </Pie>
-                   <RechartsTooltip 
-                      formatter={(val: any) => `$${Number(val).toLocaleString(undefined, {maximumFractionDigits: 0})}`} 
-                      contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                   />
-                   <Legend verticalAlign="bottom" height={36}/>
-                 </PieChart>
-               </ResponsiveContainer>
+           <Card className="h-[300px] flex items-center justify-center p-4">
+             {hasMounted && pieChartData.labels.length > 0 ? (
+               <Pie options={pieOptions} data={pieChartData} />
              ) : (
-               <span className="text-gray-400 text-sm">No assets to display</span>
+               <span className="text-gray-400 text-sm">{!hasMounted ? 'Loading chart...' : 'No assets to display'}</span>
              )}
            </Card>
 
@@ -364,8 +384,6 @@ export default function Dashboard() {
                <p className="text-sm text-gray-500">
                  Jump to a specific date or fast forward.
                </p>
-
-               {/* Custom Date Picker */}
                <div className="flex gap-2">
                   <input 
                     type="text" 
@@ -375,49 +393,16 @@ export default function Dashboard() {
                     onChange={handleDateChange}
                     onKeyDown={handleKeyDown}
                   />
-                  <Button 
-                    size="sm" 
-                    onClick={() => handleTimeTravel(undefined, customDate)}
-                    disabled={!customDate}
-                    isLoading={updating}
-                  >
-                    Go
-                  </Button>
+                  <Button size="sm" onClick={() => handleTimeTravel(undefined, customDate)} disabled={!customDate} isLoading={updating}>Go</Button>
                </div>
-
                <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-100">
-                <Button 
-                    size="sm"
-                    variant="secondary"
-                    onClick={() => handleTimeTravel(1)}
-                    isLoading={updating}
-                    className="text-xs px-1"
-                >
-                    +1 Mo
-                </Button>
-                <Button 
-                    size="sm"
-                    variant="secondary"
-                    onClick={() => handleTimeTravel(6)}
-                    isLoading={updating}
-                    className="text-xs px-1"
-                >
-                    +6 Mo
-                </Button>
-                <Button 
-                    size="sm"
-                    variant="secondary"
-                    onClick={() => handleTimeTravel(12)}
-                    isLoading={updating}
-                    className="text-xs px-1"
-                >
-                    +1 Yr
-                </Button>
+                <Button size="sm" variant="secondary" onClick={() => handleTimeTravel(1)} isLoading={updating} className="text-xs px-1">+1 Mo</Button>
+                <Button size="sm" variant="secondary" onClick={() => handleTimeTravel(6)} isLoading={updating} className="text-xs px-1">+6 Mo</Button>
+                <Button size="sm" variant="secondary" onClick={() => handleTimeTravel(12)} isLoading={updating} className="text-xs px-1">+1 Yr</Button>
                </div>
              </div>
            </Card>
         </div>
-
       </div>
     </div>
   );
