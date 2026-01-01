@@ -75,6 +75,16 @@ export default function StartPage() {
       return;
     }
 
+    // Prevent traveling past current date
+    const selectedDate = new Date(formData.startDate);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate > today) {
+      alert("You cannot travel to the future. Please select a date in the past or today.");
+      return;
+    }
+
     setLoading(true);
     try {
       const username = `trader_${Math.floor(Math.random() * 10000)}`;

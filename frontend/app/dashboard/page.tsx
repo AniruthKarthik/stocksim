@@ -169,8 +169,18 @@ export default function Dashboard() {
         return;
     }
 
+    // Validation: Cannot go backward
     if (new Date(target) <= new Date(data.session.sim_date)) {
         setErrorMsg("You can only travel forward in time.");
+        setUpdating(false);
+        return;
+    }
+
+    // NEW: Validation: Cannot go past today
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (new Date(target) > today) {
+        setErrorMsg("You cannot travel past the current date.");
         setUpdating(false);
         return;
     }
