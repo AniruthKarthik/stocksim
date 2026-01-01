@@ -12,8 +12,7 @@ export default function StartPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     startDate: '2016-01-01',
-    salary: '5000',
-    expenses: '3000',
+    investment: '5000',
   });
   const [loading, setLoading] = useState(false);
 
@@ -35,12 +34,14 @@ export default function StartPage() {
       const portfolioId = portRes.data.id;
 
       // 3. Start Session
+      // We map "Investment Amount" to "monthly_salary" and set "expenses" to 0.
+      // This ensures the net monthly addition to cash is exactly the investment amount.
       await api.post('/simulation/start', {
         user_id: userId,
         portfolio_id: portfolioId,
         start_date: formData.startDate,
-        monthly_salary: Number(formData.salary),
-        monthly_expenses: Number(formData.expenses),
+        monthly_salary: Number(formData.investment),
+        monthly_expenses: 0, 
       });
 
       // 4. Save & Redirect
@@ -77,22 +78,18 @@ export default function StartPage() {
               required
             />
             
-            <div className="grid grid-cols-2 gap-4">
-              <Input 
-                label="Monthly Income" 
-                type="number" 
-                min="0"
-                value={formData.salary}
-                onChange={(e) => setFormData({...formData, salary: e.target.value})}
-              />
-              <Input 
-                label="Expenses" 
-                type="number" 
-                min="0"
-                value={formData.expenses}
-                onChange={(e) => setFormData({...formData, expenses: e.target.value})}
-              />
-            </div>
+            <Input 
+              label="Monthly Investment Amount ($)" 
+              type="number" 
+              min="0"
+              value={formData.investment}
+              onChange={(e) => setFormData({...formData, investment: e.target.value})}
+              placeholder="e.g. 5000"
+              required
+            />
+            <p className="text-xs text-gray-500 -mt-3">
+              This amount will be added to your wallet every month you advance.
+            </p>
 
             <Button 
               type="submit" 

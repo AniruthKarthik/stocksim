@@ -51,14 +51,20 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
       if (!date) return;
 
       try {
-        // Parallel fetch for speed
-        const [priceRes, histRes] = await Promise.all([
-          api.get('/price', { params: { symbol, date } }),
-          api.get('/price/history', { params: { symbol, end_date: date } })
-        ]);
+        // Fetch history up to sim date
+        const histRes = await api.get('/price/history', { params: { symbol, end_date: date } });
+        const histData = histRes.data;
+        
+        setHistory(histData);
 
-        setCurrentPrice(priceRes.data.price);
-        setHistory(histRes.data);
+        // REQUIREMENT: Current price must match last price from history
+        if (histData.length > 0) {
+          setCurrentPrice(histData[histData.length - 1].price);
+        } else {
+          // Fallback if history is empty (e.g. before 2000)
+          const priceRes = await api.get('/price', { params: { symbol, date } });
+          setCurrentPrice(priceRes.data.price);
+        }
       } catch (e) {
         console.error(e);
       } finally {
@@ -92,7 +98,9 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
       alert(`Bought ${qty} ${symbol}!`);
       router.push('/dashboard');
     } catch (err: any) {
-      setError(err.response?.data?.detail || "Transaction failed");
+      const detail = err.response?.data?.detail;
+      const msg = typeof detail === 'string' ? detail : JSON.stringify(detail) || "Transaction failed";
+      setError(msg);
     } finally {
       setBuying(false);
     }
@@ -114,7 +122,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
             <div className="text-right">
                <p className="text-sm text-gray-500">Current Price</p>
                <p className="text-3xl font-bold text-gray-900">
-                 ${currentPrice?.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                 {currentPrice ? `$${currentPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '---'}
                </p>
             </div>
           </div>
@@ -146,6 +154,8 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                    />
                    <Tooltip 
                      contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                     formatter={(value: any) => [`$${Number(value).toFixed(2)}`, 'Price']}
+                     labelFormatter={(label) => new Date(label).toLocaleDateString()}
                    />
                    <Area 
                      type="monotone" 
@@ -153,7 +163,8 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                      stroke="#00C853" 
                      strokeWidth={2}
                      fillOpacity={1} 
-                     fill="url(#colorPrice)" 
+                     fill="url(#colorPrice)"
+                     dot={false}
                    />
                  </AreaChart>
                </ResponsiveContainer>
@@ -182,6 +193,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                    placeholder="0.00"
                    value={qty}
                    onChange={(e) => setQty(e.target.value)}
+                   disabled={buying}
                    required
                  />
                  
@@ -205,7 +217,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                    type="submit" 
                    className="w-full" 
                    isLoading={buying}
-                   disabled={!qty || Number(qty) <= 0}
+                   disabled={!qty || Number(qty) <= 0 || buying}
                  >
                    Buy {symbol}
                  </Button>
