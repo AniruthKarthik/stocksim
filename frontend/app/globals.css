@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00C853;
+  --color-primary-hover: #00E676; /* Lighter for hover if needed, or darker */
+  --color-primary-dark: #009624;
+  --color-background-app: #F9FAFB;
+  --color-surface: #FFFFFF;
+}
+
+/* Reset and Base Styles */
+body {
+  background-color: var(--color-background-app);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilities if needed */
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
