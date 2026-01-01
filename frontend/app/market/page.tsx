@@ -17,10 +17,28 @@ export default function MarketPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get('/assets')
-      .then(res => setAssets(res.data))
-      .catch(err => console.error(err))
-      .finally(() => setLoading(false));
+    const fetchData = async () => {
+      const pid = localStorage.getItem('stocksim_portfolio_id');
+      let simDate = null;
+
+      try {
+        if (pid) {
+          const statusRes = await api.get('/simulation/status', { params: { portfolio_id: pid } });
+          simDate = statusRes.data.session.sim_date;
+        }
+
+        const assetsRes = await api.get('/assets', { 
+          params: { date: simDate } 
+        });
+        setAssets(assetsRes.data);
+      } catch (err) {
+        console.error("Error loading market data:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   // Group assets by type
