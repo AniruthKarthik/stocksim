@@ -39,6 +39,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [customDate, setCustomDate] = useState('');
 
   const fetchStatus = async () => {
     const pid = localStorage.getItem('stocksim_portfolio_id');
@@ -49,7 +50,6 @@ export default function Dashboard() {
       setData(res.data);
     } catch (e: any) {
        console.error(e);
-       // Handle error fetching status silently or generic
     } finally {
       setLoading(false);
     }
@@ -59,7 +59,53 @@ export default function Dashboard() {
     fetchStatus();
   }, []);
 
-  const [customDate, setCustomDate] = useState('');
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    const isDeletion = input.length < customDate.length;
+    
+    // Extract numbers only
+    let raw = input.replace(/\D/g, ''); 
+    
+    let year = raw.substring(0, 4);
+    let month = raw.substring(4, 6);
+    let day = raw.substring(6, 8);
+
+    // Month smart-complete: if user types a digit > 1 as the first month digit, make it 0x
+    if (raw.length === 5 && !isDeletion) {
+      const firstMonthDigit = parseInt(raw[4]);
+      if (firstMonthDigit > 1) {
+        month = '0' + raw[4];
+      }
+    }
+
+    // Day smart-complete: if user types a digit > 3 as the first day digit, make it 0x
+    if (raw.length === 7 && !isDeletion && month.length === 2) {
+      const firstDayDigit = parseInt(raw[6]);
+      if (firstDayDigit > 3) {
+        day = '0' + raw[6];
+      }
+    }
+
+    let formatted = year;
+    if (year.length === 4) {
+      if (!isDeletion || month.length > 0) formatted += '-';
+      if (month.length > 0) {
+        formatted += month;
+        if (month.length === 2) {
+          if (!isDeletion || day.length > 0) formatted += '-';
+          if (day.length > 0) formatted += day;
+        }
+      }
+    }
+    
+    setCustomDate(formatted);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && customDate && !updating) {
+      handleTimeTravel(undefined, customDate);
+    }
+  };
 
   const handleTimeTravel = async (months?: number, specificDate?: string) => {
     if (!data) return;
@@ -82,7 +128,7 @@ export default function Dashboard() {
           return;
       }
       target = specificDate;
-    } else if (months) {
+    } else if (months !== undefined) {
       const [y, m, d] = data.session.sim_date.split('-').map(Number);
       
       let targetMonth = m + months; 
@@ -137,7 +183,6 @@ export default function Dashboard() {
     <div className="space-y-8">
       {/* Top Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Standard Card for Current Date */}
         <Card>
           <div className="flex items-center gap-2 mb-1 text-gray-500">
             <Calendar className="h-4 w-4" />
@@ -327,7 +372,8 @@ export default function Dashboard() {
                     className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
                     placeholder="YYYY-MM-DD"
                     value={customDate}
-                    onChange={(e) => setCustomDate(e.target.value)}
+                    onChange={handleDateChange}
+                    onKeyDown={handleKeyDown}
                   />
                   <Button 
                     size="sm" 
