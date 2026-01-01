@@ -26,3 +26,17 @@ CREATE TABLE IF NOT EXISTS transactions (
     date DATE NOT NULL,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Game Sessions table
+CREATE TABLE IF NOT EXISTS game_sessions (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    portfolio_id INTEGER REFERENCES portfolios(id) ON DELETE CASCADE,
+    start_date DATE NOT NULL,
+    sim_date DATE NOT NULL,
+    monthly_salary NUMERIC DEFAULT 0,
+    monthly_expenses NUMERIC DEFAULT 0,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(portfolio_id)
+);

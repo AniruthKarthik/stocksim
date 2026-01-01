@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from .simulator import simulate_invest
 from .db_prices import get_price
 from . import db_portfolio as portfolio
+from . import game_engine
 
 app = FastAPI()
 
@@ -19,11 +20,22 @@ class TradeRequest(BaseModel):
     portfolio_id: int
     symbol: str
     quantity: float
-    date: str # YYYY-MM-DD
+    date: Optional[str] = None # Optional: Logic will determine date
 
 class ValueRequest(BaseModel):
     portfolio_id: int
     date: str
+
+class StartSimRequest(BaseModel):
+    user_id: int
+    portfolio_id: int
+    start_date: str # YYYY-MM-DD
+    monthly_salary: float = 0
+    monthly_expenses: float = 0
+
+class ForwardSimRequest(BaseModel):
+    portfolio_id: int
+    target_date: str # YYYY-MM-DD
 
 # --- Routes ---
 
@@ -74,22 +86,49 @@ def create_portfolio(req: CreatePortfolioRequest):
         raise HTTPException(status_code=400, detail="Error creating portfolio (name might be taken for this user)")
     return result
 
+def _resolve_trade_date(portfolio_id: int, requested_date: Optional[str]):
+    """
+    Helper to determine the valid trade date.
+    - If session active: Returns session date.
+    - If no session: Returns requested_date (must be provided).
+    """
+    session = game_engine.get_session(portfolio_id)
+    if session:
+        return session["sim_date"]
+    
+    if not requested_date:
+        raise HTTPException(status_code=400, detail="Date required (no active session)")
+    
+    return requested_date
+
 @app.post("/portfolio/buy")
 def buy_asset(req: TradeRequest):
-    result = portfolio.add_transaction(req.portfolio_id, req.symbol.upper(), "BUY", req.quantity, req.date)
+    trade_date = _resolve_trade_date(req.portfolio_id, req.date)
+    
+    result = portfolio.add_transaction(req.portfolio_id, req.symbol.upper(), "BUY", req.quantity, trade_date)
     if "error" in result:
         raise HTTPException(status_code=400, detail=result["error"])
     return result
 
 @app.post("/portfolio/sell")
 def sell_asset(req: TradeRequest):
-    result = portfolio.add_transaction(req.portfolio_id, req.symbol.upper(), "SELL", req.quantity, req.date)
+    trade_date = _resolve_trade_date(req.portfolio_id, req.date)
+    
+    result = portfolio.add_transaction(req.portfolio_id, req.symbol.upper(), "SELL", req.quantity, trade_date)
     if "error" in result:
         raise HTTPException(status_code=400, detail=result["error"])
     return result
 
 @app.get("/portfolio/{portfolio_id}/value")
-def get_portfolio_value(portfolio_id: int, date: str):
+def get_portfolio_value(portfolio_id: int, date: Optional[str] = None):
+    # If date is missing, try to use session date, else fail
+    if not date:
+        session = game_engine.get_session(portfolio_id)
+        if session:
+            date = session["sim_date"]
+        else:
+            raise HTTPException(status_code=400, detail="Date required (no active session)")
+
     result = portfolio.get_portfolio_value(portfolio_id, date)
     if not result:
         raise HTTPException(status_code=404, detail="Portfolio not found or error calculating value")
@@ -101,4 +140,51 @@ def get_portfolio_details(portfolio_id: int):
     if not p:
         raise HTTPException(status_code=404, detail="Portfolio not found")
     h = portfolio.get_holdings(portfolio_id)
-    return {**p, "holdings": h}
+    
+    # Enrich with session data if exists
+    session = game_engine.get_session(portfolio_id)
+    
+    return {**p, "holdings": h, "active_session": session}
+
+# --- Simulation / Game Routes ---
+
+@app.post("/simulation/start")
+def start_simulation(req: StartSimRequest):
+    result = game_engine.create_session(
+        req.user_id, 
+        req.portfolio_id, 
+        req.start_date, 
+        req.monthly_salary, 
+        req.monthly_expenses
+    )
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return result
+
+@app.post("/simulation/forward")
+def advance_simulation(req: ForwardSimRequest):
+    result = game_engine.advance_time(req.portfolio_id, req.target_date)
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return result
+
+@app.get("/simulation/status")
+def get_simulation_status(portfolio_id: int):
+    session = game_engine.get_session(portfolio_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="No active session for this portfolio")
+    
+    # Get Portfolio Value at current sim date
+    val = portfolio.get_portfolio_value(portfolio_id, session["sim_date"])
+    if not val:
+        raise HTTPException(status_code=500, detail="Error calculating value")
+        
+    return {
+        "session": session,
+        "portfolio_value": val
+    }
+
+@app.get("/simulation/list")
+def list_user_sessions(user_id: int):
+    sessions = game_engine.list_sessions(user_id)
+    return {"user_id": user_id, "sessions": sessions}
