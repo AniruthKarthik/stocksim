@@ -1,4 +1,4 @@
-from simulator import simulate_invest
+from .simulator import simulate_invest
 
 print(
     simulate_invest(

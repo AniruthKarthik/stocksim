@@ -1,4 +1,4 @@
-from db_prices import get_adj_close
+from .db_prices import get_adj_close
 
 
 def simulate_invest(amount: float, symbol: str, buy_date: str, sell_date: str):

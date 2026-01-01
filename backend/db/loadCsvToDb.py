@@ -53,21 +53,31 @@ def load_prices(asset_id, csv_path):
     conn = connect()
     cur = conn.cursor()
 
-    for _, r in df.iterrows():
-        cur.execute("""
-            INSERT INTO prices (assetid, date, close, adjclose, vol)
-            VALUES (%s, %s, %s, %s, %s)
-            ON CONFLICT (assetid, date) DO NOTHING;
-        """, (
-            asset_id,
-            r["date"],
-            float(r["close"]),
-            float(r["adj_close"]),
-            int(r["volume"]) if pd.notna(r["volume"]) else 0
-        ))
+    try:
+        data_to_insert = []
+        for _, r in df.iterrows():
+            data_to_insert.append((
+                asset_id,
+                r["date"],
+                float(r["close"]),
+                float(r["adj_close"]),
+                int(r["volume"]) if pd.notna(r["volume"]) else 0
+            ))
 
-    conn.commit()
-    conn.close()
+        cur.executemany("""
+            INSERT INTO prices (asset_id, date, close, adj_close, volume)
+            VALUES (%s, %s, %s, %s, %s)
+            ON CONFLICT (asset_id, date) DO NOTHING;
+        """, data_to_insert)
+
+        conn.commit()
+        print(f"  ✓ Loaded {len(data_to_insert)} records for asset_id {asset_id}")
+    except Exception as e:
+        print(f"  ❌ Error loading {csv_path}: {e}")
+        conn.rollback()
+    finally:
+        cur.close()
+        conn.close()
 
 
 def load_all():
