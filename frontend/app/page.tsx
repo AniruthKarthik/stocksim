@@ -6,36 +6,87 @@ import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
-import { PlayCircle } from 'lucide-react';
+import { 
+  PlayCircle, 
+  TrendingUp, 
+  ArrowRight, 
+  History, 
+  ShieldCheck, 
+  BarChart2 
+} from 'lucide-react';
 
 export default function StartPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    startDate: '2016-01-01',
+    startDate: '',
     investment: '5000',
   });
   const [loading, setLoading] = useState(false);
 
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    const isDeletion = input.length < formData.startDate.length;
+    
+    let raw = input.replace(/\D/g, ''); 
+    if (raw.length > 8) raw = raw.substring(0, 8);
+    
+    let year = raw.substring(0, 4);
+    let month = raw.substring(4, 6);
+    let day = raw.substring(6, 8);
+
+    if (raw.length === 5 && !isDeletion) {
+      const firstMonthDigit = parseInt(raw[4]);
+      if (firstMonthDigit > 1) month = '0' + raw[4];
+    }
+
+    if (raw.length === 7 && !isDeletion && month.length === 2) {
+      const firstDayDigit = parseInt(raw[6]);
+      if (firstDayDigit > 3) day = '0' + raw[6];
+    }
+
+    let formatted = year;
+    if (year.length === 4) {
+      if (!isDeletion || month.length > 0) formatted += '-';
+      if (month.length > 0) {
+        formatted += month;
+        if (month.length === 2) {
+          if (!isDeletion || day.length > 0) formatted += '-';
+          if (day.length > 0) formatted += day;
+        }
+      }
+    }
+    setFormData({ ...formData, startDate: formatted });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    
+    // Normalize date: Handle YYYY-M-D or YYYY-MM-D etc.
+    let dateParts = formData.startDate.split('-');
+    if (dateParts.length === 3) {
+      const y = dateParts[0];
+      const m = dateParts[1].padStart(2, '0');
+      const d = dateParts[2].padStart(2, '0');
+      formData.startDate = `${y}-${m}-${d}`;
+    }
+    
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(formData.startDate)) {
+      alert("Please enter a valid date (YYYY-MM-DD)");
+      return;
+    }
 
+    setLoading(true);
     try {
-      // 1. Create User (Anonymous for now, random suffix)
       const username = `trader_${Math.floor(Math.random() * 10000)}`;
       const userRes = await api.post('/users', { username });
       const userId = userRes.data.user_id;
 
-      // 2. Create Portfolio
       const portRes = await api.post('/portfolio/create', { 
         user_id: userId, 
         name: "Main Portfolio" 
       });
       const portfolioId = portRes.data.id;
 
-      // 3. Start Session
-      // We map "Investment Amount" to "monthly_salary" and set "expenses" to 0.
-      // This ensures the net monthly addition to cash is exactly the investment amount.
       await api.post('/simulation/start', {
         user_id: userId,
         portfolio_id: portfolioId,
@@ -44,10 +95,8 @@ export default function StartPage() {
         monthly_expenses: 0, 
       });
 
-      // 4. Save & Redirect
       localStorage.setItem('stocksim_portfolio_id', portfolioId.toString());
       router.push('/dashboard');
-
     } catch (error) {
       console.error(error);
       alert("Failed to start simulation. Check backend.");
@@ -57,55 +106,102 @@ export default function StartPage() {
   };
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center">
-      <div className="mb-8 text-center space-y-2">
-        <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">
-          Stock<span className="text-primary">Sim</span>
-        </h1>
-        <p className="text-gray-500 text-lg">Travel back in time. Master the market.</p>
+    <div className="min-h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-8">
+      
+      {/* Left Column: Value Proposition */}
+      <div className="space-y-6 animate-fade-in-up">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider border border-primary/20">
+          <ShieldCheck className="h-3 w-3" />
+          Professional Grade Simulation
+        </div>
+        
+        <div className="space-y-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Master your <span className="text-primary underline decoration-primary/20 underline-offset-8">Strategy</span> <br />
+            with Historical Data.
+          </h1>
+          <p className="text-gray-500 text-base md:text-lg max-w-lg leading-relaxed">
+            Travel back to any point in the last 25 years. 
+            Test your conviction, learn market cycles, and build virtual wealth without the risk.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          {[
+            { icon: <History className="h-5 w-5 text-blue-500" />, title: "25Y History", desc: "Full daily historical prices" },
+            { icon: <BarChart2 className="h-5 w-5 text-orange-500" />, title: "Real Assets", desc: "S&P 500, Crypto & more" },
+          ].map((feature, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+              <div className="p-2 rounded-lg bg-gray-50 shrink-0">{feature.icon}</div>
+              <div>
+                <h3 className="font-bold text-gray-900 text-sm">{feature.title}</h3>
+                <p className="text-[11px] text-gray-500 mt-0.5">{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <Card className="w-full max-w-md shadow-lg border-none ring-1 ring-gray-100">
-        <div className="p-2">
-          <h2 className="text-xl font-bold text-gray-800 mb-6 text-center">Setup Simulation</h2>
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <Input 
-              label="Start Date" 
-              type="date" 
-              value={formData.startDate}
-              max={new Date().toISOString().split('T')[0]}
-              onChange={(e) => setFormData({...formData, startDate: e.target.value})}
-              required
-            />
+      {/* Right Column: Interactive Card */}
+      <div className="animate-fade-in-up animation-delay-200">
+        <Card className="shadow-2xl border-none ring-1 ring-black/5 p-1 bg-white rounded-[2.5rem]">
+          <div className="p-6 md:p-8 space-y-8">
+            <div className="space-y-2">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Initialize Session</h2>
+              <p className="text-sm text-gray-500 font-medium">Choose your starting point and commitment.</p>
+            </div>
             
-            <Input 
-              label="Monthly Investment Amount ($)" 
-              type="number" 
-              min="0"
-              value={formData.investment}
-              onChange={(e) => setFormData({...formData, investment: e.target.value})}
-              placeholder="e.g. 5000"
-              required
-            />
-            <p className="text-xs text-gray-500 -mt-3">
-              This amount will be added to your wallet every month you advance.
-            </p>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Travel to Start Date</label>
+                  <Input 
+                    type="text" 
+                    value={formData.startDate}
+                    onChange={handleDateChange}
+                    placeholder="YYYY-MM-DD"
+                    className="text-lg py-6 bg-gray-50 border-transparent focus:bg-white focus:border-primary transition-all rounded-xl font-semibold"
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Monthly Investment ($)</label>
+                  <Input 
+                    type="number" 
+                    min="0"
+                    value={formData.investment}
+                    onChange={(e) => setFormData({...formData, investment: e.target.value})}
+                    placeholder="5000"
+                    className="text-lg py-6 bg-gray-50 border-transparent focus:bg-white focus:border-primary transition-all rounded-xl font-semibold"
+                    required
+                  />
+                </div>
+              </div>
 
-            <Button 
-              type="submit" 
-              className="w-full text-base py-3 mt-2" 
-              isLoading={loading}
-            >
-              <PlayCircle className="mr-2 h-5 w-5" />
-              Enter Simulation
-            </Button>
-          </form>
+              <div className="pt-2">
+                <Button 
+                  type="submit" 
+                  className="w-full text-base py-7 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-3 font-bold" 
+                  isLoading={loading}
+                >
+                  <PlayCircle className="h-5 w-5" />
+                  Launch Simulator
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </form>
+          </div>
+        </Card>
+        
+        {/* Footer Trust Bar */}
+        <div className="mt-8 flex justify-center gap-8 text-gray-300 animate-fade-in-up animation-delay-400 grayscale opacity-50">
+          {['S&P 500', 'NASDAQ', 'CRYPTO', 'COMMODITIES'].map(item => (
+            <span key={item} className="text-[10px] font-black tracking-[0.2em]">{item}</span>
+          ))}
         </div>
-      </Card>
-      
-      <p className="mt-8 text-sm text-gray-400">
-        Simulates real historical data. No real money involved.
-      </p>
+      </div>
+
     </div>
   );
 }

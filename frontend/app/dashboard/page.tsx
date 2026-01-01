@@ -136,6 +136,15 @@ export default function Dashboard() {
     let target = '';
 
     if (specificDate) {
+      // Normalize manually typed date: handle YYYY-M-D, YYYY-MM-D, etc.
+      let parts = specificDate.split('-');
+      if (parts.length === 3) {
+        const y = parts[0];
+        const m = parts[1].padStart(2, '0');
+        const d = parts[2].padStart(2, '0');
+        specificDate = `${y}-${m}-${d}`;
+      }
+
       if (!/^\d{4}-\d{2}-\d{2}$/.test(specificDate)) {
           setErrorMsg("Invalid date format. Use YYYY-MM-DD");
           setUpdating(false);
