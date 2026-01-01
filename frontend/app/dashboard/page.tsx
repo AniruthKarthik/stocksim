@@ -76,17 +76,34 @@ export default function Dashboard() {
     let target = '';
 
     if (specificDate) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(specificDate)) {
+          setErrorMsg("Invalid date format. Use YYYY-MM-DD");
+          setUpdating(false);
+          return;
+      }
       target = specificDate;
     } else if (months) {
       const [y, m, d] = data.session.sim_date.split('-').map(Number);
-      const dateObj = new Date(y, m - 1 + months, d);
-      target = dateObj.toISOString().split('T')[0];
+      
+      let targetMonth = m + months; 
+      let targetYear = y;
+      
+      while (targetMonth > 12) {
+          targetMonth -= 12;
+          targetYear += 1;
+      }
+      
+      const maxDays = new Date(targetYear, targetMonth, 0).getDate();
+      const targetDay = Math.min(d, maxDays);
+      
+      const mm = String(targetMonth).padStart(2, '0');
+      const dd = String(targetDay).padStart(2, '0');
+      target = `${targetYear}-${mm}-${dd}`;
     } else {
         setUpdating(false);
         return;
     }
 
-    // Validation: Cannot go backward
     if (new Date(target) <= new Date(data.session.sim_date)) {
         setErrorMsg("You can only travel forward in time.");
         setUpdating(false);
@@ -99,7 +116,7 @@ export default function Dashboard() {
         target_date: target
       });
       await fetchStatus();
-      setCustomDate(''); // Reset picker
+      setCustomDate('');
     } catch (e: any) {
       const detail = e.response?.data?.detail;
       const msg = typeof detail === 'string' ? detail : JSON.stringify(detail) || "Failed to advance time";
@@ -120,12 +137,13 @@ export default function Dashboard() {
     <div className="space-y-8">
       {/* Top Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="bg-primary text-white border-none shadow-lg shadow-primary/20">
-          <div className="flex items-center gap-2 mb-1 opacity-90">
+        {/* Standard Card for Current Date */}
+        <Card>
+          <div className="flex items-center gap-2 mb-1 text-gray-500">
             <Calendar className="h-4 w-4" />
             <span className="text-xs font-medium uppercase">Current Date</span>
           </div>
-          <p className="text-2xl font-bold tracking-tight">{session.sim_date}</p>
+          <p className="text-2xl font-bold text-gray-900">{session.sim_date}</p>
         </Card>
 
         <Card>
@@ -305,9 +323,9 @@ export default function Dashboard() {
                {/* Custom Date Picker */}
                <div className="flex gap-2">
                   <input 
-                    type="date" 
+                    type="text" 
                     className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    min={session.sim_date}
+                    placeholder="YYYY-MM-DD"
                     value={customDate}
                     onChange={(e) => setCustomDate(e.target.value)}
                   />
