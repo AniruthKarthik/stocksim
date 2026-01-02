@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import Optional, List
 from .simulator import simulate_invest
 from .db_prices import get_price, get_all_assets, get_price_history
+from . import db_prices
 from . import db_portfolio as portfolio
 from . import game_engine
 
@@ -218,3 +219,28 @@ def get_simulation_status(portfolio_id: int):
 def list_user_sessions(user_id: int):
     sessions = game_engine.list_sessions(user_id)
     return {"user_id": user_id, "sessions": sessions}
+
+@app.post("/reset")
+def reset_system():
+    conn = db_prices.connect()
+    if not conn:
+        raise HTTPException(status_code=500, detail="Database connection failed")
+    
+    try:
+        cur = conn.cursor()
+        
+        # Drop all user-related tables
+        cur.execute("DROP TABLE IF EXISTS game_sessions, transactions, portfolios, users CASCADE;")
+        
+        # Re-initialize schema
+        with open("backend/portfolio_schema.sql", 'r') as f:
+            schema_sql = f.read()
+            cur.execute(schema_sql)
+            
+        conn.commit()
+        return {"status": "success", "message": "System reset successfully"}
+    except Exception as e:
+        conn.rollback()
+        raise HTTPException(status_code=500, detail=f"Reset failed: {e}")
+    finally:
+        conn.close()

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { TrendingUp, LayoutDashboard, Search } from 'lucide-react';
+import ResetButton from './ResetButton';
 
 export default function Navbar() {
   return (
@@ -27,6 +28,7 @@ export default function Navbar() {
             <Search size={18} />
             Market
           </Link>
+          <ResetButton />
         </div>
       </div>
     </nav>
