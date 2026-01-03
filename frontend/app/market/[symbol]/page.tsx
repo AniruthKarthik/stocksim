@@ -19,6 +19,7 @@ import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import { ArrowLeft, TrendingUp, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { useCurrency } from '@/context/CurrencyContext';
 
 ChartJS.register(
   CategoryScale,
@@ -37,6 +38,7 @@ interface ChartData {
 }
 
 export default function AssetDetail({ params }: { params: Promise<{ symbol: string }> }) {
+  const { format, convert, selectedCurrency } = useCurrency();
   const resolvedParams = use(params);
   const symbol = resolvedParams.symbol.toUpperCase();
   const router = useRouter();
@@ -107,7 +109,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         mode: 'index' as const,
         intersect: false,
         callbacks: {
-          label: (context: any) => `$${context.parsed.y.toFixed(2)}`
+          label: (context: any) => format(context.parsed.y)
         }
       },
     },
@@ -128,7 +130,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         display: true,
         grid: { color: '#f3f4f6' },
         ticks: {
-          callback: (val: any) => `$${val}`
+          callback: (val: any) => selectedCurrency.symbol + val.toLocaleString()
         }
       },
     },
@@ -148,7 +150,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
       {
         fill: true,
         label: 'Price',
-        data: history.map(d => d.price),
+        data: history.map(d => convert(d.price)),
         borderColor: '#00C853',
         backgroundColor: 'rgba(0, 200, 83, 0.1)',
         borderWidth: 2,
@@ -165,7 +167,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     const cost = Number(qty) * (currentPrice || 0);
 
     if (cost > cash) {
-      setError(`Insufficient funds. You need $${cost.toFixed(2)}.`);
+      setError(`Insufficient funds. You need ${format(cost)}.`);
       setBuying(false);
       return;
     }
@@ -201,7 +203,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
             <div className="text-right">
                <p className="text-sm text-gray-500">Current Price</p>
                <p className="text-3xl font-bold text-gray-900">
-                 {currentPrice ? `$${currentPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })}` : '---'}
+                 {currentPrice ? format(currentPrice) : '---'}
                </p>
             </div>
           </div>
@@ -245,7 +247,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                <div className="space-y-4">
                  <div className="bg-green-50 p-3 rounded-lg flex items-center justify-between text-green-800 text-sm font-medium">
                    <span>Available Cash</span>
-                   <span>${cash.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+                   <span>{format(cash)}</span>
                  </div>
 
                  <form onSubmit={handleBuy} className="space-y-4">
@@ -264,7 +266,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                      <div className="flex justify-between text-sm py-2 border-t border-gray-100 mt-2">
                        <span className="text-gray-500">Estimated Cost</span>
                        <span className="font-bold text-gray-900">
-                         ${(Number(qty) * currentPrice).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                         {format(Number(qty) * currentPrice)}
                        </span>
                      </div>
                    )}

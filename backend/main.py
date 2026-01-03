@@ -6,6 +6,7 @@ from .simulator import simulate_invest
 from .db_prices import get_price, get_all_assets, get_price_history
 from . import db_prices
 from . import db_portfolio as portfolio
+from . import db_currency
 from . import game_engine
 
 app = FastAPI()
@@ -219,6 +220,10 @@ def get_simulation_status(portfolio_id: int):
 def list_user_sessions(user_id: int):
     sessions = game_engine.list_sessions(user_id)
     return {"user_id": user_id, "sessions": sessions}
+
+@app.get("/currencies")
+def get_currencies():
+    return db_currency.get_all_rates()
 
 @app.post("/reset")
 def reset_system():

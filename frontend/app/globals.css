@@ -11,7 +11,7 @@
 body {
   background-color: var(--color-background-app);
   color: #111827;
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

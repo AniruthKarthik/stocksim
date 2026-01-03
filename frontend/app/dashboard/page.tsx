@@ -13,6 +13,7 @@ import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import { Calendar, Wallet, TrendingUp, ArrowRight, Plus, PieChart as PieChartIcon, CircleDollarSign } from 'lucide-react';
+import { useCurrency } from '@/context/CurrencyContext';
 
 ChartJS.register(ArcElement, ChartTooltip, Legend);
 
@@ -40,18 +41,22 @@ interface DashboardData {
   };
 }
 
+// Varied Color Palette
 const COLORS = [
-  '#00C853', 
-  '#009624', 
-  '#B9F6CA', 
-  '#69F0AE', 
-  '#43A047', 
-  '#2E7D32',
-  '#81C784',
-  '#A5D6A7'
+  '#2563EB', // Blue 600
+  '#DC2626', // Red 600
+  '#059669', // Emerald 600
+  '#D97706', // Amber 600
+  '#7C3AED', // Violet 600
+  '#DB2777', // Pink 600
+  '#0891B2', // Cyan 600
+  '#4F46E5', // Indigo 600
+  '#CA8A04', // Yellow 600
+  '#16A34A', // Green 600
 ];
 
 export default function Dashboard() {
+  const { format } = useCurrency();
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
@@ -176,7 +181,7 @@ export default function Dashboard() {
         return;
     }
 
-    // NEW: Validation: Cannot go past today
+    // Validation: Cannot go past today
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     if (new Date(target) > today) {
@@ -236,15 +241,17 @@ export default function Dashboard() {
           label: (context: any) => {
             const label = context.label || '';
             const value = context.parsed || 0;
-            return ` ${label}: $${value.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+            // Use format() but we need to strip formatting if we want raw, 
+            // but for tooltip we just want the formatted string.
+            // Since format returns string, we can use it.
+            // However, tooltip callbacks expect string.
+            return ` ${label}: ${format(value, 0)}`;
           }
         }
       }
     },
     cutout: '60%',
   };
-
-  console.log("FINAL CHART DATA:", pieChartData);
 
   return (
     <div className="space-y-8">
@@ -263,7 +270,7 @@ export default function Dashboard() {
             <span className="text-xs font-medium uppercase">Wallet Balance</span>
           </div>
           <p className="text-2xl font-bold text-gray-900">
-            ${portfolio_value.cash.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+            {format(portfolio_value.cash)}
           </p>
         </Card>
 
@@ -273,7 +280,7 @@ export default function Dashboard() {
             <span className="text-xs font-medium uppercase">Net Worth</span>
           </div>
           <p className="text-2xl font-bold text-gray-900">
-            ${portfolio_value.total_value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+            {format(portfolio_value.total_value)}
           </p>
         </Card>
 
@@ -286,7 +293,7 @@ export default function Dashboard() {
             (portfolio_value.assets_value - (portfolio_value.invested_value || 0)) >= 0 ? 'text-green-600' : 'text-red-600'
           }`}>
             {(portfolio_value.assets_value - (portfolio_value.invested_value || 0)) >= 0 ? "+" : ""}
-            ${(portfolio_value.assets_value - (portfolio_value.invested_value || 0)).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+            {format(portfolio_value.assets_value - (portfolio_value.invested_value || 0))}
           </p>
         </Card>
       </div>
@@ -337,19 +344,19 @@ export default function Dashboard() {
                              <div className="text-xs text-gray-400">{h.quantity.toFixed(4)} qty</div>
                            </td>
                            <td className="px-6 py-4 text-gray-600 text-right text-sm">
-                             ${avgCost.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                             {format(avgCost)}
                            </td>
                            <td className="px-6 py-4 text-gray-600 text-right text-sm">
-                             ${h.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                             {format(h.price)}
                            </td>
                            <td className="px-6 py-4 text-gray-900 text-right font-medium">
-                             ${h.invested.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                             {format(h.invested)}
                            </td>
                            <td className="px-6 py-4 font-bold text-gray-900 text-right">
-                             ${h.value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                             {format(h.value)}
                            </td>
                            <td className={`px-6 py-4 font-bold text-right ${pnlColor}`}>
-                             <div>{isProfit ? "+" : ""}${h.pnl.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
+                             <div>{isProfit ? "+" : ""}{format(h.pnl)}</div>
                              <div className="text-xs opacity-80">({isProfit ? "+" : ""}{h.pnl_percent.toFixed(2)}%)</div>
                            </td>
                          </tr>
@@ -360,13 +367,13 @@ export default function Dashboard() {
                      <tr>
                        <td colSpan={3} className="px-6 py-4 text-right font-medium text-gray-600">Total Portfolio</td>
                        <td className="px-6 py-4 text-right font-bold text-gray-800">
-                         ${portfolio_value.invested_value?.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                         {format(portfolio_value.invested_value || 0)}
                        </td>
                        <td className="px-6 py-4 text-right font-bold text-gray-800">
-                         ${portfolio_value.assets_value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                         {format(portfolio_value.assets_value)}
                        </td>
                        <td className={`px-6 py-4 text-right font-bold ${portfolio_value.assets_value >= (portfolio_value.invested_value || 0) ? "text-green-600" : "text-red-600"}`}>
-                         ${(portfolio_value.assets_value - (portfolio_value.invested_value || 0)).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                         {format(portfolio_value.assets_value - (portfolio_value.invested_value || 0))}
                        </td>
                      </tr>
                    </tfoot>

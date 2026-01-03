@@ -40,3 +40,36 @@ CREATE TABLE IF NOT EXISTS game_sessions (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(portfolio_id)
 );
+
+-- Currencies
+CREATE TABLE IF NOT EXISTS currencies (
+    code TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    symbol TEXT NOT NULL
+);
+
+-- Exchange Rates (Base is USD)
+-- rate: How much of Currency you get for 1 USD.
+CREATE TABLE IF NOT EXISTS exchange_rates (
+    currency_code TEXT REFERENCES currencies(code) ON DELETE CASCADE,
+    rate NUMERIC NOT NULL,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (currency_code)
+);
+
+-- Insert default currencies if not exist
+INSERT INTO currencies (code, name, symbol) VALUES
+('USD', 'United States Dollar', '$'),
+('EUR', 'Euro', '€'),
+('GBP', 'British Pound', '£'),
+('JPY', 'Japanese Yen', '¥'),
+('CAD', 'Canadian Dollar', 'C$'),
+('AUD', 'Australian Dollar', 'A$'),
+('INR', 'Indian Rupee', '₹')
+ON CONFLICT DO NOTHING;
+
+-- Insert default USD rate (always 1)
+INSERT INTO exchange_rates (currency_code, rate, last_updated) VALUES
+('USD', 1.0, CURRENT_TIMESTAMP)
+ON CONFLICT (currency_code) DO UPDATE SET rate = 1.0;
+
