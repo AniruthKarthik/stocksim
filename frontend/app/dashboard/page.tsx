@@ -255,7 +255,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <Card>
           <div className="flex items-center gap-2 mb-1 text-gray-500">
             <Calendar className="h-4 w-4" />
@@ -281,6 +281,16 @@ export default function Dashboard() {
           </div>
           <p className="text-2xl font-bold text-gray-900">
             {format(portfolio_value.total_value)}
+          </p>
+        </Card>
+
+        <Card>
+          <div className="flex items-center gap-2 mb-1 text-gray-500">
+            <TrendingUp className="h-4 w-4" />
+            <span className="text-xs font-medium uppercase">Total Invested</span>
+          </div>
+          <p className="text-2xl font-bold text-gray-900">
+            {format(portfolio_value.invested_value || 0)}
           </p>
         </Card>
 

@@ -259,7 +259,29 @@ def get_portfolio_value(portfolio_id: int, date: str):
                     # Should not happen if data is consistent
                     pass
 
-        # Now value these holdings at `date` price
+        # Optimize: Batch fetch prices for all held symbols
+        held_symbols = [sym for sym, qty in hist_holdings.items() if qty > 0]
+        price_map = {}
+        
+        if held_symbols:
+            # Construct a query to get latest prices <= date for all symbols
+            # Uses Postgres DISTINCT ON to get the most recent price per asset
+            placeholders = ','.join(['%s'] * len(held_symbols))
+            query = f"""
+                SELECT DISTINCT ON (a.symbol) a.symbol, p.adj_close 
+                FROM prices p
+                JOIN assets a ON p.asset_id = a.id
+                WHERE a.symbol IN ({placeholders}) AND p.date <= %s
+                ORDER BY a.symbol, p.date DESC
+            """
+            # Params: symbols list, then date
+            params = held_symbols + [date]
+            cur.execute(query, params)
+            
+            for row in cur.fetchall():
+                price_map[row[0]] = float(row[1])
+
+        # Now value these holdings using the batch-fetched prices
         total_assets_value = 0.0
         total_invested_value = 0.0
         missing_prices = []
@@ -270,7 +292,16 @@ def get_portfolio_value(portfolio_id: int, date: str):
                 invested = cost_basis.get(sym, 0.0)
                 total_invested_value += invested
                 
-                p = get_price(sym, date)
+                # Use map instead of N+1 query
+                p = price_map.get(sym)
+                
+                # Fallback if specific date missing (e.g. weekend/holiday logic)? 
+                # get_price() had fallback logic. The simple IN query might miss if date is holiday.
+                # If map miss, try individual get_price (slower but safe) or accept 0?
+                # For robustness, if missing in map, try get_price as fallback.
+                if p is None:
+                     p = get_price(sym, date)
+
                 if p:
                     val = qty * p
                     total_assets_value += val

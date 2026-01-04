@@ -239,7 +239,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                  </div>
                  <Button 
                    className="w-full mt-4" 
-                   onClick={() => router.push('/dashboard')}
+                   onClick={() => window.location.href = '/dashboard'}
                  >
                    View Portfolio
                  </Button>
