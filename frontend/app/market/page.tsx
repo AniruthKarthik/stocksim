@@ -65,6 +65,23 @@ export default function MarketPage() {
     return matchesSearch && matchesType;
   });
 
+  // Sort logic: CRYPTO > STOCKS > COMMODITIES > MUTUALFUNDS > ETFS
+  const typeOrder: Record<string, number> = {
+    'CRYPTO': 1,
+    'STOCKS': 2,
+    'COMMODITIES': 3,
+    'MUTUALFUNDS': 4,
+    'MUTUAL FUNDS': 4,
+    'ETFS': 5
+  };
+
+  filteredAssets.sort((a, b) => {
+    const orderA = typeOrder[a.type.toUpperCase()] || 99;
+    const orderB = typeOrder[b.type.toUpperCase()] || 99;
+    if (orderA !== orderB) return orderA - orderB;
+    return a.symbol.localeCompare(b.symbol);
+  });
+
   const assetTypes = ['ALL', ...Array.from(new Set(assets.map(a => a.type.toUpperCase())))];
 
   const getTypeIcon = (type: string) => {

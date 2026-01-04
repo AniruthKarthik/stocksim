@@ -199,7 +199,14 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-baseline justify-between">
-            <h1 className="text-3xl font-bold text-gray-900">{symbol}</h1>
+            <h1 className="text-3xl font-bold text-gray-900">
+              {symbol}
+              {(symbol === 'GOLD' || symbol === 'SILVER') && (
+                <span className="ml-3 text-xs font-normal text-amber-600 bg-amber-50 px-2 py-1 rounded-md border border-amber-100 uppercase tracking-wider">
+                  Price per American Troy Ounce
+                </span>
+              )}
+            </h1>
             <div className="text-right">
                <p className="text-sm text-gray-500">Current Price</p>
                <p className="text-3xl font-bold text-gray-900">
