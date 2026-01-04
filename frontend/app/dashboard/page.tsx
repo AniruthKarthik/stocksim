@@ -41,18 +41,16 @@ interface DashboardData {
   };
 }
 
-// Varied Color Palette
+// Shades of Green (Main Theme: #00C853)
 const COLORS = [
-  '#2563EB', // Blue 600
-  '#DC2626', // Red 600
-  '#059669', // Emerald 600
-  '#D97706', // Amber 600
-  '#7C3AED', // Violet 600
-  '#DB2777', // Pink 600
-  '#0891B2', // Cyan 600
-  '#4F46E5', // Indigo 600
-  '#CA8A04', // Yellow 600
-  '#16A34A', // Green 600
+  '#00C853', // Primary Green
+  '#00E676', // Lighter Green
+  '#009624', // Darker Green
+  '#69F0AE', // Soft Green
+  '#007E33', // Deep Green
+  '#B9F6CA', // Pale Green
+  '#004D40', // Dark Teal Green
+  '#A5D6A7', // Muted Green
 ];
 
 export default function Dashboard() {
@@ -406,7 +404,7 @@ export default function Dashboard() {
              Allocation
            </h2>
            
-           <Card className="h-[300px] flex items-center justify-center p-4">
+           <Card className="h-[450px] flex items-center justify-center p-4">
              {hasMounted && pieChartData.labels.length > 0 ? (
                <Pie options={pieOptions} data={pieChartData} />
              ) : (

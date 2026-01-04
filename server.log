@@ -1,0 +1,190 @@
+INFO:     Started server process [28758]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:34790 - "GET / HTTP/1.1" 200 OK
+DB Connection Pool Initialized
+DEBUG: Fetched 416 assets as of None
+INFO:     127.0.0.1:34806 - "GET /assets HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:46526 - "GET /currencies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46526 - "OPTIONS /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46534 - "POST /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46534 - "OPTIONS /portfolio/create HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46526 - "POST /portfolio/create HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46526 - "OPTIONS /simulation/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46534 - "POST /simulation/start HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:46534 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:46534 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:46534 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+Updating currency rates...
+DEBUG: Fetched 245 assets as of 2000-10-10
+INFO:     127.0.0.1:44952 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:46534 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetched 245 assets as of 2000-10-10
+INFO:     127.0.0.1:46534 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44954 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetching history for AAPL until 2000-10-10
+Updating currency rates...
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:44970 - "GET /price/history?symbol=AAPL&end_date=2000-10-10 HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44954 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetching history for AAPL until 2000-10-10
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:44954 - "GET /price/history?symbol=AAPL&end_date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44954 - "OPTIONS /portfolio/buy HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44970 - "POST /portfolio/buy HTTP/1.1" 200 OK
+Updating currency rates...
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44954 - "GET /currencies HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+Updating currency rates...
+DEBUG: Fetched 245 assets as of 2000-10-10
+INFO:     127.0.0.1:44954 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetched 245 assets as of 2000-10-10
+INFO:     127.0.0.1:44970 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetching history for AMD until 2000-10-10
+Updating currency rates...
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:44954 - "GET /price/history?symbol=AMD&end_date=2000-10-10 HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetching history for AMD until 2000-10-10
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:44970 - "GET /price/history?symbol=AMD&end_date=2000-10-10 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44970 - "POST /portfolio/buy HTTP/1.1" 200 OK
+Updating currency rates...
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44954 - "GET /currencies HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+Updating currency rates...
+DEBUG: Fetched 245 assets as of 2000-10-10
+INFO:     127.0.0.1:44954 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetched 245 assets as of 2000-10-10
+INFO:     127.0.0.1:44970 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetching history for ABT until 2000-10-10
+Updating currency rates...
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:44954 - "GET /price/history?symbol=ABT&end_date=2000-10-10 HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+DEBUG: Fetching history for ABT until 2000-10-10
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:44970 - "GET /price/history?symbol=ABT&end_date=2000-10-10 HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:44970 - "POST /portfolio/buy HTTP/1.1" 200 OK
+Updating currency rates...
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /currencies HTTP/1.1" 200 OK
+Rates updated.
+INFO:     127.0.0.1:44970 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44970 - "OPTIONS /simulation/forward HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39296 - "POST /simulation/forward HTTP/1.1" 200 OK
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:39296 - "GET /simulation/status?portfolio_id=4 HTTP/1.1" 200 OK

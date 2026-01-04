@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS portfolios (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
+    currency_code TEXT DEFAULT 'USD',
     cash_balance NUMERIC DEFAULT 10000.00,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(user_id, name)

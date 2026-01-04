@@ -110,8 +110,11 @@ class StockRefresher:
         df.to_csv(csv_path, index=False)
         return csv_path
 
-    def load_to_db(self, ticker, asset_type, df):
+    def load_to_db(self, ticker, asset_type, df, yahoo_ticker=None):
         """Loads data into PostgreSQL using upsert logic."""
+        if yahoo_ticker is None:
+            yahoo_ticker = ticker
+
         conn = None
         try:
             conn = psycopg2.connect(**DB_CONFIG)
@@ -127,7 +130,7 @@ class StockRefresher:
                 if existing and existing[0] != ticker.capitalize() and existing[0] != ticker.upper():
                     display_name = existing[0]
                 else:
-                    info = yf.Ticker(ticker).info
+                    info = yf.Ticker(yahoo_ticker).info
                     display_name = info.get('longName') or info.get('shortName') or display_name
             except:
                 pass
@@ -192,9 +195,15 @@ class StockRefresher:
 
             for i, ticker in enumerate(tickers):
                 self.summary["attempted"] += 1
-                logger.info(f"[{asset_type}] {i+1}/{len(tickers)}: {ticker}")
                 
-                df = self.download_data(ticker)
+                # Special handling for Crypto: Use clean symbol for storage, -USD for Yahoo
+                yahoo_ticker = ticker
+                if asset_type == 'crypto' and not ticker.endswith('-USD'):
+                    yahoo_ticker = f"{ticker}-USD"
+                
+                logger.info(f"[{asset_type}] {i+1}/{len(tickers)}: {ticker} (Fetch: {yahoo_ticker})")
+                
+                df = self.download_data(yahoo_ticker)
                 if df is None:
                     logger.warning(f"No data for {ticker}, skipping.")
                     self.summary["skipped"] += 1
@@ -203,7 +212,7 @@ class StockRefresher:
                 self.summary["downloaded"] += 1
                 self.save_to_csv(ticker, asset_type, df)
                 
-                success = self.load_to_db(ticker, asset_type, df)
+                success = self.load_to_db(ticker, asset_type, df, yahoo_ticker=yahoo_ticker)
                 if success:
                     self.summary["loaded"] += 1
                 else:

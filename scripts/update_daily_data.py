@@ -163,19 +163,37 @@ class IncrementalRefresher:
                 time.sleep(1)
         return None
 
-    def load_to_db(self, ticker, asset_type, df):
+    def load_to_db(self, ticker, asset_type, df, yahoo_ticker=None):
         """Loads data into PostgreSQL using upsert logic."""
+        if yahoo_ticker is None:
+            yahoo_ticker = ticker
+            
         conn = None
         try:
             conn = psycopg2.connect(**DB_CONFIG)
             cur = conn.cursor()
+
+            # 1. Fetch real company name if possible
+            display_name = ticker.upper()
+            try:
+                # Check if we already have a professional name first
+                cur.execute("SELECT name FROM assets WHERE symbol = %s", (ticker.upper(),))
+                existing = cur.fetchone()
+                
+                if existing and existing[0] != ticker.capitalize() and existing[0] != ticker.upper():
+                    display_name = existing[0]
+                else:
+                    info = yf.Ticker(yahoo_ticker).info
+                    display_name = info.get('longName') or info.get('shortName') or display_name
+            except:
+                pass
 
             # Ensure asset exists
             cur.execute(
                 """INSERT INTO assets (symbol, name, type) VALUES (%s, %s, %s) 
                    ON CONFLICT (symbol) DO UPDATE SET type = EXCLUDED.type
                    RETURNING id""",
-                (ticker.upper(), ticker.upper(), asset_type)
+                (ticker.upper(), display_name, asset_type)
             )
             asset_id = cur.fetchone()[0]
 
@@ -236,11 +254,16 @@ class IncrementalRefresher:
             for ticker in tickers:
                 self.summary["tickers_checked"] += 1
                 
-                # 1. Find latest date
+                # Special handling for Crypto: Use clean symbol for storage, -USD for Yahoo
+                yahoo_ticker = ticker
+                if category == 'crypto' and not ticker.endswith('-USD'):
+                    yahoo_ticker = f"{ticker}-USD"
+                
+                # 1. Find latest date (using clean ticker in DB)
                 asset_id, last_date = self.get_latest_date(ticker)
                 
-                # 2. Download incremental data
-                df = self.download_incremental(ticker, last_date)
+                # 2. Download incremental data (using yahoo ticker)
+                df = self.download_incremental(yahoo_ticker, last_date)
                 
                 if isinstance(df, str) and df == "UP_TO_DATE":
                     self.summary["skipped_up_to_date"] += 1
@@ -256,10 +279,12 @@ class IncrementalRefresher:
                         self.summary["errors"] += 1
                     continue
 
-                # 3. Load to DB
-                if self.load_to_db(ticker, category, df):
+                # 3. Load to DB (store as clean ticker)
+                if self.load_to_db(ticker, category, df, yahoo_ticker=yahoo_ticker):
                     self.summary["tickers_updated"] += 1
                     category_updated = True
+                    # 4. Append to CSV (save as clean ticker)
+                    self.append_to_csv(ticker, category, df)
                 else:
                     self.summary["errors"] += 1
 
@@ -268,6 +293,28 @@ class IncrementalRefresher:
             logger.info(f"Finished category: {category}")
 
         self.print_summary()
+
+    def append_to_csv(self, ticker, asset_type, df):
+        """Appends new rows to the local CSV file."""
+        try:
+            target_dir = BASE_DATA_DIR / asset_type
+            target_dir.mkdir(parents=True, exist_ok=True)
+            csv_path = target_dir / f"{ticker}.csv"
+            
+            # Format DataFrame to match CSV structure
+            # Ensure columns are correct
+            save_df = df.copy()
+            # If 'date' is a column, ensure it's formatted YYYY-MM-DD
+            if 'date' in save_df.columns:
+                 save_df['date'] = save_df['date'].apply(lambda x: x.strftime('%Y-%m-%d') if hasattr(x, 'strftime') else str(x)[:10])
+            
+            if csv_path.exists():
+                save_df.to_csv(csv_path, mode='a', header=False, index=False)
+            else:
+                save_df.to_csv(csv_path, index=False)
+                
+        except Exception as e:
+            logger.error(f"Failed to append CSV for {ticker}: {e}")
 
     def print_summary(self):
         print("\n" + "="*40)

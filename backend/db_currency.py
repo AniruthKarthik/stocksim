@@ -1,6 +1,6 @@
 import yfinance as yf
 from datetime import datetime, timedelta
-from .db_prices import connect
+from .db_conn import get_db_connection
 
 # Mapping currency code to Yahoo Finance ticker
 # We want Rate = (Foreign / USD).
@@ -92,41 +92,36 @@ def update_rates_if_needed():
     """
     Checks if rates are stale (older than 24h). If so, updates them.
     """
-    conn = connect()
-    if not conn: return
-    
     try:
-        cur = conn.cursor()
-        
-        # Check oldest update time
-        cur.execute("SELECT MIN(last_updated) FROM exchange_rates WHERE currency_code != 'USD'")
-        row = cur.fetchone()
-        
-        needs_update = True
-        if row and row[0]:
-            last_update = row[0]
-            if (datetime.now() - last_update) < timedelta(hours=24):
-                needs_update = False
-                
-        if needs_update:
-            print("Updating currency rates...")
-            rates = fetch_live_rates()
-            for code, rate in rates.items():
-                if code == 'USD': continue
-                cur.execute("""
-                    INSERT INTO exchange_rates (currency_code, rate, last_updated)
-                    VALUES (%s, %s, NOW())
-                    ON CONFLICT (currency_code) 
-                    DO UPDATE SET rate = %s, last_updated = NOW()
-                """, (code, rate, rate))
-            conn.commit()
-            print("Rates updated.")
+        with get_db_connection() as conn:
+            cur = conn.cursor()
+            
+            # Check oldest update time
+            cur.execute("SELECT MIN(last_updated) FROM exchange_rates WHERE currency_code != 'USD'")
+            row = cur.fetchone()
+            
+            needs_update = True
+            if row and row[0]:
+                last_update = row[0]
+                if (datetime.now() - last_update) < timedelta(hours=24):
+                    needs_update = False
+                    
+            if needs_update:
+                print("Updating currency rates...")
+                rates = fetch_live_rates()
+                for code, rate in rates.items():
+                    if code == 'USD': continue
+                    cur.execute("""
+                        INSERT INTO exchange_rates (currency_code, rate, last_updated)
+                        VALUES (%s, %s, NOW())
+                        ON CONFLICT (currency_code) 
+                        DO UPDATE SET rate = %s, last_updated = NOW()
+                    """, (code, rate, rate))
+                conn.commit()
+                print("Rates updated.")
             
     except Exception as e:
         print(f"Error in rate update: {e}")
-        conn.rollback()
-    finally:
-        conn.close()
 
 def get_all_rates():
     """
@@ -135,24 +130,22 @@ def get_all_rates():
     # Ensure fresh
     update_rates_if_needed()
     
-    conn = connect()
-    if not conn: return []
-    
     try:
-        cur = conn.cursor()
-        cur.execute("""
-            SELECT c.code, c.name, c.symbol, COALESCE(e.rate, 0)
-            FROM currencies c
-            LEFT JOIN exchange_rates e ON c.code = e.currency_code
-            ORDER BY c.code
-        """)
-        rows = cur.fetchall()
-        return [
-            {"code": r[0], "name": r[1], "symbol": r[2], "rate": float(r[3])} 
-            for r in rows
-        ]
-    finally:
-        conn.close()
+        with get_db_connection() as conn:
+            cur = conn.cursor()
+            cur.execute("""
+                SELECT c.code, c.name, c.symbol, COALESCE(e.rate, 0)
+                FROM currencies c
+                LEFT JOIN exchange_rates e ON c.code = e.currency_code
+                ORDER BY c.code
+            """)
+            rows = cur.fetchall()
+            return [
+                {"code": r[0], "name": r[1], "symbol": r[2], "rate": float(r[3])} 
+                for r in rows
+            ]
+    except Exception:
+        return []
 
 def get_rate(code: str):
     """
@@ -161,12 +154,11 @@ def get_rate(code: str):
     if code == 'USD': return 1.0
     
     update_rates_if_needed()
-    conn = connect()
-    if not conn: return 1.0
     try:
-        cur = conn.cursor()
-        cur.execute("SELECT rate FROM exchange_rates WHERE currency_code = %s", (code,))
-        row = cur.fetchone()
-        return float(row[0]) if row else 1.0
-    finally:
-        conn.close()
+        with get_db_connection() as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT rate FROM exchange_rates WHERE currency_code = %s", (code,))
+            row = cur.fetchone()
+            return float(row[0]) if row else 1.0
+    except Exception:
+        return 1.0

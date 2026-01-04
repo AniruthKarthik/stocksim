@@ -42,7 +42,7 @@ def test_game_flow():
     # db_portfolio.add_transaction takes a date. 
     # So we pass start_date.
     
-    buy_res = portfolio.add_transaction(pid, "APPLE", "BUY", 10, start_date)
+    buy_res = portfolio.add_transaction(pid, "AAPL", "BUY", 10, start_date)
     assert "status" in buy_res, f"Buy failed: {buy_res}"
     
     # 4. Advance Time
