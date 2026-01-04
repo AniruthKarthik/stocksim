@@ -11,11 +11,15 @@ backend/
 ├── simulator.py         # Stateless "what if" calculator logic.
 ├── db_prices.py         # Database access for Asset and Price data.
 ├── db_portfolio.py      # Database access for User, Portfolio, and Transaction data.
+├── db_currency.py       # Live currency exchange rate fetching and management.
 ├── init_db.py           # Script to initialize database schema.
 ├── test_full_system.py  # Comprehensive test suite.
 ├── db/
-│   └── loadCsvToDb.py   # Script to load historical price data from CSVs.
-└── portfolio_schema.sql # SQL definitions for users, portfolios, transactions, and sessions.
+│   └── loadCsvToDb.py   # Legacy script to load historical price data from CSVs.
+├── db_load/             # New idempotent data ingestion system.
+│   ├── refresh_stocks.py# Fetches S&P 500 from Wikipedia and downloads from Yahoo Finance.
+│   └── load_csvs.py     # Loads downloaded CSVs into the database.
+└── portfolio_schema.sql # SQL definitions for users, portfolios, transactions, sessions, and currencies.
 data/                    # Directory containing historical CSV data.
 ```
 
@@ -36,16 +40,22 @@ The database consists of Market Data, User Data, and Game State.
 *   **`portfolios`**: Stores user portfolios.
     *   `id` (PK), `user_id` (FK), `name`, `cash_balance`.
 *   **`transactions`**: Records all buy/sell actions.
-    *   `id` (PK), `portfolio_id` (FK), `asset_id` (FK), `type`, `quantity`, `price_per_unit`, `date`.
+    *   `id` (PK), `portfolio_id` (FK), `asset_id` (FK), `type`, `symbol`, `quantity`, `price_per_unit`, `date`.
 
-### Game State (New)
+### Game State
 *   **`game_sessions`**: Tracks the simulation state for a portfolio.
     *   `id` (PK), `portfolio_id` (FK), `user_id` (FK).
-    *   `start_date`: The real-world date where simulation began (e.g., 2010-01-01).
+    *   `start_date`: The real-world date where simulation began.
     *   `sim_date`: The current date inside the simulation.
     *   `monthly_salary`, `monthly_expenses`.
     *   `is_active`: Boolean flag (Only one active session per portfolio allowed).
     *   `created_at`: Timestamp.
+
+### Currency Data (New)
+*   **`currencies`**: Supported currency definitions.
+    *   `code` (PK), `name`, `symbol`.
+*   **`exchange_rates`**: Live rates relative to USD.
+    *   `currency_code` (FK), `rate` (Units per 1 USD), `last_updated`.
 
 ## 3. Game Loop & Time Travel Logic
 
@@ -79,6 +89,11 @@ The backend now supports a stateful "Time Travel" mode.
 *   **`get_session(portfolio_id)`**: Returns the currently active session metadata.
 *   **`list_sessions(user_id)`**: Returns a list of all sessions (active and inactive) for a user.
 
+### `backend/db_currency.py`
+*   **`fetch_live_rates()`**: Pulls current exchange rates for major pairs from Yahoo Finance.
+*   **`update_rates_if_needed()`**: Idempotent check to refresh rates if older than 24 hours.
+*   **`get_all_rates()`**: Returns current list of supported currencies and their USD conversion rates.
+
 ### `backend/main.py` (API Layer)
 *   **`_resolve_trade_date(...)`**:
     *   If a session is active, forces the trade date to be `sim_date`.
@@ -87,34 +102,29 @@ The backend now supports a stateful "Time Travel" mode.
 ## 5. API Documentation
 
 ### Simulation Control
-*   **POST /simulation/start**
-    *   **Body**: `{"user_id": 1, "portfolio_id": 1, "start_date": "2015-01-01", "monthly_salary": 5000, "monthly_expenses": 3000}`
-    *   **Response**: `{"session_id": 1, "sim_date": "2015-01-01"}`
-    *   *Effect*: Closes any old session, starts a new one.
-
-*   **POST /simulation/forward**
-    *   **Body**: `{"portfolio_id": 1, "target_date": "2015-04-01"}`
-    *   **Response**: `{"status": "success", "months_passed": 3, "cash_added": 6000.0, "new_date": "2015-04-01"}`
-
-*   **GET /simulation/status?portfolio_id=1**
-    *   **Response**: `{"session": {...}, "portfolio_value": {...}}`
-
-*   **GET /simulation/list?user_id=1**
-    *   **Response**: `{"user_id": 1, "sessions": [{"id": 1, "is_active": false, ...}, {"id": 2, "is_active": true, ...}]}`
-
-### Portfolio Management (Updated)
-*   **POST /portfolio/buy**
-    *   **Body**: `{"portfolio_id": 1, "symbol": "AAPL", "quantity": 10}` (Date optional if session active)
-    *   **Response**: `{"status": "success", "new_balance": ...}`
-
-*   **POST /portfolio/sell**
-    *   Same as buy, checks holdings.
+*   **POST /simulation/start**: Initializes session.
+*   **POST /simulation/forward**: Advances `sim_date` and calculates income.
+*   **GET /simulation/status**: Returns session state + portfolio value.
+*   **POST /reset**: Clears user data and re-initializes schema (Dev tool).
 
 ### Market Data
-*   **GET /price?symbol=AAPL&date=2023-01-01**
-*   **GET /simulate?amount=1000&symbol=AAPL&buy=2010-01-01&sell=2020-01-01** (Stateless calculator)
+*   **GET /assets?date=YYYY-MM-DD**: Lists assets that have data available as of the given date.
+*   **GET /price?symbol=AAPL&date=2023-01-01**: Single price lookup.
+*   **GET /price/history?symbol=AAPL&end_date=2023-01-01**: Fetches historical price sequence for charting.
+*   **GET /currencies**: Returns supported currencies and exchange rates.
 
-## 6. Bugs Found & Fixed
+### Portfolio Management
+*   **POST /portfolio/buy**: Executes a trade.
+*   **POST /portfolio/sell**: Executes a sell transaction.
+*   **GET /portfolio/{id}**: Returns portfolio metadata and holdings.
+
+## 6. Data Refresh System (`backend/db_load`)
+The system now supports automatic, idempotent updates from Yahoo Finance.
+1.  **Ticker Discovery**: `refresh_stocks.py` scrapes Wikipedia for the current S&P 500 list.
+2.  **Downloading**: Downloads daily OHLCV data to `data/stocks/`.
+3.  **Loading**: `load_csvs.py` uses `ON CONFLICT` to upsert data, avoiding duplicates and allowing incremental updates.
+
+## 7. Bugs Found & Fixed
 *   **Validation Script Crash**: The `validate_api_flow.py` script originally tried to start and kill the `uvicorn` process itself. This caused race conditions and connection errors.
     *   **Fix**: Updated the script to assume the server is already running and only perform HTTP requests.
 *   **Constraint Error**: The `game_sessions` table originally had a `UNIQUE(portfolio_id)` constraint, preventing multiple sessions per portfolio.
