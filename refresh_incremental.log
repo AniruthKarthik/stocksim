@@ -1,0 +1,105 @@
+2026-01-04 21:50:17,966 - INFO - --- Refreshing Category: crypto (25 tickers) ---
+2026-01-04 21:51:20,394 - INFO - --- Refreshing Category: crypto (25 tickers) ---
+2026-01-04 21:51:35,482 - INFO - --- Refreshing Category: crypto (25 tickers) ---
+2026-01-04 21:51:36,526 - INFO - Finished category: crypto
+2026-01-04 21:51:36,529 - INFO - --- Refreshing Category: stocks (50 tickers) ---
+2026-01-04 21:52:08,601 - ERROR - $SQ: possibly delisted; no timezone found
+2026-01-04 21:52:08,606 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:08,606 - ERROR - ['SQ']: possibly delisted; no timezone found
+2026-01-04 21:52:08,609 - ERROR - Failed to fetch data for SQ
+2026-01-04 21:52:10,526 - INFO - Finished category: stocks
+2026-01-04 21:52:10,530 - INFO - --- Refreshing Category: mutualfunds (18 tickers) ---
+2026-01-04 21:52:10,795 - ERROR - $DFLVX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:10,801 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:10,801 - ERROR - ['DFLVX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,056 - ERROR - $FSMAX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,064 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:11,064 - ERROR - ['FSMAX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,243 - ERROR - $FSPGX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,247 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:11,247 - ERROR - ['FSPGX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,423 - ERROR - $FXAIX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,429 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:11,430 - ERROR - ['FXAIX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,694 - ERROR - $FZROX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,695 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:11,695 - ERROR - ['FZROX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,970 - ERROR - $PRNHX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:11,977 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:11,977 - ERROR - ['PRNHX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,150 - ERROR - $SWPPX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,158 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:12,158 - ERROR - ['SWPPX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,305 - ERROR - $TRBCX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,309 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:12,309 - ERROR - ['TRBCX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,596 - ERROR - $VASIX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,604 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:12,604 - ERROR - ['VASIX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,972 - ERROR - $VBTLX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:12,980 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:12,980 - ERROR - ['VBTLX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:13,161 - ERROR - $VFIAX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:13,163 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:13,164 - ERROR - ['VFIAX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:13,390 - ERROR - $VIMSX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:13,396 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:13,396 - ERROR - ['VIMSX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:13,676 - ERROR - $VSMAX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:13,681 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:13,681 - ERROR - ['VSMAX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,134 - ERROR - $VTSAX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,140 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:15,140 - ERROR - ['VTSAX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,289 - ERROR - $VWENX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,298 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:15,298 - ERROR - ['VWENX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,588 - ERROR - $VWLTX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,593 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:15,594 - ERROR - ['VWLTX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,900 - ERROR - $VWLUX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:15,909 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:15,909 - ERROR - ['VWLUX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:16,216 - ERROR - $VWUSX: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:16,217 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:16,217 - ERROR - ['VWUSX']: possibly delisted; no price data found  (1d 2026-01-03 -> 2026-01-04)
+2026-01-04 21:52:16,227 - INFO - Finished category: mutualfunds
+2026-01-04 21:52:16,231 - INFO - Category 'stocks' already refreshed today. Skipping.
+2026-01-04 21:52:16,235 - INFO - --- Refreshing Category: etfs (27 tickers) ---
+2026-01-04 21:52:23,219 - INFO - Finished category: etfs
+2026-01-04 21:52:23,223 - INFO - --- Refreshing Category: commodities (20 tickers) ---
+2026-01-04 21:52:24,934 - ERROR - $JO: possibly delisted; no price data found  (1d 2023-07-22 -> 2026-01-04)
+2026-01-04 21:52:24,937 - ERROR - 
+1 Failed download:
+2026-01-04 21:52:24,937 - ERROR - ['JO']: possibly delisted; no price data found  (1d 2023-07-22 -> 2026-01-04)
+2026-01-04 21:52:24,940 - ERROR - Failed to fetch data for JO
+2026-01-04 21:52:27,509 - INFO - Finished category: commodities
+2026-01-04 21:52:27,513 - INFO - Category 'mutualfunds' already refreshed today. Skipping.
+2026-01-04 21:52:27,516 - INFO - Category 'etfs' already refreshed today. Skipping.
+2026-01-04 21:53:19,673 - INFO - Category 'crypto' already refreshed today. Skipping.
+2026-01-04 21:53:19,677 - INFO - Category 'stocks' already refreshed today. Skipping.
+2026-01-04 21:53:19,680 - INFO - Category 'mutualfunds' already refreshed today. Skipping.
+2026-01-04 21:53:19,684 - INFO - Category 'stocks' already refreshed today. Skipping.
+2026-01-04 21:53:19,688 - INFO - Category 'etfs' already refreshed today. Skipping.
+2026-01-04 21:53:19,691 - INFO - Category 'commodities' already refreshed today. Skipping.
+2026-01-04 21:53:19,695 - INFO - Category 'mutualfunds' already refreshed today. Skipping.
+2026-01-04 21:53:19,698 - INFO - Category 'etfs' already refreshed today. Skipping.

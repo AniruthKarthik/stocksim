@@ -242,7 +242,7 @@ class IncrementalRefresher:
                 # 2. Download incremental data
                 df = self.download_incremental(ticker, last_date)
                 
-                if df == "UP_TO_DATE":
+                if isinstance(df, str) and df == "UP_TO_DATE":
                     self.summary["skipped_up_to_date"] += 1
                     continue
                 
