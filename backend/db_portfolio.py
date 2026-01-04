@@ -1,5 +1,6 @@
 import psycopg2
 from .db_prices import connect, get_asset_id, get_price
+from .db_currency import get_rate
 from datetime import datetime
 
 def create_user(username: str):
@@ -21,19 +22,19 @@ def create_user(username: str):
     finally:
         conn.close()
 
-def create_portfolio(user_id: int, name: str):
+def create_portfolio(user_id: int, name: str, currency_code: str = "USD"):
     conn = connect()
     if not conn: return None
     try:
         cur = conn.cursor()
         cur.execute("""
-            INSERT INTO portfolios (user_id, name) 
-            VALUES (%s, %s) 
-            RETURNING id, cash_balance
-        """, (user_id, name))
+            INSERT INTO portfolios (user_id, name, currency_code) 
+            VALUES (%s, %s, %s) 
+            RETURNING id, cash_balance, currency_code
+        """, (user_id, name, currency_code))
         row = cur.fetchone()
         conn.commit()
-        return {"id": row[0], "cash_balance": float(row[1])}
+        return {"id": row[0], "cash_balance": float(row[1]), "currency_code": row[2]}
     except Exception as e:
         conn.rollback()
         print(f"Error creating portfolio: {e}")
@@ -46,10 +47,10 @@ def get_portfolio(portfolio_id: int):
     if not conn: return None
     try:
         cur = conn.cursor()
-        cur.execute("SELECT id, user_id, name, cash_balance FROM portfolios WHERE id = %s", (portfolio_id,))
+        cur.execute("SELECT id, user_id, name, cash_balance, currency_code FROM portfolios WHERE id = %s", (portfolio_id,))
         row = cur.fetchone()
         if row:
-            return {"id": row[0], "user_id": row[1], "name": row[2], "cash_balance": float(row[3])}
+            return {"id": row[0], "user_id": row[1], "name": row[2], "cash_balance": float(row[3]), "currency_code": row[4]}
         return None
     finally:
         conn.close()
@@ -110,17 +111,22 @@ def add_transaction(portfolio_id: int, symbol: str, txn_type: str, quantity: flo
         cur = conn.cursor()
         
         # Check Portfolio Balance / Holdings
-        cur.execute("SELECT cash_balance FROM portfolios WHERE id = %s FOR UPDATE", (portfolio_id,))
+        cur.execute("SELECT cash_balance, currency_code FROM portfolios WHERE id = %s FOR UPDATE", (portfolio_id,))
         row = cur.fetchone()
         if not row:
             return {"error": "Portfolio not found"}
         
         cash_balance = float(row[0])
+        currency_code = row[1]
+        
+        # Convert total_cost (USD) to portfolio currency
+        rate = get_rate(currency_code)
+        cost_in_port_currency = total_cost * rate
         
         if txn_type == "BUY":
-            if cash_balance < total_cost:
-                return {"error": f"Insufficient funds. Required: {total_cost}, Available: {cash_balance}"}
-            new_balance = cash_balance - total_cost
+            if cash_balance < cost_in_port_currency:
+                return {"error": f"Insufficient funds. Required: {cost_in_port_currency} {currency_code}, Available: {cash_balance} {currency_code}"}
+            new_balance = cash_balance - cost_in_port_currency
         
         elif txn_type == "SELL":
             # We need to verify holdings outside the transaction block or calculate it here
@@ -139,7 +145,7 @@ def add_transaction(portfolio_id: int, symbol: str, txn_type: str, quantity: flo
             if current_qty < quantity:
                 return {"error": f"Insufficient holdings. Owned: {current_qty}, Selling: {quantity}"}
                 
-            new_balance = cash_balance + total_cost
+            new_balance = cash_balance + cost_in_port_currency
         else:
             return {"error": "Invalid transaction type"}
 
@@ -209,9 +215,16 @@ def get_portfolio_value(portfolio_id: int, date: str):
         # We prefer this over reconstructing from transactions because transactions don't track salary.
         # Limitation: If 'date' is in the past, this still returns CURRENT cash. 
         # But for the Dashboard (current state), this is exactly what we want.
-        cur.execute("SELECT cash_balance FROM portfolios WHERE id = %s", (portfolio_id,))
+        cur.execute("SELECT cash_balance, currency_code FROM portfolios WHERE id = %s", (portfolio_id,))
         row = cur.fetchone()
-        real_cash_balance = float(row[0]) if row else 0.0
+        if not row: return None
+        
+        raw_cash = float(row[0])
+        currency_code = row[1]
+        
+        # Convert cash to USD for total valuation
+        rate = get_rate(currency_code)
+        real_cash_balance_usd = raw_cash / rate
 
         cur.execute("""
             SELECT type, quantity, price_per_unit, symbol 
@@ -284,10 +297,10 @@ def get_portfolio_value(portfolio_id: int, date: str):
         
         return {
             "date": date,
-            "cash": round(real_cash_balance, 2),
-            "assets_value": round(total_assets_value, 2),
-            "invested_value": round(total_invested_value, 2),
-            "total_value": round(real_cash_balance + total_assets_value, 2),
+            "cash": real_cash_balance_usd,
+            "assets_value": total_assets_value,
+            "invested_value": total_invested_value,
+            "total_value": real_cash_balance_usd + total_assets_value,
             "holdings": detailed_holdings,
             "missing_prices": missing_prices
         }

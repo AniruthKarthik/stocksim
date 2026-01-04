@@ -32,12 +32,13 @@ class CreateUserRequest(BaseModel):
 class CreatePortfolioRequest(BaseModel):
     user_id: int
     name: str
+    currency_code: Optional[str] = "USD"
 
 class TradeRequest(BaseModel):
     portfolio_id: int
     symbol: str
     quantity: float
-    date: Optional[str] = None # Optional: Logic will determine date
+    date: Optional[str] = None
 
 class ValueRequest(BaseModel):
     portfolio_id: int
@@ -113,7 +114,7 @@ def create_user(req: CreateUserRequest):
 
 @app.post("/portfolio/create")
 def create_portfolio(req: CreatePortfolioRequest):
-    result = portfolio.create_portfolio(req.user_id, req.name)
+    result = portfolio.create_portfolio(req.user_id, req.name, req.currency_code)
     if not result:
         raise HTTPException(status_code=400, detail="Error creating portfolio (name might be taken for this user)")
     return result

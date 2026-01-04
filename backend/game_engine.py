@@ -117,16 +117,17 @@ def advance_time(portfolio_id: int, target_date: str):
         
         # Lock session row
         cur.execute("""
-            SELECT id, sim_date, monthly_salary, monthly_expenses 
-            FROM game_sessions 
-            WHERE portfolio_id = %s AND is_active = TRUE
+            SELECT s.id, s.sim_date, s.monthly_salary, s.monthly_expenses, p.currency_code 
+            FROM game_sessions s
+            JOIN portfolios p ON s.portfolio_id = p.id
+            WHERE s.portfolio_id = %s AND s.is_active = TRUE
             FOR UPDATE
         """, (portfolio_id,))
         row = cur.fetchone()
         if not row:
             return {"error": "No active session found"}
         
-        session_id, current_sim_date, salary, expenses = row
+        session_id, current_sim_date, salary, expenses, currency_code = row
         current_sim_date_obj = current_sim_date # it's already a date object from psycopg2
         
         # Parse target date

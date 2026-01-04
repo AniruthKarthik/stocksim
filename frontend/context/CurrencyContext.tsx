@@ -23,10 +23,10 @@ const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
   const [currencies, setCurrencies] = useState<Currency[]>([]);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>({
-    code: 'USD',
-    name: 'United States Dollar',
-    symbol: '$',
-    rate: 1.0,
+    code: 'INR',
+    name: 'Indian Rupee',
+    symbol: '₹',
+    rate: 83.0,
   });
   const [loading, setLoading] = useState(true);
 
@@ -44,6 +44,9 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
       if (saved) {
         const found = res.data.find(c => c.code === saved);
         if (found) setSelectedCurrency(found);
+      } else {
+        const inr = res.data.find(c => c.code === 'INR');
+        if (inr) setSelectedCurrency(inr);
       }
     } catch (e) {
       console.error("Failed to fetch currencies", e);

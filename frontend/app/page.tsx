@@ -19,8 +19,8 @@ export default function StartPage() {
   const router = useRouter();
   const { selectedCurrency, currencies } = useCurrency();
   const [formData, setFormData] = useState({
-    startDate: '',
-    investment: '5000',
+    startDate: '2000-10-10',
+    investment: '20000',
   });
   const [loading, setLoading] = useState(false);
   const prevCurrencyRef = useRef(selectedCurrency.code);
@@ -114,18 +114,17 @@ export default function StartPage() {
 
       const portRes = await api.post('/portfolio/create', { 
         user_id: userId, 
-        name: "Main Portfolio" 
+        name: "Main Portfolio",
+        currency_code: selectedCurrency.code
       });
       const portfolioId = portRes.data.id;
 
-      // Convert Investment to USD
-      const investmentInUsd = Number(formData.investment) / selectedCurrency.rate;
-
+      // Use raw investment amount (backend will now treat it as portfolio-currency-based)
       await api.post('/simulation/start', {
         user_id: userId,
         portfolio_id: portfolioId,
         start_date: formData.startDate,
-        monthly_salary: investmentInUsd,
+        monthly_salary: Number(formData.investment),
         monthly_expenses: 0, 
       });
 
@@ -265,23 +264,25 @@ export default function StartPage() {
 
                     </label>
 
-                    <Input 
+                                        <Input 
 
-                      type="number" 
+                                          type="number" 
 
-                      min="0"
+                                          min="0"
 
-                      value={formData.investment}
+                                          value={formData.investment}
 
-                      onChange={(e) => setFormData({...formData, investment: e.target.value})}
+                                          onChange={(e) => setFormData({...formData, investment: e.target.value})}
 
-                      placeholder="5000"
+                                          placeholder="20000"
 
-                      className="text-lg py-6 bg-gray-50 border-transparent focus:bg-white focus:border-primary transition-all rounded-xl font-semibold"
+                                          className="text-lg py-6 bg-gray-50 border-transparent focus:bg-white focus:border-primary transition-all rounded-xl font-semibold"
 
-                      required
+                                          required
 
-                    />
+                                        />
+
+                    
 
                   </div>
 

@@ -153,3 +153,20 @@ def get_all_rates():
         ]
     finally:
         conn.close()
+
+def get_rate(code: str):
+    """
+    Returns the rate for a specific currency code (units per 1 USD).
+    """
+    if code == 'USD': return 1.0
+    
+    update_rates_if_needed()
+    conn = connect()
+    if not conn: return 1.0
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT rate FROM exchange_rates WHERE currency_code = %s", (code,))
+        row = cur.fetchone()
+        return float(row[0]) if row else 1.0
+    finally:
+        conn.close()
