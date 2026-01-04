@@ -1,0 +1,20 @@
+# Git
+.git
+.gitignore
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+env/
+venv/
+.env
+
+# Node / Frontend (don't copy these into backend image)
+frontend/
+node_modules/
+
+# Docker
+docker-compose.yml
+Dockerfile
+*.md

@@ -1,0 +1,59 @@
+
+version: '3.8'
+
+services:
+  # Database Service (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    container_name: stocksim_db
+    environment:
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_DB: ${DB_NAME:-stocksim}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Initialize DB with schemas automatically
+      - ./stocksim_schema.sql:/docker-entrypoint-initdb.d/01_stocksim_schema.sql
+      - ./backend/portfolio_schema.sql:/docker-entrypoint-initdb.d/02_portfolio_schema.sql
+
+  # Backend Service (FastAPI)
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: stocksim_backend
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER:-admin}
+      DB_PASSWORD: ${DB_PASSWORD:-password}
+      DB_NAME: ${DB_NAME:-stocksim}
+    ports:
+      - "8000:8000"
+    # volumes:
+    #   - .:/app  # Optional: Mount for hot-reloading during dev
+
+  # Frontend Service (Next.js)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # URL for the browser to access the API (client-side)
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    container_name: stocksim_frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    environment:
+      # URL for Server-Side Rendering (if needed)
+      API_INTERNAL_URL: http://backend:8000
+
+volumes:
+  postgres_data:
+```
+

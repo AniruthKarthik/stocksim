@@ -35,6 +35,11 @@ def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_sal
         """, (user_id, portfolio_id, s_date, s_date, monthly_salary, monthly_expenses))
         
         session_id = cur.fetchone()[0]
+        
+        # Initialize portfolio cash to the first month's salary/investment
+        # This overrides the default 10,000 from table definition to match user input
+        cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (monthly_salary, portfolio_id))
+
         conn.commit()
         return {"session_id": session_id, "start_date": start_date, "sim_date": start_date}
 

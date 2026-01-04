@@ -17,7 +17,7 @@ import {
 
 export default function StartPage() {
   const router = useRouter();
-  const { selectedCurrency } = useCurrency();
+  const { selectedCurrency, currencies } = useCurrency();
   const [formData, setFormData] = useState({
     startDate: '',
     investment: '5000',
@@ -27,31 +27,23 @@ export default function StartPage() {
 
   // Auto-convert investment amount when currency changes
   useEffect(() => {
-    if (prevCurrencyRef.current !== selectedCurrency.code) {
-       // Need rate of previous currency.
-       // Since useCurrency doesn't give historical rate, we must rely on the fact 
-       // that we have the current selectedCurrency object.
-       // But wait, we don't have the old rate anymore easily unless we store it.
-       // However, we can approximate:
-       // We know input value is X in OldCurrency.
-       // We want Y in NewCurrency.
-       // ValueUSD = X / OldRate.
-       // Y = ValueUSD * NewRate.
-       // Ideally we'd have access to all currencies to find OldRate.
-       // But we can just reset? No that's annoying.
-       // Let's just update the placeholder for now, or if feasible, do the math?
-       // Actually, we can't do exact math without the old rate.
-       // Let's skip auto-conversion of value for safety to avoid compounding errors, 
-       // but we will update the placeholder to be contextually relevant? 
-       // No, user said "convert when required".
-       // Let's try to do it if we can find the rate.
-       // Since we don't have the full list here easily without context lookup...
-       // Actually we can just leave the number alone, 
-       // BUT the user specifically complained "home page ... not working properly".
-       // So I will just focus on clearer labelling.
+    if (prevCurrencyRef.current !== selectedCurrency.code && currencies.length > 0) {
+      const prevCode = prevCurrencyRef.current;
+      const prevCurrency = currencies.find(c => c.code === prevCode);
+
+      if (prevCurrency && prevCurrency.rate && selectedCurrency.rate) {
+        setFormData(prev => {
+          const val = parseFloat(prev.investment);
+          if (isNaN(val)) return prev;
+
+          const newVal = val * (selectedCurrency.rate / prevCurrency.rate);
+          const rounded = Math.round(newVal * 100) / 100;
+          return { ...prev, investment: rounded.toString() };
+        });
+      }
     }
     prevCurrencyRef.current = selectedCurrency.code;
-  }, [selectedCurrency]);
+  }, [selectedCurrency, currencies]);
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;

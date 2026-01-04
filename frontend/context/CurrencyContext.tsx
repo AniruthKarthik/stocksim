@@ -66,7 +66,8 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
 
   const format = (amount: number, fractionDigits: number = 2) => {
     const val = convert(amount);
-    return new Intl.NumberFormat('en-US', {
+    const locale = selectedCurrency.code === 'INR' ? 'en-IN' : 'en-US';
+    return new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: selectedCurrency.code,
       minimumFractionDigits: fractionDigits,
