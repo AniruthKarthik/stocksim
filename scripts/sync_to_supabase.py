@@ -27,6 +27,10 @@ def sync():
 
             print("Connecting to remote Supabase database...")
             # Use positional DSN for remote too
+            # Ensure sslmode=require
+            if "sslmode=" not in remote_url:
+                separator = "&" if "?" in remote_url else "?"
+                remote_url += f"{separator}sslmode=require"
             remote_conn = psycopg2.connect(remote_url)
             remote_cur = remote_conn.cursor()
             

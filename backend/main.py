@@ -9,9 +9,20 @@ from . import db_prices
 from . import db_portfolio as portfolio
 from . import db_currency
 from . import game_engine
-from .db_conn import get_db_connection
+from .db_conn import get_db_connection, init_pool, close_pool
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize database pool on startup
+    print("INFO: Initializing database pool...")
+    init_pool()
+    yield
+    # Close pool on shutdown
+    print("INFO: Closing database pool...")
+    close_pool()
+
+app = FastAPI(lifespan=lifespan)
 
 # --- CORS Configuration ---
 app.add_middleware(
@@ -28,7 +39,7 @@ async def log_requests(request, call_next):
     response = await call_next(request)
     return response
 
-print("DEBUG: Loading backend/main.py - Version 3.0 (Strict DSN & Pooler Support)")
+print("DEBUG: Loading backend/main.py - Version 3.1 (Strict DATABASE_URL & Fail-Fast Pool)")
 
 @app.get("/health/db")
 def health_check_db():
