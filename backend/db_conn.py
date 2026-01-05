@@ -13,16 +13,18 @@ def init_pool():
     global _pg_pool
     if _pg_pool is None:
         try:
-            # Prefer DATABASE_URL (Connection String)
             db_url = os.getenv("DATABASE_URL")
             
             if db_url:
-                print("DEBUG: Connecting using DATABASE_URL")
+                # Mask password for safe logging
+                safe_url = db_url.split("@")[-1] if "@" in db_url else "URL present but hidden"
+                print(f"DEBUG: Connecting using DATABASE_URL to: {safe_url}")
+                
                 _pg_pool = psycopg2.pool.ThreadedConnectionPool(
                     1, 20, dsn=db_url
                 )
             else:
-                print("DEBUG: Connecting using individual parameters")
+                print("DEBUG: DATABASE_URL not found. Falling back to individual parameters.")
                 _pg_pool = psycopg2.pool.ThreadedConnectionPool(
                     minconn=1,
                     maxconn=20,
@@ -32,7 +34,7 @@ def init_pool():
                     host=os.getenv("DB_HOST", "localhost"),
                     port=os.getenv("DB_PORT", 5432)
                 )
-            print("DB Connection Pool Initialized Successfully")
+            print("DB pool initialized successfully 🎉")
         except Exception as e:
             print(f"Error initializing DB pool: {e}")
 
