@@ -17,7 +17,7 @@ app = FastAPI()
 # Allow all for debugging
 origins = ["*"]
 
-print("DEBUG: Loading backend/main.py - Version 2.1 (Fix NameError)")
+print("DEBUG: Loading backend/main.py - Version 2.2 (Robust DB Connection)")
 
 app.add_middleware(
     CORSMiddleware,

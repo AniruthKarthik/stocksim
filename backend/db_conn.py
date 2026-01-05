@@ -18,22 +18,24 @@ def init_pool():
 
     db_url = os.getenv("DATABASE_URL")
     
+    # Clean up DATABASE_URL if it was copied with the key name
+    if db_url and db_url.startswith("DATABASE_URL="):
+        db_url = db_url.split("=", 1)[1].strip("'\" ")
+
     # Retry configuration
     max_retries = 5
     retry_delay = 2
 
     for attempt in range(max_retries):
         try:
-            if db_url:
-                # Mask password for safe logging
-                safe_url = db_url.split("@")[-1] if "@" in db_url else "URL present but hidden"
-                print(f"DEBUG: Connecting using DATABASE_URL to: {safe_url}")
-                
-                _pg_pool = psycopg2.pool.ThreadedConnectionPool(
-                    1, 20, db_url, sslmode='require'
-                )
+            # Try DSN if it looks like a valid URL
+            if db_url and (db_url.startswith("postgres://") or db_url.startswith("postgresql://")):
+                safe_url = db_url.split("@")[-1] if "@" in db_url else "URL present"
+                print(f"DEBUG: Attempting connection via DSN: {safe_url}")
+                _pg_pool = psycopg2.pool.ThreadedConnectionPool(1, 20, db_url, sslmode='require')
             else:
-                print("DEBUG: DATABASE_URL not found. Falling back to individual parameters.")
+                # Fallback to individual parameters
+                print("DEBUG: Using individual connection parameters.")
                 _pg_pool = psycopg2.pool.ThreadedConnectionPool(
                     minconn=1,
                     maxconn=20,
@@ -41,21 +43,20 @@ def init_pool():
                     user=os.getenv("DB_USER"),
                     password=os.getenv("DB_PASSWORD"),
                     host=os.getenv("DB_HOST", "localhost"),
-                    port=os.getenv("DB_PORT", 5432)
+                    port=os.getenv("DB_PORT", 5432),
+                    sslmode='require' # Supabase/Render usually require SSL
                 )
             
             print("DB pool initialized successfully 🎉")
-            return # Success!
+            return
 
         except Exception as e:
             print(f"Error initializing DB pool (Attempt {attempt + 1}/{max_retries}): {e}")
             if attempt < max_retries - 1:
                 time.sleep(retry_delay)
-                retry_delay *= 2  # Exponential backoff
+                retry_delay *= 2
             else:
                 print("CRITICAL: Failed to connect to database after retries.")
-                # We don't raise here to allow the app to start, 
-                # but DB calls will fail until pool is fixed (or app restarts).
 
 @contextmanager
 def get_db_connection():
