@@ -24,13 +24,21 @@ def init():
     
     if not db_url:
         print("CRITICAL: DATABASE_URL environment variable is missing.")
-        sys.exit(1)
+        raise RuntimeError("DATABASE_URL is missing — do NOT use defaults.")
 
-    # Clean up DATABASE_URL if it was copied with the key name
+    # Clean up DATABASE_URL if it was copied with the key name (common copy-paste error)
     if db_url.startswith("DATABASE_URL="):
         db_url = db_url.split("=", 1)[1].strip("'\" ")
         
-    # Ensure sslmode=require
+    # Safe debugging: log host only to confirm connection target without exposing credentials
+    try:
+        # Extract host from postgres://user:pass@host:port/db
+        db_host = db_url.split('@')[-1].split(':')[0].split('/')[0]
+        print(f"INFO: Database host loaded: {db_host}")
+    except Exception:
+        print("INFO: Database host loaded: [Unable to parse host from DSN]")
+
+    # Ensure sslmode=require if it's not already in the URL (critical for Supabase/Render)
     if "sslmode=" not in db_url:
         separator = "&" if "?" in db_url else "?"
         db_url += f"{separator}sslmode=require"
