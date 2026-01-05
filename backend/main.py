@@ -28,8 +28,17 @@ async def log_requests(request, call_next):
     response = await call_next(request)
     return response
 
-print("DEBUG: Loading backend/main.py - Version 2.3 (CORS & Logging)")
+print("DEBUG: Loading backend/main.py - Version 3.0 (Strict DSN & Pooler Support)")
 
+@app.get("/health/db")
+def health_check_db():
+    try:
+        with get_db_connection() as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT 1")
+            return {"status": "healthy", "database": "reachable"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Database unhealthy: {str(e)}")
 
 # --- Pydantic Models ---
 class CreateUserRequest(BaseModel):

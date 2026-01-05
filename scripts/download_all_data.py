@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import logging
 import pandas as pd
@@ -12,13 +13,9 @@ from datetime import datetime
 # Load environment variables
 load_dotenv()
 
-# Configuration
-DB_CONFIG = {
-    "dbname": os.getenv("DB_NAME", "stocksim"),
-    "user": os.getenv("DB_USER", "stocksim"),
-    "password": os.getenv("DB_PASSWORD", "stocksim"),
-    "host": os.getenv("DB_HOST", "localhost")
-}
+# Add project root to path for backend imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from backend.db_conn import get_db_connection
 
 BASE_DATA_DIR = Path("data")
 
@@ -51,7 +48,7 @@ class StockRefresher:
         if 'etf' in name: return 'etfs'
         if 'mutualfund' in name: return 'mutualfunds'
         if 'sp500' in name or 'stocks' in name: return 'stocks'
-        return 'stocks' # default
+        return 'stocks'
 
     def read_tickers(self, file_path):
         """Reads tickers from a local text file, handling comments."""
@@ -59,11 +56,9 @@ class StockRefresher:
             tickers = []
             with open(file_path, 'r') as f:
                 for line in f:
-                    # Strip comments (anything after #)
                     clean_line = line.split('#')[0].strip()
                     if clean_line:
                         tickers.append(clean_line)
-            # Clean symbols for Yahoo (replace '.' with '-') and remove duplicates
             return sorted(list(set([t.replace('.', '-') for t in tickers])))
         except Exception as e:
             logger.error(f"Failed to read {file_path}: {e}")
@@ -73,12 +68,10 @@ class StockRefresher:
         """Downloads historical data for a ticker with retries."""
         for attempt in range(3):
             try:
-                # Use a specific interval if needed, but default is daily
                 data = yf.download(ticker, start=start_date, progress=False)
                 if data.empty:
                     return None
                 
-                # Normalize column names
                 if isinstance(data.columns, pd.MultiIndex):
                     data.columns = data.columns.get_level_values(0)
                 
@@ -88,11 +81,9 @@ class StockRefresher:
                 if 'adj_close' not in data.columns:
                     data['adj_close'] = data['close']
                 
-                # Required columns
                 required = ['date', 'close', 'adj_close', 'volume']
                 for col in required:
                     if col not in data.columns:
-                        # If volume is missing (some indices/mutual funds), fill with 0
                         if col == 'volume': data['volume'] = 0
                         else: return None 
                 
@@ -115,69 +106,59 @@ class StockRefresher:
         if yahoo_ticker is None:
             yahoo_ticker = ticker
 
-        conn = None
         try:
-            conn = psycopg2.connect(**DB_CONFIG)
-            cur = conn.cursor()
+            with get_db_connection() as conn:
+                cur = conn.cursor()
 
-            # 1. Fetch real company name if possible
-            display_name = ticker.upper()
-            try:
-                # Check if we already have a professional name first
-                cur.execute("SELECT name FROM assets WHERE symbol = %s", (ticker,))
-                existing = cur.fetchone()
-                
-                if existing and existing[0] != ticker.capitalize() and existing[0] != ticker.upper():
-                    display_name = existing[0]
-                else:
-                    info = yf.Ticker(yahoo_ticker).info
-                    display_name = info.get('longName') or info.get('shortName') or display_name
-            except:
-                pass
+                display_name = ticker.upper()
+                try:
+                    cur.execute("SELECT name FROM assets WHERE symbol = %s", (ticker,))
+                    existing = cur.fetchone()
+                    
+                    if existing and existing[0] != ticker.capitalize() and existing[0] != ticker.upper():
+                        display_name = existing[0]
+                    else:
+                        info = yf.Ticker(yahoo_ticker).info
+                        display_name = info.get('longName') or info.get('shortName') or display_name
+                except:
+                    pass
 
-            # 2. Ensure asset exists with real name
-            cur.execute(
-                """INSERT INTO assets (symbol, name, type) VALUES (%s, %s, %s) 
-                   ON CONFLICT (symbol) DO UPDATE SET 
-                    name = CASE WHEN EXCLUDED.name != EXCLUDED.symbol THEN EXCLUDED.name ELSE assets.name END,
-                    type = EXCLUDED.type
-                   RETURNING id""",
-                (ticker, display_name, asset_type)
-            )
-            asset_id = cur.fetchone()[0]
+                cur.execute(
+                    """INSERT INTO assets (symbol, name, type) VALUES (%s, %s, %s) 
+                       ON CONFLICT (symbol) DO UPDATE SET 
+                        name = CASE WHEN EXCLUDED.name != EXCLUDED.symbol THEN EXCLUDED.name ELSE assets.name END,
+                        type = EXCLUDED.type
+                       RETURNING id""",
+                    (ticker, display_name, asset_type)
+                )
+                asset_id = cur.fetchone()[0]
 
-            # 3. Prepare data
-            df = df.dropna(subset=['date', 'close'])
-            values = []
-            for _, row in df.iterrows():
-                values.append((
-                    asset_id,
-                    row['date'].strftime('%Y-%m-%d') if hasattr(row['date'], 'strftime') else str(row['date'])[:10],
-                    float(row['close']),
-                    float(row['adj_close']),
-                    int(row['volume']) if not pd.isna(row['volume']) else 0
-                ))
+                df = df.dropna(subset=['date', 'close'])
+                values = []
+                for _, row in df.iterrows():
+                    values.append((
+                        asset_id,
+                        row['date'].strftime('%Y-%m-%d') if hasattr(row['date'], 'strftime') else str(row['date'])[:10],
+                        float(row['close']),
+                        float(row['adj_close']),
+                        int(row['volume']) if not pd.isna(row['volume']) else 0
+                    ))
 
-            # 4. Upsert into prices
-            upsert_query = """
-                INSERT INTO prices (asset_id, date, close, adj_close, volume)
-                VALUES %s
-                ON CONFLICT (asset_id, date) 
-                DO UPDATE SET 
-                    close = EXCLUDED.close,
-                    adj_close = EXCLUDED.adj_close,
-                    volume = EXCLUDED.volume
-            """
-            execute_values(cur, upsert_query, values)
-            
-            conn.commit()
-            return True
+                upsert_query = """
+                    INSERT INTO prices (asset_id, date, close, adj_close, volume)
+                    VALUES %s
+                    ON CONFLICT (asset_id, date) 
+                    DO UPDATE SET 
+                        close = EXCLUDED.close,
+                        adj_close = EXCLUDED.adj_close,
+                        volume = EXCLUDED.volume
+                """
+                execute_values(cur, upsert_query, values)
+                conn.commit()
+                return True
         except Exception as e:
-            if conn: conn.rollback()
             logger.error(f"Database load failed for {ticker}: {e}")
             return False
-        finally:
-            if conn: conn.close()
 
     def run(self):
         ticker_files = list(BASE_DATA_DIR.glob("*_tickers.txt"))
@@ -196,7 +177,6 @@ class StockRefresher:
             for i, ticker in enumerate(tickers):
                 self.summary["attempted"] += 1
                 
-                # Special handling for Crypto: Use clean symbol for storage, -USD for Yahoo
                 yahoo_ticker = ticker
                 if asset_type == 'crypto' and not ticker.endswith('-USD'):
                     yahoo_ticker = f"{ticker}-USD"
@@ -218,7 +198,6 @@ class StockRefresher:
                 else:
                     self.summary["failed"] += 1
                 
-                # Small sleep to be nice to Yahoo
                 if (i + 1) % 5 == 0:
                     time.sleep(0.5)
 

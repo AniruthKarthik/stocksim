@@ -13,13 +13,9 @@ from datetime import datetime, timedelta, date
 # Load environment variables
 load_dotenv()
 
-# Configuration
-DB_CONFIG = {
-    "dbname": os.getenv("DB_NAME", "stocksim"),
-    "user": os.getenv("DB_USER", "stocksim"),
-    "password": os.getenv("DB_PASSWORD", "stocksim"),
-    "host": os.getenv("DB_HOST", "localhost")
-}
+# Add project root to path for backend imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from backend.db_conn import get_db_connection
 
 BASE_DATA_DIR = Path("data")
 
@@ -68,13 +64,6 @@ class IncrementalRefresher:
         except Exception as e:
             logger.error(f"Failed to read {file_path}: {e}")
             return []
-
-    def get_db_connection(self):
-        """Helper to get a database connection using DATABASE_URL or config."""
-        db_url = os.getenv("DATABASE_URL")
-        if db_url:
-            return psycopg2.connect(db_url, sslmode='require')
-        return psycopg2.connect(**DB_CONFIG)
 
     def check_if_refreshed_today(self, category):
         """Checks tracking table if category was already refreshed today."""

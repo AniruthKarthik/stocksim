@@ -1,73 +1,69 @@
 import os
+import time
 import psycopg2
 from dotenv import load_dotenv
 
 load_dotenv()
 
-DB = dict(
-    dbname=os.getenv("DB_NAME"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    host=os.getenv("DB_HOST", "localhost")
-)
-
 def run_sql_file(cursor, filename):
     print(f"Running {filename}...")
+    if not os.path.exists(filename):
+        print(f"Warning: {filename} not found.")
+        return
     with open(filename, 'r') as f:
         sql = f.read()
         cursor.execute(sql)
 
 def init():
+    """
+    Initializes the database schema using DATABASE_URL.
+    """
     db_url = os.getenv("DATABASE_URL")
     if db_url and db_url.startswith("DATABASE_URL="):
         db_url = db_url.split("=", 1)[1].strip("'\" ")
-    
+        
+    if not db_url:
+        # Fallback construction
+        host = os.getenv("DB_HOST", "localhost")
+        user = os.getenv("DB_USER")
+        password = os.getenv("DB_PASSWORD")
+        dbname = os.getenv("DB_NAME")
+        port = os.getenv("DB_PORT", 5432)
+        db_url = f"postgresql://{user}:{password}@{host}:{port}/{dbname}"
+        if host not in ["localhost", "127.0.0.1"]:
+            db_url += "?sslmode=require"
+
     # Retry logic
     max_retries = 5
     retry_delay = 2
     
-    for attempt in range(max_retries):
+    conn = None
+    for attempt in range(1, max_retries + 1):
         try:
-            if db_url and (db_url.startswith("postgres://") or db_url.startswith("postgresql://")):
-                print("Connecting using DATABASE_URL...")
-                conn = psycopg2.connect(db_url, sslmode='require')
-            else:
-                host = os.getenv("DB_HOST", "localhost")
-                ssl_mode = 'require' if host not in ['localhost', '127.0.0.1'] else 'prefer'
-                print(f"Connecting using DB parameters (host={host}, sslmode={ssl_mode})...")
-                conn = psycopg2.connect(
-                    dbname=os.getenv("DB_NAME"),
-                    user=os.getenv("DB_USER"),
-                    password=os.getenv("DB_PASSWORD"),
-                    host=host,
-                    port=os.getenv("DB_PORT", 5432),
-                    sslmode=ssl_mode
-                )
-                
+            print(f"Connecting to database to initialize schema (Attempt {attempt}/{max_retries})...")
+            # Positional DSN
+            conn = psycopg2.connect(db_url)
             cur = conn.cursor()
             
-            # We assume stocksim_schema might fail if tables exist, but let's try.
-            # Actually, standard pg_dump includes CREATE TABLE which might fail if exists.
-            # But the portfolio schema has IF NOT EXISTS.
-            # Let's just run portfolio_schema.sql since the user said stocksim_schema.sql is "existing".
-            # If I run stocksim_schema.sql again it might error out.
-            # I'll only run portfolio_schema.sql for now as that's the delta.
-            
+            # Run schema files
+            run_sql_file(cur, "stocksim_schema.sql")
             run_sql_file(cur, "backend/portfolio_schema.sql")
             
             conn.commit()
-            conn.close()
             print("Database initialized successfully.")
             return
         except Exception as e:
-            print(f"Error initializing DB (Attempt {attempt + 1}/{max_retries}): {e}")
-            if attempt < max_retries - 1:
-                import time
+            print(f"Error initializing DB (Attempt {attempt}/{max_retries}): {e}")
+            if attempt < max_retries:
                 time.sleep(retry_delay)
                 retry_delay *= 2
             else:
                 print("CRITICAL: Failed to initialize database.")
+                if conn: conn.close()
                 raise e
+        finally:
+            if conn:
+                conn.close()
 
 if __name__ == "__main__":
     init()
