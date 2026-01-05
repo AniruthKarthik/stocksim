@@ -28,7 +28,7 @@ def init():
 
     # Clean up DATABASE_URL if it was copied with the key name
     if db_url.startswith("DATABASE_URL="):
-        db_url = db_url.split("=", 1)[1].strip("'" ")
+        db_url = db_url.split("=", 1)[1].strip("'\" ")
         
     # Ensure sslmode=require
     if "sslmode=" not in db_url:
