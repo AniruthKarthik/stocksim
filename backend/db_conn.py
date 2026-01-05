@@ -7,43 +7,43 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Global Connection Pool
-# Min 1, Max 20 connections.
-# This avoids the overhead of handshake for every request.
 _pg_pool = None
 
 def init_pool():
     global _pg_pool
     if _pg_pool is None:
         try:
-            db_host = os.getenv("DB_HOST", "localhost")
-            db_port = os.getenv("DB_PORT", 5432)
-            print(f"DEBUG: Connecting to DB at {db_host}:{db_port}")
+            # Prefer DATABASE_URL (Connection String)
+            db_url = os.getenv("DATABASE_URL")
             
-            _pg_pool = psycopg2.pool.ThreadedConnectionPool(
-                minconn=1,
-                maxconn=20,
-                dbname=os.getenv("DB_NAME"),
-                user=os.getenv("DB_USER"),
-                password=os.getenv("DB_PASSWORD"),
-                host=db_host,
-                port=db_port
-            )
-            print("DB Connection Pool Initialized")
+            if db_url:
+                print("DEBUG: Connecting using DATABASE_URL")
+                _pg_pool = psycopg2.pool.ThreadedConnectionPool(
+                    1, 20, dsn=db_url
+                )
+            else:
+                print("DEBUG: Connecting using individual parameters")
+                _pg_pool = psycopg2.pool.ThreadedConnectionPool(
+                    minconn=1,
+                    maxconn=20,
+                    dbname=os.getenv("DB_NAME"),
+                    user=os.getenv("DB_USER"),
+                    password=os.getenv("DB_PASSWORD"),
+                    host=os.getenv("DB_HOST", "localhost"),
+                    port=os.getenv("DB_PORT", 5432)
+                )
+            print("DB Connection Pool Initialized Successfully")
         except Exception as e:
             print(f"Error initializing DB pool: {e}")
 
 @contextmanager
 def get_db_connection():
-    """
-    Yields a connection from the pool.
-    Usage:
-        with get_db_connection() as conn:
-            cur = conn.cursor()
-            ...
-    """
     global _pg_pool
     if _pg_pool is None:
         init_pool()
+        
+    if _pg_pool is None:
+        raise Exception("Database pool not initialized. Check logs for connection errors.")
         
     conn = _pg_pool.getconn()
     try:
