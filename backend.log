@@ -126,3 +126,7 @@ INFO:     127.0.0.1:32904 - "GET /price/history?symbol=AAPL&end_date=2000-10-10 
 INFO:     127.0.0.1:32904 - "POST /portfolio/buy HTTP/1.1" 200 OK
 INFO:     127.0.0.1:56576 - "GET /currencies HTTP/1.1" 200 OK
 INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5076]

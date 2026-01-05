@@ -27,3 +27,4 @@
  GET /market 200 in 22ms (compile: 3ms, render: 19ms)
  GET /market/AAPL 200 in 39ms (compile: 21ms, render: 18ms)
  GET /dashboard 200 in 54ms (compile: 3ms, render: 50ms)
+ HEAD / 200 in 51ms (compile: 4ms, render: 47ms)

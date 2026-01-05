@@ -5,10 +5,11 @@ FROM python:3.9-slim
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies (needed for psycopg2)
+# Install system dependencies (needed for psycopg2 and wait-for-db)
 RUN apt-get update && apt-get install -y \
     gcc \
     libpq-dev \
+    netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements from the root (since build context will be root)

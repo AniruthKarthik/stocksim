@@ -1,0 +1,10 @@
+INFO:     Started server process [8564]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+DEBUG: Loading backend/main.py - Version 2.1 (Fix NameError)
+INFO:     127.0.0.1:53532 - "GET / HTTP/1.1" 200 OK
+DEBUG: DATABASE_URL not found. Falling back to individual parameters.
+DB pool initialized successfully 🎉
+DEBUG: Fetched 414 assets as of 2024-01-01
+INFO:     127.0.0.1:46686 - "GET /assets?date=2024-01-01 HTTP/1.1" 200 OK
