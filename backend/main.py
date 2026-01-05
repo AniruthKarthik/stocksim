@@ -2,12 +2,14 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
+import os
 from .simulator import simulate_invest
 from .db_prices import get_price, get_all_assets, get_price_history
 from . import db_prices
 from . import db_portfolio as portfolio
 from . import db_currency
 from . import game_engine
+from .db_conn import get_db_connection
 
 app = FastAPI()
 
@@ -228,25 +230,24 @@ def get_currencies():
 
 @app.post("/reset")
 def reset_system():
-    conn = db_prices.connect()
-    if not conn:
-        raise HTTPException(status_code=500, detail="Database connection failed")
-    
     try:
-        cur = conn.cursor()
-        
-        # Drop all user-related tables
-        cur.execute("DROP TABLE IF EXISTS game_sessions, transactions, portfolios, users CASCADE;")
-        
-        # Re-initialize schema
-        with open("backend/portfolio_schema.sql", 'r') as f:
-            schema_sql = f.read()
-            cur.execute(schema_sql)
-            
-        conn.commit()
-        return {"status": "success", "message": "System reset successfully"}
+        with get_db_connection() as conn:
+            try:
+                cur = conn.cursor()
+                
+                # Drop all user-related tables
+                cur.execute("DROP TABLE IF EXISTS game_sessions, transactions, portfolios, users CASCADE;")
+                
+                # Re-initialize schema
+                schema_path = os.path.join(os.path.dirname(__file__), "portfolio_schema.sql")
+                with open(schema_path, 'r') as f:
+                    schema_sql = f.read()
+                    cur.execute(schema_sql)
+                    
+                conn.commit()
+                return {"status": "success", "message": "System reset successfully"}
+            except Exception as e:
+                conn.rollback()
+                raise e
     except Exception as e:
-        conn.rollback()
         raise HTTPException(status_code=500, detail=f"Reset failed: {e}")
-    finally:
-        conn.close()
