@@ -1,0 +1,128 @@
+INFO:     Started server process [5076]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+DEBUG: Loading backend/main.py - Version 2.1 (Fix NameError)
+INFO:     127.0.0.1:51520 - "GET / HTTP/1.1" 200 OK
+DEBUG: DATABASE_URL not found. Falling back to individual parameters.
+DB pool initialized successfully 🎉
+Updating currency rates...
+Rates updated.
+INFO:     127.0.0.1:56336 - "GET /currencies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56336 - "OPTIONS /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47002 - "POST /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47002 - "OPTIONS /portfolio/create HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56336 - "POST /portfolio/create HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56336 - "OPTIONS /simulation/start HTTP/1.1" 200 OK
+DEBUG: Starting simulation for User 2, Portfolio 2
+DEBUG: Start Date: 2000-10-10, Salary: 20000.0
+DEBUG: Simulation started successfully: {'session_id': 2, 'start_date': '2000-10-10', 'sim_date': '2000-10-10'}
+INFO:     127.0.0.1:47002 - "POST /simulation/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47002 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47002 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47002 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47002 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+DEBUG: Fetched 0 assets as of 2000-10-10
+INFO:     127.0.0.1:56336 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetched 0 assets as of 2000-10-10
+INFO:     127.0.0.1:47002 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetched 0 assets as of 2023-01-01
+INFO:     127.0.0.1:45664 - "GET /assets?date=2023-01-01 HTTP/1.1" 200 OK
+DEBUG: Fetched 4 assets as of 2023-01-01
+INFO:     127.0.0.1:44716 - "GET /assets?date=2023-01-01 HTTP/1.1" 200 OK
+DEBUG: Fetched 4 assets as of 2000-01-01
+INFO:     127.0.0.1:59010 - "GET /assets?date=2000-01-01 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41456 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41462 - "GET /currencies HTTP/1.1" 200 OK
+Error fetching assets: connection already closed
+DEBUG: Fetched 0 assets as of 2000-10-10
+INFO:     127.0.0.1:41462 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41462 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41462 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41462 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+DEBUG: Fetched 4 assets as of 2000-10-10
+INFO:     127.0.0.1:41456 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41462 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+DEBUG: Fetched 4 assets as of 2000-10-10
+INFO:     127.0.0.1:41462 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49898 - "GET /currencies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49890 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+DEBUG: Fetched 187 assets as of 2000-10-10
+INFO:     127.0.0.1:49890 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57050 - "POST /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57050 - "POST /portfolio/create HTTP/1.1" 200 OK
+DEBUG: Starting simulation for User 3, Portfolio 3
+DEBUG: Start Date: 2006-10-10, Salary: 20000.0
+DEBUG: Simulation started successfully: {'session_id': 3, 'start_date': '2006-10-10', 'sim_date': '2006-10-10'}
+INFO:     127.0.0.1:57050 - "POST /simulation/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57050 - "GET /simulation/status?portfolio_id=3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57050 - "GET /simulation/status?portfolio_id=3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57050 - "GET /simulation/status?portfolio_id=3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57050 - "GET /simulation/status?portfolio_id=3 HTTP/1.1" 200 OK
+DEBUG: Fetched 300 assets as of 2006-10-10
+INFO:     127.0.0.1:57066 - "GET /assets?date=2006-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetched 300 assets as of 2006-10-10
+INFO:     127.0.0.1:57050 - "GET /assets?date=2006-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56480 - "GET /simulation/status?portfolio_id=3 HTTP/1.1" 200 OK
+DEBUG: Fetching history for CCL until 2006-10-10
+INFO:     127.0.0.1:56480 - "GET /simulation/status?portfolio_id=3 HTTP/1.1" 200 OK
+DEBUG: Found 1703 data points
+INFO:     127.0.0.1:56494 - "GET /price/history?symbol=CCL&end_date=2006-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetching history for CCL until 2006-10-10
+DEBUG: Found 1703 data points
+INFO:     127.0.0.1:56480 - "GET /price/history?symbol=CCL&end_date=2006-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56480 - "OPTIONS /portfolio/buy HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56494 - "POST /portfolio/buy HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56480 - "GET /currencies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56494 - "GET /simulation/status?portfolio_id=3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56494 - "POST /reset HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57660 - "OPTIONS /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57664 - "POST /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57664 - "OPTIONS /portfolio/create HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57660 - "POST /portfolio/create HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57660 - "OPTIONS /simulation/start HTTP/1.1" 200 OK
+DEBUG: Starting simulation for User 1, Portfolio 1
+DEBUG: Start Date: 2000-10-10, Salary: 20000.0
+DEBUG: Simulation started successfully: {'session_id': 1, 'start_date': '2000-10-10', 'sim_date': '2000-10-10'}
+INFO:     127.0.0.1:57664 - "POST /simulation/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57664 - "GET /simulation/status?portfolio_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57664 - "GET /simulation/status?portfolio_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=1 HTTP/1.1" 200 OK
+DEBUG: Fetched 247 assets as of 2000-10-10
+INFO:     127.0.0.1:32910 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetched 247 assets as of 2000-10-10
+INFO:     127.0.0.1:32910 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32910 - "GET /simulation/status?portfolio_id=1 HTTP/1.1" 200 OK
+DEBUG: Fetching history for HOLX until 2000-10-10
+INFO:     127.0.0.1:32910 - "GET /simulation/status?portfolio_id=1 HTTP/1.1" 200 OK
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:32904 - "GET /price/history?symbol=HOLX&end_date=2000-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetching history for HOLX until 2000-10-10
+DEBUG: Found 196 data points
+INFO:     127.0.0.1:32904 - "GET /price/history?symbol=HOLX&end_date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "POST /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "POST /portfolio/create HTTP/1.1" 200 OK
+DEBUG: Starting simulation for User 2, Portfolio 2
+DEBUG: Start Date: 2000-10-10, Salary: 20000.0
+DEBUG: Simulation started successfully: {'session_id': 2, 'start_date': '2000-10-10', 'sim_date': '2000-10-10'}
+INFO:     127.0.0.1:32904 - "POST /simulation/start HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+DEBUG: Fetched 247 assets as of 2000-10-10
+INFO:     127.0.0.1:56576 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetched 247 assets as of 2000-10-10
+INFO:     127.0.0.1:56576 - "GET /assets?date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56576 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+DEBUG: Fetching history for AAPL until 2000-10-10
+INFO:     127.0.0.1:56576 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK
+DEBUG: Found 284 data points
+INFO:     127.0.0.1:32904 - "GET /price/history?symbol=AAPL&end_date=2000-10-10 HTTP/1.1" 200 OK
+DEBUG: Fetching history for AAPL until 2000-10-10
+DEBUG: Found 284 data points
+INFO:     127.0.0.1:32904 - "GET /price/history?symbol=AAPL&end_date=2000-10-10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "POST /portfolio/buy HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56576 - "GET /currencies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32904 - "GET /simulation/status?portfolio_id=2 HTTP/1.1" 200 OK

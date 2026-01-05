@@ -84,20 +84,21 @@ export default function StartPage() {
     e.preventDefault();
     
     // Normalize date
+    let dateToSubmit = formData.startDate;
     let dateParts = formData.startDate.split('-');
     if (dateParts.length === 3) {
       const y = dateParts[0];
       const m = dateParts[1].padStart(2, '0');
       const d = dateParts[2].padStart(2, '0');
-      formData.startDate = `${y}-${m}-${d}`;
+      dateToSubmit = `${y}-${m}-${d}`;
     }
     
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(formData.startDate)) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dateToSubmit)) {
       alert("Please enter a valid date (YYYY-MM-DD)");
       return;
     }
 
-    const selectedDate = new Date(formData.startDate);
+    const selectedDate = new Date(dateToSubmit);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -108,10 +109,14 @@ export default function StartPage() {
 
     setLoading(true);
     try {
-      const username = `trader_${Math.floor(Math.random() * 10000)}`;
+      console.log("Starting simulation setup...");
+      const username = `trader_${Math.floor(Math.random() * 100000)}`;
+      
+      console.log("Creating user...", username);
       const userRes = await api.post('/users', { username });
       const userId = userRes.data.user_id;
 
+      console.log("Creating portfolio for user", userId);
       const portRes = await api.post('/portfolio/create', { 
         user_id: userId, 
         name: "Main Portfolio",
@@ -119,22 +124,24 @@ export default function StartPage() {
       });
       const portfolioId = portRes.data.id;
 
+      console.log("Starting simulation...", portfolioId);
       // Use raw investment amount (backend will now treat it as portfolio-currency-based)
       await api.post('/simulation/start', {
         user_id: userId,
         portfolio_id: portfolioId,
-        start_date: formData.startDate,
+        start_date: dateToSubmit,
         monthly_salary: Number(formData.investment),
         monthly_expenses: 0, 
       });
 
       localStorage.setItem('stocksim_portfolio_id', portfolioId.toString());
+      console.log("Navigation to dashboard...");
       router.push('/dashboard');
-    } catch (error) {
-      console.error(error);
-      alert("Failed to start simulation. Check backend.");
-    } finally {
-      setLoading(false);
+    } catch (error: any) {
+      console.error("Simulation Start Error:", error);
+      const msg = error.response?.data?.detail || error.message || "Failed to start simulation. Check backend.";
+      alert(`Error: ${msg}`);
+      setLoading(false); // Only stop loading on error. On success, we navigate away.
     }
   };
 

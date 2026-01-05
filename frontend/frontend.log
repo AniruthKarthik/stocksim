@@ -1,0 +1,29 @@
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.12.189.176:3000
+
+✓ Starting...
+✓ Ready in 705ms
+ HEAD / 200 in 764ms (compile: 519ms, render: 244ms)
+ GET / 200 in 62ms (compile: 3ms, render: 58ms)
+ GET /dashboard 200 in 65ms (compile: 44ms, render: 22ms)
+ GET /market 200 in 50ms (compile: 31ms, render: 20ms)
+ GET /market 200 in 52ms (compile: 4ms, render: 49ms)
+ GET /dashboard 200 in 24ms (compile: 5ms, render: 19ms)
+ GET /market 200 in 20ms (compile: 3ms, render: 17ms)
+ GET /market 200 in 51ms (compile: 3ms, render: 48ms)
+ GET / 200 in 19ms (compile: 4ms, render: 15ms)
+ GET /dashboard 200 in 22ms (compile: 6ms, render: 17ms)
+ GET /market 200 in 20ms (compile: 3ms, render: 17ms)
+ GET /market/CCL 200 in 383ms (compile: 363ms, render: 20ms)
+ GET /dashboard 200 in 97ms (compile: 4ms, render: 93ms)
+ GET / 200 in 17ms (compile: 3ms, render: 14ms)
+ GET / 200 in 23ms (compile: 3ms, render: 20ms)
+ GET /dashboard 200 in 22ms (compile: 4ms, render: 18ms)
+ GET /market 200 in 26ms (compile: 3ms, render: 22ms)
+ GET /market/HOLX 200 in 45ms (compile: 25ms, render: 21ms)
+ GET / 200 in 22ms (compile: 3ms, render: 18ms)
+ GET /dashboard 200 in 19ms (compile: 3ms, render: 16ms)
+ GET /market 200 in 22ms (compile: 3ms, render: 19ms)
+ GET /market/AAPL 200 in 39ms (compile: 21ms, render: 18ms)
+ GET /dashboard 200 in 54ms (compile: 3ms, render: 50ms)

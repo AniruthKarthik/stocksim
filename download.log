@@ -1,0 +1,2180 @@
+2026-01-05 23:27:13,860 - INFO - Found 8 ticker files.
+2026-01-05 23:27:13,863 - INFO - --- Processing crypto_tickers.txt (Type: crypto) | 25 tickers ---
+2026-01-05 23:27:13,863 - INFO - [crypto] 1/25: AAVE (Fetch: AAVE-USD)
+2026-01-05 23:27:16,061 - ERROR - Database load failed for AAVE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:16,061 - INFO - [crypto] 2/25: ADA (Fetch: ADA-USD)
+2026-01-05 23:27:16,629 - ERROR - Database load failed for ADA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:16,629 - INFO - [crypto] 3/25: ALGO (Fetch: ALGO-USD)
+2026-01-05 23:27:17,427 - ERROR - Database load failed for ALGO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:17,427 - INFO - [crypto] 4/25: ATOM (Fetch: ATOM-USD)
+2026-01-05 23:27:18,100 - ERROR - Database load failed for ATOM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:18,100 - INFO - [crypto] 5/25: AVAX (Fetch: AVAX-USD)
+2026-01-05 23:27:18,588 - ERROR - Database load failed for AVAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:19,089 - INFO - [crypto] 6/25: BCH (Fetch: BCH-USD)
+2026-01-05 23:27:24,601 - ERROR - Database load failed for BCH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:24,602 - INFO - [crypto] 7/25: BTC (Fetch: BTC-USD)
+2026-01-05 23:27:25,268 - ERROR - Database load failed for BTC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:25,268 - INFO - [crypto] 8/25: DOGE (Fetch: DOGE-USD)
+2026-01-05 23:27:25,798 - ERROR - Database load failed for DOGE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:25,798 - INFO - [crypto] 9/25: DOT (Fetch: DOT-USD)
+2026-01-05 23:27:26,543 - ERROR - Database load failed for DOT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:26,543 - INFO - [crypto] 10/25: EOS (Fetch: EOS-USD)
+2026-01-05 23:27:27,717 - ERROR - Database load failed for EOS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:28,217 - INFO - [crypto] 11/25: ETC (Fetch: ETC-USD)
+2026-01-05 23:27:28,808 - ERROR - Database load failed for ETC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:28,808 - INFO - [crypto] 12/25: ETH (Fetch: ETH-USD)
+2026-01-05 23:27:29,371 - ERROR - Database load failed for ETH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:29,371 - INFO - [crypto] 13/25: FIL (Fetch: FIL-USD)
+2026-01-05 23:27:29,871 - ERROR - Database load failed for FIL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:29,871 - INFO - [crypto] 14/25: LINK (Fetch: LINK-USD)
+2026-01-05 23:27:30,430 - ERROR - Database load failed for LINK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:30,430 - INFO - [crypto] 15/25: LTC (Fetch: LTC-USD)
+2026-01-05 23:27:31,093 - ERROR - Database load failed for LTC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:31,593 - INFO - [crypto] 16/25: MATIC (Fetch: MATIC-USD)
+2026-01-05 23:27:32,335 - ERROR - Database load failed for MATIC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:32,335 - INFO - [crypto] 17/25: MKR (Fetch: MKR-USD)
+2026-01-05 23:27:32,834 - ERROR - Database load failed for MKR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:32,835 - INFO - [crypto] 18/25: SHIB (Fetch: SHIB-USD)
+2026-01-05 23:27:33,251 - ERROR - Database load failed for SHIB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:33,252 - INFO - [crypto] 19/25: SOL (Fetch: SOL-USD)
+2026-01-05 23:27:34,312 - ERROR - Database load failed for SOL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:34,312 - INFO - [crypto] 20/25: TRX (Fetch: TRX-USD)
+2026-01-05 23:27:34,897 - ERROR - Database load failed for TRX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:35,398 - INFO - [crypto] 21/25: UNI7083 (Fetch: UNI7083-USD)
+2026-01-05 23:27:41,209 - ERROR - Database load failed for UNI7083: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:41,209 - INFO - [crypto] 22/25: VET (Fetch: VET-USD)
+2026-01-05 23:27:42,445 - ERROR - Database load failed for VET: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:42,446 - INFO - [crypto] 23/25: XLM (Fetch: XLM-USD)
+2026-01-05 23:27:43,077 - ERROR - Database load failed for XLM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:43,077 - INFO - [crypto] 24/25: XMR (Fetch: XMR-USD)
+2026-01-05 23:27:51,270 - ERROR - Database load failed for XMR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:51,270 - INFO - [crypto] 25/25: XRP (Fetch: XRP-USD)
+2026-01-05 23:27:52,700 - ERROR - Database load failed for XRP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:53,201 - INFO - --- Processing stocks_tickers.txt (Type: stocks) | 50 tickers ---
+2026-01-05 23:27:53,202 - INFO - [stocks] 1/50: AAPL (Fetch: AAPL)
+2026-01-05 23:27:55,184 - ERROR - Database load failed for AAPL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:27:55,184 - INFO - [stocks] 2/50: ABBV (Fetch: ABBV)
+2026-01-05 23:28:00,777 - ERROR - Database load failed for ABBV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:00,777 - INFO - [stocks] 3/50: ABNB (Fetch: ABNB)
+2026-01-05 23:28:01,225 - ERROR - Database load failed for ABNB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:01,225 - INFO - [stocks] 4/50: ADBE (Fetch: ADBE)
+2026-01-05 23:28:01,890 - ERROR - Database load failed for ADBE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:01,890 - INFO - [stocks] 5/50: AMD (Fetch: AMD)
+2026-01-05 23:28:02,489 - ERROR - Database load failed for AMD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:02,989 - INFO - [stocks] 6/50: AMZN (Fetch: AMZN)
+2026-01-05 23:28:03,603 - ERROR - Database load failed for AMZN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:03,603 - INFO - [stocks] 7/50: AVGO (Fetch: AVGO)
+2026-01-05 23:28:04,551 - ERROR - Database load failed for AVGO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:04,551 - INFO - [stocks] 8/50: BABA (Fetch: BABA)
+2026-01-05 23:28:05,265 - ERROR - Database load failed for BABA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:05,265 - INFO - [stocks] 9/50: BAC (Fetch: BAC)
+2026-01-05 23:28:05,933 - ERROR - Database load failed for BAC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:05,933 - INFO - [stocks] 10/50: BRK-B (Fetch: BRK-B)
+2026-01-05 23:28:06,516 - ERROR - Database load failed for BRK-B: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:07,016 - INFO - [stocks] 11/50: COST (Fetch: COST)
+2026-01-05 23:28:07,759 - ERROR - Database load failed for COST: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:07,759 - INFO - [stocks] 12/50: CRM (Fetch: CRM)
+2026-01-05 23:28:09,031 - ERROR - Database load failed for CRM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:09,031 - INFO - [stocks] 13/50: CSCO (Fetch: CSCO)
+2026-01-05 23:28:09,816 - ERROR - Database load failed for CSCO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:09,817 - INFO - [stocks] 14/50: CVX (Fetch: CVX)
+2026-01-05 23:28:10,788 - ERROR - Database load failed for CVX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:10,788 - INFO - [stocks] 15/50: DIS (Fetch: DIS)
+2026-01-05 23:28:12,092 - ERROR - Database load failed for DIS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:12,592 - INFO - [stocks] 16/50: GOOGL (Fetch: GOOGL)
+2026-01-05 23:28:13,781 - ERROR - Database load failed for GOOGL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:13,782 - INFO - [stocks] 17/50: HD (Fetch: HD)
+2026-01-05 23:28:14,537 - ERROR - Database load failed for HD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:14,538 - INFO - [stocks] 18/50: INTC (Fetch: INTC)
+2026-01-05 23:28:15,204 - ERROR - Database load failed for INTC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:15,204 - INFO - [stocks] 19/50: JNJ (Fetch: JNJ)
+2026-01-05 23:28:15,957 - ERROR - Database load failed for JNJ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:15,957 - INFO - [stocks] 20/50: JPM (Fetch: JPM)
+2026-01-05 23:28:16,711 - ERROR - Database load failed for JPM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:17,211 - INFO - [stocks] 21/50: KO (Fetch: KO)
+2026-01-05 23:28:18,099 - ERROR - Database load failed for KO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:18,100 - INFO - [stocks] 22/50: MA (Fetch: MA)
+2026-01-05 23:28:24,897 - ERROR - Database load failed for MA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:24,897 - INFO - [stocks] 23/50: MCD (Fetch: MCD)
+2026-01-05 23:28:30,767 - ERROR - Database load failed for MCD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:30,767 - INFO - [stocks] 24/50: META (Fetch: META)
+2026-01-05 23:28:31,438 - ERROR - Database load failed for META: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:31,438 - INFO - [stocks] 25/50: MRK (Fetch: MRK)
+2026-01-05 23:28:32,314 - ERROR - Database load failed for MRK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:32,814 - INFO - [stocks] 26/50: MSFT (Fetch: MSFT)
+2026-01-05 23:28:33,551 - ERROR - Database load failed for MSFT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:33,551 - INFO - [stocks] 27/50: NET (Fetch: NET)
+2026-01-05 23:28:34,033 - ERROR - Database load failed for NET: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:34,033 - INFO - [stocks] 28/50: NFLX (Fetch: NFLX)
+2026-01-05 23:28:40,712 - ERROR - Database load failed for NFLX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:40,712 - INFO - [stocks] 29/50: NKE (Fetch: NKE)
+2026-01-05 23:28:42,085 - ERROR - Database load failed for NKE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:42,085 - INFO - [stocks] 30/50: NVDA (Fetch: NVDA)
+2026-01-05 23:28:43,179 - ERROR - Database load failed for NVDA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:43,680 - INFO - [stocks] 31/50: ORCL (Fetch: ORCL)
+2026-01-05 23:28:45,483 - ERROR - Database load failed for ORCL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:45,483 - INFO - [stocks] 32/50: PEP (Fetch: PEP)
+2026-01-05 23:28:46,278 - ERROR - Database load failed for PEP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:46,278 - INFO - [stocks] 33/50: PFE (Fetch: PFE)
+2026-01-05 23:28:47,211 - ERROR - Database load failed for PFE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:47,212 - INFO - [stocks] 34/50: PG (Fetch: PG)
+2026-01-05 23:28:52,907 - ERROR - Database load failed for PG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:52,908 - INFO - [stocks] 35/50: PLTR (Fetch: PLTR)
+2026-01-05 23:28:53,328 - ERROR - Database load failed for PLTR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:53,829 - INFO - [stocks] 36/50: PYPL (Fetch: PYPL)
+2026-01-05 23:28:54,440 - ERROR - Database load failed for PYPL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:54,440 - INFO - [stocks] 37/50: ROKU (Fetch: ROKU)
+2026-01-05 23:28:54,870 - ERROR - Database load failed for ROKU: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:54,870 - INFO - [stocks] 38/50: SBUX (Fetch: SBUX)
+2026-01-05 23:28:55,606 - ERROR - Database load failed for SBUX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:55,607 - INFO - [stocks] 39/50: SHOP (Fetch: SHOP)
+2026-01-05 23:28:56,347 - ERROR - Database load failed for SHOP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:56,347 - INFO - [stocks] 40/50: SNOW (Fetch: SNOW)
+2026-01-05 23:28:56,788 - ERROR - Database load failed for SNOW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:57,288 - INFO - [stocks] 41/50: SONY (Fetch: SONY)
+2026-01-05 23:28:58,030 - ERROR - Database load failed for SONY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:58,030 - INFO - [stocks] 42/50: SQ (Fetch: SQ)
+2026-01-05 23:28:59,058 - ERROR - $SQ: possibly delisted; no timezone found
+2026-01-05 23:28:59,059 - ERROR - 
+1 Failed download:
+2026-01-05 23:28:59,060 - ERROR - ['SQ']: possibly delisted; no timezone found
+2026-01-05 23:28:59,063 - WARNING - No data for SQ, skipping.
+2026-01-05 23:28:59,063 - INFO - [stocks] 43/50: SSNLF (Fetch: SSNLF)
+2026-01-05 23:28:59,488 - ERROR - SSNLF: auto_adjust failed with unsupported operand type(s) for /: 'str' and 'float'
+2026-01-05 23:28:59,496 - ERROR - 
+1 Failed download:
+2026-01-05 23:28:59,496 - ERROR - ['SSNLF']: auto_adjust failed with unsupported operand type(s) for /: 'str' and 'float'
+2026-01-05 23:28:59,533 - ERROR - Database load failed for SSNLF: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:28:59,533 - INFO - [stocks] 44/50: TM (Fetch: TM)
+2026-01-05 23:29:00,977 - ERROR - Database load failed for TM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:00,977 - INFO - [stocks] 45/50: TMO (Fetch: TMO)
+2026-01-05 23:29:07,129 - ERROR - Database load failed for TMO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:07,629 - INFO - [stocks] 46/50: TSLA (Fetch: TSLA)
+2026-01-05 23:29:08,447 - ERROR - Database load failed for TSLA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:08,447 - INFO - [stocks] 47/50: UBER (Fetch: UBER)
+2026-01-05 23:29:08,992 - ERROR - Database load failed for UBER: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:08,992 - INFO - [stocks] 48/50: UNH (Fetch: UNH)
+2026-01-05 23:29:09,816 - ERROR - Database load failed for UNH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:09,817 - INFO - [stocks] 49/50: V (Fetch: V)
+2026-01-05 23:29:10,887 - ERROR - Database load failed for V: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:10,887 - INFO - [stocks] 50/50: WMT (Fetch: WMT)
+2026-01-05 23:29:11,922 - ERROR - Database load failed for WMT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:12,425 - INFO - --- Processing mutualfund_tickers.txt (Type: mutualfunds) | 18 tickers ---
+2026-01-05 23:29:12,425 - INFO - [mutualfunds] 1/18: DFLVX (Fetch: DFLVX)
+2026-01-05 23:29:13,562 - ERROR - Database load failed for DFLVX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:13,563 - INFO - [mutualfunds] 2/18: FSMAX (Fetch: FSMAX)
+2026-01-05 23:29:14,112 - ERROR - Database load failed for FSMAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:14,112 - INFO - [mutualfunds] 3/18: FSPGX (Fetch: FSPGX)
+2026-01-05 23:29:14,531 - ERROR - Database load failed for FSPGX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:14,531 - INFO - [mutualfunds] 4/18: FXAIX (Fetch: FXAIX)
+2026-01-05 23:29:15,098 - ERROR - Database load failed for FXAIX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:15,099 - INFO - [mutualfunds] 5/18: FZROX (Fetch: FZROX)
+2026-01-05 23:29:15,491 - ERROR - Database load failed for FZROX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:15,991 - INFO - [mutualfunds] 6/18: PRNHX (Fetch: PRNHX)
+2026-01-05 23:29:16,789 - ERROR - Database load failed for PRNHX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:16,789 - INFO - [mutualfunds] 7/18: SWPPX (Fetch: SWPPX)
+2026-01-05 23:29:17,469 - ERROR - Database load failed for SWPPX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:17,469 - INFO - [mutualfunds] 8/18: TRBCX (Fetch: TRBCX)
+2026-01-05 23:29:18,294 - ERROR - Database load failed for TRBCX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:18,294 - INFO - [mutualfunds] 9/18: VASIX (Fetch: VASIX)
+2026-01-05 23:29:18,936 - ERROR - Database load failed for VASIX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:18,936 - INFO - [mutualfunds] 10/18: VBTLX (Fetch: VBTLX)
+2026-01-05 23:29:19,641 - ERROR - Database load failed for VBTLX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:20,141 - INFO - [mutualfunds] 11/18: VFIAX (Fetch: VFIAX)
+2026-01-05 23:29:20,775 - ERROR - Database load failed for VFIAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:20,775 - INFO - [mutualfunds] 12/18: VIMSX (Fetch: VIMSX)
+2026-01-05 23:29:22,224 - ERROR - Database load failed for VIMSX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:22,224 - INFO - [mutualfunds] 13/18: VSMAX (Fetch: VSMAX)
+2026-01-05 23:29:22,900 - ERROR - Database load failed for VSMAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:22,901 - INFO - [mutualfunds] 14/18: VTSAX (Fetch: VTSAX)
+2026-01-05 23:29:23,627 - ERROR - Database load failed for VTSAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:23,627 - INFO - [mutualfunds] 15/18: VWENX (Fetch: VWENX)
+2026-01-05 23:29:24,351 - ERROR - Database load failed for VWENX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:24,851 - INFO - [mutualfunds] 16/18: VWLTX (Fetch: VWLTX)
+2026-01-05 23:29:25,574 - ERROR - Database load failed for VWLTX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:25,574 - INFO - [mutualfunds] 17/18: VWLUX (Fetch: VWLUX)
+2026-01-05 23:29:26,305 - ERROR - Database load failed for VWLUX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:26,305 - INFO - [mutualfunds] 18/18: VWUSX (Fetch: VWUSX)
+2026-01-05 23:29:26,928 - ERROR - Database load failed for VWUSX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:26,929 - INFO - --- Processing sp500_tickers.txt (Type: stocks) | 336 tickers ---
+2026-01-05 23:29:26,929 - INFO - [stocks] 1/336: A (Fetch: A)
+2026-01-05 23:29:27,657 - ERROR - Database load failed for A: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:27,657 - INFO - [stocks] 2/336: AAL (Fetch: AAL)
+2026-01-05 23:29:29,402 - ERROR - Database load failed for AAL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:29,402 - INFO - [stocks] 3/336: AAPL (Fetch: AAPL)
+2026-01-05 23:29:30,411 - ERROR - Database load failed for AAPL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:30,412 - INFO - [stocks] 4/336: ABBV (Fetch: ABBV)
+2026-01-05 23:29:36,242 - ERROR - Database load failed for ABBV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:36,242 - INFO - [stocks] 5/336: ABMD (Fetch: ABMD)
+2026-01-05 23:29:37,489 - ERROR - $ABMD: possibly delisted; no timezone found
+2026-01-05 23:29:37,495 - ERROR - 
+1 Failed download:
+2026-01-05 23:29:37,495 - ERROR - ['ABMD']: possibly delisted; no timezone found
+2026-01-05 23:29:37,498 - WARNING - No data for ABMD, skipping.
+2026-01-05 23:29:37,498 - INFO - [stocks] 6/336: ABNB (Fetch: ABNB)
+2026-01-05 23:29:38,065 - ERROR - Database load failed for ABNB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:38,065 - INFO - [stocks] 7/336: ABT (Fetch: ABT)
+2026-01-05 23:29:38,539 - ERROR - 
+1 Failed download:
+2026-01-05 23:29:38,540 - ERROR - ['ABT']: TypeError("'NoneType' object is not subscriptable")
+2026-01-05 23:29:38,543 - WARNING - No data for ABT, skipping.
+2026-01-05 23:29:38,543 - INFO - [stocks] 8/336: ACN (Fetch: ACN)
+2026-01-05 23:29:39,255 - ERROR - Database load failed for ACN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:39,255 - INFO - [stocks] 9/336: ADBE (Fetch: ADBE)
+2026-01-05 23:29:40,127 - ERROR - Database load failed for ADBE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:40,127 - INFO - [stocks] 10/336: ADI (Fetch: ADI)
+2026-01-05 23:29:40,435 - ERROR - 
+1 Failed download:
+2026-01-05 23:29:40,435 - ERROR - ['ADI']: TypeError("'NoneType' object is not subscriptable")
+2026-01-05 23:29:40,439 - WARNING - No data for ADI, skipping.
+2026-01-05 23:29:40,439 - INFO - [stocks] 11/336: ADM (Fetch: ADM)
+2026-01-05 23:29:46,329 - ERROR - Database load failed for ADM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:46,329 - INFO - [stocks] 12/336: ADP (Fetch: ADP)
+2026-01-05 23:29:47,382 - ERROR - Database load failed for ADP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:47,382 - INFO - [stocks] 13/336: ADSK (Fetch: ADSK)
+2026-01-05 23:29:47,991 - ERROR - Database load failed for ADSK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:47,991 - INFO - [stocks] 14/336: AEP (Fetch: AEP)
+2026-01-05 23:29:49,246 - ERROR - Database load failed for AEP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:49,247 - INFO - [stocks] 15/336: AFL (Fetch: AFL)
+2026-01-05 23:29:50,147 - ERROR - Database load failed for AFL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:50,647 - INFO - [stocks] 16/336: AIG (Fetch: AIG)
+2026-01-05 23:29:56,201 - ERROR - Database load failed for AIG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:56,201 - INFO - [stocks] 17/336: AKAM (Fetch: AKAM)
+2026-01-05 23:29:56,866 - ERROR - Database load failed for AKAM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:56,866 - INFO - [stocks] 18/336: ALB (Fetch: ALB)
+2026-01-05 23:29:57,626 - ERROR - Database load failed for ALB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:57,626 - INFO - [stocks] 19/336: ALGN (Fetch: ALGN)
+2026-01-05 23:29:58,187 - ERROR - Database load failed for ALGN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:58,187 - INFO - [stocks] 20/336: ALLY (Fetch: ALLY)
+2026-01-05 23:29:58,834 - ERROR - Database load failed for ALLY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:29:59,334 - INFO - [stocks] 21/336: AMAT (Fetch: AMAT)
+2026-01-05 23:30:00,037 - ERROR - Database load failed for AMAT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:00,037 - INFO - [stocks] 22/336: AMD (Fetch: AMD)
+2026-01-05 23:30:00,625 - ERROR - Database load failed for AMD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:00,625 - INFO - [stocks] 23/336: AMGN (Fetch: AMGN)
+2026-01-05 23:30:01,280 - ERROR - Database load failed for AMGN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:01,280 - INFO - [stocks] 24/336: AMP (Fetch: AMP)
+2026-01-05 23:30:02,025 - ERROR - Database load failed for AMP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:02,025 - INFO - [stocks] 25/336: AMZN (Fetch: AMZN)
+2026-01-05 23:30:02,580 - ERROR - Database load failed for AMZN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:03,080 - INFO - [stocks] 26/336: ANSS (Fetch: ANSS)
+2026-01-05 23:30:03,782 - ERROR - $ANSS: possibly delisted; no timezone found
+2026-01-05 23:30:03,786 - ERROR - 
+1 Failed download:
+2026-01-05 23:30:03,786 - ERROR - ['ANSS']: possibly delisted; no timezone found
+2026-01-05 23:30:03,789 - WARNING - No data for ANSS, skipping.
+2026-01-05 23:30:03,789 - INFO - [stocks] 27/336: ANTM (Fetch: ANTM)
+2026-01-05 23:30:04,573 - ERROR - $ANTM: possibly delisted; no timezone found
+2026-01-05 23:30:04,575 - ERROR - 
+1 Failed download:
+2026-01-05 23:30:04,575 - ERROR - ['ANTM']: possibly delisted; no timezone found
+2026-01-05 23:30:04,578 - WARNING - No data for ANTM, skipping.
+2026-01-05 23:30:04,579 - INFO - [stocks] 28/336: AON (Fetch: AON)
+2026-01-05 23:30:05,301 - ERROR - Database load failed for AON: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:05,301 - INFO - [stocks] 29/336: AOS (Fetch: AOS)
+2026-01-05 23:30:06,085 - ERROR - Database load failed for AOS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:06,085 - INFO - [stocks] 30/336: APA (Fetch: APA)
+2026-01-05 23:30:06,879 - ERROR - Database load failed for APA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:07,380 - INFO - [stocks] 31/336: APD (Fetch: APD)
+2026-01-05 23:30:08,128 - ERROR - Database load failed for APD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:08,128 - INFO - [stocks] 32/336: AVGO (Fetch: AVGO)
+2026-01-05 23:30:08,747 - ERROR - Database load failed for AVGO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:08,748 - INFO - [stocks] 33/336: AXP (Fetch: AXP)
+2026-01-05 23:30:09,334 - ERROR - Database load failed for AXP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:09,334 - INFO - [stocks] 34/336: AZO (Fetch: AZO)
+2026-01-05 23:30:09,707 - ERROR - Database load failed for AZO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:09,708 - INFO - [stocks] 35/336: BA (Fetch: BA)
+2026-01-05 23:30:10,128 - ERROR - Database load failed for BA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:10,629 - INFO - [stocks] 36/336: BAC (Fetch: BAC)
+2026-01-05 23:30:11,142 - ERROR - Database load failed for BAC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:11,142 - INFO - [stocks] 37/336: BAX (Fetch: BAX)
+2026-01-05 23:30:11,647 - ERROR - Database load failed for BAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:11,647 - INFO - [stocks] 38/336: BBBY (Fetch: BBBY)
+2026-01-05 23:30:12,084 - ERROR - Database load failed for BBBY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:12,084 - INFO - [stocks] 39/336: BBWI (Fetch: BBWI)
+2026-01-05 23:30:12,763 - ERROR - Database load failed for BBWI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:12,763 - INFO - [stocks] 40/336: BBY (Fetch: BBY)
+2026-01-05 23:30:13,475 - ERROR - Database load failed for BBY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:13,975 - INFO - [stocks] 41/336: BG (Fetch: BG)
+2026-01-05 23:30:14,415 - ERROR - Database load failed for BG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:14,415 - INFO - [stocks] 42/336: BIIB (Fetch: BIIB)
+2026-01-05 23:30:14,932 - ERROR - Database load failed for BIIB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:14,932 - INFO - [stocks] 43/336: BIO (Fetch: BIO)
+2026-01-05 23:30:15,429 - ERROR - Database load failed for BIO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:15,429 - INFO - [stocks] 44/336: BK (Fetch: BK)
+2026-01-05 23:30:16,110 - ERROR - Database load failed for BK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:16,110 - INFO - [stocks] 45/336: BKNG (Fetch: BKNG)
+2026-01-05 23:30:16,557 - ERROR - Database load failed for BKNG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:17,057 - INFO - [stocks] 46/336: BKR (Fetch: BKR)
+2026-01-05 23:30:17,605 - ERROR - Database load failed for BKR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:17,605 - INFO - [stocks] 47/336: BLK (Fetch: BLK)
+2026-01-05 23:30:18,055 - ERROR - Database load failed for BLK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:18,055 - INFO - [stocks] 48/336: BR (Fetch: BR)
+2026-01-05 23:30:18,542 - ERROR - Database load failed for BR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:18,542 - INFO - [stocks] 49/336: BRK-B (Fetch: BRK-B)
+2026-01-05 23:30:18,928 - ERROR - Database load failed for BRK-B: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:18,928 - INFO - [stocks] 50/336: BRKR (Fetch: BRKR)
+2026-01-05 23:30:19,448 - ERROR - Database load failed for BRKR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:19,948 - INFO - [stocks] 51/336: BSX (Fetch: BSX)
+2026-01-05 23:30:20,424 - ERROR - Database load failed for BSX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:20,425 - INFO - [stocks] 52/336: BURL (Fetch: BURL)
+2026-01-05 23:30:20,785 - ERROR - Database load failed for BURL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:20,785 - INFO - [stocks] 53/336: BX (Fetch: BX)
+2026-01-05 23:30:21,148 - ERROR - Database load failed for BX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:21,148 - INFO - [stocks] 54/336: C (Fetch: C)
+2026-01-05 23:30:21,627 - ERROR - Database load failed for C: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:21,627 - INFO - [stocks] 55/336: CAH (Fetch: CAH)
+2026-01-05 23:30:22,215 - ERROR - Database load failed for CAH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:22,715 - INFO - [stocks] 56/336: CARR (Fetch: CARR)
+2026-01-05 23:30:23,021 - ERROR - Database load failed for CARR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:23,021 - INFO - [stocks] 57/336: CAT (Fetch: CAT)
+2026-01-05 23:30:23,544 - ERROR - Database load failed for CAT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:23,544 - INFO - [stocks] 58/336: CB (Fetch: CB)
+2026-01-05 23:30:24,252 - ERROR - Database load failed for CB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:24,252 - INFO - [stocks] 59/336: CBRE (Fetch: CBRE)
+2026-01-05 23:30:24,786 - ERROR - Database load failed for CBRE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:24,787 - INFO - [stocks] 60/336: CCL (Fetch: CCL)
+2026-01-05 23:30:25,314 - ERROR - Database load failed for CCL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:25,814 - INFO - [stocks] 61/336: CDNS (Fetch: CDNS)
+2026-01-05 23:30:26,395 - ERROR - Database load failed for CDNS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:26,395 - INFO - [stocks] 62/336: CDW (Fetch: CDW)
+2026-01-05 23:30:26,915 - ERROR - Database load failed for CDW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:26,915 - INFO - [stocks] 63/336: CF (Fetch: CF)
+2026-01-05 23:30:27,435 - ERROR - Database load failed for CF: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:27,435 - INFO - [stocks] 64/336: CHD (Fetch: CHD)
+2026-01-05 23:30:27,900 - ERROR - Database load failed for CHD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:27,901 - INFO - [stocks] 65/336: CHRW (Fetch: CHRW)
+2026-01-05 23:30:28,537 - ERROR - Database load failed for CHRW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:29,037 - INFO - [stocks] 66/336: CHTR (Fetch: CHTR)
+2026-01-05 23:30:29,554 - ERROR - Database load failed for CHTR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:29,554 - INFO - [stocks] 67/336: CI (Fetch: CI)
+2026-01-05 23:30:30,193 - ERROR - Database load failed for CI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:30,194 - INFO - [stocks] 68/336: CL (Fetch: CL)
+2026-01-05 23:30:30,742 - ERROR - Database load failed for CL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:30,743 - INFO - [stocks] 69/336: CLX (Fetch: CLX)
+2026-01-05 23:30:31,238 - ERROR - Database load failed for CLX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:31,238 - INFO - [stocks] 70/336: CME (Fetch: CME)
+2026-01-05 23:30:32,404 - ERROR - Database load failed for CME: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:32,905 - INFO - [stocks] 71/336: CMG (Fetch: CMG)
+2026-01-05 23:30:33,534 - ERROR - Database load failed for CMG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:33,534 - INFO - [stocks] 72/336: CMI (Fetch: CMI)
+2026-01-05 23:30:34,003 - ERROR - Database load failed for CMI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:34,003 - INFO - [stocks] 73/336: CNC (Fetch: CNC)
+2026-01-05 23:30:34,467 - ERROR - Database load failed for CNC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:34,467 - INFO - [stocks] 74/336: COF (Fetch: COF)
+2026-01-05 23:30:35,230 - ERROR - Database load failed for COF: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:35,230 - INFO - [stocks] 75/336: COP (Fetch: COP)
+2026-01-05 23:30:35,951 - ERROR - Database load failed for COP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:36,452 - INFO - [stocks] 76/336: COST (Fetch: COST)
+2026-01-05 23:30:37,132 - ERROR - Database load failed for COST: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:37,132 - INFO - [stocks] 77/336: CP (Fetch: CP)
+2026-01-05 23:30:37,579 - ERROR - Database load failed for CP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:37,579 - INFO - [stocks] 78/336: CRM (Fetch: CRM)
+2026-01-05 23:30:38,196 - ERROR - Database load failed for CRM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:38,197 - INFO - [stocks] 79/336: CRWD (Fetch: CRWD)
+2026-01-05 23:30:38,532 - ERROR - Database load failed for CRWD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:38,532 - INFO - [stocks] 80/336: CSCO (Fetch: CSCO)
+2026-01-05 23:30:39,173 - ERROR - Database load failed for CSCO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:39,673 - INFO - [stocks] 81/336: CSX (Fetch: CSX)
+2026-01-05 23:30:40,390 - ERROR - Database load failed for CSX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:40,390 - INFO - [stocks] 82/336: CTAS (Fetch: CTAS)
+2026-01-05 23:30:41,009 - ERROR - Database load failed for CTAS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:41,009 - INFO - [stocks] 83/336: CTLT (Fetch: CTLT)
+2026-01-05 23:30:41,634 - ERROR - $CTLT: possibly delisted; no timezone found
+2026-01-05 23:30:41,635 - ERROR - 
+1 Failed download:
+2026-01-05 23:30:41,635 - ERROR - ['CTLT']: possibly delisted; no timezone found
+2026-01-05 23:30:41,639 - WARNING - No data for CTLT, skipping.
+2026-01-05 23:30:41,640 - INFO - [stocks] 84/336: CTSH (Fetch: CTSH)
+2026-01-05 23:30:41,992 - ERROR - Database load failed for CTSH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:41,992 - INFO - [stocks] 85/336: CVS (Fetch: CVS)
+2026-01-05 23:30:42,381 - ERROR - Database load failed for CVS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:42,881 - INFO - [stocks] 86/336: CVX (Fetch: CVX)
+2026-01-05 23:30:43,792 - ERROR - Database load failed for CVX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:43,792 - INFO - [stocks] 87/336: D (Fetch: D)
+2026-01-05 23:30:44,637 - ERROR - Database load failed for D: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:44,638 - INFO - [stocks] 88/336: DAL (Fetch: DAL)
+2026-01-05 23:30:45,210 - ERROR - Database load failed for DAL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:45,210 - INFO - [stocks] 89/336: DASH (Fetch: DASH)
+2026-01-05 23:30:45,452 - ERROR - Database load failed for DASH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:45,452 - INFO - [stocks] 90/336: DDOG (Fetch: DDOG)
+2026-01-05 23:30:45,855 - ERROR - Database load failed for DDOG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:46,356 - INFO - [stocks] 91/336: DE (Fetch: DE)
+2026-01-05 23:30:46,959 - ERROR - Database load failed for DE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:46,959 - INFO - [stocks] 92/336: DELL (Fetch: DELL)
+2026-01-05 23:30:47,398 - ERROR - Database load failed for DELL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:47,399 - INFO - [stocks] 93/336: DFS (Fetch: DFS)
+2026-01-05 23:30:48,099 - ERROR - $DFS: possibly delisted; no timezone found
+2026-01-05 23:30:48,104 - ERROR - 
+1 Failed download:
+2026-01-05 23:30:48,104 - ERROR - ['DFS']: possibly delisted; no timezone found
+2026-01-05 23:30:48,107 - WARNING - No data for DFS, skipping.
+2026-01-05 23:30:48,107 - INFO - [stocks] 94/336: DG (Fetch: DG)
+2026-01-05 23:30:48,549 - ERROR - Database load failed for DG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:48,549 - INFO - [stocks] 95/336: DGX (Fetch: DGX)
+2026-01-05 23:30:48,922 - ERROR - Database load failed for DGX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:49,423 - INFO - [stocks] 96/336: DHI (Fetch: DHI)
+2026-01-05 23:30:50,033 - ERROR - Database load failed for DHI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:50,033 - INFO - [stocks] 97/336: DHR (Fetch: DHR)
+2026-01-05 23:30:51,003 - ERROR - Database load failed for DHR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:51,003 - INFO - [stocks] 98/336: DIS (Fetch: DIS)
+2026-01-05 23:30:51,704 - ERROR - Database load failed for DIS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:51,705 - INFO - [stocks] 99/336: DLR (Fetch: DLR)
+2026-01-05 23:30:52,397 - ERROR - Database load failed for DLR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:52,397 - INFO - [stocks] 100/336: DLTR (Fetch: DLTR)
+2026-01-05 23:30:52,796 - ERROR - Database load failed for DLTR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:53,296 - INFO - [stocks] 101/336: DOCU (Fetch: DOCU)
+2026-01-05 23:30:53,603 - ERROR - Database load failed for DOCU: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:53,604 - INFO - [stocks] 102/336: DOW (Fetch: DOW)
+2026-01-05 23:30:53,984 - ERROR - Database load failed for DOW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:53,984 - INFO - [stocks] 103/336: DPZ (Fetch: DPZ)
+2026-01-05 23:30:54,509 - ERROR - Database load failed for DPZ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:54,509 - INFO - [stocks] 104/336: DRI (Fetch: DRI)
+2026-01-05 23:30:54,934 - ERROR - Database load failed for DRI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:54,935 - INFO - [stocks] 105/336: DUK (Fetch: DUK)
+2026-01-05 23:30:55,621 - ERROR - Database load failed for DUK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:56,121 - INFO - [stocks] 106/336: DVN (Fetch: DVN)
+2026-01-05 23:30:56,672 - ERROR - Database load failed for DVN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:56,672 - INFO - [stocks] 107/336: ECL (Fetch: ECL)
+2026-01-05 23:30:57,394 - ERROR - Database load failed for ECL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:57,394 - INFO - [stocks] 108/336: ED (Fetch: ED)
+2026-01-05 23:30:57,912 - ERROR - Database load failed for ED: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:57,912 - INFO - [stocks] 109/336: EFX (Fetch: EFX)
+2026-01-05 23:30:58,474 - ERROR - Database load failed for EFX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:58,474 - INFO - [stocks] 110/336: EL (Fetch: EL)
+2026-01-05 23:30:59,212 - ERROR - Database load failed for EL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:30:59,713 - INFO - [stocks] 111/336: ELV (Fetch: ELV)
+2026-01-05 23:31:00,405 - ERROR - Database load failed for ELV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:00,406 - INFO - [stocks] 112/336: EMR (Fetch: EMR)
+2026-01-05 23:31:00,979 - ERROR - Database load failed for EMR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:00,979 - INFO - [stocks] 113/336: EOG (Fetch: EOG)
+2026-01-05 23:31:01,704 - ERROR - Database load failed for EOG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:01,705 - INFO - [stocks] 114/336: EQIX (Fetch: EQIX)
+2026-01-05 23:31:02,285 - ERROR - Database load failed for EQIX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:02,285 - INFO - [stocks] 115/336: ETN (Fetch: ETN)
+2026-01-05 23:31:02,820 - ERROR - Database load failed for ETN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:03,320 - INFO - [stocks] 116/336: EW (Fetch: EW)
+2026-01-05 23:31:03,786 - ERROR - Database load failed for EW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:03,786 - INFO - [stocks] 117/336: EXC (Fetch: EXC)
+2026-01-05 23:31:04,514 - ERROR - Database load failed for EXC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:04,515 - INFO - [stocks] 118/336: EXPD (Fetch: EXPD)
+2026-01-05 23:31:05,132 - ERROR - Database load failed for EXPD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:05,132 - INFO - [stocks] 119/336: EXPE (Fetch: EXPE)
+2026-01-05 23:31:05,620 - ERROR - Database load failed for EXPE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:05,620 - INFO - [stocks] 120/336: F (Fetch: F)
+2026-01-05 23:31:06,086 - ERROR - Database load failed for F: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:06,587 - INFO - [stocks] 121/336: FCX (Fetch: FCX)
+2026-01-05 23:31:07,132 - ERROR - Database load failed for FCX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:07,132 - INFO - [stocks] 122/336: FDX (Fetch: FDX)
+2026-01-05 23:31:07,861 - ERROR - Database load failed for FDX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:07,861 - INFO - [stocks] 123/336: FFIV (Fetch: FFIV)
+2026-01-05 23:31:08,471 - ERROR - Database load failed for FFIV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:08,471 - INFO - [stocks] 124/336: FI (Fetch: FI)
+2026-01-05 23:31:08,946 - ERROR - Database load failed for FI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:08,946 - INFO - [stocks] 125/336: FIS (Fetch: FIS)
+2026-01-05 23:31:09,627 - ERROR - Database load failed for FIS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:10,128 - INFO - [stocks] 126/336: FISV (Fetch: FISV)
+2026-01-05 23:31:10,626 - ERROR - Database load failed for FISV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:10,626 - INFO - [stocks] 127/336: FLT (Fetch: FLT)
+2026-01-05 23:31:11,130 - ERROR - $FLT: possibly delisted; no timezone found
+2026-01-05 23:31:11,131 - ERROR - 
+1 Failed download:
+2026-01-05 23:31:11,131 - ERROR - ['FLT']: possibly delisted; no timezone found
+2026-01-05 23:31:11,134 - WARNING - No data for FLT, skipping.
+2026-01-05 23:31:11,134 - INFO - [stocks] 128/336: FMC (Fetch: FMC)
+2026-01-05 23:31:11,744 - ERROR - Database load failed for FMC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:11,744 - INFO - [stocks] 129/336: FTNT (Fetch: FTNT)
+2026-01-05 23:31:12,195 - ERROR - Database load failed for FTNT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:12,196 - INFO - [stocks] 130/336: GD (Fetch: GD)
+2026-01-05 23:31:12,958 - ERROR - Database load failed for GD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:13,459 - INFO - [stocks] 131/336: GE (Fetch: GE)
+2026-01-05 23:31:13,945 - ERROR - Database load failed for GE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:13,945 - INFO - [stocks] 132/336: GEHC (Fetch: GEHC)
+2026-01-05 23:31:14,220 - ERROR - Database load failed for GEHC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:14,220 - INFO - [stocks] 133/336: GILD (Fetch: GILD)
+2026-01-05 23:31:14,702 - ERROR - Database load failed for GILD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:14,702 - INFO - [stocks] 134/336: GLW (Fetch: GLW)
+2026-01-05 23:31:15,222 - ERROR - Database load failed for GLW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:15,222 - INFO - [stocks] 135/336: GM (Fetch: GM)
+2026-01-05 23:31:15,667 - ERROR - Database load failed for GM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:16,167 - INFO - [stocks] 136/336: GOOG (Fetch: GOOG)
+2026-01-05 23:31:16,782 - ERROR - Database load failed for GOOG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:16,782 - INFO - [stocks] 137/336: GOOGL (Fetch: GOOGL)
+2026-01-05 23:31:17,145 - ERROR - Database load failed for GOOGL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:17,146 - INFO - [stocks] 138/336: GPN (Fetch: GPN)
+2026-01-05 23:31:17,671 - ERROR - Database load failed for GPN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:17,671 - INFO - [stocks] 139/336: GRMN (Fetch: GRMN)
+2026-01-05 23:31:18,183 - ERROR - Database load failed for GRMN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:18,183 - INFO - [stocks] 140/336: GS (Fetch: GS)
+2026-01-05 23:31:18,753 - ERROR - Database load failed for GS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:19,253 - INFO - [stocks] 141/336: H (Fetch: H)
+2026-01-05 23:31:19,657 - ERROR - Database load failed for H: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:19,657 - INFO - [stocks] 142/336: HAL (Fetch: HAL)
+2026-01-05 23:31:20,143 - ERROR - Database load failed for HAL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:20,143 - INFO - [stocks] 143/336: HAS (Fetch: HAS)
+2026-01-05 23:31:20,721 - ERROR - Database load failed for HAS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:20,721 - INFO - [stocks] 144/336: HCA (Fetch: HCA)
+2026-01-05 23:31:21,212 - ERROR - Database load failed for HCA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:21,212 - INFO - [stocks] 145/336: HD (Fetch: HD)
+2026-01-05 23:31:21,716 - ERROR - Database load failed for HD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:22,216 - INFO - [stocks] 146/336: HES (Fetch: HES)
+2026-01-05 23:31:23,895 - ERROR - $HES: possibly delisted; no timezone found
+2026-01-05 23:31:23,901 - ERROR - 
+1 Failed download:
+2026-01-05 23:31:23,901 - ERROR - ['HES']: possibly delisted; no timezone found
+2026-01-05 23:31:23,903 - WARNING - No data for HES, skipping.
+2026-01-05 23:31:23,903 - INFO - [stocks] 147/336: HLT (Fetch: HLT)
+2026-01-05 23:31:24,349 - ERROR - Database load failed for HLT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:24,349 - INFO - [stocks] 148/336: HOG (Fetch: HOG)
+2026-01-05 23:31:24,818 - ERROR - Database load failed for HOG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:24,818 - INFO - [stocks] 149/336: HOLX (Fetch: HOLX)
+2026-01-05 23:31:25,220 - ERROR - Database load failed for HOLX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:25,221 - INFO - [stocks] 150/336: HON (Fetch: HON)
+2026-01-05 23:31:25,944 - ERROR - Database load failed for HON: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:26,444 - INFO - [stocks] 151/336: HP (Fetch: HP)
+2026-01-05 23:31:27,087 - ERROR - Database load failed for HP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:27,087 - INFO - [stocks] 152/336: HPE (Fetch: HPE)
+2026-01-05 23:31:27,528 - ERROR - Database load failed for HPE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:27,528 - INFO - [stocks] 153/336: HPQ (Fetch: HPQ)
+2026-01-05 23:31:27,984 - ERROR - Database load failed for HPQ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:27,984 - INFO - [stocks] 154/336: HUBB (Fetch: HUBB)
+2026-01-05 23:31:28,580 - ERROR - Database load failed for HUBB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:28,580 - INFO - [stocks] 155/336: HUM (Fetch: HUM)
+2026-01-05 23:31:29,363 - ERROR - Database load failed for HUM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:29,864 - INFO - [stocks] 156/336: IBM (Fetch: IBM)
+2026-01-05 23:31:30,668 - ERROR - Database load failed for IBM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:30,668 - INFO - [stocks] 157/336: ICE (Fetch: ICE)
+2026-01-05 23:31:31,380 - ERROR - Database load failed for ICE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:31,380 - INFO - [stocks] 158/336: IDXX (Fetch: IDXX)
+2026-01-05 23:31:32,166 - ERROR - Database load failed for IDXX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:32,166 - INFO - [stocks] 159/336: ILMN (Fetch: ILMN)
+2026-01-05 23:31:32,729 - ERROR - Database load failed for ILMN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:32,729 - INFO - [stocks] 160/336: INTC (Fetch: INTC)
+2026-01-05 23:31:33,185 - ERROR - Database load failed for INTC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:33,686 - INFO - [stocks] 161/336: INTU (Fetch: INTU)
+2026-01-05 23:31:34,381 - ERROR - Database load failed for INTU: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:34,381 - INFO - [stocks] 162/336: IRM (Fetch: IRM)
+2026-01-05 23:31:35,048 - ERROR - Database load failed for IRM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:35,048 - INFO - [stocks] 163/336: ISRG (Fetch: ISRG)
+2026-01-05 23:31:35,568 - ERROR - Database load failed for ISRG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:35,568 - INFO - [stocks] 164/336: ITW (Fetch: ITW)
+2026-01-05 23:31:41,917 - ERROR - Database load failed for ITW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:41,917 - INFO - [stocks] 165/336: JBHT (Fetch: JBHT)
+2026-01-05 23:31:42,781 - ERROR - Database load failed for JBHT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:43,282 - INFO - [stocks] 166/336: JNJ (Fetch: JNJ)
+2026-01-05 23:31:44,056 - ERROR - Database load failed for JNJ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:44,056 - INFO - [stocks] 167/336: JPM (Fetch: JPM)
+2026-01-05 23:31:45,188 - ERROR - Database load failed for JPM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:45,188 - INFO - [stocks] 168/336: KELYA (Fetch: KELYA)
+2026-01-05 23:31:45,807 - ERROR - Database load failed for KELYA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:45,807 - INFO - [stocks] 169/336: KEX (Fetch: KEX)
+2026-01-05 23:31:46,364 - ERROR - Database load failed for KEX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:46,364 - INFO - [stocks] 170/336: KEYS (Fetch: KEYS)
+2026-01-05 23:31:46,784 - ERROR - Database load failed for KEYS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:47,284 - INFO - [stocks] 171/336: KHC (Fetch: KHC)
+2026-01-05 23:31:47,767 - ERROR - Database load failed for KHC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:47,767 - INFO - [stocks] 172/336: KMB (Fetch: KMB)
+2026-01-05 23:31:48,473 - ERROR - Database load failed for KMB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:48,473 - INFO - [stocks] 173/336: KMI (Fetch: KMI)
+2026-01-05 23:31:48,908 - ERROR - Database load failed for KMI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:48,908 - INFO - [stocks] 174/336: KO (Fetch: KO)
+2026-01-05 23:31:49,514 - ERROR - Database load failed for KO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:49,514 - INFO - [stocks] 175/336: KR (Fetch: KR)
+2026-01-05 23:31:50,164 - ERROR - Database load failed for KR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:50,664 - INFO - [stocks] 176/336: KSS (Fetch: KSS)
+2026-01-05 23:31:51,380 - ERROR - Database load failed for KSS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:51,381 - INFO - [stocks] 177/336: LCID (Fetch: LCID)
+2026-01-05 23:31:51,725 - ERROR - Database load failed for LCID: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:51,726 - INFO - [stocks] 178/336: LEN (Fetch: LEN)
+2026-01-05 23:31:52,490 - ERROR - Database load failed for LEN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:52,491 - INFO - [stocks] 179/336: LH (Fetch: LH)
+2026-01-05 23:31:53,181 - ERROR - Database load failed for LH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:53,181 - INFO - [stocks] 180/336: LHX (Fetch: LHX)
+2026-01-05 23:31:54,097 - ERROR - Database load failed for LHX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:54,598 - INFO - [stocks] 181/336: LII (Fetch: LII)
+2026-01-05 23:31:55,286 - ERROR - Database load failed for LII: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:55,286 - INFO - [stocks] 182/336: LIN (Fetch: LIN)
+2026-01-05 23:31:55,988 - ERROR - Database load failed for LIN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:55,989 - INFO - [stocks] 183/336: LLY (Fetch: LLY)
+2026-01-05 23:31:56,707 - ERROR - Database load failed for LLY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:56,707 - INFO - [stocks] 184/336: LMT (Fetch: LMT)
+2026-01-05 23:31:57,491 - ERROR - Database load failed for LMT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:57,491 - INFO - [stocks] 185/336: LOW (Fetch: LOW)
+2026-01-05 23:31:58,273 - ERROR - Database load failed for LOW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:58,773 - INFO - [stocks] 186/336: LRCX (Fetch: LRCX)
+2026-01-05 23:31:59,572 - ERROR - Database load failed for LRCX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:31:59,572 - INFO - [stocks] 187/336: LSTR (Fetch: LSTR)
+2026-01-05 23:32:00,293 - ERROR - Database load failed for LSTR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:00,293 - INFO - [stocks] 188/336: LUV (Fetch: LUV)
+2026-01-05 23:32:01,017 - ERROR - Database load failed for LUV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:01,017 - INFO - [stocks] 189/336: LVS (Fetch: LVS)
+2026-01-05 23:32:01,621 - ERROR - Database load failed for LVS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:01,622 - INFO - [stocks] 190/336: LYFT (Fetch: LYFT)
+2026-01-05 23:32:02,048 - ERROR - Database load failed for LYFT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:02,548 - INFO - [stocks] 191/336: MA (Fetch: MA)
+2026-01-05 23:32:03,221 - ERROR - Database load failed for MA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:03,221 - INFO - [stocks] 192/336: MAN (Fetch: MAN)
+2026-01-05 23:32:03,979 - ERROR - Database load failed for MAN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:03,980 - INFO - [stocks] 193/336: MAR (Fetch: MAR)
+2026-01-05 23:32:04,759 - ERROR - Database load failed for MAR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:04,759 - INFO - [stocks] 194/336: MAS (Fetch: MAS)
+2026-01-05 23:32:05,518 - ERROR - Database load failed for MAS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:05,518 - INFO - [stocks] 195/336: MATX (Fetch: MATX)
+2026-01-05 23:32:06,404 - ERROR - Database load failed for MATX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:06,904 - INFO - [stocks] 196/336: MCD (Fetch: MCD)
+2026-01-05 23:32:07,789 - ERROR - Database load failed for MCD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:07,790 - INFO - [stocks] 197/336: MCK (Fetch: MCK)
+2026-01-05 23:32:08,474 - ERROR - Database load failed for MCK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:08,474 - INFO - [stocks] 198/336: MCO (Fetch: MCO)
+2026-01-05 23:32:09,195 - ERROR - Database load failed for MCO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:09,195 - INFO - [stocks] 199/336: MDB (Fetch: MDB)
+2026-01-05 23:32:09,636 - ERROR - Database load failed for MDB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:09,637 - INFO - [stocks] 200/336: MDLZ (Fetch: MDLZ)
+2026-01-05 23:32:10,804 - ERROR - Database load failed for MDLZ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:11,304 - INFO - [stocks] 201/336: MDT (Fetch: MDT)
+2026-01-05 23:32:12,029 - ERROR - Database load failed for MDT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:12,029 - INFO - [stocks] 202/336: META (Fetch: META)
+2026-01-05 23:32:12,623 - ERROR - Database load failed for META: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:12,623 - INFO - [stocks] 203/336: MGM (Fetch: MGM)
+2026-01-05 23:32:13,542 - ERROR - Database load failed for MGM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:13,542 - INFO - [stocks] 204/336: MMC (Fetch: MMC)
+2026-01-05 23:32:14,413 - ERROR - Database load failed for MMC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:14,414 - INFO - [stocks] 205/336: MNST (Fetch: MNST)
+2026-01-05 23:32:15,097 - ERROR - Database load failed for MNST: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:15,597 - INFO - [stocks] 206/336: MO (Fetch: MO)
+2026-01-05 23:32:16,393 - ERROR - Database load failed for MO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:16,393 - INFO - [stocks] 207/336: MOS (Fetch: MOS)
+2026-01-05 23:32:17,111 - ERROR - Database load failed for MOS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:17,111 - INFO - [stocks] 208/336: MRK (Fetch: MRK)
+2026-01-05 23:32:17,950 - ERROR - Database load failed for MRK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:17,950 - INFO - [stocks] 209/336: MS (Fetch: MS)
+2026-01-05 23:32:19,145 - ERROR - Database load failed for MS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:19,145 - INFO - [stocks] 210/336: MSCI (Fetch: MSCI)
+2026-01-05 23:32:19,757 - ERROR - Database load failed for MSCI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:20,257 - INFO - [stocks] 211/336: MSFT (Fetch: MSFT)
+2026-01-05 23:32:25,306 - ERROR - Database load failed for MSFT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:25,306 - INFO - [stocks] 212/336: MSI (Fetch: MSI)
+2026-01-05 23:32:27,652 - ERROR - Database load failed for MSI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:27,652 - INFO - [stocks] 213/336: MTD (Fetch: MTD)
+2026-01-05 23:32:29,462 - ERROR - Database load failed for MTD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:29,462 - INFO - [stocks] 214/336: MU (Fetch: MU)
+2026-01-05 23:32:30,859 - ERROR - Database load failed for MU: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:30,859 - INFO - [stocks] 215/336: NCLH (Fetch: NCLH)
+2026-01-05 23:32:31,396 - ERROR - Database load failed for NCLH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:31,897 - INFO - [stocks] 216/336: NDAQ (Fetch: NDAQ)
+2026-01-05 23:32:32,579 - ERROR - Database load failed for NDAQ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:32,579 - INFO - [stocks] 217/336: NEE (Fetch: NEE)
+2026-01-05 23:32:33,263 - ERROR - Database load failed for NEE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:33,263 - INFO - [stocks] 218/336: NET (Fetch: NET)
+2026-01-05 23:32:33,784 - ERROR - Database load failed for NET: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:33,784 - INFO - [stocks] 219/336: NFLX (Fetch: NFLX)
+2026-01-05 23:32:34,471 - ERROR - Database load failed for NFLX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:34,472 - INFO - [stocks] 220/336: NKE (Fetch: NKE)
+2026-01-05 23:32:35,198 - ERROR - Database load failed for NKE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:35,699 - INFO - [stocks] 221/336: NLSN (Fetch: NLSN)
+2026-01-05 23:32:36,339 - ERROR - $NLSN: possibly delisted; no timezone found
+2026-01-05 23:32:36,340 - ERROR - 
+1 Failed download:
+2026-01-05 23:32:36,340 - ERROR - ['NLSN']: possibly delisted; no timezone found
+2026-01-05 23:32:36,343 - WARNING - No data for NLSN, skipping.
+2026-01-05 23:32:36,343 - INFO - [stocks] 222/336: NOC (Fetch: NOC)
+2026-01-05 23:32:37,059 - ERROR - Database load failed for NOC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:37,059 - INFO - [stocks] 223/336: NOW (Fetch: NOW)
+2026-01-05 23:32:37,577 - ERROR - Database load failed for NOW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:37,578 - INFO - [stocks] 224/336: NRG (Fetch: NRG)
+2026-01-05 23:32:38,504 - ERROR - Database load failed for NRG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:38,504 - INFO - [stocks] 225/336: NSC (Fetch: NSC)
+2026-01-05 23:32:39,416 - ERROR - Database load failed for NSC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:39,916 - INFO - [stocks] 226/336: NTAP (Fetch: NTAP)
+2026-01-05 23:32:40,536 - ERROR - Database load failed for NTAP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:40,536 - INFO - [stocks] 227/336: NTRS (Fetch: NTRS)
+2026-01-05 23:32:41,303 - ERROR - Database load failed for NTRS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:41,303 - INFO - [stocks] 228/336: NVDA (Fetch: NVDA)
+2026-01-05 23:32:43,461 - ERROR - Database load failed for NVDA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:43,461 - INFO - [stocks] 229/336: NVR (Fetch: NVR)
+2026-01-05 23:32:44,098 - ERROR - Database load failed for NVR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:44,098 - INFO - [stocks] 230/336: NWL (Fetch: NWL)
+2026-01-05 23:32:44,828 - ERROR - Database load failed for NWL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:45,328 - INFO - [stocks] 231/336: O (Fetch: O)
+2026-01-05 23:32:46,036 - ERROR - Database load failed for O: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:46,036 - INFO - [stocks] 232/336: ODFL (Fetch: ODFL)
+2026-01-05 23:32:46,711 - ERROR - Database load failed for ODFL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:46,711 - INFO - [stocks] 233/336: OKTA (Fetch: OKTA)
+2026-01-05 23:32:47,220 - ERROR - Database load failed for OKTA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:47,220 - INFO - [stocks] 234/336: ORCL (Fetch: ORCL)
+2026-01-05 23:32:47,937 - ERROR - Database load failed for ORCL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:47,938 - INFO - [stocks] 235/336: ORLY (Fetch: ORLY)
+2026-01-05 23:32:48,502 - ERROR - Database load failed for ORLY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:49,002 - INFO - [stocks] 236/336: OTIS (Fetch: OTIS)
+2026-01-05 23:32:49,800 - ERROR - Database load failed for OTIS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:49,800 - INFO - [stocks] 237/336: OXY (Fetch: OXY)
+2026-01-05 23:32:50,598 - ERROR - Database load failed for OXY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:50,598 - INFO - [stocks] 238/336: PANW (Fetch: PANW)
+2026-01-05 23:32:51,132 - ERROR - Database load failed for PANW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:51,132 - INFO - [stocks] 239/336: PATH (Fetch: PATH)
+2026-01-05 23:32:51,514 - ERROR - Database load failed for PATH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:51,514 - INFO - [stocks] 240/336: PAYC (Fetch: PAYC)
+2026-01-05 23:32:52,944 - ERROR - Database load failed for PAYC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:53,444 - INFO - [stocks] 241/336: PAYX (Fetch: PAYX)
+2026-01-05 23:32:54,239 - ERROR - Database load failed for PAYX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:54,239 - INFO - [stocks] 242/336: PCAR (Fetch: PCAR)
+2026-01-05 23:32:55,143 - ERROR - Database load failed for PCAR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:55,143 - INFO - [stocks] 243/336: PEP (Fetch: PEP)
+2026-01-05 23:32:55,850 - ERROR - Database load failed for PEP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:55,850 - INFO - [stocks] 244/336: PFE (Fetch: PFE)
+2026-01-05 23:32:56,536 - ERROR - Database load failed for PFE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:56,537 - INFO - [stocks] 245/336: PG (Fetch: PG)
+2026-01-05 23:32:57,294 - ERROR - Database load failed for PG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:57,795 - INFO - [stocks] 246/336: PGR (Fetch: PGR)
+2026-01-05 23:32:58,463 - ERROR - Database load failed for PGR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:58,463 - INFO - [stocks] 247/336: PH (Fetch: PH)
+2026-01-05 23:32:59,210 - ERROR - Database load failed for PH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:59,210 - INFO - [stocks] 248/336: PHM (Fetch: PHM)
+2026-01-05 23:32:59,894 - ERROR - Database load failed for PHM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:32:59,894 - INFO - [stocks] 249/336: PKI (Fetch: PKI)
+2026-01-05 23:33:00,627 - ERROR - $PKI: possibly delisted; no timezone found
+2026-01-05 23:33:00,629 - ERROR - 
+1 Failed download:
+2026-01-05 23:33:00,630 - ERROR - ['PKI']: possibly delisted; no timezone found
+2026-01-05 23:33:00,633 - WARNING - No data for PKI, skipping.
+2026-01-05 23:33:00,633 - INFO - [stocks] 250/336: PLD (Fetch: PLD)
+2026-01-05 23:33:01,364 - ERROR - Database load failed for PLD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:01,864 - INFO - [stocks] 251/336: PLTR (Fetch: PLTR)
+2026-01-05 23:33:02,366 - ERROR - Database load failed for PLTR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:02,366 - INFO - [stocks] 252/336: PM (Fetch: PM)
+2026-01-05 23:33:03,291 - ERROR - Database load failed for PM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:03,291 - INFO - [stocks] 253/336: PNC (Fetch: PNC)
+2026-01-05 23:33:03,969 - ERROR - Database load failed for PNC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:03,969 - INFO - [stocks] 254/336: PPL (Fetch: PPL)
+2026-01-05 23:33:04,606 - ERROR - Database load failed for PPL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:04,607 - INFO - [stocks] 255/336: PRU (Fetch: PRU)
+2026-01-05 23:33:05,093 - ERROR - Database load failed for PRU: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:05,593 - INFO - [stocks] 256/336: PSA (Fetch: PSA)
+2026-01-05 23:33:06,401 - ERROR - Database load failed for PSA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:06,401 - INFO - [stocks] 257/336: PVH (Fetch: PVH)
+2026-01-05 23:33:07,205 - ERROR - Database load failed for PVH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:07,205 - INFO - [stocks] 258/336: PYPL (Fetch: PYPL)
+2026-01-05 23:33:07,684 - ERROR - Database load failed for PYPL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:07,684 - INFO - [stocks] 259/336: RAD (Fetch: RAD)
+2026-01-05 23:33:08,313 - ERROR - $RAD: possibly delisted; no timezone found
+2026-01-05 23:33:08,318 - ERROR - 
+1 Failed download:
+2026-01-05 23:33:08,318 - ERROR - ['RAD']: possibly delisted; no timezone found
+2026-01-05 23:33:08,320 - WARNING - No data for RAD, skipping.
+2026-01-05 23:33:08,321 - INFO - [stocks] 260/336: RCL (Fetch: RCL)
+2026-01-05 23:33:08,962 - ERROR - Database load failed for RCL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:09,462 - INFO - [stocks] 261/336: REGN (Fetch: REGN)
+2026-01-05 23:33:10,444 - ERROR - Database load failed for REGN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:10,444 - INFO - [stocks] 262/336: RHI (Fetch: RHI)
+2026-01-05 23:33:11,165 - ERROR - Database load failed for RHI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:11,165 - INFO - [stocks] 263/336: RIVN (Fetch: RIVN)
+2026-01-05 23:33:11,634 - ERROR - Database load failed for RIVN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:11,634 - INFO - [stocks] 264/336: RJF (Fetch: RJF)
+2026-01-05 23:33:12,444 - ERROR - Database load failed for RJF: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:12,444 - INFO - [stocks] 265/336: ROL (Fetch: ROL)
+2026-01-05 23:33:13,361 - ERROR - Database load failed for ROL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:13,862 - INFO - [stocks] 266/336: ROP (Fetch: ROP)
+2026-01-05 23:33:14,903 - ERROR - Database load failed for ROP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:14,904 - INFO - [stocks] 267/336: ROST (Fetch: ROST)
+2026-01-05 23:33:15,514 - ERROR - Database load failed for ROST: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:15,514 - INFO - [stocks] 268/336: RSG (Fetch: RSG)
+2026-01-05 23:33:16,082 - ERROR - Database load failed for RSG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:16,082 - INFO - [stocks] 269/336: SBUX (Fetch: SBUX)
+2026-01-05 23:33:16,685 - ERROR - Database load failed for SBUX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:16,686 - INFO - [stocks] 270/336: SCHW (Fetch: SCHW)
+2026-01-05 23:33:17,384 - ERROR - Database load failed for SCHW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:17,885 - INFO - [stocks] 271/336: SHAK (Fetch: SHAK)
+2026-01-05 23:33:18,359 - ERROR - Database load failed for SHAK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:18,359 - INFO - [stocks] 272/336: SHOP (Fetch: SHOP)
+2026-01-05 23:33:18,759 - ERROR - Database load failed for SHOP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:18,760 - INFO - [stocks] 273/336: SLB (Fetch: SLB)
+2026-01-05 23:33:19,405 - ERROR - Database load failed for SLB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:19,405 - INFO - [stocks] 274/336: SNOW (Fetch: SNOW)
+2026-01-05 23:33:19,709 - ERROR - Database load failed for SNOW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:19,710 - INFO - [stocks] 275/336: SNPS (Fetch: SNPS)
+2026-01-05 23:33:20,370 - ERROR - Database load failed for SNPS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:20,871 - INFO - [stocks] 276/336: SO (Fetch: SO)
+2026-01-05 23:33:21,699 - ERROR - Database load failed for SO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:21,699 - INFO - [stocks] 277/336: SPGI (Fetch: SPGI)
+2026-01-05 23:33:22,342 - ERROR - Database load failed for SPGI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:22,342 - INFO - [stocks] 278/336: SQ (Fetch: SQ)
+2026-01-05 23:33:22,345 - ERROR - $SQ: possibly delisted; no timezone found
+2026-01-05 23:33:22,353 - ERROR - 
+1 Failed download:
+2026-01-05 23:33:22,353 - ERROR - ['SQ']: possibly delisted; no timezone found
+2026-01-05 23:33:22,355 - WARNING - No data for SQ, skipping.
+2026-01-05 23:33:22,355 - INFO - [stocks] 279/336: SRE (Fetch: SRE)
+2026-01-05 23:33:22,927 - ERROR - Database load failed for SRE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:22,927 - INFO - [stocks] 280/336: STE (Fetch: STE)
+2026-01-05 23:33:23,805 - ERROR - Database load failed for STE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:24,305 - INFO - [stocks] 281/336: STT (Fetch: STT)
+2026-01-05 23:33:25,210 - ERROR - Database load failed for STT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:25,210 - INFO - [stocks] 282/336: STX (Fetch: STX)
+2026-01-05 23:33:25,845 - ERROR - Database load failed for STX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:25,845 - INFO - [stocks] 283/336: SWK (Fetch: SWK)
+2026-01-05 23:33:26,509 - ERROR - Database load failed for SWK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:26,509 - INFO - [stocks] 284/336: SYK (Fetch: SYK)
+2026-01-05 23:33:27,220 - ERROR - Database load failed for SYK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:27,220 - INFO - [stocks] 285/336: T (Fetch: T)
+2026-01-05 23:33:28,502 - ERROR - Database load failed for T: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:29,003 - INFO - [stocks] 286/336: TDG (Fetch: TDG)
+2026-01-05 23:33:29,547 - ERROR - Database load failed for TDG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:29,547 - INFO - [stocks] 287/336: TDOC (Fetch: TDOC)
+2026-01-05 23:33:30,207 - ERROR - Database load failed for TDOC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:30,208 - INFO - [stocks] 288/336: TDY (Fetch: TDY)
+2026-01-05 23:33:30,893 - ERROR - Database load failed for TDY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:30,893 - INFO - [stocks] 289/336: TEAM (Fetch: TEAM)
+2026-01-05 23:33:31,362 - ERROR - Database load failed for TEAM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:31,362 - INFO - [stocks] 290/336: TEL (Fetch: TEL)
+2026-01-05 23:33:31,949 - ERROR - Database load failed for TEL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:32,450 - INFO - [stocks] 291/336: TFC (Fetch: TFC)
+2026-01-05 23:33:33,092 - ERROR - Database load failed for TFC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:33,093 - INFO - [stocks] 292/336: TFX (Fetch: TFX)
+2026-01-05 23:33:33,811 - ERROR - Database load failed for TFX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:33,811 - INFO - [stocks] 293/336: TGT (Fetch: TGT)
+2026-01-05 23:33:34,566 - ERROR - Database load failed for TGT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:34,566 - INFO - [stocks] 294/336: TJX (Fetch: TJX)
+2026-01-05 23:33:35,229 - ERROR - Database load failed for TJX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:35,229 - INFO - [stocks] 295/336: TMO (Fetch: TMO)
+2026-01-05 23:33:35,948 - ERROR - Database load failed for TMO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:36,448 - INFO - [stocks] 296/336: TOL (Fetch: TOL)
+2026-01-05 23:33:37,813 - ERROR - Database load failed for TOL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:37,813 - INFO - [stocks] 297/336: TPR (Fetch: TPR)
+2026-01-05 23:33:39,369 - ERROR - Database load failed for TPR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:39,369 - INFO - [stocks] 298/336: TRMB (Fetch: TRMB)
+2026-01-05 23:33:40,048 - ERROR - Database load failed for TRMB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:40,048 - INFO - [stocks] 299/336: TRU (Fetch: TRU)
+2026-01-05 23:33:40,519 - ERROR - Database load failed for TRU: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:40,520 - INFO - [stocks] 300/336: TRV (Fetch: TRV)
+2026-01-05 23:33:41,256 - ERROR - Database load failed for TRV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:41,756 - INFO - [stocks] 301/336: TSCO (Fetch: TSCO)
+2026-01-05 23:33:42,576 - ERROR - Database load failed for TSCO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:42,576 - INFO - [stocks] 302/336: TSLA (Fetch: TSLA)
+2026-01-05 23:33:43,280 - ERROR - Database load failed for TSLA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:43,280 - INFO - [stocks] 303/336: TSN (Fetch: TSN)
+2026-01-05 23:33:44,009 - ERROR - Database load failed for TSN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:44,009 - INFO - [stocks] 304/336: TXN (Fetch: TXN)
+2026-01-05 23:33:44,885 - ERROR - Database load failed for TXN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:44,885 - INFO - [stocks] 305/336: TXT (Fetch: TXT)
+2026-01-05 23:33:45,638 - ERROR - Database load failed for TXT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:46,138 - INFO - [stocks] 306/336: UAL (Fetch: UAL)
+2026-01-05 23:33:46,708 - ERROR - Database load failed for UAL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:46,708 - INFO - [stocks] 307/336: UBER (Fetch: UBER)
+2026-01-05 23:33:47,157 - ERROR - Database load failed for UBER: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:47,157 - INFO - [stocks] 308/336: UHS (Fetch: UHS)
+2026-01-05 23:33:48,214 - ERROR - Database load failed for UHS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:48,215 - INFO - [stocks] 309/336: ULTA (Fetch: ULTA)
+2026-01-05 23:33:48,782 - ERROR - Database load failed for ULTA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:48,782 - INFO - [stocks] 310/336: UNH (Fetch: UNH)
+2026-01-05 23:33:49,572 - ERROR - Database load failed for UNH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:50,072 - INFO - [stocks] 311/336: UNP (Fetch: UNP)
+2026-01-05 23:33:50,905 - ERROR - Database load failed for UNP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:50,905 - INFO - [stocks] 312/336: UPS (Fetch: UPS)
+2026-01-05 23:33:51,731 - ERROR - Database load failed for UPS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:51,731 - INFO - [stocks] 313/336: USB (Fetch: USB)
+2026-01-05 23:33:52,590 - ERROR - Database load failed for USB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:52,590 - INFO - [stocks] 314/336: V (Fetch: V)
+2026-01-05 23:33:53,695 - ERROR - Database load failed for V: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:53,695 - INFO - [stocks] 315/336: VLO (Fetch: VLO)
+2026-01-05 23:33:54,516 - ERROR - Database load failed for VLO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:55,016 - INFO - [stocks] 316/336: VRSK (Fetch: VRSK)
+2026-01-05 23:33:55,535 - ERROR - Database load failed for VRSK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:55,536 - INFO - [stocks] 317/336: VRTX (Fetch: VRTX)
+2026-01-05 23:33:56,124 - ERROR - Database load failed for VRTX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:56,124 - INFO - [stocks] 318/336: WAT (Fetch: WAT)
+2026-01-05 23:33:56,914 - ERROR - Database load failed for WAT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:56,914 - INFO - [stocks] 319/336: WBA (Fetch: WBA)
+2026-01-05 23:33:57,730 - ERROR - $WBA: possibly delisted; no timezone found
+2026-01-05 23:33:57,739 - ERROR - 
+1 Failed download:
+2026-01-05 23:33:57,739 - ERROR - ['WBA']: possibly delisted; no timezone found
+2026-01-05 23:33:57,742 - WARNING - No data for WBA, skipping.
+2026-01-05 23:33:57,742 - INFO - [stocks] 320/336: WDC (Fetch: WDC)
+2026-01-05 23:33:58,541 - ERROR - Database load failed for WDC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:59,041 - INFO - [stocks] 321/336: WELL (Fetch: WELL)
+2026-01-05 23:33:59,780 - ERROR - Database load failed for WELL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:33:59,780 - INFO - [stocks] 322/336: WFC (Fetch: WFC)
+2026-01-05 23:34:00,525 - ERROR - Database load failed for WFC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:00,525 - INFO - [stocks] 323/336: WH (Fetch: WH)
+2026-01-05 23:34:01,337 - ERROR - Database load failed for WH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:01,337 - INFO - [stocks] 324/336: WHR (Fetch: WHR)
+2026-01-05 23:34:02,004 - ERROR - Database load failed for WHR: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:02,004 - INFO - [stocks] 325/336: WING (Fetch: WING)
+2026-01-05 23:34:02,472 - ERROR - Database load failed for WING: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:02,973 - INFO - [stocks] 326/336: WM (Fetch: WM)
+2026-01-05 23:34:03,687 - ERROR - Database load failed for WM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:03,687 - INFO - [stocks] 327/336: WMT (Fetch: WMT)
+2026-01-05 23:34:04,420 - ERROR - Database load failed for WMT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:04,420 - INFO - [stocks] 328/336: WRK (Fetch: WRK)
+2026-01-05 23:34:05,162 - ERROR - $WRK: possibly delisted; no timezone found
+2026-01-05 23:34:05,163 - ERROR - 
+1 Failed download:
+2026-01-05 23:34:05,163 - ERROR - ['WRK']: possibly delisted; no timezone found
+2026-01-05 23:34:05,166 - WARNING - No data for WRK, skipping.
+2026-01-05 23:34:05,166 - INFO - [stocks] 329/336: WSM (Fetch: WSM)
+2026-01-05 23:34:06,032 - ERROR - Database load failed for WSM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:06,032 - INFO - [stocks] 330/336: WYNN (Fetch: WYNN)
+2026-01-05 23:34:06,932 - ERROR - Database load failed for WYNN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:07,432 - INFO - [stocks] 331/336: XOM (Fetch: XOM)
+2026-01-05 23:34:08,160 - ERROR - Database load failed for XOM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:08,160 - INFO - [stocks] 332/336: YUM (Fetch: YUM)
+2026-01-05 23:34:08,834 - ERROR - Database load failed for YUM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:08,834 - INFO - [stocks] 333/336: ZBH (Fetch: ZBH)
+2026-01-05 23:34:09,589 - ERROR - Database load failed for ZBH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:09,589 - INFO - [stocks] 334/336: ZBRA (Fetch: ZBRA)
+2026-01-05 23:34:10,160 - ERROR - Database load failed for ZBRA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:10,160 - INFO - [stocks] 335/336: ZS (Fetch: ZS)
+2026-01-05 23:34:10,628 - ERROR - Database load failed for ZS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:11,128 - INFO - [stocks] 336/336: ZTS (Fetch: ZTS)
+2026-01-05 23:34:11,615 - ERROR - Database load failed for ZTS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:11,615 - INFO - --- Processing etf_tickers.txt (Type: etfs) | 27 tickers ---
+2026-01-05 23:34:11,615 - INFO - [etfs] 1/27: ARKK (Fetch: ARKK)
+2026-01-05 23:34:12,015 - ERROR - Database load failed for ARKK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:12,016 - INFO - [etfs] 2/27: BND (Fetch: BND)
+2026-01-05 23:34:12,662 - ERROR - Database load failed for BND: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:12,662 - INFO - [etfs] 3/27: DIA (Fetch: DIA)
+2026-01-05 23:34:13,263 - ERROR - Database load failed for DIA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:13,263 - INFO - [etfs] 4/27: EFA (Fetch: EFA)
+2026-01-05 23:34:14,238 - ERROR - Database load failed for EFA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:14,238 - INFO - [etfs] 5/27: HYG (Fetch: HYG)
+2026-01-05 23:34:14,971 - ERROR - Database load failed for HYG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:15,471 - INFO - [etfs] 6/27: IEF (Fetch: IEF)
+2026-01-05 23:34:16,254 - ERROR - Database load failed for IEF: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:16,254 - INFO - [etfs] 7/27: IWM (Fetch: IWM)
+2026-01-05 23:34:16,847 - ERROR - Database load failed for IWM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:16,847 - INFO - [etfs] 8/27: JEPI (Fetch: JEPI)
+2026-01-05 23:34:17,328 - ERROR - Database load failed for JEPI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:17,328 - INFO - [etfs] 9/27: LQD (Fetch: LQD)
+2026-01-05 23:34:17,978 - ERROR - Database load failed for LQD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:17,978 - INFO - [etfs] 10/27: QQQ (Fetch: QQQ)
+2026-01-05 23:34:19,051 - ERROR - Database load failed for QQQ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:19,551 - INFO - [etfs] 11/27: SCHD (Fetch: SCHD)
+2026-01-05 23:34:20,004 - ERROR - Database load failed for SCHD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:20,004 - INFO - [etfs] 12/27: SPY (Fetch: SPY)
+2026-01-05 23:34:20,734 - ERROR - Database load failed for SPY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:20,734 - INFO - [etfs] 13/27: TLT (Fetch: TLT)
+2026-01-05 23:34:21,438 - ERROR - Database load failed for TLT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:21,438 - INFO - [etfs] 14/27: VEA (Fetch: VEA)
+2026-01-05 23:34:22,132 - ERROR - Database load failed for VEA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:22,132 - INFO - [etfs] 15/27: VOO (Fetch: VOO)
+2026-01-05 23:34:22,637 - ERROR - Database load failed for VOO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:23,137 - INFO - [etfs] 16/27: VT (Fetch: VT)
+2026-01-05 23:34:23,771 - ERROR - Database load failed for VT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:23,771 - INFO - [etfs] 17/27: VTI (Fetch: VTI)
+2026-01-05 23:34:24,447 - ERROR - Database load failed for VTI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:24,447 - INFO - [etfs] 18/27: VWO (Fetch: VWO)
+2026-01-05 23:34:25,020 - ERROR - Database load failed for VWO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:25,020 - INFO - [etfs] 19/27: VYM (Fetch: VYM)
+2026-01-05 23:34:25,584 - ERROR - Database load failed for VYM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:25,584 - INFO - [etfs] 20/27: XLE (Fetch: XLE)
+2026-01-05 23:34:26,217 - ERROR - Database load failed for XLE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:26,717 - INFO - [etfs] 21/27: XLF (Fetch: XLF)
+2026-01-05 23:34:27,296 - ERROR - Database load failed for XLF: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:27,296 - INFO - [etfs] 22/27: XLI (Fetch: XLI)
+2026-01-05 23:34:28,084 - ERROR - Database load failed for XLI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:28,084 - INFO - [etfs] 23/27: XLK (Fetch: XLK)
+2026-01-05 23:34:28,956 - ERROR - Database load failed for XLK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:28,956 - INFO - [etfs] 24/27: XLP (Fetch: XLP)
+2026-01-05 23:34:29,505 - ERROR - Database load failed for XLP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:29,505 - INFO - [etfs] 25/27: XLRE (Fetch: XLRE)
+2026-01-05 23:34:29,902 - ERROR - Database load failed for XLRE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:30,403 - INFO - [etfs] 26/27: XLV (Fetch: XLV)
+2026-01-05 23:34:31,200 - ERROR - Database load failed for XLV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:31,200 - INFO - [etfs] 27/27: XLY (Fetch: XLY)
+2026-01-05 23:34:31,929 - ERROR - Database load failed for XLY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:31,930 - INFO - --- Processing commodities_tickers.txt (Type: commodities) | 20 tickers ---
+2026-01-05 23:34:31,930 - INFO - [commodities] 1/20: CORN (Fetch: CORN)
+2026-01-05 23:34:32,532 - ERROR - Database load failed for CORN: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:32,532 - INFO - [commodities] 2/20: COW (Fetch: COW)
+2026-01-05 23:34:32,960 - ERROR - Database load failed for COW: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:32,960 - INFO - [commodities] 3/20: CPER (Fetch: CPER)
+2026-01-05 23:34:33,447 - ERROR - Database load failed for CPER: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:33,447 - INFO - [commodities] 4/20: DBA (Fetch: DBA)
+2026-01-05 23:34:34,015 - ERROR - Database load failed for DBA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:34,015 - INFO - [commodities] 5/20: DBC (Fetch: DBC)
+2026-01-05 23:34:34,615 - ERROR - Database load failed for DBC: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:35,115 - INFO - [commodities] 6/20: GLD (Fetch: GLD)
+2026-01-05 23:34:35,786 - ERROR - Database load failed for GLD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:35,786 - INFO - [commodities] 7/20: GSG (Fetch: GSG)
+2026-01-05 23:34:36,447 - ERROR - Database load failed for GSG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:36,447 - INFO - [commodities] 8/20: JO (Fetch: JO)
+2026-01-05 23:34:36,822 - ERROR - Database load failed for JO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:36,823 - INFO - [commodities] 9/20: LIT (Fetch: LIT)
+2026-01-05 23:34:37,406 - ERROR - Database load failed for LIT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:37,406 - INFO - [commodities] 10/20: MOO (Fetch: MOO)
+2026-01-05 23:34:37,962 - ERROR - Database load failed for MOO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:38,463 - INFO - [commodities] 11/20: PALL (Fetch: PALL)
+2026-01-05 23:34:39,638 - ERROR - Database load failed for PALL: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:39,638 - INFO - [commodities] 12/20: PPLT (Fetch: PPLT)
+2026-01-05 23:34:40,435 - ERROR - Database load failed for PPLT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:40,435 - INFO - [commodities] 13/20: SGG (Fetch: SGG)
+2026-01-05 23:34:40,808 - ERROR - Database load failed for SGG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:40,809 - INFO - [commodities] 14/20: SLV (Fetch: SLV)
+2026-01-05 23:34:41,428 - ERROR - Database load failed for SLV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:41,428 - INFO - [commodities] 15/20: SOYB (Fetch: SOYB)
+2026-01-05 23:34:41,940 - ERROR - Database load failed for SOYB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:42,440 - INFO - [commodities] 16/20: UNG (Fetch: UNG)
+2026-01-05 23:34:43,528 - ERROR - Database load failed for UNG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:43,528 - INFO - [commodities] 17/20: URA (Fetch: URA)
+2026-01-05 23:34:44,105 - ERROR - Database load failed for URA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:44,105 - INFO - [commodities] 18/20: USO (Fetch: USO)
+2026-01-05 23:34:44,996 - ERROR - Database load failed for USO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:44,996 - INFO - [commodities] 19/20: WEAT (Fetch: WEAT)
+2026-01-05 23:34:45,466 - ERROR - Database load failed for WEAT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:45,467 - INFO - [commodities] 20/20: WOOD (Fetch: WOOD)
+2026-01-05 23:34:46,336 - ERROR - Database load failed for WOOD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:46,837 - INFO - --- Processing mutualfunds_tickers.txt (Type: mutualfunds) | 20 tickers ---
+2026-01-05 23:34:46,837 - INFO - [mutualfunds] 1/20: AGTHX (Fetch: AGTHX)
+2026-01-05 23:34:47,510 - ERROR - Database load failed for AGTHX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:47,510 - INFO - [mutualfunds] 2/20: FCNTX (Fetch: FCNTX)
+2026-01-05 23:34:48,244 - ERROR - Database load failed for FCNTX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:48,245 - INFO - [mutualfunds] 3/20: FDGRX (Fetch: FDGRX)
+2026-01-05 23:34:49,876 - ERROR - Database load failed for FDGRX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:49,877 - INFO - [mutualfunds] 4/20: FXAIX (Fetch: FXAIX)
+2026-01-05 23:34:50,702 - ERROR - Database load failed for FXAIX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:50,702 - INFO - [mutualfunds] 5/20: PREIX (Fetch: PREIX)
+2026-01-05 23:34:51,756 - ERROR - Database load failed for PREIX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:52,256 - INFO - [mutualfunds] 6/20: PRGFX (Fetch: PRGFX)
+2026-01-05 23:34:53,268 - ERROR - Database load failed for PRGFX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:53,268 - INFO - [mutualfunds] 7/20: SWPPX (Fetch: SWPPX)
+2026-01-05 23:34:54,003 - ERROR - Database load failed for SWPPX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:54,003 - INFO - [mutualfunds] 8/20: TRBCX (Fetch: TRBCX)
+2026-01-05 23:34:54,611 - ERROR - Database load failed for TRBCX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:54,611 - INFO - [mutualfunds] 9/20: VBMFX (Fetch: VBMFX)
+2026-01-05 23:34:55,316 - ERROR - Database load failed for VBMFX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:55,316 - INFO - [mutualfunds] 10/20: VBTLX (Fetch: VBTLX)
+2026-01-05 23:34:56,048 - ERROR - Database load failed for VBTLX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:56,549 - INFO - [mutualfunds] 11/20: VFIAX (Fetch: VFIAX)
+2026-01-05 23:34:57,222 - ERROR - Database load failed for VFIAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:57,222 - INFO - [mutualfunds] 12/20: VFINX (Fetch: VFINX)
+2026-01-05 23:34:58,149 - ERROR - Database load failed for VFINX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:58,149 - INFO - [mutualfunds] 13/20: VGTSX (Fetch: VGTSX)
+2026-01-05 23:34:58,782 - ERROR - Database load failed for VGTSX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:58,782 - INFO - [mutualfunds] 14/20: VIGAX (Fetch: VIGAX)
+2026-01-05 23:34:59,385 - ERROR - Database load failed for VIGAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:34:59,385 - INFO - [mutualfunds] 15/20: VIMAX (Fetch: VIMAX)
+2026-01-05 23:34:59,970 - ERROR - Database load failed for VIMAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:00,471 - INFO - [mutualfunds] 16/20: VSMAX (Fetch: VSMAX)
+2026-01-05 23:35:01,117 - ERROR - Database load failed for VSMAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:01,117 - INFO - [mutualfunds] 17/20: VTIAX (Fetch: VTIAX)
+2026-01-05 23:35:01,670 - ERROR - Database load failed for VTIAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:01,671 - INFO - [mutualfunds] 18/20: VTSAX (Fetch: VTSAX)
+2026-01-05 23:35:02,357 - ERROR - Database load failed for VTSAX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:02,358 - INFO - [mutualfunds] 19/20: VTSMX (Fetch: VTSMX)
+2026-01-05 23:35:03,039 - ERROR - Database load failed for VTSMX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:03,039 - INFO - [mutualfunds] 20/20: VWENX (Fetch: VWENX)
+2026-01-05 23:35:03,731 - ERROR - Database load failed for VWENX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:04,233 - INFO - --- Processing etfs_tickers.txt (Type: etfs) | 36 tickers ---
+2026-01-05 23:35:04,234 - INFO - [etfs] 1/36: AGG (Fetch: AGG)
+2026-01-05 23:35:04,981 - ERROR - Database load failed for AGG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:04,981 - INFO - [etfs] 2/36: ARKK (Fetch: ARKK)
+2026-01-05 23:35:05,533 - ERROR - Database load failed for ARKK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:05,533 - INFO - [etfs] 3/36: BND (Fetch: BND)
+2026-01-05 23:35:06,161 - ERROR - Database load failed for BND: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:06,161 - INFO - [etfs] 4/36: DIA (Fetch: DIA)
+2026-01-05 23:35:06,942 - ERROR - Database load failed for DIA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:06,942 - INFO - [etfs] 5/36: EFA (Fetch: EFA)
+2026-01-05 23:35:07,664 - ERROR - Database load failed for EFA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:08,164 - INFO - [etfs] 6/36: GLD (Fetch: GLD)
+2026-01-05 23:35:09,125 - ERROR - Database load failed for GLD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:09,125 - INFO - [etfs] 7/36: IEFA (Fetch: IEFA)
+2026-01-05 23:35:09,676 - ERROR - Database load failed for IEFA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:09,676 - INFO - [etfs] 8/36: IEMG (Fetch: IEMG)
+2026-01-05 23:35:10,217 - ERROR - Database load failed for IEMG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:10,217 - INFO - [etfs] 9/36: IVV (Fetch: IVV)
+2026-01-05 23:35:10,948 - ERROR - Database load failed for IVV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:10,948 - INFO - [etfs] 10/36: IWM (Fetch: IWM)
+2026-01-05 23:35:11,732 - ERROR - Database load failed for IWM: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:12,233 - INFO - [etfs] 11/36: LQD (Fetch: LQD)
+2026-01-05 23:35:12,952 - ERROR - Database load failed for LQD: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:12,953 - INFO - [etfs] 12/36: QQQ (Fetch: QQQ)
+2026-01-05 23:35:13,792 - ERROR - Database load failed for QQQ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:13,792 - INFO - [etfs] 13/36: SMH (Fetch: SMH)
+2026-01-05 23:35:14,896 - ERROR - Database load failed for SMH: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:14,896 - INFO - [etfs] 14/36: SOXX (Fetch: SOXX)
+2026-01-05 23:35:17,560 - ERROR - Database load failed for SOXX: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:17,560 - INFO - [etfs] 15/36: SPY (Fetch: SPY)
+2026-01-05 23:35:18,315 - ERROR - Database load failed for SPY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:18,816 - INFO - [etfs] 16/36: SQQQ (Fetch: SQQQ)
+2026-01-05 23:35:19,296 - ERROR - Database load failed for SQQQ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:19,296 - INFO - [etfs] 17/36: TLT (Fetch: TLT)
+2026-01-05 23:35:20,033 - ERROR - Database load failed for TLT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:20,033 - INFO - [etfs] 18/36: TQQQ (Fetch: TQQQ)
+2026-01-05 23:35:20,666 - ERROR - Database load failed for TQQQ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:20,666 - INFO - [etfs] 19/36: VEA (Fetch: VEA)
+2026-01-05 23:35:21,168 - ERROR - Database load failed for VEA: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:21,168 - INFO - [etfs] 20/36: VGT (Fetch: VGT)
+2026-01-05 23:35:21,755 - ERROR - Database load failed for VGT: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:22,256 - INFO - [etfs] 21/36: VIG (Fetch: VIG)
+2026-01-05 23:35:22,786 - ERROR - Database load failed for VIG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:22,786 - INFO - [etfs] 22/36: VNQ (Fetch: VNQ)
+2026-01-05 23:35:23,299 - ERROR - Database load failed for VNQ: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:23,300 - INFO - [etfs] 23/36: VOO (Fetch: VOO)
+2026-01-05 23:35:23,770 - ERROR - Database load failed for VOO: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:23,770 - INFO - [etfs] 24/36: VTI (Fetch: VTI)
+2026-01-05 23:35:24,577 - ERROR - Database load failed for VTI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:24,578 - INFO - [etfs] 25/36: VTV (Fetch: VTV)
+2026-01-05 23:35:25,195 - ERROR - Database load failed for VTV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:25,695 - INFO - [etfs] 26/36: VUG (Fetch: VUG)
+2026-01-05 23:35:26,247 - ERROR - Database load failed for VUG: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:26,247 - INFO - [etfs] 27/36: VXUS (Fetch: VXUS)
+2026-01-05 23:35:26,809 - ERROR - Database load failed for VXUS: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:26,809 - INFO - [etfs] 28/36: XLB (Fetch: XLB)
+2026-01-05 23:35:27,610 - ERROR - Database load failed for XLB: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:27,610 - INFO - [etfs] 29/36: XLE (Fetch: XLE)
+2026-01-05 23:35:28,320 - ERROR - Database load failed for XLE: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:28,320 - INFO - [etfs] 30/36: XLF (Fetch: XLF)
+2026-01-05 23:35:29,012 - ERROR - Database load failed for XLF: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:29,513 - INFO - [etfs] 31/36: XLI (Fetch: XLI)
+2026-01-05 23:35:30,139 - ERROR - Database load failed for XLI: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:30,139 - INFO - [etfs] 32/36: XLK (Fetch: XLK)
+2026-01-05 23:35:30,902 - ERROR - Database load failed for XLK: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:30,902 - INFO - [etfs] 33/36: XLP (Fetch: XLP)
+2026-01-05 23:35:31,813 - ERROR - Database load failed for XLP: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:31,813 - INFO - [etfs] 34/36: XLU (Fetch: XLU)
+2026-01-05 23:35:32,490 - ERROR - Database load failed for XLU: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:32,490 - INFO - [etfs] 35/36: XLV (Fetch: XLV)
+2026-01-05 23:35:33,203 - ERROR - Database load failed for XLV: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:33,704 - INFO - [etfs] 36/36: XLY (Fetch: XLY)
+2026-01-05 23:35:34,302 - ERROR - Database load failed for XLY: connection to server at "db.njafvtezrrkekdddcpoc.supabase.co" (2406:da1a:6b0:f602:cb9f:7285:c55d:6b62), port 5432 failed: Network is unreachable
+	Is the server running on that host and accepting TCP/IP connections?
+
+2026-01-05 23:35:34,303 - INFO - ==============================
+2026-01-05 23:35:34,303 - INFO - REFRESH SYSTEM SUMMARY
+2026-01-05 23:35:34,303 - INFO - Files Processed:   8
+2026-01-05 23:35:34,303 - INFO - Total Attempted:   532
+2026-01-05 23:35:34,303 - INFO - Successfully DL:   516
+2026-01-05 23:35:34,303 - INFO - Successfully Load: 0
+2026-01-05 23:35:34,303 - INFO - Skipped:           16
+2026-01-05 23:35:34,303 - INFO - Failed Load:       516
+2026-01-05 23:35:34,303 - INFO - ==============================
