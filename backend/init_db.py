@@ -19,6 +19,8 @@ def run_sql_file(cursor, filename):
 
 def init():
     db_url = os.getenv("DATABASE_URL")
+    if db_url and db_url.startswith("DATABASE_URL="):
+        db_url = db_url.split("=", 1)[1].strip("'\" ")
     
     # Retry logic
     max_retries = 5
@@ -26,12 +28,21 @@ def init():
     
     for attempt in range(max_retries):
         try:
-            if db_url:
+            if db_url and (db_url.startswith("postgres://") or db_url.startswith("postgresql://")):
                 print("Connecting using DATABASE_URL...")
                 conn = psycopg2.connect(db_url, sslmode='require')
             else:
-                print("Connecting using DB parameters...")
-                conn = psycopg2.connect(**DB)
+                host = os.getenv("DB_HOST", "localhost")
+                ssl_mode = 'require' if host not in ['localhost', '127.0.0.1'] else 'prefer'
+                print(f"Connecting using DB parameters (host={host}, sslmode={ssl_mode})...")
+                conn = psycopg2.connect(
+                    dbname=os.getenv("DB_NAME"),
+                    user=os.getenv("DB_USER"),
+                    password=os.getenv("DB_PASSWORD"),
+                    host=host,
+                    port=os.getenv("DB_PORT", 5432),
+                    sslmode=ssl_mode
+                )
                 
             cur = conn.cursor()
             

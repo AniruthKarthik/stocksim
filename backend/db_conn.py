@@ -35,16 +35,19 @@ def init_pool():
                 _pg_pool = psycopg2.pool.ThreadedConnectionPool(1, 20, db_url, sslmode='require')
             else:
                 # Fallback to individual parameters
-                print("DEBUG: Using individual connection parameters.")
+                host = os.getenv("DB_HOST", "localhost")
+                ssl_mode = 'require' if host not in ['localhost', '127.0.0.1'] else 'prefer'
+                
+                print(f"DEBUG: Using individual connection parameters (host={host}, sslmode={ssl_mode}).")
                 _pg_pool = psycopg2.pool.ThreadedConnectionPool(
                     minconn=1,
                     maxconn=20,
                     dbname=os.getenv("DB_NAME"),
                     user=os.getenv("DB_USER"),
                     password=os.getenv("DB_PASSWORD"),
-                    host=os.getenv("DB_HOST", "localhost"),
+                    host=host,
                     port=os.getenv("DB_PORT", 5432),
-                    sslmode='require' # Supabase/Render usually require SSL
+                    sslmode=ssl_mode
                 )
             
             print("DB pool initialized successfully 🎉")
