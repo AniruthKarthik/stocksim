@@ -14,18 +14,22 @@ from .db_conn import get_db_connection
 app = FastAPI()
 
 # --- CORS Configuration ---
-# Allow all for debugging
-origins = ["*"]
-
-print("DEBUG: Loading backend/main.py - Version 2.2 (Robust DB Connection)")
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False, # Changed to False since we don't use cookies/sessions
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.middleware("http")
+async def log_requests(request, call_next):
+    print(f"DEBUG: Incoming {request.method} request to {request.url.path}")
+    response = await call_next(request)
+    return response
+
+print("DEBUG: Loading backend/main.py - Version 2.3 (CORS & Logging)")
+
 
 # --- Pydantic Models ---
 class CreateUserRequest(BaseModel):
