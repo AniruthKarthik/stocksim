@@ -69,11 +69,18 @@ class IncrementalRefresher:
             logger.error(f"Failed to read {file_path}: {e}")
             return []
 
+    def get_db_connection(self):
+        """Helper to get a database connection using DATABASE_URL or config."""
+        db_url = os.getenv("DATABASE_URL")
+        if db_url:
+            return psycopg2.connect(db_url, sslmode='require')
+        return psycopg2.connect(**DB_CONFIG)
+
     def check_if_refreshed_today(self, category):
         """Checks tracking table if category was already refreshed today."""
         conn = None
         try:
-            conn = psycopg2.connect(**DB_CONFIG)
+            conn = self.get_db_connection()
             cur = conn.cursor()
             cur.execute(
                 "SELECT 1 FROM data_refresh_log WHERE category = %s AND last_run = %s",
@@ -90,7 +97,7 @@ class IncrementalRefresher:
         """Updates tracking table after successful refresh."""
         conn = None
         try:
-            conn = psycopg2.connect(**DB_CONFIG)
+            conn = self.get_db_connection()
             cur = conn.cursor()
             cur.execute(
                 "INSERT INTO data_refresh_log (category, last_run) VALUES (%s, %s) ON CONFLICT DO NOTHING",
@@ -106,7 +113,7 @@ class IncrementalRefresher:
         """Finds the latest date present in prices table for that asset."""
         conn = None
         try:
-            conn = psycopg2.connect(**DB_CONFIG)
+            conn = self.get_db_connection()
             cur = conn.cursor()
             
             # First, get asset_id
@@ -170,7 +177,7 @@ class IncrementalRefresher:
             
         conn = None
         try:
-            conn = psycopg2.connect(**DB_CONFIG)
+            conn = self.get_db_connection()
             cur = conn.cursor()
 
             # 1. Fetch real company name if possible

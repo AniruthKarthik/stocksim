@@ -19,6 +19,9 @@ BASE_DATA_DIR = Path("data")
 
 def connect():
     try:
+        db_url = os.getenv("DATABASE_URL")
+        if db_url:
+            return psycopg2.connect(db_url, sslmode='require')
         return psycopg2.connect(**DB_CONFIG)
     except Exception as e:
         print(f"Error connecting to database: {e}")
