@@ -15,14 +15,18 @@ def init_pool():
     global _pg_pool
     if _pg_pool is None:
         try:
+            db_host = os.getenv("DB_HOST", "localhost")
+            db_port = os.getenv("DB_PORT", 5432)
+            print(f"DEBUG: Connecting to DB at {db_host}:{db_port}")
+            
             _pg_pool = psycopg2.pool.ThreadedConnectionPool(
                 minconn=1,
                 maxconn=20,
                 dbname=os.getenv("DB_NAME"),
                 user=os.getenv("DB_USER"),
                 password=os.getenv("DB_PASSWORD"),
-                host=os.getenv("DB_HOST", "localhost"),
-                port=os.getenv("DB_PORT", 5432)
+                host=db_host,
+                port=db_port
             )
             print("DB Connection Pool Initialized")
         except Exception as e:
