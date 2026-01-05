@@ -109,10 +109,13 @@ def simulate(
 
 @app.post("/users")
 def create_user(req: CreateUserRequest):
-    user_id = portfolio.create_user(req.username)
-    if not user_id:
-        raise HTTPException(status_code=400, detail="User already exists or error creating user")
-    return {"user_id": user_id, "username": req.username}
+    try:
+        user_id = portfolio.create_user(req.username)
+        return {"user_id": user_id, "username": req.username}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
 
 @app.post("/portfolio/create")
 def create_portfolio(req: CreatePortfolioRequest):

@@ -13,10 +13,10 @@ def create_user(username: str):
             conn.commit()
             return user_id
     except psycopg2.IntegrityError:
-        return None # User already exists
+        raise ValueError("User already exists")
     except Exception as e:
         print(f"Error creating user: {e}")
-        return None
+        raise e
 
 def create_portfolio(user_id: int, name: str, currency_code: str = "USD"):
     try:
@@ -292,5 +292,3 @@ def get_portfolio_value(portfolio_id: int, date: str):
     except Exception as e:
         print(f"Error in get_portfolio_value: {e}")
         return None
-    finally:
-        conn.close()
