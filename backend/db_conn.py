@@ -30,7 +30,7 @@ def init_pool():
                 print(f"DEBUG: Connecting using DATABASE_URL to: {safe_url}")
                 
                 _pg_pool = psycopg2.pool.ThreadedConnectionPool(
-                    1, 20, dsn=db_url, sslmode='require'
+                    1, 20, db_url, sslmode='require'
                 )
             else:
                 print("DEBUG: DATABASE_URL not found. Falling back to individual parameters.")

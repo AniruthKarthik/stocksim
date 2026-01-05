@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 8kUPF2c2WH2q1eohC9Hb5EiAAV0W1WOdeseOBeYvqOcW4MZ8xVqxqQJFE5TRjab
+
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -24,7 +24,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: assets; Type: TABLE; Schema: public; Owner: ani
+-- Name: assets; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.assets (
@@ -36,10 +36,8 @@ CREATE TABLE public.assets (
 );
 
 
-ALTER TABLE public.assets OWNER TO ani;
-
 --
--- Name: assets_id_seq; Type: SEQUENCE; Schema: public; Owner: ani
+-- Name: assets_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.assets_id_seq
@@ -51,17 +49,15 @@ CREATE SEQUENCE public.assets_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.assets_id_seq OWNER TO ani;
-
 --
--- Name: assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ani
+-- Name: assets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.assets_id_seq OWNED BY public.assets.id;
 
 
 --
--- Name: prices; Type: TABLE; Schema: public; Owner: ani
+-- Name: prices; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.prices (
@@ -74,10 +70,8 @@ CREATE TABLE public.prices (
 );
 
 
-ALTER TABLE public.prices OWNER TO ani;
-
 --
--- Name: prices_id_seq; Type: SEQUENCE; Schema: public; Owner: ani
+-- Name: prices_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE public.prices_id_seq
@@ -88,31 +82,29 @@ CREATE SEQUENCE public.prices_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.prices_id_seq OWNER TO ani;
-
 --
--- Name: prices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ani
+-- Name: prices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.prices_id_seq OWNED BY public.prices.id;
 
 
 --
--- Name: assets id; Type: DEFAULT; Schema: public; Owner: ani
+-- Name: assets id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.assets ALTER COLUMN id SET DEFAULT nextval('public.assets_id_seq'::regclass);
 
 
 --
--- Name: prices id; Type: DEFAULT; Schema: public; Owner: ani
+-- Name: prices id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.prices ALTER COLUMN id SET DEFAULT nextval('public.prices_id_seq'::regclass);
 
 
 --
--- Name: assets assets_pkey; Type: CONSTRAINT; Schema: public; Owner: ani
+-- Name: assets assets_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.assets
@@ -120,7 +112,7 @@ ALTER TABLE ONLY public.assets
 
 
 --
--- Name: assets assets_symbol_key; Type: CONSTRAINT; Schema: public; Owner: ani
+-- Name: assets assets_symbol_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.assets
@@ -128,7 +120,7 @@ ALTER TABLE ONLY public.assets
 
 
 --
--- Name: prices prices_assetid_date_key; Type: CONSTRAINT; Schema: public; Owner: ani
+-- Name: prices prices_assetid_date_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.prices
@@ -136,7 +128,7 @@ ALTER TABLE ONLY public.prices
 
 
 --
--- Name: prices prices_pkey; Type: CONSTRAINT; Schema: public; Owner: ani
+-- Name: prices prices_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.prices
@@ -144,7 +136,7 @@ ALTER TABLE ONLY public.prices
 
 
 --
--- Name: prices prices_assetid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ani
+-- Name: prices prices_assetid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.prices
@@ -152,36 +144,5 @@ ALTER TABLE ONLY public.prices
 
 
 --
--- Name: TABLE assets; Type: ACL; Schema: public; Owner: ani
---
-
-GRANT ALL ON TABLE public.assets TO stocksim;
-
-
---
--- Name: SEQUENCE assets_id_seq; Type: ACL; Schema: public; Owner: ani
---
-
-GRANT ALL ON SEQUENCE public.assets_id_seq TO stocksim;
-
-
---
--- Name: TABLE prices; Type: ACL; Schema: public; Owner: ani
---
-
-GRANT ALL ON TABLE public.prices TO stocksim;
-
-
---
--- Name: SEQUENCE prices_id_seq; Type: ACL; Schema: public; Owner: ani
---
-
-GRANT ALL ON SEQUENCE public.prices_id_seq TO stocksim;
-
-
---
 -- PostgreSQL database dump complete
 --
-
-\unrestrict 8kUPF2c2WH2q1eohC9Hb5EiAAV0W1WOdeseOBeYvqOcW4MZ8xVqxqQJFE5TRjab
-
