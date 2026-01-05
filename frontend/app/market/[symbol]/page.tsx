@@ -212,6 +212,12 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                <p className="text-3xl font-bold text-gray-900">
                  {currentPrice ? format(currentPrice) : '---'}
                </p>
+               {simDate && (
+                 <p className="text-xs font-medium text-gray-400 mt-1 flex items-center justify-end gap-1">
+                   <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                   {simDate}
+                 </p>
+               )}
             </div>
           </div>
 

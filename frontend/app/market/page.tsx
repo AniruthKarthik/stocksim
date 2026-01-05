@@ -105,11 +105,17 @@ export default function MarketPage() {
       {/* Header & Search */}
       <div className="space-y-6">
         <div>
-          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">Market</h1>
+          <div className="flex items-center gap-4">
+            <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight">Market</h1>
+            {simDate && (
+              <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-bold border border-gray-200 flex items-center gap-2">
+                <Clock className="h-4 w-4" />
+                {simDate}
+              </span>
+            )}
+          </div>
           <p className="text-gray-500 mt-2 text-lg">
-            {simDate 
-              ? `Showing assets active on ${simDate}.` 
-              : 'Browse all tradable instruments in the system.'}
+            Browse all tradable instruments in the system.
           </p>
         </div>
 
