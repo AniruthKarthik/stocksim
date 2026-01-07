@@ -1,3 +1,5 @@
+SET search_path = public;
+
 -- Users table
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
@@ -38,8 +40,7 @@ CREATE TABLE IF NOT EXISTS game_sessions (
     monthly_salary NUMERIC DEFAULT 0,
     monthly_expenses NUMERIC DEFAULT 0,
     is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(portfolio_id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Currencies
@@ -73,4 +74,3 @@ ON CONFLICT DO NOTHING;
 INSERT INTO exchange_rates (currency_code, rate, last_updated) VALUES
 ('USD', 1.0, CURRENT_TIMESTAMP)
 ON CONFLICT (currency_code) DO UPDATE SET rate = 1.0;
-

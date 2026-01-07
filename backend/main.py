@@ -9,47 +9,25 @@ from . import db_prices
 from . import db_portfolio as portfolio
 from . import db_currency
 from . import game_engine
-from .db_conn import get_db_connection, init_pool, close_pool
-from contextlib import asynccontextmanager
+from .db_conn import get_db_connection
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # Initialize database pool on startup
-    print("INFO: Initializing database pool...")
-    init_pool()
-    yield
-    # Close pool on shutdown
-    print("INFO: Closing database pool...")
-    close_pool()
-
-app = FastAPI(lifespan=lifespan)
+app = FastAPI()
 
 # --- CORS Configuration ---
+# Allow all origins by default for PoC flexibility, or configure via env
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS")
+if allowed_origins_env:
+    origins = allowed_origins_env.split(",")
+else:
+    origins = ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False, # Changed to False since we don't use cookies/sessions
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.middleware("http")
-async def log_requests(request, call_next):
-    print(f"DEBUG: Incoming {request.method} request to {request.url.path}")
-    response = await call_next(request)
-    return response
-
-print("DEBUG: Loading backend/main.py - Version 3.1 (Strict DATABASE_URL & Fail-Fast Pool)")
-
-@app.get("/health/db")
-def health_check_db():
-    try:
-        with get_db_connection() as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT 1")
-            return {"status": "healthy", "database": "reachable"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Database unhealthy: {str(e)}")
 
 # --- Pydantic Models ---
 class CreateUserRequest(BaseModel):
@@ -133,13 +111,10 @@ def simulate(
 
 @app.post("/users")
 def create_user(req: CreateUserRequest):
-    try:
-        user_id = portfolio.create_user(req.username)
-        return {"user_id": user_id, "username": req.username}
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+    user_id = portfolio.create_user(req.username)
+    if not user_id:
+        raise HTTPException(status_code=400, detail="User already exists or error creating user")
+    return {"user_id": user_id, "username": req.username}
 
 @app.post("/portfolio/create")
 def create_portfolio(req: CreatePortfolioRequest):
@@ -212,9 +187,7 @@ def get_portfolio_details(portfolio_id: int):
 
 @app.post("/simulation/start")
 def start_simulation(req: StartSimRequest):
-    print(f"DEBUG: Starting simulation for User {req.user_id}, Portfolio {req.portfolio_id}")
-    print(f"DEBUG: Start Date: {req.start_date}, Salary: {req.monthly_salary}")
-    
+    print(f"DEBUG: Starting simulation for user {req.user_id}, portfolio {req.portfolio_id}")
     result = game_engine.create_session(
         req.user_id, 
         req.portfolio_id, 
@@ -222,12 +195,9 @@ def start_simulation(req: StartSimRequest):
         req.monthly_salary, 
         req.monthly_expenses
     )
-    
     if "error" in result:
-        print(f"DEBUG: Simulation start failed: {result['error']}")
+        print(f"ERROR starting simulation: {result['error']}")
         raise HTTPException(status_code=400, detail=result["error"])
-        
-    print(f"DEBUG: Simulation started successfully: {result}")
     return result
 
 @app.post("/simulation/forward")
