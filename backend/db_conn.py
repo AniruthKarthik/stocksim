@@ -17,6 +17,19 @@ def init_pool():
         try:
             database_url = os.getenv("DATABASE_URL")
             if database_url:
+                # Clean up common copy-paste errors from Neon dashboard (e.g. "psql 'postgres://...'")
+                original_url = database_url
+                if database_url.strip().startswith("psql"):
+                    database_url = database_url.replace("psql", "").strip()
+                
+                # Remove quotes if present
+                if (database_url.startswith("'") and database_url.endswith("'")) or \
+                   (database_url.startswith('"') and database_url.endswith('"')):
+                    database_url = database_url[1:-1]
+
+                if original_url != database_url:
+                    print(f"DEBUG: Cleaned DATABASE_URL input from '{original_url[:10]}...' to '{database_url[:10]}...'")
+
                 # Use the single connection string (DSN)
                 print(f"DEBUG: Connecting to DB using DATABASE_URL (Host: {database_url.split('@')[1].split('/')[0] if '@' in database_url else 'Unknown'})")
                 _pg_pool = psycopg2.pool.ThreadedConnectionPool(
