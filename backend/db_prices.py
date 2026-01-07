@@ -53,7 +53,8 @@ def get_all_assets(as_of_date: str = None):
             cur = conn.cursor()
             
             if as_of_date:
-                # Optimized: Use EXISTS which is often faster than JOIN+DISTINCT for this purpose
+                # Optimized: Return assets that have ANY price history on or before the simulation date.
+                # Removed the 30-day "active" window to support future simulation dates using latest available data.
                 query = """
                     SELECT symbol, name, type 
                     FROM assets a
@@ -62,11 +63,10 @@ def get_all_assets(as_of_date: str = None):
                           SELECT 1 FROM prices p 
                           WHERE p.asset_id = a.id 
                           AND p.date <= %s 
-                          AND p.date >= (%s::date - interval '30 days')
                       )
                     ORDER BY a.type, a.symbol
                 """
-                cur.execute(query, (as_of_date, as_of_date))
+                cur.execute(query, (as_of_date,))
             else:
                 query = "SELECT symbol, name, type FROM assets WHERE type != 'mutualfunds' ORDER BY type, symbol"
                 cur.execute(query)

@@ -14,10 +14,12 @@ from .db_conn import get_db_connection
 app = FastAPI()
 
 # --- CORS Configuration ---
-origins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+# Allow all origins by default for PoC flexibility, or configure via env
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS")
+if allowed_origins_env:
+    origins = allowed_origins_env.split(",")
+else:
+    origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,

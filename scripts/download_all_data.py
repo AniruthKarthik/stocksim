@@ -13,12 +13,17 @@ from datetime import datetime
 load_dotenv()
 
 # Configuration
-DB_CONFIG = {
-    "dbname": os.getenv("DB_NAME", "stocksim"),
-    "user": os.getenv("DB_USER", "stocksim"),
-    "password": os.getenv("DB_PASSWORD", "stocksim"),
-    "host": os.getenv("DB_HOST", "localhost")
-}
+if os.getenv("DATABASE_URL"):
+    DB_DSN = os.getenv("DATABASE_URL")
+    DB_CONFIG = {} # Not used when DSN is present
+else:
+    DB_DSN = None
+    DB_CONFIG = {
+        "dbname": os.getenv("DB_NAME", "stocksim"),
+        "user": os.getenv("DB_USER", "stocksim"),
+        "password": os.getenv("DB_PASSWORD", "stocksim"),
+        "host": os.getenv("DB_HOST", "localhost")
+    }
 
 BASE_DATA_DIR = Path("data")
 
@@ -69,7 +74,7 @@ class StockRefresher:
             logger.error(f"Failed to read {file_path}: {e}")
             return []
 
-    def download_data(self, ticker, start_date="2000-01-01"):
+    def download_data(self, ticker, start_date="2023-01-01"):
         """Downloads historical data for a ticker with retries."""
         for attempt in range(3):
             try:
@@ -117,7 +122,11 @@ class StockRefresher:
 
         conn = None
         try:
-            conn = psycopg2.connect(**DB_CONFIG)
+            if DB_DSN:
+                conn = psycopg2.connect(dsn=DB_DSN, sslmode=os.getenv("DB_SSLMODE", "require"))
+            else:
+                conn = psycopg2.connect(**DB_CONFIG)
+            
             cur = conn.cursor()
 
             # 1. Fetch real company name if possible
