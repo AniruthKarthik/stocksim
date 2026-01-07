@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 import time
 import logging
@@ -7,15 +8,22 @@ import psycopg2
 from psycopg2.extras import execute_values
 from pathlib import Path
 from dotenv import load_dotenv
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # Load environment variables
 load_dotenv()
 
 # Configuration
 if os.getenv("DATABASE_URL"):
-    DB_DSN = os.getenv("DATABASE_URL")
-    DB_CONFIG = {} # Not used when DSN is present
+    # Strip potential 'psql ' prefix if user copied full command
+    raw_url = os.getenv("DATABASE_URL")
+    if raw_url.strip().startswith("psql"):
+        raw_url = raw_url.replace("psql", "").strip()
+    if (raw_url.startswith("'") and raw_url.endswith("'")) or (raw_url.startswith('"') and raw_url.endswith('"')):
+        raw_url = raw_url[1:-1]
+        
+    DB_DSN = raw_url
+    DB_CONFIG = {} 
 else:
     DB_DSN = None
     DB_CONFIG = {
@@ -45,8 +53,39 @@ class StockRefresher:
             "downloaded": 0,
             "loaded": 0,
             "skipped": 0,
-            "failed": 0
+            "failed": 0,
+            "up_to_date": 0
         }
+        self.existing_data = {}
+
+    def get_db_conn(self):
+        if DB_DSN:
+            return psycopg2.connect(dsn=DB_DSN, sslmode=os.getenv("DB_SSLMODE", "require"))
+        else:
+            return psycopg2.connect(**DB_CONFIG)
+
+    def fetch_existing_data(self):
+        """Fetches the latest available date for all assets in the database."""
+        logger.info("Fetching existing data from database...")
+        conn = None
+        try:
+            conn = self.get_db_conn()
+            cur = conn.cursor()
+            query = """
+                SELECT a.symbol, MAX(p.date) 
+                FROM assets a
+                JOIN prices p ON a.id = p.asset_id
+                GROUP BY a.symbol
+            """
+            cur.execute(query)
+            rows = cur.fetchall()
+            for symbol, date_obj in rows:
+                self.existing_data[symbol] = date_obj
+            logger.info(f"Found existing data for {len(self.existing_data)} assets.")
+        except Exception as e:
+            logger.error(f"Error fetching existing data: {e}")
+        finally:
+            if conn: conn.close()
 
     def get_asset_type(self, filename):
         """Maps filename to asset type."""
@@ -64,18 +103,24 @@ class StockRefresher:
             tickers = []
             with open(file_path, 'r') as f:
                 for line in f:
-                    # Strip comments (anything after #)
                     clean_line = line.split('#')[0].strip()
                     if clean_line:
                         tickers.append(clean_line)
-            # Clean symbols for Yahoo (replace '.' with '-') and remove duplicates
             return sorted(list(set([t.replace('.', '-') for t in tickers])))
         except Exception as e:
             logger.error(f"Failed to read {file_path}: {e}")
             return []
 
-    def download_data(self, ticker, start_date="2023-01-01"):
+    def download_data(self, ticker, start_date="2000-01-01"):
         """Downloads historical data for a ticker with retries."""
+        # Validate start_date is not in the future
+        try:
+            start_dt = datetime.strptime(str(start_date), "%Y-%m-%d").date()
+            if start_dt >= datetime.now().date():
+                return None # Up to date
+        except:
+            pass
+
         for attempt in range(3):
             try:
                 # Use a specific interval if needed, but default is daily
@@ -93,11 +138,9 @@ class StockRefresher:
                 if 'adj_close' not in data.columns:
                     data['adj_close'] = data['close']
                 
-                # Required columns
                 required = ['date', 'close', 'adj_close', 'volume']
                 for col in required:
                     if col not in data.columns:
-                        # If volume is missing (some indices/mutual funds), fill with 0
                         if col == 'volume': data['volume'] = 0
                         else: return None 
                 
@@ -112,7 +155,23 @@ class StockRefresher:
         target_dir = BASE_DATA_DIR / asset_type
         target_dir.mkdir(parents=True, exist_ok=True)
         csv_path = target_dir / f"{ticker}.csv"
-        df.to_csv(csv_path, index=False)
+        
+        # If file exists, we might want to append, but for simplicity we overwrite 
+        # or merge. Since we might have partial data, merging is complex.
+        # For this script, we just save what we downloaded (latest chunk) 
+        # OR we could read existing CSV and append.
+        # Given we rely on DB, CSV is backup. Let's just overwrite with the new chunk 
+        # effectively making CSV partial. 
+        # Requirement says "add only latest", so downloading only latest means df is small.
+        # We should probably append to CSV if exists.
+        
+        mode = 'w'
+        header = True
+        if csv_path.exists():
+            mode = 'a'
+            header = False
+            
+        df.to_csv(csv_path, mode=mode, header=header, index=False)
         return csv_path
 
     def load_to_db(self, ticker, asset_type, df, yahoo_ticker=None):
@@ -122,33 +181,30 @@ class StockRefresher:
 
         conn = None
         try:
-            if DB_DSN:
-                conn = psycopg2.connect(dsn=DB_DSN, sslmode=os.getenv("DB_SSLMODE", "require"))
-            else:
-                conn = psycopg2.connect(**DB_CONFIG)
-            
+            conn = self.get_db_conn()
             cur = conn.cursor()
 
             # 1. Fetch real company name if possible
             display_name = ticker.upper()
-            try:
-                # Check if we already have a professional name first
-                cur.execute("SELECT name FROM assets WHERE symbol = %s", (ticker,))
-                existing = cur.fetchone()
-                
-                if existing and existing[0] != ticker.capitalize() and existing[0] != ticker.upper():
-                    display_name = existing[0]
-                else:
+            
+            # Optimization: Only fetch name if we are inserting a NEW asset
+            # Use cached existing_data check or just simple select
+            cur.execute("SELECT name FROM assets WHERE symbol = %s", (ticker,))
+            existing = cur.fetchone()
+            
+            if existing:
+                display_name = existing[0]
+            else:
+                try:
                     info = yf.Ticker(yahoo_ticker).info
                     display_name = info.get('longName') or info.get('shortName') or display_name
-            except:
-                pass
+                except:
+                    pass
 
             # 2. Ensure asset exists with real name
             cur.execute(
                 """INSERT INTO assets (symbol, name, type) VALUES (%s, %s, %s) 
                    ON CONFLICT (symbol) DO UPDATE SET 
-                    name = CASE WHEN EXCLUDED.name != EXCLUDED.symbol THEN EXCLUDED.name ELSE assets.name END,
                     type = EXCLUDED.type
                    RETURNING id""",
                 (ticker, display_name, asset_type)
@@ -166,6 +222,9 @@ class StockRefresher:
                     float(row['adj_close']),
                     int(row['volume']) if not pd.isna(row['volume']) else 0
                 ))
+
+            if not values:
+                return True
 
             # 4. Upsert into prices
             upsert_query = """
@@ -194,6 +253,9 @@ class StockRefresher:
             logger.error("No ticker files found in data/ folder (*_tickers.txt)")
             return
 
+        # 1. Fetch State
+        self.fetch_existing_data()
+
         logger.info(f"Found {len(ticker_files)} ticker files.")
 
         for file_path in ticker_files:
@@ -205,17 +267,31 @@ class StockRefresher:
             for i, ticker in enumerate(tickers):
                 self.summary["attempted"] += 1
                 
-                # Special handling for Crypto: Use clean symbol for storage, -USD for Yahoo
+                # Determine start date
+                start_date = "2000-01-01"
+                last_date = self.existing_data.get(ticker)
+                
+                if last_date:
+                    # Start from the next day
+                    start_date = (last_date + timedelta(days=1)).strftime("%Y-%m-%d")
+                    logger.info(f"[{asset_type}] {i+1}/{len(tickers)}: {ticker} exists. Updating from {start_date}...")
+                else:
+                    logger.info(f"[{asset_type}] {i+1}/{len(tickers)}: {ticker} new. Full download...")
+
+                # Special handling for Crypto
                 yahoo_ticker = ticker
                 if asset_type == 'crypto' and not ticker.endswith('-USD'):
                     yahoo_ticker = f"{ticker}-USD"
                 
-                logger.info(f"[{asset_type}] {i+1}/{len(tickers)}: {ticker} (Fetch: {yahoo_ticker})")
+                df = self.download_data(yahoo_ticker, start_date=start_date)
                 
-                df = self.download_data(yahoo_ticker)
                 if df is None:
-                    logger.warning(f"No data for {ticker}, skipping.")
-                    self.summary["skipped"] += 1
+                    if last_date:
+                         logger.info(f"  -> {ticker} is up to date.")
+                         self.summary["up_to_date"] += 1
+                    else:
+                        logger.warning(f"  -> No data for {ticker}, skipping.")
+                        self.summary["skipped"] += 1
                     continue
                 
                 self.summary["downloaded"] += 1
@@ -228,19 +304,19 @@ class StockRefresher:
                     self.summary["failed"] += 1
                 
                 # Small sleep to be nice to Yahoo
-                if (i + 1) % 5 == 0:
+                if (i + 1) % 10 == 0:
                     time.sleep(0.5)
 
         self.print_summary()
 
     def print_summary(self):
         logger.info("=" * 30)
-        logger.info("REFRESH SYSTEM SUMMARY")
-        logger.info(f"Files Processed:   {len(list(BASE_DATA_DIR.glob('*_tickers.txt')))}")
+        logger.info("UPDATE DATABASE SUMMARY")
         logger.info(f"Total Attempted:   {self.summary['attempted']}")
-        logger.info(f"Successfully DL:   {self.summary['downloaded']}")
+        logger.info(f"Up to Date:        {self.summary['up_to_date']}")
+        logger.info(f"Downloaded (New):  {self.summary['downloaded']}")
         logger.info(f"Successfully Load: {self.summary['loaded']}")
-        logger.info(f"Skipped:           {self.summary['skipped']}")
+        logger.info(f"Skipped/Empty:     {self.summary['skipped']}")
         logger.info(f"Failed Load:       {self.summary['failed']}")
         logger.info("=" * 30)
 
