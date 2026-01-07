@@ -6,6 +6,9 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "StockSim - Investment Simulator",
   description: "Learn to trade and manage portfolio",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
