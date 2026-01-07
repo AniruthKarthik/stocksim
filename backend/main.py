@@ -185,6 +185,7 @@ def get_portfolio_details(portfolio_id: int):
 
 @app.post("/simulation/start")
 def start_simulation(req: StartSimRequest):
+    print(f"DEBUG: Starting simulation for user {req.user_id}, portfolio {req.portfolio_id}")
     result = game_engine.create_session(
         req.user_id, 
         req.portfolio_id, 
@@ -193,6 +194,7 @@ def start_simulation(req: StartSimRequest):
         req.monthly_expenses
     )
     if "error" in result:
+        print(f"ERROR starting simulation: {result['error']}")
         raise HTTPException(status_code=400, detail=result["error"])
     return result
 

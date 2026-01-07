@@ -15,14 +15,30 @@ def init_pool():
     global _pg_pool
     if _pg_pool is None:
         try:
-            _pg_pool = psycopg2.pool.ThreadedConnectionPool(
-                minconn=1,
-                maxconn=20,
-                dbname=os.getenv("DB_NAME"),
-                user=os.getenv("DB_USER"),
-                password=os.getenv("DB_PASSWORD"),
-                host=os.getenv("DB_HOST", "localhost")
-            )
+            database_url = os.getenv("DATABASE_URL")
+            if database_url:
+                # Use the single connection string (DSN)
+                print(f"DEBUG: Connecting to DB using DATABASE_URL (Host: {database_url.split('@')[1].split('/')[0] if '@' in database_url else 'Unknown'})")
+                _pg_pool = psycopg2.pool.ThreadedConnectionPool(
+                    minconn=1,
+                    maxconn=20,
+                    dsn=database_url,
+                    sslmode=os.getenv("DB_SSLMODE", "require") 
+                )
+            else:
+                # Fallback to individual credentials
+                host = os.getenv("DB_HOST", "localhost")
+                print(f"DEBUG: Connecting to DB (Host: {host})")
+                _pg_pool = psycopg2.pool.ThreadedConnectionPool(
+                    minconn=1,
+                    maxconn=20,
+                    dbname=os.getenv("DB_NAME"),
+                    user=os.getenv("DB_USER"),
+                    password=os.getenv("DB_PASSWORD"),
+                    host=os.getenv("DB_HOST", "localhost"),
+                    port=os.getenv("DB_PORT", "5432"),
+                    sslmode=os.getenv("DB_SSLMODE", "prefer")
+                )
             print("DB Connection Pool Initialized")
         except Exception as e:
             print(f"Error initializing DB pool: {e}")
@@ -40,6 +56,9 @@ def get_db_connection():
     if _pg_pool is None:
         init_pool()
         
+    if _pg_pool is None:
+        raise Exception("Database connection pool failed to initialize. Check your database credentials and connection.")
+
     conn = _pg_pool.getconn()
     try:
         yield conn
