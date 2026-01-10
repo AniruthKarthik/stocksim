@@ -44,22 +44,33 @@ def get_price(symbol: str, date: str):
 
 from functools import lru_cache
 
-@lru_cache(maxsize=1)
+@lru_cache(maxsize=128)
 def get_all_assets(date: str = None):
     """
     Returns list of all supported assets.
-    Cached to improve performance since asset list changes rarely.
+    If date is provided, filters for assets that have price data on or before that date.
+    Cached to improve performance.
     """
     try:
         with get_db_connection() as conn:
             cur = conn.cursor()
-            # If date is provided, we could filter by assets that existed then, 
-            # but for simplicity and speed, we return all valid assets.
-            # In a real app, you might want to cache based on date, 
-            # but 'date' changes every simulation step, so caching might be less effective if included in key.
-            # However, the list of *available* assets (metadata) is static.
             
-            cur.execute("SELECT symbol, name, type, currency FROM assets ORDER BY symbol")
+            if date:
+                # Optimized query: Find assets that have at least one price entry <= date
+                # Using EXISTS is often faster than DISTINCT JOIN on large tables
+                query = """
+                    SELECT symbol, name, type, currency 
+                    FROM assets a
+                    WHERE EXISTS (
+                        SELECT 1 FROM prices p 
+                        WHERE p.asset_id = a.id AND p.date <= %s
+                    )
+                    ORDER BY symbol
+                """
+                cur.execute(query, (date,))
+            else:
+                cur.execute("SELECT symbol, name, type, currency FROM assets ORDER BY symbol")
+                
             columns = [desc[0] for desc in cur.description]
             return [dict(zip(columns, row)) for row in cur.fetchall()]
     except Exception as e:
