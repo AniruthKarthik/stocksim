@@ -54,6 +54,7 @@ class StartSimRequest(BaseModel):
     start_date: str # YYYY-MM-DD
     monthly_salary: float = 0
     monthly_expenses: float = 0
+    initial_cash: float = 0
 
 class ForwardSimRequest(BaseModel):
     portfolio_id: int
@@ -193,7 +194,8 @@ def start_simulation(req: StartSimRequest):
         req.portfolio_id, 
         req.start_date, 
         req.monthly_salary, 
-        req.monthly_expenses
+        req.monthly_expenses,
+        req.initial_cash
     )
     if "error" in result:
         print(f"ERROR starting simulation: {result['error']}")

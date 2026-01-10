@@ -12,6 +12,7 @@ import { Pie } from 'react-chartjs-2';
 import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
+import FormattedMoney from '@/components/FormattedMoney';
 import { Calendar, Wallet, TrendingUp, ArrowRight, Plus, PieChart as PieChartIcon, CircleDollarSign } from 'lucide-react';
 import { useCurrency } from '@/context/CurrencyContext';
 
@@ -236,6 +237,9 @@ export default function Dashboard() {
   const pieOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    layout: {
+        padding: 0
+    },
     plugins: {
       legend: {
         position: 'bottom' as const,
@@ -278,9 +282,9 @@ export default function Dashboard() {
             <Wallet className="h-4 w-4" />
             <span className="text-xs font-medium uppercase">Wallet Balance</span>
           </div>
-          <p className="text-2xl font-bold text-gray-900">
-            {format(portfolio_value.cash)}
-          </p>
+          <div className="flex justify-start">
+             <FormattedMoney value={portfolio_value.cash} className="text-2xl font-bold text-gray-900" />
+          </div>
         </Card>
 
         <Card>
@@ -288,9 +292,9 @@ export default function Dashboard() {
             <TrendingUp className="h-4 w-4" />
             <span className="text-xs font-medium uppercase">Net Worth</span>
           </div>
-          <p className="text-2xl font-bold text-gray-900">
-            {format(portfolio_value.total_value)}
-          </p>
+          <div className="flex justify-start">
+             <FormattedMoney value={portfolio_value.total_value} className="text-2xl font-bold text-gray-900" />
+          </div>
         </Card>
 
         <Card>
@@ -298,9 +302,9 @@ export default function Dashboard() {
             <TrendingUp className="h-4 w-4" />
             <span className="text-xs font-medium uppercase">Total Invested</span>
           </div>
-          <p className="text-2xl font-bold text-gray-900">
-            {format(portfolio_value.invested_value || 0)}
-          </p>
+          <div className="flex justify-start">
+            <FormattedMoney value={portfolio_value.invested_value || 0} className="text-2xl font-bold text-gray-900" />
+          </div>
         </Card>
 
         <Card>
@@ -308,12 +312,14 @@ export default function Dashboard() {
             <CircleDollarSign className="h-4 w-4" />
             <span className="text-xs font-medium uppercase">Investments P&L</span>
           </div>
-          <p className={`text-2xl font-bold ${
-            (portfolio_value.assets_value - (portfolio_value.invested_value || 0)) >= 0 ? 'text-green-600' : 'text-red-600'
-          }`}>
-            {(portfolio_value.assets_value - (portfolio_value.invested_value || 0)) >= 0 ? "+" : ""}
-            {format(portfolio_value.assets_value - (portfolio_value.invested_value || 0))}
-          </p>
+          <div className="flex justify-start">
+            <FormattedMoney 
+              value={portfolio_value.assets_value - (portfolio_value.invested_value || 0)} 
+              className="text-2xl font-bold" 
+              colored 
+              prefix={(portfolio_value.assets_value - (portfolio_value.invested_value || 0)) >= 0 ? "+" : ""}
+            />
+          </div>
         </Card>
       </div>
       
@@ -369,13 +375,15 @@ export default function Dashboard() {
                              {format(h.price)}
                            </td>
                            <td className="px-6 py-4 text-gray-900 text-right font-medium">
-                             {format(h.invested)}
+                             <FormattedMoney value={h.invested} />
                            </td>
                            <td className="px-6 py-4 font-bold text-gray-900 text-right">
-                             {format(h.value)}
+                             <FormattedMoney value={h.value} />
                            </td>
                            <td className={`px-6 py-4 font-bold text-right ${pnlColor}`}>
-                             <div>{isProfit ? "+" : ""}{format(h.pnl)}</div>
+                             <div className="flex justify-end">
+                               <FormattedMoney value={h.pnl} colored prefix={isProfit ? "+" : ""} />
+                             </div>
                              <div className="text-xs opacity-80">({isProfit ? "+" : ""}{h.pnl_percent.toFixed(2)}%)</div>
                            </td>
                          </tr>
@@ -386,13 +394,17 @@ export default function Dashboard() {
                      <tr>
                        <td colSpan={3} className="px-6 py-4 text-right font-medium text-gray-600">Total Portfolio</td>
                        <td className="px-6 py-4 text-right font-bold text-gray-800">
-                         {format(portfolio_value.invested_value || 0)}
+                         <FormattedMoney value={portfolio_value.invested_value || 0} />
                        </td>
                        <td className="px-6 py-4 text-right font-bold text-gray-800">
-                         {format(portfolio_value.assets_value)}
+                         <FormattedMoney value={portfolio_value.assets_value} />
                        </td>
                        <td className={`px-6 py-4 text-right font-bold ${portfolio_value.assets_value >= (portfolio_value.invested_value || 0) ? "text-green-600" : "text-red-600"}`}>
-                         {format(portfolio_value.assets_value - (portfolio_value.invested_value || 0))}
+                         <FormattedMoney 
+                           value={portfolio_value.assets_value - (portfolio_value.invested_value || 0)} 
+                           colored 
+                           prefix={portfolio_value.assets_value - (portfolio_value.invested_value || 0) >= 0 ? "+" : ""}
+                         />
                        </td>
                      </tr>
                    </tfoot>
@@ -415,7 +427,7 @@ export default function Dashboard() {
              Allocation
            </h2>
            
-           <Card className="h-[450px] flex items-center justify-center" noPadding>
+           <Card className="aspect-square flex items-center justify-center" noPadding>
              {hasMounted && pieChartData.labels.length > 0 ? (
                <Pie options={pieOptions} data={pieChartData} />
              ) : (

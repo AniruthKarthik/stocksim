@@ -163,13 +163,13 @@ def add_transaction(portfolio_id: int, symbol: str, txn_type: str, quantity: flo
 def get_portfolio_value(portfolio_id: int, date: str):
     """
     Computes total portfolio value (Cash + Asset Value) on a specific date.
-    Optimized to use asset_ids and avoid redundant joins.
+    Returns values in the PORTFOLIO'S NATIVE CURRENCY.
     """
     try:
         with get_db_connection() as conn:
             cur = conn.cursor()
             
-            # 1. Get Actual Current Cash Balance
+            # 1. Get Actual Current Cash Balance (Already in Native Currency)
             cur.execute("SELECT cash_balance, currency_code FROM portfolios WHERE id = %s", (portfolio_id,))
             row = cur.fetchone()
             if not row: return None
@@ -177,9 +177,8 @@ def get_portfolio_value(portfolio_id: int, date: str):
             raw_cash = float(row[0])
             currency_code = row[1]
             
-            # Convert cash to USD for total valuation
+            # Get exchange rate (1 USD = X Native Currency)
             rate = get_rate(currency_code)
-            real_cash_balance_usd = raw_cash / rate
 
             # 2. Get Transactions with asset_id
             cur.execute("""
@@ -191,36 +190,33 @@ def get_portfolio_value(portfolio_id: int, date: str):
             
             hist_holdings = {} # asset_id -> qty
             symbol_map = {}    # asset_id -> symbol
-            cost_basis = {}    # asset_id -> total_invested
+            cost_basis_usd = {}    # asset_id -> total_invested (USD)
             
             for t_type, qty, price, sym, aid in cur.fetchall():
                 qty = float(qty)
-                price = float(price)
+                price = float(price) # This is USD price stored in DB
                 val = qty * price
                 
                 if aid not in hist_holdings: 
                     hist_holdings[aid] = 0.0
-                    cost_basis[aid] = 0.0
+                    cost_basis_usd[aid] = 0.0
                     symbol_map[aid] = sym
                 
                 if t_type == "BUY":
                     hist_holdings[aid] += qty
-                    cost_basis[aid] += val
+                    cost_basis_usd[aid] += val
                 elif t_type == "SELL":
                     current_qty = hist_holdings[aid]
                     if current_qty > 0:
-                        avg_cost = cost_basis[aid] / current_qty
-                        cost_basis[aid] -= (avg_cost * qty)
+                        avg_cost = cost_basis_usd[aid] / current_qty
+                        cost_basis_usd[aid] -= (avg_cost * qty)
                         hist_holdings[aid] -= qty
 
-            # 3. Batch fetch prices for held assets
+            # 3. Batch fetch prices for held assets (Prices are in USD)
             held_asset_ids = [aid for aid, qty in hist_holdings.items() if qty > 0]
-            price_map = {}
+            price_map_usd = {}
             
             if held_asset_ids:
-                # Optimized: Use LATERAL JOIN to efficiently find the latest price for each asset.
-                # This forces the query planner to use the (asset_id, date) index for each ID 
-                # instead of scanning a large range of dates for IN (...).
                 query = """
                     SELECT t.asset_id, p.adj_close
                     FROM unnest(%s::int[]) as t(asset_id)
@@ -235,37 +231,44 @@ def get_portfolio_value(portfolio_id: int, date: str):
                 cur.execute(query, (held_asset_ids, date))
                 
                 for row in cur.fetchall():
-                    price_map[row[0]] = float(row[1])
+                    price_map_usd[row[0]] = float(row[1])
 
-            # 4. Calculate final values
-            total_assets_value = 0.0
-            total_invested_value = 0.0
+            # 4. Calculate final values (Convert USD -> Native)
+            total_assets_value_native = 0.0
+            total_invested_value_native = 0.0
             missing_prices = []
             detailed_holdings = []
             
             for aid, qty in hist_holdings.items():
                 if qty > 0:
                     sym = symbol_map[aid]
-                    invested = cost_basis.get(aid, 0.0)
-                    total_invested_value += invested
                     
-                    p = price_map.get(aid)
+                    # Invested (USD -> Native)
+                    invested_usd = cost_basis_usd.get(aid, 0.0)
+                    invested_native = invested_usd * rate
+                    total_invested_value_native += invested_native
                     
-                    # Fallback: If bulk query missed (unlikely if logic matches), try individual
-                    if p is None:
-                         p = get_price(sym, date)
+                    # Current Price (USD)
+                    p_usd = price_map_usd.get(aid)
+                    
+                    if p_usd is None:
+                         p_usd = get_price(sym, date)
 
-                    if p:
-                        val = qty * p
-                        total_assets_value += val
+                    if p_usd:
+                        # Convert to Native
+                        p_native = p_usd * rate
+                        val_native = qty * p_native
+                        
+                        total_assets_value_native += val_native
+                        
                         detailed_holdings.append({
                             "symbol": sym,
                             "quantity": qty,
-                            "price": p,
-                            "value": val,
-                            "invested": invested,
-                            "pnl": val - invested,
-                            "pnl_percent": ((val - invested) / invested * 100) if invested > 0 else 0
+                            "price": p_native,
+                            "value": val_native,
+                            "invested": invested_native,
+                            "pnl": val_native - invested_native,
+                            "pnl_percent": ((val_native - invested_native) / invested_native * 100) if invested_native > 0 else 0
                         })
                     else:
                         missing_prices.append(sym)
@@ -274,17 +277,17 @@ def get_portfolio_value(portfolio_id: int, date: str):
                             "quantity": qty,
                             "price": 0.0,
                             "value": 0.0,
-                            "invested": invested,
-                            "pnl": -invested,
+                            "invested": invested_native,
+                            "pnl": -invested_native,
                             "pnl_percent": -100.0
                         })
             
             return {
                 "date": date,
-                "cash": real_cash_balance_usd,
-                "assets_value": total_assets_value,
-                "invested_value": total_invested_value,
-                "total_value": real_cash_balance_usd + total_assets_value,
+                "cash": raw_cash, # Native
+                "assets_value": total_assets_value_native,
+                "invested_value": total_invested_value_native,
+                "total_value": raw_cash + total_assets_value_native,
                 "holdings": detailed_holdings,
                 "missing_prices": missing_prices
             }

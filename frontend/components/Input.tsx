@@ -28,8 +28,8 @@ export default function Input({ label, error, icon, className = '', ...props }: 
           )}
           <input
             className={`
-              w-full bg-transparent border-none focus:ring-0 px-4 py-3.5 
-              text-[16px] font-medium text-gray-900 placeholder:text-gray-400 
+              w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 px-4 py-3.5 
+              text-base font-medium text-gray-900 placeholder:text-gray-400 
               disabled:bg-gray-50 disabled:text-gray-400 rounded-xl
               ${icon ? 'pl-3' : ''}
               ${className}

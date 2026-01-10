@@ -18,6 +18,7 @@ import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import FormattedMoney from '@/components/FormattedMoney';
 import { ArrowLeft, TrendingUp, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { useCurrency } from '@/context/CurrencyContext';
 
@@ -221,9 +222,9 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         </h1>
         <div className="text-right">
            <p className="text-sm text-gray-500">Current Price</p>
-           <p className="text-3xl font-bold text-gray-900">
-             {currentPrice ? format(currentPrice) : '---'}
-           </p>
+           <div className="flex justify-end">
+             {currentPrice ? <FormattedMoney value={currentPrice} className="text-3xl font-bold text-gray-900" /> : <span className="text-3xl font-bold text-gray-900">---</span>}
+           </div>
            {simDate && (
              <p className="text-xs font-medium text-gray-400 mt-1 flex items-center justify-end gap-1">
                <span className="w-2 h-2 rounded-full bg-green-500"></span>
@@ -237,11 +238,11 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         <div className="lg:col-span-2 flex flex-col">
           <Card className="p-4 flex-grow flex flex-col h-full">
              {hasMounted && history.length > 0 ? (
-               <div className="flex-grow relative min-h-[300px]">
+               <div className="flex-grow relative min-h-[40vh]">
                  <Line options={{...chartOptions, maintainAspectRatio: false}} data={chartDataConfig} />
                </div>
              ) : (
-               <div className="h-full flex items-center justify-center text-gray-400 min-h-[300px]">
+               <div className="h-full flex items-center justify-center text-gray-400 min-h-[40vh]">
                  {!hasMounted ? 'Loading chart...' : 'No price history available.'}
                </div>
              )}
@@ -249,9 +250,9 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         </div>
 
         <div className="flex flex-col">
-          <Card title="Buy Asset" className="flex-grow flex flex-col">
+          <Card title="Buy Asset" className="flex-grow flex flex-col justify-between h-full">
              {success ? (
-               <div className="text-center py-6 space-y-4 animate-in fade-in zoom-in duration-300">
+               <div className="text-center py-6 space-y-4 animate-in fade-in zoom-in duration-300 flex-grow flex flex-col justify-center">
                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                    <CheckCircle2 className="h-8 w-8" />
                  </div>
@@ -273,49 +274,51 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                  </button>
                </div>
              ) : (
-               <div className="space-y-4">
-                 <div className="bg-green-50 p-3 rounded-lg flex items-center justify-between text-green-800 text-sm font-medium">
-                   <span>Available Cash</span>
-                   <span>{format(cash)}</span>
+               <div className="space-y-4 flex flex-col h-full justify-between">
+                 <div>
+                    <div className="bg-green-50 p-3 rounded-lg flex items-center justify-between text-green-800 text-sm font-medium mb-6">
+                      <span>Available Cash</span>
+                      <FormattedMoney value={cash} />
+                    </div>
+
+                    <form onSubmit={handleBuy} className="space-y-4">
+                      <Input 
+                        label="Quantity"
+                        type="number"
+                        step="any"
+                        placeholder="0.00"
+                        value={qty}
+                        onChange={(e) => setQty(e.target.value)}
+                        disabled={buying}
+                        required
+                      />
+                      
+                      {qty && currentPrice && (
+                        <div className="flex justify-between text-sm py-2 border-t border-gray-100 mt-2">
+                          <span className="text-gray-500">Estimated Cost</span>
+                          <span className="font-bold text-gray-900">
+                            <FormattedMoney value={Number(qty) * currentPrice} />
+                          </span>
+                        </div>
+                      )}
+
+                      {error && (
+                        <div className="flex items-start gap-2 text-xs text-red-600 bg-red-50 p-2 rounded">
+                          <AlertCircle className="h-4 w-4 shrink-0" />
+                          {error}
+                        </div>
+                      )}
+                      
+                      <Button 
+                        type="submit" 
+                        className="w-full mt-4" 
+                        isLoading={buying}
+                        disabled={!qty || Number(qty) <= 0 || buying}
+                      >
+                        Buy {symbol}
+                      </Button>
+                    </form>
                  </div>
-
-                 <form onSubmit={handleBuy} className="space-y-4">
-                   <Input 
-                     label="Quantity"
-                     type="number"
-                     step="any"
-                     placeholder="0.00"
-                     value={qty}
-                     onChange={(e) => setQty(e.target.value)}
-                     disabled={buying}
-                     required
-                   />
-                   
-                   {qty && currentPrice && (
-                     <div className="flex justify-between text-sm py-2 border-t border-gray-100 mt-2">
-                       <span className="text-gray-500">Estimated Cost</span>
-                       <span className="font-bold text-gray-900">
-                         {format(Number(qty) * currentPrice)}
-                       </span>
-                     </div>
-                   )}
-
-                   {error && (
-                     <div className="flex items-start gap-2 text-xs text-red-600 bg-red-50 p-2 rounded">
-                       <AlertCircle className="h-4 w-4 shrink-0" />
-                       {error}
-                     </div>
-                   )}
-
-                   <Button 
-                     type="submit" 
-                     className="w-full" 
-                     isLoading={buying}
-                     disabled={!qty || Number(qty) <= 0 || buying}
-                   >
-                     Buy {symbol}
-                   </Button>
-                 </form>
                </div>
              )}
           </Card>

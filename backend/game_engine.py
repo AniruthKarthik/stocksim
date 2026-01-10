@@ -2,7 +2,7 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from .db_conn import get_db_connection
 
-def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_salary: float = 0, monthly_expenses: float = 0):
+def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_salary: float = 0, monthly_expenses: float = 0, initial_cash: float = 0):
     """
     Starts a new game session.
     Automatically deactivates any existing active session for this portfolio.
@@ -34,9 +34,9 @@ def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_sal
             
             session_id = cur.fetchone()[0]
             
-            # Initialize portfolio cash to the first month's salary/investment
-            # This overrides the default 10,000 from table definition to match user input
-            cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (monthly_salary, portfolio_id))
+            # Initialize portfolio cash to the specified initial_cash
+            # (If 0 is passed, it starts with 0 unless table default interferes, but table default is usually 10000)
+            cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (initial_cash, portfolio_id))
 
             conn.commit()
             return {"session_id": session_id, "start_date": start_date, "sim_date": start_date}

@@ -128,8 +128,9 @@ export default function StartPage() {
         user_id: userId,
         portfolio_id: portfolioId,
         start_date: dateToSubmit,
-        monthly_salary: Number(formData.investment),
-        monthly_expenses: 0, 
+        monthly_salary: 0,
+        monthly_expenses: 0,
+        initial_cash: Number(formData.investment)
       });
 
       localStorage.setItem('stocksim_portfolio_id', portfolioId.toString());
@@ -146,7 +147,7 @@ export default function StartPage() {
     <div className="flex flex-col min-h-[85vh] relative">
       {/* Background Decor */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-blue-50/80 to-transparent rounded-full blur-3xl opacity-60" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] bg-gradient-to-b from-blue-50/80 to-transparent rounded-full blur-3xl opacity-60" />
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center py-12 lg:py-20">
@@ -266,7 +267,7 @@ export default function StartPage() {
                  </div>
                  <div className="hidden sm:flex -space-x-2">
                     {['AAPL', 'BTC', 'GLD', 'VTI'].map((ticker, i) => (
-                      <div key={ticker} className="h-8 px-3 rounded-full bg-gray-50 border border-white shadow-sm flex items-center text-[10px] font-bold text-gray-600 z-10" style={{ marginLeft: i > 0 ? '-0.5rem' : 0 }}>
+                      <div key={ticker} className="h-8 px-3 rounded-full bg-gray-50 border border-white shadow-sm flex items-center text-[0.65rem] font-bold text-gray-600 z-10" style={{ marginLeft: i > 0 ? '-0.5rem' : 0 }}>
                         {ticker}
                       </div>
                     ))}
