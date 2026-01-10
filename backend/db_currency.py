@@ -1,4 +1,5 @@
 import yfinance as yf
+import pandas as pd
 from datetime import datetime, timedelta
 from .db_conn import get_db_connection
 
@@ -34,43 +35,38 @@ def fetch_live_rates():
     """
     rates = {'USD': 1.0}
     
-    # Standardizing to {CODE}=X which usually gives units per 1 USD for most currencies
-    # or is the most reliable ticker.
+    # Standardizing to USD{CODE}=X which consistently gives units per 1 USD
     to_fetch = {
-        'EUR': 'EUR=X', 
-        'GBP': 'GBP=X', 
-        'AUD': 'AUD=X', 
-        'JPY': 'JPY=X', 
-        'CAD': 'CAD=X', 
-        'INR': 'INR=X'  
+        'EUR': 'USDEUR=X', 
+        'GBP': 'USDGBP=X', 
+        'AUD': 'USDAUD=X', 
+        'JPY': 'USDJPY=X', 
+        'CAD': 'USDCAD=X', 
+        'INR': 'USDINR=X'  
     }
     
     tickers_str = " ".join(to_fetch.values())
     try:
-        # Fetching 5 days to ensure we get data even if market is closed today
-        data = yf.download(tickers_str, period="5d", progress=False)['Close']
+        print(f"Fetching rates for: {tickers_str}")
+        data = yf.download(tickers_str, period="1d", progress=False)
         
-        # Safe access to latest non-NaN value
-        def get_val(ticker):
-            try:
-                if isinstance(data, pd.DataFrame):
-                    # Get the series for the ticker and drop NaNs
-                    series = data[ticker].dropna()
-                    if not series.empty:
-                        return float(series.iloc[-1])
-                else:
-                    # If only one ticker was requested, data might be a Series
-                    val = data.iloc[-1]
-                    return float(val) if pd.notna(val) else None
-                return None
-            except:
-                return None
+        if data.empty or 'Close' not in data:
+            print("No data returned from Yahoo Finance")
+            return rates
 
+        close_data = data['Close']
+        
         for code, ticker in to_fetch.items():
-            val = get_val(ticker)
-            if val and val > 0:
-                # All these tickers now represent Units per USD
-                rates[code] = val
+            try:
+                if ticker in close_data.columns:
+                    val = close_data[ticker].dropna()
+                    if not val.empty:
+                        rates[code] = float(val.iloc[-1])
+                elif isinstance(close_data, pd.Series):
+                    # If only one ticker was returned
+                    rates[code] = float(close_data.iloc[-1])
+            except Exception as e:
+                print(f"Error extracting rate for {code}: {e}")
                     
     except Exception as e:
         print(f"Error fetching rates: {e}")

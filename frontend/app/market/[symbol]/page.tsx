@@ -137,10 +137,9 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         }
 
       } catch (e: any) {
+        console.error(e);
         if (e.response && e.response.status === 404) {
             setDataMissing(true);
-        } else {
-            console.error(e);
         }
       } finally {
         setLoading(false);

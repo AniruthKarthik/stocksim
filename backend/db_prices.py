@@ -140,7 +140,3 @@ def get_price_history(symbol: str, end_date: str):
 
 # Alias for backward compatibility if needed, but get_price is smarter
 get_adj_close = get_price
-
-# Backward compatibility alias for connect if other modules import it directly
-# but they should be refactored. We'll leave a dummy or remove it.
-# We will remove it to force errors if we missed something.
