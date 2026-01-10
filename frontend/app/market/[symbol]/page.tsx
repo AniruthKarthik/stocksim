@@ -217,7 +217,8 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     const quantity = Number(qty);
     const cost = quantity * nativePrice;
 
-    if (mode === 'BUY' && cost > cash) {
+    // cash is in USD, so we convert it to the selected currency for comparison
+    if (mode === 'BUY' && cost > convert(cash)) {
       setError(`Insufficient funds.`);
       setBuying(false);
       return;

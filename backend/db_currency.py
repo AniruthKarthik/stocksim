@@ -194,5 +194,6 @@ def get_rate(code: str):
     
     # Fallback to hardcoded rates
     rate = FALLBACK_RATES.get(code, 1.0)
+    if rate <= 0: rate = 1.0 # Safety net
     print(f"DEBUG: Using fallback rate for {code}: {rate}")
     return rate

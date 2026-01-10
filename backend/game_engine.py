@@ -52,7 +52,12 @@ def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_sal
             
             # Initialize portfolio cash to the specified initial_cash (now in USD)
             print(f"DEBUG: Updating portfolio {portfolio_id} balance to {usd_cash}")
-            cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (usd_cash, portfolio_id))
+            cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (float(usd_cash), portfolio_id))
+            
+            if cur.rowcount == 0:
+                print(f"ERROR: Portfolio {portfolio_id} not found when updating cash!")
+                conn.rollback()
+                return {"error": "Portfolio not found"}
 
             conn.commit()
             return {"session_id": session_id, "start_date": start_date, "sim_date": start_date}
@@ -126,6 +131,10 @@ def update_monthly_investment(portfolio_id: int, new_amount: float):
                 SET monthly_salary = %s
                 WHERE portfolio_id = %s AND is_active = TRUE
             """, (new_amount, portfolio_id))
+            
+            if cur.rowcount == 0:
+                return {"error": "No active session found for this portfolio"}
+                
             conn.commit()
             return {"status": "success", "new_amount": new_amount}
     except Exception as e:
