@@ -264,7 +264,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                    View Portfolio
                  </Button>
                  <button 
-                   onClick={() => { setSuccess(false); setQty(''); }}
+                   onClick={() => { setSuccess(false); setQty(''); fetchSession(); }}
                    className="text-xs text-gray-400 hover:text-gray-600 underline"
                  >
                    Buy more {symbol}
