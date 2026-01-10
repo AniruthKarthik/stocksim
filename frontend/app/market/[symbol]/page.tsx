@@ -210,44 +210,46 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         <ArrowLeft className="h-4 w-4 mr-2" /> Back to Market
       </Button>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="flex items-baseline justify-between">
-            <h1 className="text-3xl font-bold text-gray-900">
-              {symbol}
-              {(symbol === 'GOLD' || symbol === 'SILVER') && (
-                <span className="ml-3 text-xs font-normal text-amber-600 bg-amber-50 px-2 py-1 rounded-md border border-amber-100 uppercase tracking-wider">
-                  Price per American Troy Ounce
-                </span>
-              )}
-            </h1>
-            <div className="text-right">
-               <p className="text-sm text-gray-500">Current Price</p>
-               <p className="text-3xl font-bold text-gray-900">
-                 {currentPrice ? format(currentPrice) : '---'}
-               </p>
-               {simDate && (
-                 <p className="text-xs font-medium text-gray-400 mt-1 flex items-center justify-end gap-1">
-                   <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                   {simDate}
-                 </p>
-               )}
-            </div>
-          </div>
+      <div className="flex items-baseline justify-between mb-6">
+        <h1 className="text-3xl font-bold text-gray-900">
+          {symbol}
+          {(symbol === 'GOLD' || symbol === 'SILVER') && (
+            <span className="ml-3 text-xs font-normal text-amber-600 bg-amber-50 px-2 py-1 rounded-md border border-amber-100 uppercase tracking-wider">
+              Price per American Troy Ounce
+            </span>
+          )}
+        </h1>
+        <div className="text-right">
+           <p className="text-sm text-gray-500">Current Price</p>
+           <p className="text-3xl font-bold text-gray-900">
+             {currentPrice ? format(currentPrice) : '---'}
+           </p>
+           {simDate && (
+             <p className="text-xs font-medium text-gray-400 mt-1 flex items-center justify-end gap-1">
+               <span className="w-2 h-2 rounded-full bg-green-500"></span>
+               {simDate}
+             </p>
+           )}
+        </div>
+      </div>
 
-          <Card className="p-4 h-[400px]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="lg:col-span-2 flex flex-col">
+          <Card className="p-4 flex-grow flex flex-col h-full">
              {hasMounted && history.length > 0 ? (
-               <Line options={chartOptions} data={chartDataConfig} />
+               <div className="flex-grow relative min-h-[300px]">
+                 <Line options={{...chartOptions, maintainAspectRatio: false}} data={chartDataConfig} />
+               </div>
              ) : (
-               <div className="h-full flex items-center justify-center text-gray-400">
+               <div className="h-full flex items-center justify-center text-gray-400 min-h-[300px]">
                  {!hasMounted ? 'Loading chart...' : 'No price history available.'}
                </div>
              )}
           </Card>
         </div>
 
-        <div className="space-y-6">
-          <Card title="Buy Asset">
+        <div className="flex flex-col">
+          <Card title="Buy Asset" className="flex-grow flex flex-col">
              {success ? (
                <div className="text-center py-6 space-y-4 animate-in fade-in zoom-in duration-300">
                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
@@ -264,7 +266,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                    View Portfolio
                  </Button>
                  <button 
-                   onClick={() => { setSuccess(false); setQty(''); fetchSession(); }}
+                   onClick={() => { setSuccess(false); setQty(''); }}
                    className="text-xs text-gray-400 hover:text-gray-600 underline"
                  >
                    Buy more {symbol}
