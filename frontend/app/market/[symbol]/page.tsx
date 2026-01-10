@@ -291,7 +291,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         <div className="text-right">
            <p className="text-sm text-gray-500">Current Price</p>
            <div className="flex justify-end">
-             {currentPrice ? <FormattedMoney value={nativePrice} className="text-3xl font-bold text-gray-900" expanded /> : <span className="text-3xl font-bold text-gray-900">---</span>}
+             {currentPrice ? <FormattedMoney value={currentPrice} className="text-3xl font-bold text-gray-900" expanded /> : <span className="text-3xl font-bold text-gray-900">---</span>}
            </div>
            {simDate && (
              <p className="text-xs font-medium text-gray-400 mt-1 flex items-center justify-end gap-1">
@@ -384,7 +384,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                         <div className="flex justify-between text-sm py-2 border-t border-gray-100">
                           <span className="text-gray-500">{mode === 'BUY' ? 'Estimated Cost' : 'Estimated Value'}</span>
                           <span className="font-bold text-gray-900">
-                            <FormattedMoney value={Number(qty) * nativePrice} expanded />
+                            <FormattedMoney value={Number(qty) * currentPrice} expanded />
                           </span>
                         </div>
                       )}

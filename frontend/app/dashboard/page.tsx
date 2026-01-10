@@ -224,13 +224,14 @@ export default function Dashboard() {
 
   const handleUpdateBudget = async () => {
     const pid = localStorage.getItem('stocksim_portfolio_id');
+    const { selectedCurrency } = useCurrency();
     if (!data || !newBudget || !pid) return;
     
     setUpdating(true);
     try {
         await api.post('/simulation/update_budget', {
             portfolio_id: Number(pid),
-            monthly_investment: Number(newBudget)
+            monthly_investment: Number(newBudget) / (selectedCurrency.rate || 1)
         });
         await fetchStatus();
         setIsEditingBudget(false);

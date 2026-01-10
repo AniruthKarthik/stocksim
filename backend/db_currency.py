@@ -140,12 +140,27 @@ def get_all_rates():
                 ORDER BY c.code
             """)
             rows = cur.fetchall()
-            return [
-                {"code": r[0], "name": r[1], "symbol": r[2], "rate": float(r[3])} 
-                for r in rows
-            ]
+            res = []
+            for r in rows:
+                code, name, symbol, rate = r
+                if rate == 0:
+                    rate = FALLBACK_RATES.get(code, 1.0)
+                res.append({"code": code, "name": name, "symbol": symbol, "rate": float(rate)})
+            return res
     except Exception:
-        return []
+        # Fallback for the whole list
+        return [
+            {"code": code, "name": name, "symbol": symbol, "rate": FALLBACK_RATES.get(code, 1.0)}
+            for code, name, symbol in [
+                ('USD', 'United States Dollar', '$'),
+                ('INR', 'Indian Rupee', '₹'),
+                ('EUR', 'Euro', '€'),
+                ('GBP', 'British Pound', '£'),
+                ('JPY', 'Japanese Yen', '¥'),
+                ('CAD', 'Canadian Dollar', 'C$'),
+                ('AUD', 'Australian Dollar', 'A$')
+            ]
+        ]
 
 # Hardcoded fallback rates (Amount per 1 USD)
 # Used if Yahoo Finance is unreachable or DB is empty.
@@ -163,7 +178,7 @@ def get_rate(code: str):
     """
     Returns the rate for a specific currency code (units per 1 USD).
     """
-    if code == 'USD': return 1.0
+    if not code or code == 'USD': return 1.0
     
     update_rates_if_needed()
     try:
@@ -171,7 +186,7 @@ def get_rate(code: str):
             cur = conn.cursor()
             cur.execute("SELECT rate FROM exchange_rates WHERE currency_code = %s", (code,))
             row = cur.fetchone()
-            if row:
+            if row and float(row[0]) > 0:
                 return float(row[0])
     except Exception as e:
         print(f"DEBUG: Failed to get rate from DB for {code}: {e}")

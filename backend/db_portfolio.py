@@ -105,16 +105,11 @@ def add_transaction(portfolio_id: int, symbol: str, txn_type: str, quantity: flo
                 return {"error": "Portfolio not found"}
             
             cash_balance = float(row[0])
-            currency_code = row[1]
-            
-            # Convert total_cost (USD) to portfolio currency
-            rate = get_rate(currency_code)
-            cost_in_port_currency = total_cost * rate
             
             if txn_type == "BUY":
-                if cash_balance < cost_in_port_currency:
-                    return {"error": f"Insufficient funds. Required: {cost_in_port_currency} {currency_code}, Available: {cash_balance} {currency_code}"}
-                new_balance = cash_balance - cost_in_port_currency
+                if cash_balance < total_cost:
+                    return {"error": f"Insufficient funds. Required: ${total_cost:.2f}, Available: ${cash_balance:.2f}"}
+                new_balance = cash_balance - total_cost
             
             elif txn_type == "SELL":
                 # We need to verify holdings outside the transaction block or calculate it here
@@ -133,7 +128,7 @@ def add_transaction(portfolio_id: int, symbol: str, txn_type: str, quantity: flo
                 if current_qty < quantity:
                     return {"error": f"Insufficient holdings. Owned: {current_qty}, Selling: {quantity}"}
                     
-                new_balance = cash_balance + cost_in_port_currency
+                new_balance = cash_balance + total_cost
             else:
                 return {"error": "Invalid transaction type"}
 
@@ -169,7 +164,7 @@ def get_portfolio_value(portfolio_id: int, date: str):
         with get_db_connection() as conn:
             cur = conn.cursor()
             
-            # 1. Get Actual Current Cash Balance (Already in Native Currency)
+            # 1. Get Actual Current Cash Balance (Native)
             cur.execute("SELECT cash_balance, currency_code FROM portfolios WHERE id = %s", (portfolio_id,))
             row = cur.fetchone()
             if not row: return None
@@ -177,8 +172,8 @@ def get_portfolio_value(portfolio_id: int, date: str):
             raw_cash = float(row[0])
             currency_code = row[1]
             
-            # Get exchange rate (1 USD = X Native Currency)
-            rate = get_rate(currency_code)
+            # Cash is now stored in USD
+            cash_usd = raw_cash
 
             # 2. Get Transactions with asset_id
             cur.execute("""
@@ -233,9 +228,9 @@ def get_portfolio_value(portfolio_id: int, date: str):
                 for row in cur.fetchall():
                     price_map_usd[row[0]] = float(row[1])
 
-            # 4. Calculate final values (Convert USD -> Native)
-            total_assets_value_native = 0.0
-            total_invested_value_native = 0.0
+            # 4. Calculate final values (Keep in USD)
+            total_assets_value_usd = 0.0
+            total_invested_value_usd = 0.0
             missing_prices = []
             detailed_holdings = []
             
@@ -243,10 +238,9 @@ def get_portfolio_value(portfolio_id: int, date: str):
                 if qty > 0:
                     sym = symbol_map[aid]
                     
-                    # Invested (USD -> Native)
+                    # Invested (USD)
                     invested_usd = cost_basis_usd.get(aid, 0.0)
-                    invested_native = invested_usd * rate
-                    total_invested_value_native += invested_native
+                    total_invested_value_usd += invested_usd
                     
                     # Current Price (USD)
                     p_usd = price_map_usd.get(aid)
@@ -255,20 +249,17 @@ def get_portfolio_value(portfolio_id: int, date: str):
                          p_usd = get_price(sym, date)
 
                     if p_usd:
-                        # Convert to Native
-                        p_native = p_usd * rate
-                        val_native = qty * p_native
-                        
-                        total_assets_value_native += val_native
+                        val_usd = qty * p_usd
+                        total_assets_value_usd += val_usd
                         
                         detailed_holdings.append({
                             "symbol": sym,
                             "quantity": qty,
-                            "price": p_native,
-                            "value": val_native,
-                            "invested": invested_native,
-                            "pnl": val_native - invested_native,
-                            "pnl_percent": ((val_native - invested_native) / invested_native * 100) if invested_native > 0 else 0
+                            "price": p_usd,
+                            "value": val_usd,
+                            "invested": invested_usd,
+                            "pnl": val_usd - invested_usd,
+                            "pnl_percent": ((val_usd - invested_usd) / invested_usd * 100) if invested_usd > 0 else 0
                         })
                     else:
                         missing_prices.append(sym)
@@ -277,17 +268,17 @@ def get_portfolio_value(portfolio_id: int, date: str):
                             "quantity": qty,
                             "price": 0.0,
                             "value": 0.0,
-                            "invested": invested_native,
-                            "pnl": -invested_native,
+                            "invested": invested_usd,
+                            "pnl": -invested_usd,
                             "pnl_percent": -100.0
                         })
             
             return {
                 "date": date,
-                "cash": raw_cash, # Native
-                "assets_value": total_assets_value_native,
-                "invested_value": total_invested_value_native,
-                "total_value": raw_cash + total_assets_value_native,
+                "cash": cash_usd,
+                "assets_value": total_assets_value_usd,
+                "invested_value": total_invested_value_usd,
+                "total_value": cash_usd + total_assets_value_usd,
                 "holdings": detailed_holdings,
                 "missing_prices": missing_prices
             }

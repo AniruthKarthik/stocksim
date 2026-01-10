@@ -20,8 +20,11 @@ export default function FormattedMoney({
   expanded = false,
   compactThreshold = 0
 }: FormattedMoneyProps) {
-  const { selectedCurrency } = useCurrency();
+  const { selectedCurrency, convert } = useCurrency();
   const [isHovered, setIsHovered] = useState(false);
+
+  // Convert USD value to selected currency
+  const convertedValue = convert(value);
 
   // Determine color based on value if 'colored' is true
   const colorClass = colored 
@@ -34,24 +37,24 @@ export default function FormattedMoney({
     currency: selectedCurrency.code,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  }).format(value);
+  }).format(convertedValue);
 
   // Determine if we should use compact notation
-  const shouldCompact = !expanded && Math.abs(value) >= compactThreshold;
+  const shouldCompact = !expanded && Math.abs(convertedValue) >= compactThreshold;
 
   let displayValue = fullValue;
 
   if (shouldCompact) {
       // Custom formatter for INR to ensure K, L, Cr
       if (selectedCurrency.code === 'INR') {
-        if (value >= 10000000) {
-          displayValue = `₹${(value / 10000000).toFixed(2)}Cr`;
-        } else if (value >= 100000) {
-          displayValue = `₹${(value / 100000).toFixed(2)}L`;
-        } else if (value >= 1000) {
-          displayValue = `₹${(value / 1000).toFixed(2)}k`;
+        if (convertedValue >= 10000000) {
+          displayValue = `₹${(convertedValue / 10000000).toFixed(2)}Cr`;
+        } else if (convertedValue >= 100000) {
+          displayValue = `₹${(convertedValue / 100000).toFixed(2)}L`;
+        } else if (convertedValue >= 1000) {
+          displayValue = `₹${(convertedValue / 1000).toFixed(2)}k`;
         } else {
-          displayValue = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(value);
+          displayValue = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(convertedValue);
         }
       } else {
         displayValue = new Intl.NumberFormat('en-US', {
@@ -60,7 +63,7 @@ export default function FormattedMoney({
           notation: 'compact',
           compactDisplay: 'short',
           maximumFractionDigits: 2,
-        }).format(value);
+        }).format(convertedValue);
       }
   }
 

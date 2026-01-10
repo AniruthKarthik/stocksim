@@ -145,9 +145,9 @@ export default function StartPage() {
         user_id: userId,
         portfolio_id: portfolioId,
         start_date: dateToSubmit,
-        monthly_salary: cleanNum(formData.monthlyInvestment),
+        monthly_salary: cleanNum(formData.monthlyInvestment) / (selectedCurrency.rate || 1),
         monthly_expenses: 0,
-        initial_cash: cleanNum(formData.investment)
+        initial_cash: cleanNum(formData.investment) / (selectedCurrency.rate || 1)
       });
 
       localStorage.setItem('stocksim_portfolio_id', portfolioId.toString());
