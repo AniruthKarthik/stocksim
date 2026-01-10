@@ -1,0 +1,96 @@
+SET search_path = public;
+
+-- 1. Create assets table (Base for transactions)
+CREATE TABLE IF NOT EXISTS public.assets (
+    id SERIAL PRIMARY KEY,
+    symbol text NOT NULL UNIQUE,
+    name text,
+    type text,
+    currency text DEFAULT 'usd'::text
+);
+
+-- 2. Create prices table
+CREATE TABLE IF NOT EXISTS public.prices (
+    id SERIAL PRIMARY KEY,
+    asset_id integer NOT NULL,
+    date date NOT NULL,
+    close numeric,
+    adj_close numeric,
+    volume bigint,
+    CONSTRAINT prices_assetid_date_key UNIQUE (asset_id, date),
+    CONSTRAINT prices_assetid_fkey FOREIGN KEY (asset_id) REFERENCES public.assets(id) ON DELETE CASCADE
+);
+
+-- 3. Users table
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username TEXT UNIQUE NOT NULL
+);
+
+-- 4. Portfolios table
+CREATE TABLE IF NOT EXISTS portfolios (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    currency_code TEXT DEFAULT 'USD',
+    cash_balance NUMERIC DEFAULT 10000.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(user_id, name)
+);
+
+-- 5. Transactions table (Depends on portfolios and assets)
+CREATE TABLE IF NOT EXISTS transactions (
+    id SERIAL PRIMARY KEY,
+    portfolio_id INTEGER REFERENCES portfolios(id) ON DELETE CASCADE,
+    asset_id INTEGER REFERENCES assets(id),
+    type TEXT CHECK (type IN ('BUY', 'SELL')),
+    symbol TEXT NOT NULL,
+    quantity NUMERIC NOT NULL,
+    price_per_unit NUMERIC NOT NULL,
+    date DATE NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 6. Game Sessions table
+CREATE TABLE IF NOT EXISTS game_sessions (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    portfolio_id INTEGER REFERENCES portfolios(id) ON DELETE CASCADE,
+    start_date DATE NOT NULL,
+    sim_date DATE NOT NULL,
+    monthly_salary NUMERIC DEFAULT 0,
+    monthly_expenses NUMERIC DEFAULT 0,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 7. Currencies table
+CREATE TABLE IF NOT EXISTS currencies (
+    code TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    symbol TEXT NOT NULL
+);
+
+-- 8. Exchange Rates table
+CREATE TABLE IF NOT EXISTS exchange_rates (
+    currency_code TEXT REFERENCES currencies(code) ON DELETE CASCADE,
+    rate NUMERIC NOT NULL,
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (currency_code)
+);
+
+-- 9. Insert default currencies
+INSERT INTO currencies (code, name, symbol) VALUES
+('USD', 'United States Dollar', '$'),
+('EUR', 'Euro', '€'),
+('GBP', 'British Pound', '£'),
+('JPY', 'Japanese Yen', '¥'),
+('CAD', 'Canadian Dollar', 'C$'),
+('AUD', 'Australian Dollar', 'A$'),
+('INR', 'Indian Rupee', '₹')
+ON CONFLICT DO NOTHING;
+
+-- 10. Insert default USD rate
+INSERT INTO exchange_rates (currency_code, rate, last_updated) VALUES
+('USD', 1.0, CURRENT_TIMESTAMP)
+ON CONFLICT (currency_code) DO UPDATE SET rate = 1.0;
