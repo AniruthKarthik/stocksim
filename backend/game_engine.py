@@ -97,6 +97,23 @@ def list_sessions(user_id: int):
     except Exception:
         return []
 
+def update_monthly_investment(portfolio_id: int, new_amount: float):
+    """
+    Updates the monthly salary/investment for the active session of a portfolio.
+    """
+    try:
+        with get_db_connection() as conn:
+            cur = conn.cursor()
+            cur.execute("""
+                UPDATE game_sessions
+                SET monthly_salary = %s
+                WHERE portfolio_id = %s AND is_active = TRUE
+            """, (new_amount, portfolio_id))
+            conn.commit()
+            return {"status": "success", "new_amount": new_amount}
+    except Exception as e:
+        return {"error": str(e)}
+
 def advance_time(portfolio_id: int, target_date: str):
     """
     Moves the simulation forward to target_date.

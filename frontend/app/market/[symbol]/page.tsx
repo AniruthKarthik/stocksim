@@ -170,16 +170,18 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     ],
   };
 
+  const nativePrice = currentPrice ? convert(currentPrice) : 0;
+
   const handleBuy = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setBuying(true);
 
     const pid = localStorage.getItem('stocksim_portfolio_id');
-    const cost = Number(qty) * (currentPrice || 0);
+    const cost = Number(qty) * nativePrice;
 
     if (cost > cash) {
-      setError(`Insufficient funds. You need ${format(cost)}.`);
+      setError(`Insufficient funds.`);
       setBuying(false);
       return;
     }
@@ -223,7 +225,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         <div className="text-right">
            <p className="text-sm text-gray-500">Current Price</p>
            <div className="flex justify-end">
-             {currentPrice ? <FormattedMoney value={currentPrice} className="text-3xl font-bold text-gray-900" /> : <span className="text-3xl font-bold text-gray-900">---</span>}
+             {currentPrice ? <FormattedMoney value={nativePrice} className="text-3xl font-bold text-gray-900" expanded /> : <span className="text-3xl font-bold text-gray-900">---</span>}
            </div>
            {simDate && (
              <p className="text-xs font-medium text-gray-400 mt-1 flex items-center justify-end gap-1">
@@ -278,7 +280,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                  <div>
                     <div className="bg-green-50 p-3 rounded-lg flex items-center justify-between text-green-800 text-sm font-medium mb-6">
                       <span>Available Cash</span>
-                      <FormattedMoney value={cash} />
+                      <FormattedMoney value={cash} expanded />
                     </div>
 
                     <form onSubmit={handleBuy} className="space-y-4">
@@ -297,7 +299,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                         <div className="flex justify-between text-sm py-2 border-t border-gray-100 mt-2">
                           <span className="text-gray-500">Estimated Cost</span>
                           <span className="font-bold text-gray-900">
-                            <FormattedMoney value={Number(qty) * currentPrice} />
+                            <FormattedMoney value={Number(qty) * nativePrice} expanded />
                           </span>
                         </div>
                       )}

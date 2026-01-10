@@ -24,6 +24,7 @@ export default function StartPage() {
   const [formData, setFormData] = useState({
     startDate: '2000-10-10',
     investment: '20000',
+    monthlyInvestment: '0',
   });
   const [loading, setLoading] = useState(false);
   const prevCurrencyRef = useRef(selectedCurrency.code);
@@ -36,12 +37,18 @@ export default function StartPage() {
 
       if (prevCurrency && prevCurrency.rate && selectedCurrency.rate) {
         setFormData(prev => {
-          const val = parseFloat(prev.investment);
-          if (isNaN(val)) return prev;
+          const convert = (valStr: string) => {
+            const val = parseFloat(valStr);
+            if (isNaN(val)) return valStr;
+            const newVal = val * (selectedCurrency.rate / prevCurrency.rate);
+            return (Math.round(newVal * 100) / 100).toString();
+          };
 
-          const newVal = val * (selectedCurrency.rate / prevCurrency.rate);
-          const rounded = Math.round(newVal * 100) / 100;
-          return { ...prev, investment: rounded.toString() };
+          return { 
+            ...prev, 
+            investment: convert(prev.investment),
+            monthlyInvestment: convert(prev.monthlyInvestment)
+          };
         });
       }
     }
@@ -128,7 +135,7 @@ export default function StartPage() {
         user_id: userId,
         portfolio_id: portfolioId,
         start_date: dateToSubmit,
-        monthly_salary: 0,
+        monthly_salary: Number(formData.monthlyInvestment),
         monthly_expenses: 0,
         initial_cash: Number(formData.investment)
       });
@@ -205,6 +212,16 @@ export default function StartPage() {
                       placeholder="20000"
                       icon={<span className="text-xs font-bold">{selectedCurrency.symbol}</span>}
                       required
+                    />
+
+                    <Input 
+                      label={`Monthly Contribution (${selectedCurrency.code})`}
+                      type="number" 
+                      min="0"
+                      value={formData.monthlyInvestment}
+                      onChange={(e) => setFormData({...formData, monthlyInvestment: e.target.value})}
+                      placeholder="5000"
+                      icon={<span className="text-xs font-bold">{selectedCurrency.symbol}</span>}
                     />
                   </div>
 

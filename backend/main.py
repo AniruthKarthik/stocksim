@@ -60,6 +60,10 @@ class ForwardSimRequest(BaseModel):
     portfolio_id: int
     target_date: str # YYYY-MM-DD
 
+class UpdateBudgetRequest(BaseModel):
+    portfolio_id: int
+    monthly_investment: float
+
 # --- Routes ---
 
 @app.get("/")
@@ -205,6 +209,13 @@ def start_simulation(req: StartSimRequest):
 @app.post("/simulation/forward")
 def advance_simulation(req: ForwardSimRequest):
     result = game_engine.advance_time(req.portfolio_id, req.target_date)
+    if "error" in result:
+        raise HTTPException(status_code=400, detail=result["error"])
+    return result
+
+@app.post("/simulation/update_budget")
+def update_budget(req: UpdateBudgetRequest):
+    result = game_engine.update_monthly_investment(req.portfolio_id, req.monthly_investment)
     if "error" in result:
         raise HTTPException(status_code=400, detail=result["error"])
     return result

@@ -8,9 +8,18 @@ interface FormattedMoneyProps {
   className?: string;
   prefix?: string;
   colored?: boolean;
+  expanded?: boolean;
+  compactThreshold?: number;
 }
 
-export default function FormattedMoney({ value, className = '', prefix = '', colored = false }: FormattedMoneyProps) {
+export default function FormattedMoney({
+  value,
+  className = '',
+  prefix = '',
+  colored = false,
+  expanded = false,
+  compactThreshold = 0
+}: FormattedMoneyProps) {
   const { selectedCurrency } = useCurrency();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -27,26 +36,32 @@ export default function FormattedMoney({ value, className = '', prefix = '', col
     maximumFractionDigits: 2,
   }).format(value);
 
-  // Custom formatter for INR to ensure K, L, Cr
-  let compactValue;
-  if (selectedCurrency.code === 'INR') {
-    if (value >= 10000000) {
-      compactValue = `₹${(value / 10000000).toFixed(2)}Cr`;
-    } else if (value >= 100000) {
-      compactValue = `₹${(value / 100000).toFixed(2)}L`;
-    } else if (value >= 1000) {
-      compactValue = `₹${(value / 1000).toFixed(2)}k`;
-    } else {
-      compactValue = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(value);
-    }
-  } else {
-    compactValue = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: selectedCurrency.code,
-      notation: 'compact',
-      compactDisplay: 'short',
-      maximumFractionDigits: 2,
-    }).format(value);
+  // Determine if we should use compact notation
+  const shouldCompact = !expanded && Math.abs(value) >= compactThreshold;
+
+  let displayValue = fullValue;
+
+  if (shouldCompact) {
+      // Custom formatter for INR to ensure K, L, Cr
+      if (selectedCurrency.code === 'INR') {
+        if (value >= 10000000) {
+          displayValue = `₹${(value / 10000000).toFixed(2)}Cr`;
+        } else if (value >= 100000) {
+          displayValue = `₹${(value / 100000).toFixed(2)}L`;
+        } else if (value >= 1000) {
+          displayValue = `₹${(value / 1000).toFixed(2)}k`;
+        } else {
+          displayValue = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(value);
+        }
+      } else {
+        displayValue = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: selectedCurrency.code,
+          notation: 'compact',
+          compactDisplay: 'short',
+          maximumFractionDigits: 2,
+        }).format(value);
+      }
   }
 
   return (
@@ -55,20 +70,22 @@ export default function FormattedMoney({ value, className = '', prefix = '', col
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <span className="cursor-help border-b border-dotted border-gray-300/50">
-        {prefix}{compactValue}
+      <span className={shouldCompact ? "cursor-help border-b border-dotted border-gray-300/50" : ""}>
+        {prefix}{displayValue}
       </span>
       
-      {/* Reveal Tooltip */}
-      <div className={`
-        absolute bottom-full mb-2 right-0 z-50 whitespace-nowrap
-        bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl
-        transition-all duration-200 origin-bottom-right
-        ${isHovered ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-2 pointer-events-none'}
-      `}>
-        {fullValue}
-        <div className="absolute -bottom-1 right-4 w-2 h-2 bg-gray-900 rotate-45"></div>
-      </div>
+      {/* Reveal Tooltip (Only if compacted) */}
+      {shouldCompact && (
+        <div className={`
+          absolute bottom-full mb-2 right-0 z-50 whitespace-nowrap
+          bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl
+          transition-all duration-200 origin-bottom-right
+          ${isHovered ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-2 pointer-events-none'}
+        `}>
+          {fullValue}
+          <div className="absolute -bottom-1 right-4 w-2 h-2 bg-gray-900 rotate-45"></div>
+        </div>
+      )}
     </div>
   );
 }

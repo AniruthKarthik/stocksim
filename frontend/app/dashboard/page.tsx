@@ -32,6 +32,7 @@ interface DashboardData {
   session: {
     sim_date: string;
     portfolio_id: number;
+    monthly_salary: number;
   };
   portfolio_value: {
     cash: number;
@@ -63,6 +64,9 @@ export default function Dashboard() {
   const [customDate, setCustomDate] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
   const [loadingText, setLoadingText] = useState('Loading your finances...');
+  
+  const [isEditingBudget, setIsEditingBudget] = useState(false);
+  const [newBudget, setNewBudget] = useState('');
 
   useEffect(() => {
     setHasMounted(true);
@@ -213,6 +217,27 @@ export default function Dashboard() {
       setErrorMsg(msg);
     } finally {
       setUpdating(false);
+    }
+  };
+
+  const handleUpdateBudget = async () => {
+    const pid = localStorage.getItem('stocksim_portfolio_id');
+    if (!data || !newBudget || !pid) return;
+    
+    setUpdating(true);
+    try {
+        await api.post('/simulation/update_budget', {
+            portfolio_id: Number(pid),
+            monthly_investment: Number(newBudget)
+        });
+        await fetchStatus();
+        setIsEditingBudget(false);
+        setNewBudget('');
+    } catch (e: any) {
+        console.error(e);
+        setErrorMsg("Failed to update budget");
+    } finally {
+        setUpdating(false);
     }
   };
 
@@ -375,14 +400,14 @@ export default function Dashboard() {
                              {format(h.price)}
                            </td>
                            <td className="px-6 py-4 text-gray-900 text-right font-medium">
-                             <FormattedMoney value={h.invested} />
+                             <FormattedMoney value={h.invested} compactThreshold={10000000} />
                            </td>
                            <td className="px-6 py-4 font-bold text-gray-900 text-right">
-                             <FormattedMoney value={h.value} />
+                             <FormattedMoney value={h.value} compactThreshold={10000000} />
                            </td>
                            <td className={`px-6 py-4 font-bold text-right ${pnlColor}`}>
                              <div className="flex justify-end">
-                               <FormattedMoney value={h.pnl} colored prefix={isProfit ? "+" : ""} />
+                               <FormattedMoney value={h.pnl} colored prefix={isProfit ? "+" : ""} compactThreshold={10000000} />
                              </div>
                              <div className="text-xs opacity-80">({isProfit ? "+" : ""}{h.pnl_percent.toFixed(2)}%)</div>
                            </td>
@@ -422,17 +447,39 @@ export default function Dashboard() {
         </div>
 
         <div className="space-y-6">
-           <h2 className="text-xl font-bold text-gray-800 flex items-center gap-2">
-             <PieChartIcon className="h-5 w-5 text-gray-500" />
-             Allocation
-           </h2>
-           
-           <Card className="aspect-square flex items-center justify-center" noPadding>
-             {hasMounted && pieChartData.labels.length > 0 ? (
-               <Pie options={pieOptions} data={pieChartData} />
-             ) : (
-               <span className="text-gray-400 text-sm">{!hasMounted ? 'Loading chart...' : 'No assets to display'}</span>
-             )}
+           <h2 className="text-xl font-bold text-gray-800 mt-8">Simulation Settings</h2>
+           <Card className="bg-white">
+             <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-500">Monthly Contribution</span>
+                    {!isEditingBudget && (
+                        <button onClick={() => { setIsEditingBudget(true); setNewBudget(data.session.monthly_salary.toString()); }} className="text-xs text-primary font-bold hover:underline">
+                            Edit
+                        </button>
+                    )}
+                </div>
+                
+                {isEditingBudget ? (
+                    <div className="flex gap-2">
+                        <input 
+                            type="number" 
+                            className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
+                            value={newBudget}
+                            onChange={(e) => setNewBudget(e.target.value)}
+                            placeholder="Amount"
+                        />
+                        <Button size="sm" onClick={handleUpdateBudget} isLoading={updating}>Save</Button>
+                        <Button size="sm" variant="secondary" onClick={() => setIsEditingBudget(false)}>Cancel</Button>
+                    </div>
+                ) : (
+                    <div className="text-2xl font-bold text-gray-900">
+                        <FormattedMoney value={data.session.monthly_salary} />
+                    </div>
+                )}
+                <p className="text-xs text-gray-400">
+                    Added to your wallet automatically every month.
+                </p>
+             </div>
            </Card>
 
            <h2 className="text-xl font-bold text-gray-800 mt-8">Time Travel</h2>
