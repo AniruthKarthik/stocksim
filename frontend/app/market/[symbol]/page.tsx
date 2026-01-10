@@ -123,10 +123,63 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     init();
   }, [symbol]);
 
-  // ... (chartOptions, chartDataConfig remain same) ... 
-  
-  // NOTE: I will reuse the existing chartOptions and chartDataConfig variables in the full file context, 
-  // but for this replacement I am focusing on the logic and render.
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        mode: 'index' as const,
+        intersect: false,
+        callbacks: {
+          label: (context: any) => format(context.parsed.y)
+        }
+      },
+    },
+    scales: {
+      x: {
+        display: true,
+        grid: { display: false },
+        ticks: {
+          maxTicksLimit: 8,
+          autoSkip: true,
+          callback: function(val: any, index: number) {
+            const label = (this as any).getLabelForValue(val);
+            return typeof label === 'string' ? label.split('-')[0] : label;
+          }
+        }
+      },
+      y: {
+        display: true,
+        grid: { color: '#f3f4f6' },
+        ticks: {
+          callback: (val: any) => selectedCurrency.symbol + val.toLocaleString()
+        }
+      },
+    },
+    elements: {
+      point: { radius: 0 },
+      line: { tension: 0.1 }
+    },
+    interaction: {
+      intersect: false,
+      axis: 'x' as const,
+    },
+  };
+
+  const chartDataConfig = {
+    labels: history.map(d => d.date),
+    datasets: [
+      {
+        fill: true,
+        label: 'Price',
+        data: history.map(d => convert(d.price)),
+        borderColor: '#00C853',
+        backgroundColor: 'rgba(0, 200, 83, 0.1)',
+        borderWidth: 2,
+      },
+    ],
+  };
   
   const nativePrice = currentPrice ? convert(currentPrice) : 0;
 
