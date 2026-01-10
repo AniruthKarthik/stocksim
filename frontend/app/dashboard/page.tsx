@@ -415,7 +415,7 @@ export default function Dashboard() {
              Allocation
            </h2>
            
-           <Card className="h-[450px] flex items-center justify-center p-4">
+           <Card className="h-[450px] flex items-center justify-center" noPadding>
              {hasMounted && pieChartData.labels.length > 0 ? (
                <Pie options={pieOptions} data={pieChartData} />
              ) : (

@@ -4,9 +4,10 @@ interface CardProps {
   children: React.ReactNode;
   className?: string;
   title?: string;
+  noPadding?: boolean;
 }
 
-export default function Card({ children, className = '', title }: CardProps) {
+export default function Card({ children, className = '', title, noPadding = false }: CardProps) {
   return (
     <div className={`bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden ${className}`}>
       {title && (
@@ -14,7 +15,7 @@ export default function Card({ children, className = '', title }: CardProps) {
           <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
         </div>
       )}
-      <div className="p-6">
+      <div className={noPadding ? "" : "p-6"}>
         {children}
       </div>
     </div>
