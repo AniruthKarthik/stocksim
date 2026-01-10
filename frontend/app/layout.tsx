@@ -23,7 +23,7 @@ export default function RootLayout({
       >
         <CurrencyProvider>
           <Navbar />
-          <main>
+          <main className="max-w-[80%] mx-auto w-full px-4 py-8">
             {children}
           </main>
         </CurrencyProvider>

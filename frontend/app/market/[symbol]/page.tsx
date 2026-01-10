@@ -205,7 +205,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   if (loading) return <div className="text-center py-20 text-gray-500">{loadingText}</div>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <div className="space-y-6">
       <Button variant="outline" size="sm" onClick={() => router.back()}>
         <ArrowLeft className="h-4 w-4 mr-2" /> Back to Market
       </Button>

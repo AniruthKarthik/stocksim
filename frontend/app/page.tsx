@@ -146,7 +146,6 @@ export default function StartPage() {
   };
 
     return (
-      <div className="max-w-[80%] mx-auto px-4 py-8">
         <div className="min-h-[80vh] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-8">
           {/* ... existing content ... */}
           {/* (I will just replace the opening part as per the provided diff) */}
@@ -342,7 +341,6 @@ export default function StartPage() {
           </div>
 
         </div>
-      </div>
     </div>
   );
 }
