@@ -98,19 +98,23 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   const [dataMissing, setDataMissing] = useState(false);
 
   useEffect(() => {
+    const fetchDetails = async () => {
+      try {
+        const res = await api.get(`/assets/${symbol}`);
+        setAssetDetails(res.data);
+      } catch (e) {
+        console.warn("Could not fetch asset details", e);
+      }
+    };
+    fetchDetails();
+  }, [symbol]);
+
+  useEffect(() => {
     const init = async () => {
       const date = await fetchSession();
       if (!date) return;
 
       try {
-        // Fetch Asset Details (Full name)
-        try {
-            const detailsRes = await api.get(`/assets/${symbol}`);
-            setAssetDetails(detailsRes.data);
-        } catch (e) {
-            console.warn("Could not fetch asset details", e);
-        }
-
         const histRes = await api.get('/price/history', { params: { symbol, end_date: date } });
         const histData = histRes.data;
         setHistory(histData);
@@ -338,9 +342,9 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                  </button>
                </div>
              ) : (
-               <div className="space-y-4 flex flex-col pt-6 px-6 pb-0">
-                 <div>
-                    <div className="flex bg-gray-100 p-1 rounded-lg mb-6">
+               <div className="flex flex-col h-full">
+                 <div className="p-6 pb-0 space-y-6">
+                    <div className="flex bg-gray-100 p-1 rounded-lg">
                         <button 
                             className={`flex-1 py-2 text-sm font-bold rounded-md transition-all ${mode === 'BUY' ? 'bg-white text-green-700 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
                             onClick={() => setMode('BUY')}
@@ -355,7 +359,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                         </button>
                     </div>
 
-                    <div className={`${mode === 'BUY' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'} p-3 rounded-lg flex items-center justify-between text-sm font-medium mb-6`}>
+                    <div className={`${mode === 'BUY' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'} p-3 rounded-lg flex items-center justify-between text-sm font-medium`}>
                       <span>{mode === 'BUY' ? 'Available Cash' : 'Available Holdings'}</span>
                       {mode === 'BUY' ? (
                           <FormattedMoney value={cash} expanded />
@@ -377,7 +381,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                       />
                       
                       {qty && currentPrice && (
-                        <div className="flex justify-between text-sm py-2 border-t border-gray-100 mt-2">
+                        <div className="flex justify-between text-sm py-2 border-t border-gray-100">
                           <span className="text-gray-500">{mode === 'BUY' ? 'Estimated Cost' : 'Estimated Value'}</span>
                           <span className="font-bold text-gray-900">
                             <FormattedMoney value={Number(qty) * nativePrice} expanded />
@@ -391,16 +395,19 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                           {error}
                         </div>
                       )}
-                      
-                      <Button 
-                        type="submit" 
-                        className={`w-full mt-4 ${mode === 'SELL' ? 'bg-red-600 hover:bg-red-700' : ''}`}
-                        isLoading={buying}
-                        disabled={!qty || Number(qty) <= 0 || buying}
-                      >
-                        {mode} {symbol}
-                      </Button>
                     </form>
+                 </div>
+                 
+                 <div className="mt-auto">
+                    <Button 
+                      onClick={handleTrade}
+                      type="submit" 
+                      className={`w-full py-6 rounded-none border-0 font-bold text-lg ${mode === 'SELL' ? 'bg-red-600 hover:bg-red-700' : 'bg-gray-900 hover:bg-black'}`}
+                      isLoading={buying}
+                      disabled={!qty || Number(qty) <= 0 || buying}
+                    >
+                      {mode} {symbol}
+                    </Button>
                  </div>
                </div>
              )}

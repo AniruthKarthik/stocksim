@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   Chart as ChartJS,
   ArcElement,
@@ -56,6 +57,7 @@ const COLORS = [
 ];
 
 export default function Dashboard() {
+  const router = useRouter();
   const { format } = useCurrency();
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -388,9 +390,13 @@ export default function Dashboard() {
                        const pnlColor = isProfit ? "text-green-600" : "text-red-600";
                        const avgCost = h.quantity > 0 ? h.invested / h.quantity : 0;
                        return (
-                         <tr key={h.symbol} className="hover:bg-gray-50 transition-colors">
+                         <tr 
+                           key={h.symbol} 
+                           className="hover:bg-gray-50 transition-colors cursor-pointer group"
+                           onClick={() => router.push(`/market/${h.symbol}`)}
+                         >
                            <td className="px-6 py-4">
-                             <div className="font-semibold text-gray-900">{h.symbol}</div>
+                             <div className="font-semibold text-gray-900 group-hover:text-primary transition-colors">{h.symbol}</div>
                              <div className="text-xs text-gray-400">{h.quantity.toFixed(4)} qty</div>
                            </td>
                            <td className="px-6 py-4 text-gray-600 text-right text-sm">

@@ -269,7 +269,6 @@ def reset_system():
                     cur.execute(schema_sql)
                 
                 # Clear all LRU caches to ensure fresh data lookups
-                db_prices.get_all_assets.cache_clear()
                 db_prices.get_price.cache_clear()
                 db_prices.get_asset_start_dates.cache_clear()
                 db_prices.get_assets_metadata.cache_clear()
