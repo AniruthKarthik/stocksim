@@ -177,11 +177,11 @@ export default function StartPage() {
         </div>
 
         {/* Main Interaction Card */}
-        <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start px-4">
+        <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch px-4">
           
           {/* Left: Input Form */}
-          <div className="lg:col-span-5 w-full animate-in slide-in-from-bottom-8 duration-700 delay-100 fade-in">
-            <Card className="shadow-xl shadow-gray-200/50 border-gray-100 bg-white/80 backdrop-blur-lg">
+          <div className="lg:col-span-5 w-full animate-in slide-in-from-bottom-8 duration-700 delay-100 fade-in flex flex-col">
+            <Card className="shadow-xl shadow-gray-200/50 border-gray-100 bg-white/80 backdrop-blur-lg h-full">
               <div className="p-6 md:p-8 space-y-8">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
