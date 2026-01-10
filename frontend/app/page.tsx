@@ -6,6 +6,7 @@ import api from '@/lib/api';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
+import Modal from '@/components/Modal';
 import { useCurrency } from '@/context/CurrencyContext';
 import { 
   Play, 
@@ -15,7 +16,8 @@ import {
   LineChart,
   ArrowUpRight,
   ShieldCheck,
-  Activity
+  Activity,
+  Flame
 } from 'lucide-react';
 
 export default function StartPage() {
@@ -27,6 +29,7 @@ export default function StartPage() {
     monthlyInvestment: '0',
   });
   const [loading, setLoading] = useState(false);
+  const [showWakeupModal, setShowWakeupModal] = useState(false);
   const prevCurrencyRef = useRef(selectedCurrency.code);
 
   // Auto-convert investment amount when currency changes
@@ -118,6 +121,7 @@ export default function StartPage() {
     }
 
     setLoading(true);
+    setShowWakeupModal(true);
     try {
       const username = `trader_${Math.floor(Math.random() * 100000)}`;
       
@@ -147,11 +151,37 @@ export default function StartPage() {
       const msg = error.response?.data?.detail || error.message || "Failed to start simulation. Check backend.";
       alert(`Error: ${msg}`);
       setLoading(false); 
+      setShowWakeupModal(false);
     }
   };
 
   return (
     <div className="flex flex-col min-h-[80vh] relative">
+      <Modal 
+        isOpen={showWakeupModal} 
+        onClose={() => {}} // Non-closable during wakeup
+        title="Heating the servers..."
+      >
+        <div className="space-y-4 py-4">
+          <div className="flex justify-center">
+            <div className="relative">
+              <Flame className="h-12 w-12 text-orange-500 animate-pulse" />
+              <div className="absolute inset-0 bg-orange-400 blur-xl opacity-20 animate-pulse"></div>
+            </div>
+          </div>
+          <div className="text-center space-y-2">
+            <p className="text-gray-600 font-medium">
+              We are spinning up the simulation engine.
+            </p>
+            <p className="text-sm text-gray-400 italic">
+              Kindly wait for about 50 seconds... 
+            </p>
+          </div>
+          <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden mt-6">
+            <div className="h-full bg-orange-500 w-[40%] animate-[shimmer_2s_infinite_linear] bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 bg-[length:200%_100%] shadow-[0_0_15px_rgba(249,115,22,0.5)]"></div>
+          </div>
+        </div>
+      </Modal>
       {/* Background Decor */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] bg-gradient-to-b from-blue-50/80 to-transparent rounded-full blur-3xl opacity-60" />

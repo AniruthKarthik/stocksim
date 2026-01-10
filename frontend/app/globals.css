@@ -38,6 +38,11 @@ body {
   animation-delay: 0.4s;
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 0.5rem;
