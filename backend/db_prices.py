@@ -42,42 +42,31 @@ def get_price(symbol: str, date: str):
         print(f"Error fetching price for {symbol} on {date}: {e}")
         return None
 
-def get_all_assets(as_of_date: str = None):
+from functools import lru_cache
+
+@lru_cache(maxsize=1)
+def get_all_assets(date: str = None):
     """
-    Returns a list of all tradable assets, excluding mutual funds.
-    If as_of_date is provided, only returns assets that have a price within 
-    the 30 days prior to or on that date (actively trading).
+    Returns list of all supported assets.
+    Cached to improve performance since asset list changes rarely.
     """
     try:
         with get_db_connection() as conn:
             cur = conn.cursor()
+            # If date is provided, we could filter by assets that existed then, 
+            # but for simplicity and speed, we return all valid assets.
+            # In a real app, you might want to cache based on date, 
+            # but 'date' changes every simulation step, so caching might be less effective if included in key.
+            # However, the list of *available* assets (metadata) is static.
             
-            if as_of_date:
-                # Optimized: Return assets that have ANY price history on or before the simulation date.
-                # Removed the 30-day "active" window to support future simulation dates using latest available data.
-                query = """
-                    SELECT symbol, name, type 
-                    FROM assets a
-                    WHERE a.type != 'mutualfunds' 
-                      AND EXISTS (
-                          SELECT 1 FROM prices p 
-                          WHERE p.asset_id = a.id 
-                          AND p.date <= %s 
-                      )
-                    ORDER BY a.type, a.symbol
-                """
-                cur.execute(query, (as_of_date,))
-            else:
-                query = "SELECT symbol, name, type FROM assets WHERE type != 'mutualfunds' ORDER BY type, symbol"
-                cur.execute(query)
-                
-            rows = cur.fetchall()
-            return [{"symbol": r[0], "name": r[1], "type": r[2]} for r in rows]
+            cur.execute("SELECT symbol, name, type, currency FROM assets ORDER BY symbol")
+            columns = [desc[0] for desc in cur.description]
+            return [dict(zip(columns, row)) for row in cur.fetchall()]
     except Exception as e:
         print(f"Error fetching assets: {e}")
         return []
 
-def get_price_history(symbol: str, end_date: str):
+def get_asset_id(symbol: str):
     """
     Returns daily price history for a symbol up to end_date.
     Optimized to use a single query with JOIN.

@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import useSWR from 'swr';
 import api from '@/lib/api';
-import Card from '@/components/Card';
 import { 
   ArrowRight, 
   Coins, 
@@ -11,8 +11,6 @@ import {
   Gem, 
   Search, 
   TrendingUp, 
-  Filter,
-  CheckCircle2,
   Clock
 } from 'lucide-react';
 
@@ -22,54 +20,30 @@ interface Asset {
   type: string;
 }
 
+const fetcher = (url: string) => api.get(url).then(res => res.data);
+
 export default function MarketPage() {
-  const [assets, setAssets] = useState<Asset[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<string>('ALL');
-  const [loading, setLoading] = useState(true);
-  const [loadingText, setLoadingText] = useState('Scanning the market...');
-  const [simDate, setSimDate] = useState<string | null>(null);
+  
+  const [pid, setPid] = useState<string | null>(null);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (loading) {
-      timer = setTimeout(() => {
-        setLoadingText('Waking up the server... (this can take up to a minute)');
-      }, 3000);
-    }
-    return () => clearTimeout(timer);
-  }, [loading]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const pid = localStorage.getItem('stocksim_portfolio_id');
-      let currentSimDate = null;
-
-      try {
-        if (pid) {
-          const statusRes = await api.get('/simulation/status', { params: { portfolio_id: pid } });
-          currentSimDate = statusRes.data.session.sim_date;
-          setSimDate(currentSimDate);
-        }
-
-        // Fetch assets filtered by simulation date
-        // Assets only appear if they have data up to this point in time
-        const assetsRes = await api.get('/assets', { 
-          params: { date: currentSimDate } 
-        });
-        setAssets(assetsRes.data);
-      } catch (err) {
-        console.error("Error loading market data:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
+    setPid(localStorage.getItem('stocksim_portfolio_id'));
   }, []);
 
+  const { data: sessionData } = useSWR(pid ? `/simulation/status?portfolio_id=${pid}` : null, fetcher);
+  const simDate = sessionData?.session?.sim_date;
+
+  const { data: assets, error, isLoading } = useSWR(simDate ? `/assets?date=${simDate}` : '/assets', fetcher, {
+    revalidateOnFocus: false, // Don't aggressive revalidate assets list
+    dedupingInterval: 60000,  // Cache for 1 minute
+  });
+
+  const assetsList: Asset[] = assets || [];
+
   // Filter logic
-  const filteredAssets = assets.filter(asset => {
+  const filteredAssets = assetsList.filter(asset => {
     const matchesSearch = asset.symbol.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          asset.name.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesType = selectedType === 'ALL' || asset.type.toUpperCase() === selectedType;
@@ -93,7 +67,7 @@ export default function MarketPage() {
     return a.symbol.localeCompare(b.symbol);
   });
 
-  const assetTypes = ['ALL', ...Array.from(new Set(assets.map(a => a.type.toUpperCase())))];
+  const assetTypes = ['ALL', ...Array.from(new Set(assetsList.map(a => a.type.toUpperCase())))];
 
   const getTypeIcon = (type: string) => {
     switch (type.toUpperCase()) {
@@ -104,10 +78,10 @@ export default function MarketPage() {
     }
   };
 
-  if (loading) return (
+  if (isLoading && !assets) return (
     <div className="flex flex-col items-center justify-center py-20 space-y-4">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      <p className="text-gray-500 font-medium">{loadingText}</p>
+      <p className="text-gray-500 font-medium">Loading market data...</p>
     </div>
   );
 
