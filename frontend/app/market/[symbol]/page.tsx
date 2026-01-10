@@ -88,6 +88,8 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   const [mode, setMode] = useState<'BUY' | 'SELL'>('BUY');
   const [holdingsQty, setHoldingsQty] = useState<number>(0);
 
+  const [dataMissing, setDataMissing] = useState(false);
+
   useEffect(() => {
     const init = async () => {
       const date = await fetchSession();
@@ -101,10 +103,11 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         if (histData.length > 0) {
           setCurrentPrice(histData[histData.length - 1].price);
         } else {
+          // If no history, try getting current price directly (fallback)
           const priceRes = await api.get('/price', { params: { symbol, date } });
           setCurrentPrice(priceRes.data.price);
         }
-
+        
         // Fetch holdings
         const pid = localStorage.getItem('stocksim_portfolio_id');
         if (pid) {
@@ -114,8 +117,11 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
             setHoldingsQty(currentHolding ? currentHolding.quantity : 0);
         }
 
-      } catch (e) {
+      } catch (e: any) {
         console.error(e);
+        if (e.response && e.response.status === 404) {
+            setDataMissing(true);
+        }
       } finally {
         setLoading(false);
       }
@@ -230,6 +236,22 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   };
 
   if (loading) return <div className="text-center py-20 text-gray-500">{loadingText}</div>;
+  
+  if (dataMissing) return (
+    <div className="flex flex-col items-center justify-center py-32 space-y-4">
+        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center text-gray-400">
+            <AlertCircle className="h-8 w-8" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-900">Data Unavailable</h3>
+        <p className="text-gray-500 max-w-md text-center">
+            Price data for <span className="font-bold">{symbol}</span> is not available for the current simulation date ({simDate}).
+            <br/>The asset might not have existed yet.
+        </p>
+        <Button variant="outline" onClick={() => router.back()}>
+            Go Back
+        </Button>
+    </div>
+  );
 
   return (
     <div className="space-y-6">
