@@ -38,6 +38,12 @@ interface ChartData {
   price: number;
 }
 
+interface AssetDetails {
+  symbol: string;
+  name: string;
+  type: string;
+}
+
 export default function AssetDetail({ params }: { params: Promise<{ symbol: string }> }) {
   const { format, convert, selectedCurrency } = useCurrency();
   const resolvedParams = use(params);
@@ -48,6 +54,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   const [cash, setCash] = useState<number>(0);
   const [currentPrice, setCurrentPrice] = useState<number | null>(null);
   const [history, setHistory] = useState<ChartData[]>([]);
+  const [assetDetails, setAssetDetails] = useState<AssetDetails | null>(null);
   
   const [qty, setQty] = useState('');
   const [loading, setLoading] = useState(true);
@@ -96,6 +103,14 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
       if (!date) return;
 
       try {
+        // Fetch Asset Details (Full name)
+        try {
+            const detailsRes = await api.get(`/assets/${symbol}`);
+            setAssetDetails(detailsRes.data);
+        } catch (e) {
+            console.warn("Could not fetch asset details", e);
+        }
+
         const histRes = await api.get('/price/history', { params: { symbol, end_date: date } });
         const histData = histRes.data;
         setHistory(histData);
@@ -262,7 +277,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
 
       <div className="flex items-baseline justify-between mb-6">
         <h1 className="text-3xl font-bold text-gray-900">
-          {symbol}
+          {symbol}{assetDetails?.name ? ` - ${assetDetails.name}` : ''}
           {(symbol === 'GOLD' || symbol === 'SILVER') && (
             <span className="ml-3 text-xs font-normal text-amber-600 bg-amber-50 px-2 py-1 rounded-md border border-amber-100 uppercase tracking-wider">
               Price per American Troy Ounce

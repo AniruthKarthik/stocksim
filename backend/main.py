@@ -76,6 +76,13 @@ def get_assets(date: Optional[str] = None):
     print(f"DEBUG: Fetched {len(assets)} assets as of {date}")
     return assets
 
+@app.get("/assets/{symbol}")
+def get_asset_info(symbol: str):
+    details = db_prices.get_asset_details(symbol)
+    if not details:
+        raise HTTPException(status_code=404, detail="Asset not found")
+    return details
+
 @app.get("/price/history")
 def get_history(symbol: str, end_date: str):
     print(f"DEBUG: Fetching history for {symbol} until {end_date}")
@@ -260,9 +267,15 @@ def reset_system():
                 with open(schema_path, 'r') as f:
                     schema_sql = f.read()
                     cur.execute(schema_sql)
+                
+                # Clear all LRU caches to ensure fresh data lookups
+                db_prices.get_all_assets.cache_clear()
+                db_prices.get_price.cache_clear()
+                db_prices.get_asset_start_dates.cache_clear()
+                db_prices.get_assets_metadata.cache_clear()
                     
                 conn.commit()
-                return {"status": "success", "message": "System reset successfully"}
+                return {"status": "success", "message": "System reset successfully and caches cleared"}
             except Exception as e:
                 conn.rollback()
                 raise e
