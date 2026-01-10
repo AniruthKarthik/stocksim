@@ -260,7 +260,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         <div className="lg:col-span-2 flex flex-col">
           <Card className="flex-grow flex flex-col h-full" noPadding>
              {hasMounted && history.length > 0 ? (
@@ -276,9 +276,9 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         </div>
 
         <div className="flex flex-col">
-          <Card className="flex-grow flex flex-col justify-between h-full" noPadding>
+          <Card className="flex flex-col" noPadding>
              {success ? (
-               <div className="text-center py-6 px-4 space-y-4 animate-in fade-in zoom-in duration-300 flex-grow flex flex-col justify-center">
+               <div className="text-center py-6 px-4 space-y-4 animate-in fade-in zoom-in duration-300 flex flex-col justify-center">
                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                    <CheckCircle2 className="h-8 w-8" />
                  </div>
@@ -300,7 +300,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                  </button>
                </div>
              ) : (
-               <div className="space-y-4 flex flex-col h-full justify-between p-6">
+               <div className="space-y-4 flex flex-col pt-6 px-6 pb-0">
                  <div>
                     <div className="flex bg-gray-100 p-1 rounded-lg mb-6">
                         <button 

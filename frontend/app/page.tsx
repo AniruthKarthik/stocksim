@@ -151,7 +151,7 @@ export default function StartPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-[85vh] relative">
+    <div className="flex flex-col min-h-[80vh] relative">
       {/* Background Decor */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] bg-gradient-to-b from-blue-50/80 to-transparent rounded-full blur-3xl opacity-60" />
@@ -176,12 +176,42 @@ export default function StartPage() {
           </p>
         </div>
 
-        {/* Main Interaction Card */}
-        <div className="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch px-4">
+        {/* Main Content Grid */}
+        <div className="w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-in slide-in-from-bottom-8 duration-700 delay-100 fade-in">
           
-          {/* Left: Input Form */}
-          <div className="lg:col-span-5 w-full animate-in slide-in-from-bottom-8 duration-700 delay-100 fade-in flex flex-col">
-            <Card className="shadow-xl shadow-gray-200/50 border-gray-100 bg-white/80 backdrop-blur-lg h-full">
+          {/* Left Visuals: Historical Timeline */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col gap-8 justify-center items-end text-right pr-8 opacity-80">
+             <div className="relative group">
+               <div className="absolute inset-y-0 right-[-2.25rem] w-0.5 bg-gradient-to-b from-transparent via-blue-200 to-transparent"></div>
+               
+               <div className="space-y-12">
+                 <div className="relative">
+                   <div className="absolute right-[-2.6rem] top-1.5 w-3 h-3 rounded-full bg-blue-400 ring-4 ring-blue-50 group-hover:scale-110 transition-transform"></div>
+                   <h4 className="text-lg font-bold text-gray-900">Dot Com Bubble</h4>
+                   <p className="text-sm text-gray-500 font-mono">2000 - 2002</p>
+                   <p className="text-xs text-blue-600 mt-1 font-medium bg-blue-50 inline-block px-2 py-0.5 rounded">-78% NASDAQ</p>
+                 </div>
+
+                 <div className="relative">
+                   <div className="absolute right-[-2.6rem] top-1.5 w-3 h-3 rounded-full bg-red-400 ring-4 ring-red-50 group-hover:scale-110 transition-transform"></div>
+                   <h4 className="text-lg font-bold text-gray-900">Housing Crisis</h4>
+                   <p className="text-sm text-gray-500 font-mono">2007 - 2009</p>
+                   <p className="text-xs text-red-600 mt-1 font-medium bg-red-50 inline-block px-2 py-0.5 rounded">-57% S&P 500</p>
+                 </div>
+
+                 <div className="relative">
+                   <div className="absolute right-[-2.6rem] top-1.5 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-emerald-50 group-hover:scale-110 transition-transform"></div>
+                   <h4 className="text-lg font-bold text-gray-900">Crypto Boom</h4>
+                   <p className="text-sm text-gray-500 font-mono">2020 - Present</p>
+                   <p className="text-xs text-emerald-600 mt-1 font-medium bg-emerald-50 inline-block px-2 py-0.5 rounded">+1000% Bitcoin</p>
+                 </div>
+               </div>
+             </div>
+          </div>
+
+          {/* Center: Input Form */}
+          <div className="col-span-1 lg:col-span-4 w-full">
+            <Card className="shadow-2xl shadow-blue-900/20 border-gray-100 bg-white/90 backdrop-blur-xl relative z-10 scale-105">
               <div className="p-6 md:p-8 space-y-8">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
@@ -239,7 +269,7 @@ export default function StartPage() {
               </div>
             </Card>
             
-            <div className="mt-6 flex items-center justify-center gap-6 text-xs font-medium text-gray-400">
+            <div className="mt-8 flex items-center justify-center gap-6 text-xs font-medium text-gray-400">
                <span className="flex items-center gap-1.5">
                  <ShieldCheck className="h-4 w-4" /> No Sign-up Required
                </span>
@@ -249,49 +279,53 @@ export default function StartPage() {
             </div>
           </div>
 
-          {/* Right: Feature Highlights (Visual) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 animate-in slide-in-from-bottom-8 duration-700 delay-200 fade-in">
-             <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-               <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
-                 <History className="h-5 w-5" />
-               </div>
-               <h4 className="font-bold text-gray-900">25+ Years History</h4>
-               <p className="text-sm text-gray-500 mt-2 leading-relaxed">
-                 Access granular daily data for stocks, crypto, and commodities dating back to 2000.
-               </p>
-             </div>
-
-             <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-               <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 mb-4">
-                 <LineChart className="h-5 w-5" />
-               </div>
-               <h4 className="font-bold text-gray-900">Real-time Analytics</h4>
-               <p className="text-sm text-gray-500 mt-2 leading-relaxed">
-                 Track your P&L, Sharpe ratio, and portfolio beta as if you were trading live.
-               </p>
-             </div>
-
-             <div className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow sm:col-span-2">
-               <div className="flex items-start justify-between">
+          {/* Right Visuals: Pro Analytics */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col gap-6 pl-8">
+             <div className="p-4 rounded-2xl bg-white/60 backdrop-blur border border-white shadow-sm hover:shadow-md transition-all cursor-default -rotate-2 hover:rotate-0">
+               <div className="flex items-center gap-3 mb-2">
+                 <div className="p-2 bg-orange-100 text-orange-600 rounded-lg">
+                   <TrendingUp className="h-5 w-5" />
+                 </div>
                  <div>
-                   <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mb-4">
-                     <TrendingUp className="h-5 w-5" />
-                   </div>
-                   <h4 className="font-bold text-gray-900">Multi-Asset Support</h4>
-                   <p className="text-sm text-gray-500 mt-2 leading-relaxed max-w-md">
-                     Don't limit yourself to stocks. Trade Bitcoin, Gold, ETFs, and Mutual Funds all in one unified portfolio simulation.
-                   </p>
-                 </div>
-                 <div className="hidden sm:flex -space-x-2">
-                    {['AAPL', 'BTC', 'GLD', 'VTI'].map((ticker, i) => (
-                      <div key={ticker} className="h-8 px-3 rounded-full bg-gray-50 border border-white shadow-sm flex items-center text-[0.65rem] font-bold text-gray-600 z-10" style={{ marginLeft: i > 0 ? '-0.5rem' : 0 }}>
-                        {ticker}
-                      </div>
-                    ))}
+                   <h5 className="font-bold text-gray-900 text-sm">Real-time Replay</h5>
+                   <p className="text-[10px] text-gray-500">Tick-by-tick precision</p>
                  </div>
                </div>
+               <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                 <div className="h-full bg-orange-500 w-[70%] animate-pulse"></div>
+               </div>
+             </div>
+
+             <div className="p-4 rounded-2xl bg-white/60 backdrop-blur border border-white shadow-sm hover:shadow-md transition-all cursor-default rotate-3 hover:rotate-0 translate-x-4">
+               <div className="flex items-center gap-3 mb-2">
+                 <div className="p-2 bg-blue-100 text-blue-600 rounded-lg">
+                   <LineChart className="h-5 w-5" />
+                 </div>
+                 <div>
+                   <h5 className="font-bold text-gray-900 text-sm">Advanced Metrics</h5>
+                   <p className="text-[10px] text-gray-500">Sharpe, Alpha, Beta</p>
+                 </div>
+               </div>
+               <div className="flex gap-2 mt-2">
+                 <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-bold">Sortino</span>
+                 <span className="text-[10px] bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-bold">MaxDD</span>
+               </div>
+             </div>
+
+             <div className="p-4 rounded-2xl bg-white/60 backdrop-blur border border-white shadow-sm hover:shadow-md transition-all cursor-default -rotate-1 hover:rotate-0">
+               <div className="flex items-center justify-between">
+                 <div className="flex items-center gap-2">
+                   <ShieldCheck className="h-5 w-5 text-green-600" />
+                   <span className="text-xs font-bold text-gray-600 uppercase tracking-wider">Professional Grade</span>
+                 </div>
+                 <span className="flex h-2 w-2 rounded-full bg-green-500"></span>
+               </div>
+               <p className="text-xs text-gray-500 mt-2 leading-snug">
+                 Same data used by hedge funds and quant traders.
+               </p>
              </div>
           </div>
+
         </div>
       </div>
     </div>
