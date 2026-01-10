@@ -147,6 +147,18 @@ def get_all_rates():
     except Exception:
         return []
 
+# Hardcoded fallback rates (Amount per 1 USD)
+# Used if Yahoo Finance is unreachable or DB is empty.
+FALLBACK_RATES = {
+    'USD': 1.0,
+    'INR': 83.5,
+    'EUR': 0.92,
+    'GBP': 0.79,
+    'JPY': 155.0,
+    'CAD': 1.37,
+    'AUD': 1.51
+}
+
 def get_rate(code: str):
     """
     Returns the rate for a specific currency code (units per 1 USD).
@@ -159,6 +171,12 @@ def get_rate(code: str):
             cur = conn.cursor()
             cur.execute("SELECT rate FROM exchange_rates WHERE currency_code = %s", (code,))
             row = cur.fetchone()
-            return float(row[0]) if row else 1.0
-    except Exception:
-        return 1.0
+            if row:
+                return float(row[0])
+    except Exception as e:
+        print(f"DEBUG: Failed to get rate from DB for {code}: {e}")
+    
+    # Fallback to hardcoded rates
+    rate = FALLBACK_RATES.get(code, 1.0)
+    print(f"DEBUG: Using fallback rate for {code}: {rate}")
+    return rate

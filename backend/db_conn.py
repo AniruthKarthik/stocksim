@@ -60,23 +60,29 @@ def init_pool():
 def get_db_connection():
     """
     Yields a connection from the pool.
-    Usage:
-        with get_db_connection() as conn:
-            cur = conn.cursor()
-            ...
     """
     global _pg_pool
     if _pg_pool is None:
         init_pool()
         
     if _pg_pool is None:
-        raise Exception("Database connection pool failed to initialize. Check your database credentials and connection.")
+        raise Exception("Database connection pool failed to initialize.")
 
     conn = _pg_pool.getconn()
     try:
         yield conn
+    except Exception as e:
+        print(f"DEBUG: Database transaction error: {e}")
+        try:
+            conn.rollback()
+        except:
+            pass
+        raise e
     finally:
-        _pg_pool.putconn(conn)
+        try:
+            _pg_pool.putconn(conn)
+        except:
+            pass
 
 def close_pool():
     global _pg_pool

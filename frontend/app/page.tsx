@@ -93,6 +93,12 @@ export default function StartPage() {
     setFormData({ ...formData, startDate: formatted });
   };
 
+  const cleanNum = (val: any) => {
+    if (typeof val !== 'string') return Number(val) || 0;
+    const cleaned = val.replace(/[^0-9.]/g, '');
+    return Number(cleaned) || 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -139,9 +145,9 @@ export default function StartPage() {
         user_id: userId,
         portfolio_id: portfolioId,
         start_date: dateToSubmit,
-        monthly_salary: Number(formData.monthlyInvestment),
+        monthly_salary: cleanNum(formData.monthlyInvestment),
         monthly_expenses: 0,
-        initial_cash: Number(formData.investment)
+        initial_cash: cleanNum(formData.investment)
       });
 
       localStorage.setItem('stocksim_portfolio_id', portfolioId.toString());

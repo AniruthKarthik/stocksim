@@ -7,6 +7,7 @@ def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_sal
     Starts a new game session.
     Automatically deactivates any existing active session for this portfolio.
     """
+    print(f"DEBUG: Initializing session. User: {user_id}, Port: {portfolio_id}, Start: {start_date}, Init Cash: {initial_cash}")
     try:
         with get_db_connection() as conn:
             cur = conn.cursor()
@@ -32,16 +33,20 @@ def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_sal
                 RETURNING id
             """, (user_id, portfolio_id, s_date, s_date, monthly_salary, monthly_expenses))
             
-            session_id = cur.fetchone()[0]
+            row = cur.fetchone()
+            if not row:
+                return {"error": "Failed to create session row"}
+            session_id = row[0]
             
             # Initialize portfolio cash to the specified initial_cash
-            # (If 0 is passed, it starts with 0 unless table default interferes, but table default is usually 10000)
+            print(f"DEBUG: Updating portfolio {portfolio_id} balance to {initial_cash}")
             cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (initial_cash, portfolio_id))
 
             conn.commit()
             return {"session_id": session_id, "start_date": start_date, "sim_date": start_date}
 
     except Exception as e:
+        print(f"DEBUG: create_session CRITICAL ERROR: {e}")
         return {"error": str(e)}
 
 def get_session(portfolio_id: int):
