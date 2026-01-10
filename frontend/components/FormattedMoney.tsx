@@ -80,16 +80,16 @@ export default function FormattedMoney({
       
       {/* Reveal Tooltip (Only if compacted or on hover for detail) */}
       <div className={`
-        absolute bottom-full mb-2 right-0 z-50 whitespace-nowrap
-        bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl
+        absolute bottom-full mb-3 right-0 z-[9999] whitespace-nowrap
+        bg-gray-900 text-white text-sm font-semibold px-4 py-2.5 rounded-lg shadow-2xl
         transition-all duration-200 origin-bottom-right
         ${isHovered ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-2 pointer-events-none'}
       `}>
         <div className="flex flex-col items-end gap-1">
-          <span>{fullValue}</span>
-          <span className="text-[10px] text-gray-400 font-mono">≈ ${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</span>
+          <span className="text-base">{fullValue}</span>
+          <span className="text-xs text-gray-400 font-mono">≈ ${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</span>
         </div>
-        <div className="absolute -bottom-1 right-4 w-2 h-2 bg-gray-900 rotate-45"></div>
+        <div className="absolute -bottom-1.5 right-6 w-3 h-3 bg-gray-900 rotate-45"></div>
       </div>
     </div>
   );

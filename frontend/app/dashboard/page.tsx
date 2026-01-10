@@ -370,9 +370,9 @@ export default function Dashboard() {
             </Link>
           </div>
           
-          <Card className="overflow-hidden">
+          <Card>
              {holdings.length > 0 ? (
-               <div className="overflow-x-auto">
+               <div className="">
                  <table className="w-full text-left border-collapse">
                    <thead>
                      <tr className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">

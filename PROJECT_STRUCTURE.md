@@ -1,35 +1,46 @@
-# Project Structure & Deployment Overview: Stock Simulator
+# Project Structure
 
-I am looking for suggestions on how to deploy this full-stack application. Below is the project structure and technical stack details.
+This document outlines the organization of the StockSim codebase.
 
-## 🚀 Technical Stack
-- **Frontend:** Next.js 15 (TypeScript, Tailwind CSS, App Router)
-- **Backend:** Python 3.9 (FastAPI, Uvicorn)
-- **Database:** PostgreSQL 15
-- **Containerization:** Docker & Docker Compose
-- **Data Source:** Yahoo Finance (via Python scripts) and local CSV datasets
+## Directory Layout
 
-## 📂 Project Directory Structure
 ```text
 /home/ani/site/
-├── docker-compose.yml           # Orchestrates DB, Backend, and Frontend
-├── stocksim_schema.sql          # Main database schema
-├── requirements.txt             # Python dependencies
-├── backend/
-│   ├── main.py                  # FastAPI Entry point
-│   ├── Dockerfile               # Python slim-based image
-│   ├── portfolio_schema.sql     # Portfolio-specific DB schema
-│   ├── game_engine.py           # Core simulator logic
-│   ├── db_prices.py             # Database interaction for price data
-│   └── db_load/                 # Scripts to populate DB from CSVs
-├── frontend/
-│   ├── app/                     # Next.js App Router (Dashboard, Market, etc.)
-│   ├── components/              # UI Components (Modals, Navbar, etc.)
-│   ├── Dockerfile               # Node.js Alpine-based image
-│   ├── package.json             # Frontend dependencies
-│   └── next.config.ts           # Next.js configuration
-├── data/                        # Historical CSV data (Stocks, ETFs, Crypto)
-└── scripts/
-    └── yahoo_finance.py         # Script to fetch live data
+├── README.md                    # Main documentation
+├── deploy.md                    # Deployment guide
+├── envex.md                     # Environment variable reference
+├── docker-compose.yml           # Docker orchestration (optional)
+├── setupneon.txt                # Full SQL script for Neon DB setup
+│
+├── backend/                     # Python FastAPI Backend
+│   ├── main.py                  # App entry point & API routes
+│   ├── game_engine.py           # Core simulation logic (Time travel, budget)
+│   ├── db_portfolio.py          # Portfolio & Transaction DB operations
+│   ├── db_prices.py             # Asset price fetching & caching
+│   ├── db_currency.py           # Currency conversion logic
+│   ├── db_conn.py               # Database connection pool
+│   ├── portfolio_schema.sql     # Database schema definition
+│   └── requirements.txt         # Python dependencies
+│
+├── frontend/                    # Next.js Frontend
+│   ├── app/                     # App Router pages
+│   │   ├── page.tsx             # Landing page
+│   │   ├── dashboard/           # User dashboard
+│   │   └── market/              # Market & Asset details
+│   ├── components/              # Reusable UI components
+│   ├── context/                 # React Context (Currency, State)
+│   ├── lib/                     # Utilities (API client)
+│   └── public/                  # Static assets
+│
+├── data/                        # Historical Data (CSV)
+│   └── stocks/                  # Stock price data
+│
+└── scripts/                     # Maintenance Scripts
+    ├── download_all_data.py     # Fetch data from Yahoo Finance
+    └── load_local_csvs.py       # Import CSV data to DB
 ```
 
+## Key Flows
+1.  **User Creation:** `frontend` -> `POST /users` -> `backend` -> `DB (users table)`
+2.  **Simulation Start:** `frontend` -> `POST /simulation/start` -> `backend` -> `DB (game_sessions table)`
+3.  **Trading:** `frontend` -> `POST /portfolio/buy` -> `backend` -> `DB (transactions table)` -> `DB (portfolios table update)`
