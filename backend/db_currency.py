@@ -34,57 +34,46 @@ def fetch_live_rates():
     """
     rates = {'USD': 1.0}
     
-    # List of tickers to fetch
-    # We need to know how to interpret them.
-    # Inverse pairs (Target is Base): EUR=X, GBP=X, AUDUSD=X (Quotes are in USD)
-    # Direct pairs (USD is Base): JPY=X, CAD=X, INR=X (Quotes are in Target)
-    
-    # Note: yfinance tickers:
-    # 'EUR=X' -> Quote is USD per EUR. (e.g. 1.05). Rate (EUR per USD) = 1/1.05
-    # 'JPY=X' -> Quote is JPY per USD. (e.g. 154). Rate = 154.
-    
+    # Standardizing to {CODE}=X which usually gives units per 1 USD for most currencies
+    # or is the most reliable ticker.
     to_fetch = {
-        'EUR': 'EUR=X', # USD per EUR
-        'GBP': 'GBP=X', # USD per GBP
-        'AUD': 'AUDUSD=X', # USD per AUD
-        'JPY': 'JPY=X', # JPY per USD
-        'CAD': 'CAD=X', # CAD per USD
-        'INR': 'INR=X'  # INR per USD
+        'EUR': 'EUR=X', 
+        'GBP': 'GBP=X', 
+        'AUD': 'AUD=X', 
+        'JPY': 'JPY=X', 
+        'CAD': 'CAD=X', 
+        'INR': 'INR=X'  
     }
-    
-    inverse_quotes = ['EUR', 'GBP', 'AUD'] # Result is USD cost. We want units per USD.
     
     tickers_str = " ".join(to_fetch.values())
     try:
-        data = yf.download(tickers_str, period="1d", progress=False)['Close']
-        # data might be DataFrame with MultiIndex or Single.
+        # Fetching 5 days to ensure we get data even if market is closed today
+        data = yf.download(tickers_str, period="5d", progress=False)['Close']
         
-        # Safe access to latest value
+        # Safe access to latest non-NaN value
         def get_val(ticker):
             try:
-                if len(data.shape) > 1: # DataFrame
-                    # If multiple tickers, columns are (Price, Ticker)
-                    # or just Ticker if simple.
-                    # yfinance structure varies. 'Close' -> columns are tickers.
-                    series = data[ticker]
-                    val = series.iloc[-1]
+                if isinstance(data, pd.DataFrame):
+                    # Get the series for the ticker and drop NaNs
+                    series = data[ticker].dropna()
+                    if not series.empty:
+                        return float(series.iloc[-1])
                 else:
+                    # If only one ticker was requested, data might be a Series
                     val = data.iloc[-1]
-                return float(val)
+                    return float(val) if pd.notna(val) else None
+                return None
             except:
                 return None
 
         for code, ticker in to_fetch.items():
             val = get_val(ticker)
             if val and val > 0:
-                if code in inverse_quotes:
-                    rates[code] = 1.0 / val
-                else:
-                    rates[code] = val
+                # All these tickers now represent Units per USD
+                rates[code] = val
                     
     except Exception as e:
         print(f"Error fetching rates: {e}")
-        # Return partial or empty (will fallback to DB)
         
     return rates
 
@@ -126,9 +115,12 @@ def update_rates_if_needed():
 def get_all_rates():
     """
     Returns list of { code, name, symbol, rate }
+    Ensures fresh data and fallbacks.
     """
-    # Ensure fresh
-    update_rates_if_needed()
+    try:
+        update_rates_if_needed()
+    except Exception as e:
+        print(f"WARNING: Rate update failed, using existing/fallback: {e}")
     
     try:
         with get_db_connection() as conn:
@@ -143,14 +135,27 @@ def get_all_rates():
             res = []
             for r in rows:
                 code, name, symbol, rate = r
-                if rate == 0:
+                # If rate is 0 or missing, use hardcoded fallback
+                if not rate or float(rate) <= 0:
                     rate = FALLBACK_RATES.get(code, 1.0)
-                res.append({"code": code, "name": name, "symbol": symbol, "rate": float(rate)})
+                res.append({
+                    "code": code, 
+                    "name": name, 
+                    "symbol": symbol, 
+                    "rate": float(rate)
+                })
+            
+            # Ensure USD is always exactly 1.0 regardless of DB state
+            for r in res:
+                if r['code'] == 'USD':
+                    r['rate'] = 1.0
+                    
             return res
-    except Exception:
-        # Fallback for the whole list
+    except Exception as e:
+        print(f"ERROR in get_all_rates: {e}")
+        # Final fallback for the whole list
         return [
-            {"code": code, "name": name, "symbol": symbol, "rate": FALLBACK_RATES.get(code, 1.0)}
+            {"code": code, "name": name, "symbol": symbol, "rate": float(FALLBACK_RATES.get(code, 1.0))}
             for code, name, symbol in [
                 ('USD', 'United States Dollar', '$'),
                 ('INR', 'Indian Rupee', '₹'),

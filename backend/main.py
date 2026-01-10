@@ -55,6 +55,7 @@ class StartSimRequest(BaseModel):
     monthly_salary: float = 0
     monthly_expenses: float = 0
     initial_cash: float = 0
+    currency_code: Optional[str] = "USD"
 
 class ForwardSimRequest(BaseModel):
     portfolio_id: int
@@ -206,7 +207,8 @@ def start_simulation(req: StartSimRequest):
         req.start_date, 
         req.monthly_salary, 
         req.monthly_expenses,
-        req.initial_cash
+        req.initial_cash,
+        req.currency_code
     )
     if "error" in result:
         print(f"ERROR starting simulation: {result['error']}")
@@ -259,8 +261,8 @@ def reset_system():
             try:
                 cur = conn.cursor()
                 
-                # Drop all user-related tables
-                cur.execute("DROP TABLE IF EXISTS game_sessions, transactions, portfolios, users CASCADE;")
+                # Drop all user-related tables and currency rates
+                cur.execute("DROP TABLE IF EXISTS game_sessions, transactions, portfolios, users, exchange_rates CASCADE;")
                 
                 # Re-initialize schema
                 schema_path = os.path.join(os.path.dirname(__file__), "portfolio_schema.sql")
@@ -274,7 +276,7 @@ def reset_system():
                 db_prices.get_assets_metadata.cache_clear()
                     
                 conn.commit()
-                return {"status": "success", "message": "System reset successfully and caches cleared"}
+                return {"status": "success", "message": "System reset successfully, caches cleared, and rates refreshed"}
             except Exception as e:
                 conn.rollback()
                 raise e

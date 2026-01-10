@@ -16,6 +16,7 @@ interface CurrencyContextType {
   setCurrency: (code: string) => void;
   format: (amount: number, fractionDigits?: number) => string;
   convert: (amount: number) => number;
+  loading: boolean;
 }
 
 const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
@@ -79,7 +80,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <CurrencyContext.Provider value={{ currencies, selectedCurrency, setCurrency, format, convert }}>
+    <CurrencyContext.Provider value={{ currencies, selectedCurrency, setCurrency, format, convert, loading }}>
       {children}
     </CurrencyContext.Provider>
   );

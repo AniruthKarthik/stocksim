@@ -18,7 +18,7 @@ export default function FormattedMoney({
   prefix = '',
   colored = false,
   expanded = false,
-  compactThreshold = 0
+  compactThreshold = 1000000 // Default to 1M instead of 0
 }: FormattedMoneyProps) {
   const { selectedCurrency, convert } = useCurrency();
   const [isHovered, setIsHovered] = useState(false);
@@ -32,12 +32,14 @@ export default function FormattedMoney({
     : '';
 
   // Format full value (e.g. $1,234,567.89)
-  const fullValue = new Intl.NumberFormat(selectedCurrency.code === 'INR' ? 'en-IN' : 'en-US', {
+  const formatOptions: Intl.NumberFormatOptions = {
     style: 'currency',
     currency: selectedCurrency.code,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  }).format(convertedValue);
+  };
+
+  const fullValue = new Intl.NumberFormat(selectedCurrency.code === 'INR' ? 'en-IN' : 'en-US', formatOptions).format(convertedValue);
 
   // Determine if we should use compact notation
   const shouldCompact = !expanded && Math.abs(convertedValue) >= compactThreshold;
@@ -53,8 +55,6 @@ export default function FormattedMoney({
           displayValue = `₹${(convertedValue / 100000).toFixed(2)}L`;
         } else if (convertedValue >= 1000) {
           displayValue = `₹${(convertedValue / 1000).toFixed(2)}k`;
-        } else {
-          displayValue = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(convertedValue);
         }
       } else {
         displayValue = new Intl.NumberFormat('en-US', {
@@ -72,23 +72,25 @@ export default function FormattedMoney({
       className={`relative inline-flex flex-col items-end group ${className} ${colorClass}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      title={`${fullValue} (${value.toFixed(2)} USD)`}
     >
       <span className={shouldCompact ? "cursor-help border-b border-dotted border-gray-300/50" : ""}>
         {prefix}{displayValue}
       </span>
       
-      {/* Reveal Tooltip (Only if compacted) */}
-      {shouldCompact && (
-        <div className={`
-          absolute bottom-full mb-2 right-0 z-50 whitespace-nowrap
-          bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl
-          transition-all duration-200 origin-bottom-right
-          ${isHovered ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-2 pointer-events-none'}
-        `}>
-          {fullValue}
-          <div className="absolute -bottom-1 right-4 w-2 h-2 bg-gray-900 rotate-45"></div>
+      {/* Reveal Tooltip (Only if compacted or on hover for detail) */}
+      <div className={`
+        absolute bottom-full mb-2 right-0 z-50 whitespace-nowrap
+        bg-gray-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl
+        transition-all duration-200 origin-bottom-right
+        ${isHovered ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-2 pointer-events-none'}
+      `}>
+        <div className="flex flex-col items-end gap-1">
+          <span>{fullValue}</span>
+          <span className="text-[10px] text-gray-400 font-mono">≈ ${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD</span>
         </div>
-      )}
+        <div className="absolute -bottom-1 right-4 w-2 h-2 bg-gray-900 rotate-45"></div>
+      </div>
     </div>
   );
 }

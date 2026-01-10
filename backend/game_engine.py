@@ -2,12 +2,24 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from .db_conn import get_db_connection
 
-def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_salary: float = 0, monthly_expenses: float = 0, initial_cash: float = 0):
+from .db_currency import get_rate
+
+def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_salary: float = 0, monthly_expenses: float = 0, initial_cash: float = 0, currency_code: str = "USD"):
     """
     Starts a new game session.
     Automatically deactivates any existing active session for this portfolio.
     """
-    print(f"DEBUG: Initializing session. User: {user_id}, Port: {portfolio_id}, Start: {start_date}, Init Cash: {initial_cash}")
+    # Convert incoming amounts (in user's currency) to USD for storage
+    rate = get_rate(currency_code)
+    usd_cash = initial_cash / rate
+    usd_salary = monthly_salary / rate
+    usd_expenses = monthly_expenses / rate
+
+    # Debug logging to a file we can definitely check
+    with open("simulation_debug.log", "a") as f:
+        f.write(f"[{datetime.now()}] START SIM: user={user_id} port={portfolio_id} start={start_date} salary={monthly_salary} ({usd_salary} USD) cash={initial_cash} ({usd_cash} USD) rate={rate} ({currency_code})\n")
+    
+    print(f"DEBUG: Initializing session. User: {user_id}, Port: {portfolio_id}, Start: {start_date}, Init Cash: {usd_cash} USD (from {initial_cash} {currency_code})")
     try:
         with get_db_connection() as conn:
             cur = conn.cursor()
@@ -31,16 +43,16 @@ def create_session(user_id: int, portfolio_id: int, start_date: str, monthly_sal
                 (user_id, portfolio_id, start_date, sim_date, monthly_salary, monthly_expenses, is_active)
                 VALUES (%s, %s, %s, %s, %s, %s, TRUE)
                 RETURNING id
-            """, (user_id, portfolio_id, s_date, s_date, monthly_salary, monthly_expenses))
+            """, (user_id, portfolio_id, s_date, s_date, usd_salary, usd_expenses))
             
             row = cur.fetchone()
             if not row:
                 return {"error": "Failed to create session row"}
             session_id = row[0]
             
-            # Initialize portfolio cash to the specified initial_cash
-            print(f"DEBUG: Updating portfolio {portfolio_id} balance to {initial_cash}")
-            cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (initial_cash, portfolio_id))
+            # Initialize portfolio cash to the specified initial_cash (now in USD)
+            print(f"DEBUG: Updating portfolio {portfolio_id} balance to {usd_cash}")
+            cur.execute("UPDATE portfolios SET cash_balance = %s WHERE id = %s", (usd_cash, portfolio_id))
 
             conn.commit()
             return {"session_id": session_id, "start_date": start_date, "sim_date": start_date}

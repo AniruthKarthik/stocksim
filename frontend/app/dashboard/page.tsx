@@ -58,7 +58,7 @@ const COLORS = [
 
 export default function Dashboard() {
   const router = useRouter();
-  const { format } = useCurrency();
+  const { format, selectedCurrency } = useCurrency();
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
@@ -224,7 +224,6 @@ export default function Dashboard() {
 
   const handleUpdateBudget = async () => {
     const pid = localStorage.getItem('stocksim_portfolio_id');
-    const { selectedCurrency } = useCurrency();
     if (!data || !newBudget || !pid) return;
     
     setUpdating(true);

@@ -22,7 +22,7 @@ import {
 
 export default function StartPage() {
   const router = useRouter();
-  const { selectedCurrency, currencies } = useCurrency();
+  const { selectedCurrency, currencies, loading: currencyLoading } = useCurrency();
   const [formData, setFormData] = useState({
     startDate: '2000-10-10',
     investment: '20000',
@@ -145,9 +145,10 @@ export default function StartPage() {
         user_id: userId,
         portfolio_id: portfolioId,
         start_date: dateToSubmit,
-        monthly_salary: cleanNum(formData.monthlyInvestment) / (selectedCurrency.rate || 1),
+        monthly_salary: cleanNum(formData.monthlyInvestment),
         monthly_expenses: 0,
-        initial_cash: cleanNum(formData.investment) / (selectedCurrency.rate || 1)
+        initial_cash: cleanNum(formData.investment),
+        currency_code: selectedCurrency.code
       });
 
       localStorage.setItem('stocksim_portfolio_id', portfolioId.toString());
@@ -295,10 +296,11 @@ export default function StartPage() {
                     type="submit" 
                     className="w-full py-6 text-base font-semibold shadow-lg shadow-blue-600/20 bg-gray-900 hover:bg-gray-800 text-white rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]" 
                     isLoading={loading}
+                    disabled={currencyLoading}
                   >
                     <div className="flex items-center justify-center gap-2">
                       <Play className="h-4 w-4 fill-current" />
-                      Start Simulation
+                      {currencyLoading ? 'Loading Rates...' : 'Start Simulation'}
                     </div>
                   </Button>
                 </form>
