@@ -124,9 +124,16 @@ class StockRefresher:
         for attempt in range(3):
             try:
                 # Use a specific interval if needed, but default is daily
-                data = yf.download(ticker, start=start_date, progress=False)
+                try:
+                    data = yf.download(ticker, start=start_date, progress=False)
+                except Exception as dl_error:
+                    logger.warning(f"yfinance download error for {ticker}: {dl_error}")
+                    data = pd.DataFrame() # Treat as empty to trigger retry logic
+
                 if data.empty:
-                    return None
+                    # If empty, it might be a temporary network issue or invalid ticker
+                    # raising an exception here to trigger the retry loop via the outer except
+                    raise ValueError("Empty data returned")
                 
                 # Normalize column names
                 if isinstance(data.columns, pd.MultiIndex):

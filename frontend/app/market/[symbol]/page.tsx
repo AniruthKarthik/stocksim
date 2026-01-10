@@ -184,11 +184,14 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     }
 
     try {
-      await api.post('/portfolio/buy', {
+      const res = await api.post('/portfolio/buy', {
         portfolio_id: pid,
         symbol: symbol,
         quantity: Number(qty),
       });
+      if (res.data.new_balance !== undefined) {
+        setCash(res.data.new_balance);
+      }
       setSuccess(true);
     } catch (err: any) {
       const detail = err.response?.data?.detail;

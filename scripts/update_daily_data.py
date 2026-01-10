@@ -41,6 +41,31 @@ class IncrementalRefresher:
         }
         self.today = date.today()
 
+    def get_db_connection(self):
+        """Creates a new database connection."""
+        try:
+            database_url = os.getenv("DATABASE_URL")
+            if database_url:
+                if database_url.strip().startswith("psql"):
+                    database_url = database_url.replace("psql", "").strip()
+                if (database_url.startswith("'") and database_url.endswith("'")) or \
+                   (database_url.startswith('"') and database_url.endswith('"')):
+                    database_url = database_url[1:-1]
+                
+                return psycopg2.connect(database_url, sslmode='require')
+            else:
+                return psycopg2.connect(
+                    dbname=os.getenv("DB_NAME"),
+                    user=os.getenv("DB_USER"),
+                    password=os.getenv("DB_PASSWORD"),
+                    host=os.getenv("DB_HOST", "localhost"),
+                    port=os.getenv("DB_PORT", "5432"),
+                    sslmode='prefer'
+                )
+        except Exception as e:
+            logger.error(f"DB Connection failed: {e}")
+            raise e
+
     def get_asset_type(self, filename):
         """Maps filename to asset type."""
         name = filename.lower()
