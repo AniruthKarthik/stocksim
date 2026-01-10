@@ -157,9 +157,9 @@ export default function StartPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[40vh] bg-gradient-to-b from-blue-50/80 to-transparent rounded-full blur-3xl opacity-60" />
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center py-12 lg:py-20">
+      <div className="flex-1 flex flex-col items-center justify-center py-12">
         {/* Header Section */}
-        <div className="text-center space-y-6 max-w-3xl mx-auto mb-16 px-4 animate-in slide-in-from-bottom-8 duration-700 fade-in">
+        <div className="text-center space-y-6 max-w-3xl mx-auto mb-12 px-4 animate-in slide-in-from-bottom-8 duration-700 fade-in">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm text-xs font-semibold text-gray-600 mb-4">
             <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
             Live Market Data Available

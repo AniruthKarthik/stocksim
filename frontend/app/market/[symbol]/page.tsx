@@ -238,7 +238,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         <div className="lg:col-span-2 flex flex-col">
-          <Card className="p-4 flex-grow flex flex-col h-full">
+          <Card className="flex-grow flex flex-col h-full" noPadding>
              {hasMounted && history.length > 0 ? (
                <div className="flex-grow relative min-h-[40vh]">
                  <Line options={{...chartOptions, maintainAspectRatio: false}} data={chartDataConfig} />
@@ -252,9 +252,9 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
         </div>
 
         <div className="flex flex-col">
-          <Card title="Buy Asset" className="flex-grow flex flex-col justify-between h-full">
+          <Card title="Buy Asset" className="flex-grow flex flex-col justify-between h-full" noPadding>
              {success ? (
-               <div className="text-center py-6 space-y-4 animate-in fade-in zoom-in duration-300 flex-grow flex flex-col justify-center">
+               <div className="text-center py-6 px-4 space-y-4 animate-in fade-in zoom-in duration-300 flex-grow flex flex-col justify-center">
                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
                    <CheckCircle2 className="h-8 w-8" />
                  </div>
@@ -276,7 +276,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
                  </button>
                </div>
              ) : (
-               <div className="space-y-4 flex flex-col h-full justify-between">
+               <div className="space-y-4 flex flex-col h-full justify-between p-6">
                  <div>
                     <div className="bg-green-50 p-3 rounded-lg flex items-center justify-between text-green-800 text-sm font-medium mb-6">
                       <span>Available Cash</span>
