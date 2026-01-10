@@ -184,14 +184,14 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     }
 
     try {
-      const res = await api.post('/portfolio/buy', {
+      await api.post('/portfolio/buy', {
         portfolio_id: pid,
         symbol: symbol,
         quantity: Number(qty),
       });
-      if (res.data.new_balance !== undefined) {
-        setCash(res.data.new_balance);
-      }
+      // Fetch fresh session data to get the normalized cash value in USD
+      // This prevents issues where backend returns raw local currency while frontend expects USD
+      await fetchSession();
       setSuccess(true);
     } catch (err: any) {
       const detail = err.response?.data?.detail;
@@ -205,7 +205,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   if (loading) return <div className="text-center py-20 text-gray-500">{loadingText}</div>;
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
       <Button variant="outline" size="sm" onClick={() => router.back()}>
         <ArrowLeft className="h-4 w-4 mr-2" /> Back to Market
       </Button>
