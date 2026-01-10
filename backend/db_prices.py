@@ -66,7 +66,7 @@ def get_all_assets(date: str = None):
         print(f"Error fetching assets: {e}")
         return []
 
-def get_asset_id(symbol: str):
+def get_price_history(symbol: str, end_date: str):
     """
     Returns daily price history for a symbol up to end_date.
     Optimized to use a single query with JOIN.
