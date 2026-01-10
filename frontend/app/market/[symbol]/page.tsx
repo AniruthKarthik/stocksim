@@ -50,6 +50,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   
   const [qty, setQty] = useState('');
   const [loading, setLoading] = useState(true);
+  const [loadingText, setLoadingText] = useState('Loading asset data...');
   const [buying, setBuying] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -58,6 +59,16 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
   useEffect(() => {
     setHasMounted(true);
   }, []);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (loading) {
+      timer = setTimeout(() => {
+        setLoadingText('Waking up the server... (this can take up to a minute)');
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   const fetchSession = async () => {
     const pid = localStorage.getItem('stocksim_portfolio_id');
@@ -188,7 +199,7 @@ export default function AssetDetail({ params }: { params: Promise<{ symbol: stri
     }
   };
 
-  if (loading) return <div className="text-center py-20 text-gray-500">Loading asset data...</div>;
+  if (loading) return <div className="text-center py-20 text-gray-500">{loadingText}</div>;
 
   return (
     <div className="space-y-6">

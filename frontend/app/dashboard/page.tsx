@@ -61,11 +61,22 @@ export default function Dashboard() {
   const [errorMsg, setErrorMsg] = useState('');
   const [customDate, setCustomDate] = useState('');
   const [hasMounted, setHasMounted] = useState(false);
+  const [loadingText, setLoadingText] = useState('Loading your finances...');
 
   useEffect(() => {
     setHasMounted(true);
     fetchStatus();
   }, []);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (loading) {
+      timer = setTimeout(() => {
+        setLoadingText('Waking up the server... (this can take up to a minute)');
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   const fetchStatus = async () => {
     const pid = localStorage.getItem('stocksim_portfolio_id');
@@ -204,7 +215,7 @@ export default function Dashboard() {
     }
   };
 
-  if (loading) return <div className="text-center py-20 text-gray-500">Loading your finances...</div>;
+  if (loading) return <div className="text-center py-20 text-gray-500">{loadingText}</div>;
   if (!data) return <div className="text-center py-20">Session not found. <Link href="/" className="text-primary underline">Start Over</Link></div>;
 
   const { session, portfolio_value } = data;

@@ -27,7 +27,18 @@ export default function MarketPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<string>('ALL');
   const [loading, setLoading] = useState(true);
+  const [loadingText, setLoadingText] = useState('Scanning the market...');
   const [simDate, setSimDate] = useState<string | null>(null);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (loading) {
+      timer = setTimeout(() => {
+        setLoadingText('Waking up the server... (this can take up to a minute)');
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -96,7 +107,7 @@ export default function MarketPage() {
   if (loading) return (
     <div className="flex flex-col items-center justify-center py-20 space-y-4">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      <p className="text-gray-500 font-medium">Scanning the market...</p>
+      <p className="text-gray-500 font-medium">{loadingText}</p>
     </div>
   );
 
