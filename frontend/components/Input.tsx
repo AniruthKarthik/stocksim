@@ -3,24 +3,45 @@ import React from 'react';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
+  icon?: React.ReactNode;
 }
 
-export default function Input({ label, error, className = '', ...props }: InputProps) {
+export default function Input({ label, error, icon, className = '', ...props }: InputProps) {
   return (
-    <div className="flex flex-col gap-1.5 w-full">
+    <div className="w-full space-y-1.5">
       {label && (
-        <label className="text-sm font-medium text-gray-700">
+        <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider ml-1">
           {label}
         </label>
       )}
-      <input
-        className={`px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all 
-          ${error ? 'border-red-500 focus:ring-red-200' : 'border-gray-200 hover:border-gray-300'} 
-          ${className}`}
-        {...props}
-      />
+      <div className="relative group">
+        <div className={`
+          absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur-sm transition-opacity duration-300
+          ${props.disabled ? 'opacity-0' : 'opacity-0 group-focus-within:opacity-100'}
+        `} />
+        
+        <div className="relative flex items-center bg-white rounded-xl shadow-sm border border-gray-200 transition-all duration-200 group-focus-within:border-blue-500 group-focus-within:shadow-md">
+          {icon && (
+            <div className="pl-4 text-gray-400 group-focus-within:text-blue-500 transition-colors">
+              {icon}
+            </div>
+          )}
+          <input
+            className={`
+              w-full bg-transparent border-none focus:ring-0 px-4 py-3.5 
+              text-[16px] font-medium text-gray-900 placeholder:text-gray-400 
+              disabled:bg-gray-50 disabled:text-gray-400 rounded-xl
+              ${icon ? 'pl-3' : ''}
+              ${className}
+            `}
+            {...props}
+          />
+        </div>
+      </div>
       {error && (
-        <span className="text-xs text-red-500">{error}</span>
+        <p className="text-xs text-red-500 ml-1 animate-in slide-in-from-top-1 fade-in duration-200">
+          {error}
+        </p>
       )}
     </div>
   );
