@@ -3,8 +3,8 @@
 StockSim is a full-stack time-travel trading simulator. It allows users to simulate trading strategies on historical data (Stocks, ETFs, Crypto) with a realistic portfolio management system.
 
 ## Live Demo
-- **Frontend:** [https://stocksim-log.onrender.com](https://stocksim-dev.onrender.com)
-- **Backend API:** [https://stocksim-backend.onrender.com](https://stocksim-log.onrender.com) (or similar, check deployment)
+- **Frontend:** [https://stocksim-dev.onrender.com](https://stocksim-dev.onrender.com)
+- **Backend API:** [https://stocksim-log.onrender.com](https://stocksim-log.onrender.com) (or similar, check deployment)
 
 ## Tech Stack
 - **Frontend:** Next.js 15 (React, TypeScript, Tailwind CSS)
