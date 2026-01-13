@@ -3,4 +3,5 @@ env/
 *.env
 __pycache__/
 *.csv
+data/stocks/
 
